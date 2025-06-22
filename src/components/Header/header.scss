@@ -1,0 +1,102 @@
+// src/components/Header/header.scss
+@import "../../App.scss";
+
+.Header {
+  background-color: #272727;
+
+  .link {
+    text-decoration: none;
+    color: $main-white;
+    padding: 5px 15px;
+    margin: 0 10px;
+
+    &.active {
+      font-weight: 500;
+      text-decoration: underline 2px $main-blue;
+      color: $main-yellow;
+    }
+  }
+
+  .header-design-line {
+    background-color: $main-blue;
+    height: 5px;
+  }
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 25px 0;
+
+    .column-one {
+      padding-left: 30px;
+      font-weight: bold;
+      font-size: 32px;
+
+      .learn-word {
+        color: $main-white;
+      }
+      .language-word {
+        color: $main-blue;
+      }
+      .title-underline {
+        height: 4px;
+        background: $main-yellow;
+        margin-top: 4px;
+      }
+    }
+
+    .column-two {
+      justify-self: center;
+
+      .navigation {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li:hover .link {
+          text-decoration: underline $main-blue;
+        }
+      }
+    }
+
+    .column-three {
+      justify-self: end;
+      padding-right: 30px;
+
+      .language-select {
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: $main-white;
+        color: $main-black;
+        cursor: pointer;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .header-main {
+      display: flex;
+      flex-direction: column;
+    }
+    .column-three {
+      margin-top: 10px;
+      padding: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .header-main {
+      padding: 20px 0;
+    }
+    .column-two {
+      margin-top: 10px;
+    }
+    .column-three {
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+$main-white: #f5f5f5;
+$main-black: #353535;
+$main-blue: #2d92bd;
+$main-red: #ff6f78;
+$main-orange: rgb(255, 133, 62);
+$main-grey: #6f6f6f;
+$main-yellow: #ffd51c;
+$lines: #535353;
+$list-item-blue: #eefaff;
+$header-background: #def5ff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  color: $main-black;
+  line-height: 30px;
+  list-style-type: none;
+}
+
+.app-main {
+  animation: showup 0.4s ease-in-out;
+}
+
+.body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  min-height: 800px;
+}
+
+.prologue {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 50px;
+
+  .learn-word {
+    animation: learn-pulse 2.2s ease-in-out;
+    color: #222222;
+  }
+
+  .japanese-word {
+    animation: japanese-pulse 2.2s ease-in-out;
+    color: #2d92bd;
+    font-size: 56px;
+  }
+}
+.search-field-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-input-field {
+  min-width: 500px;
+  border: $main-grey 1px solid;
+  border-radius: 4px 0px 0px 4px;
+}
+
+.search-container {
+  text-align: center;
+  margin: 32px 0px 64px 0px;
+}
+
+.search-button {
+  background-color: $main-yellow;
+  color: $main-black;
+  font-weight: 600;
+  border-radius: 0px 4px 4px 0px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.mb-3 {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  margin: 20px 0px 30px 0px;
+  display: flex;
+  justify-content: center;
+
+  button {
+    width: 80px;
+    margin: 0px 15px;
+  }
+}
+
+#uncontrolled-tab-example-tab-KatakanaAlphabet,
+#uncontrolled-tab-example-tab-KatakanaVocabularyGerman,
+#uncontrolled-tab-example-tab-KatakanaVocabularyEnglish,
+#uncontrolled-tab-example-tab-Alphabet,
+#uncontrolled-tab-example-tab-VocabularyGerman,
+#uncontrolled-tab-example-tab-VocabularyEnglish {
+  color: $main-blue;
+
+  &.active {
+    color: $main-grey;
+    font-weight: 600;
+  }
+}
+
+@keyframes learn-pulse {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes japanese-pulse {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .body {
+    font-size: 12px;
+  }
+
+  .search-results-table {
+    font-size: 13px;
+  }
+
+  .search-input-field {
+    min-width: 80%;
+  }
+
+  .search-container {
+    margin: 20px 0px;
+  }
+
+  #uncontrolled-tab-example-tab-KatakanaAlphabet,
+  #uncontrolled-tab-example-tab-KatakanaVocabularyGerman,
+  #uncontrolled-tab-example-tab-KatakanaVocabularyEnglish,
+  #uncontrolled-tab-example-tab-Alphabet,
+  #uncontrolled-tab-example-tab-VocabularyGerman,
+  #uncontrolled-tab-example-tab-VocabularyEnglish {
+    padding: 5px 5px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .body {
+    padding: 0px 20px;
+    overflow-x: hidden; // Ensure no horizontal scrolling
+
+  }
+
+  .add-button {
+    line-height: 20px;
+  }
+
+  .search-input-field {
+    height: 30px;
+  }
+
+  .mb-3 {
+    display: flex;
+    justify-content: center;
+  }
+}

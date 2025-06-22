@@ -1,0 +1,20 @@
+// src/pages/MyVocabulary/myVocabulary.scss
+
+@import '../../App.scss';
+
+.MyVocabulary {
+  padding: 20px;
+
+  .section {
+    margin-bottom: 30px;
+
+    h3 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-style: italic;
+      color: $main-grey;
+    }
+  }
+}

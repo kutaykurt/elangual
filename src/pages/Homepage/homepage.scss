@@ -1,0 +1,227 @@
+@import "../../App.scss";
+
+.Homepage {
+  font-size: 18px;
+  color: $main-black;
+  padding: 0px 40px;
+  color: $main-black;
+
+  h2 {
+    font-size: 22px;
+    animation: language-description-title-effect 1.8s ease-in-out;
+  }
+
+  .description-first {
+    animation: description-first-effect 0.8s ease-in-out;
+    font-size: 18px;
+    margin: 16px 0px;
+  }
+
+  .note {
+    margin: 10px 0px;
+    color: $main-black;
+  }
+}
+
+.line {
+  border: 1px $lines solid;
+  animation: movement 0.8s ease;
+}
+
+.language-descriptions {
+  list-style-type: none;
+  padding: 20px 0px;
+  margin: 0;
+
+  .title {
+    display: flex;
+    font-weight: bold;
+    color: $main-blue;
+    line-height: 22px;
+  }
+
+  button {
+    width: 120px;
+    padding: 3px 0px;
+    margin: 10px 0px 24px 0px;
+    font-size: 18px;
+    background-color: $main-white;
+    border-radius: 5px;
+    color: $main-black;
+    box-shadow: 0px 0px 3px black;
+    transition: 0.2s;
+    border: none;
+  }
+  .hiragana:hover,
+  .katakana:hover {
+    background-color: $main-blue;
+    color: $main-white;
+    font-weight: bold;
+    transform: scale(1.08);
+    cursor: pointer;
+    box-shadow: 0px 0px 1px black;
+  }
+}
+
+.hiragana-description {
+  animation: hiragana-effect 0.7s ease-in-out;
+}
+
+.katakana-description {
+  animation: katakana-effect 0.7s ease-in-out;
+}
+
+.kanji-description {
+  animation: kanji-effect 0.7s ease-in-out;
+}
+
+@keyframes language-description-title-effect {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes movement {
+  /* 0% {
+        transform: translateX(-200%);
+    }
+
+    75% {
+        transform: translateX(10%);
+    }
+
+    90% {
+        transform: translateX(-4%);
+    }
+
+    95% {
+        transform: translateX(2%);
+    }
+
+    100% {
+        transform: translateX(0);
+    } */
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes hiragana-effect {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes katakana-effect {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes kanji-effect {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes description-first-effect {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+// Media Queries
+
+@media screen and (max-width: 480px) {
+  .Homepage {
+    font-size: 15px;
+    padding: 0px 10px;
+
+    h2 {
+      font-size: 20px;
+      padding-top: 20px;
+    }
+
+    .line {
+      margin: 20px 0px;
+    }
+  }
+
+  .description-first {
+    display: none;
+  }
+
+  .language-descriptions {
+    li {
+      margin: 0px 0px 20px 0px;
+    }
+
+    button {
+      font-size: 14px;
+      width: 100px;
+      padding: 0px;
+    }
+  }
+}

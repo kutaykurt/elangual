@@ -1,0 +1,105 @@
+{
+  "hiraganaAlphabet": [
+    { "character": "あ", "pronunciation": "a", "translation": "A" },
+    { "character": "い", "pronunciation": "i", "translation": "I" },
+    { "character": "う", "pronunciation": "u", "translation": "U" },
+    { "character": "え", "pronunciation": "e", "translation": "E" },
+    { "character": "お", "pronunciation": "o", "translation": "O" },
+    { "character": "か", "pronunciation": "ka", "translation": "Ka" },
+    { "character": "き", "pronunciation": "ki", "translation": "Ki" },
+    { "character": "く", "pronunciation": "ku", "translation": "Ku" },
+    { "character": "け", "pronunciation": "ke", "translation": "Ke" },
+    { "character": "こ", "pronunciation": "ko", "translation": "Ko" },
+    { "character": "さ", "pronunciation": "sa", "translation": "Sa" },
+    { "character": "し", "pronunciation": "shi", "translation": "Shi" },
+    { "character": "す", "pronunciation": "su", "translation": "Su" },
+    { "character": "せ", "pronunciation": "se", "translation": "Se" },
+    { "character": "そ", "pronunciation": "so", "translation": "So" },
+    { "character": "た", "pronunciation": "ta", "translation": "Ta" },
+    { "character": "ち", "pronunciation": "chi", "translation": "Chi" },
+    { "character": "つ", "pronunciation": "tsu", "translation": "Tsu" },
+    { "character": "て", "pronunciation": "te", "translation": "Te" },
+    { "character": "と", "pronunciation": "to", "translation": "To" },
+    { "character": "な", "pronunciation": "na", "translation": "Na" },
+    { "character": "に", "pronunciation": "ni", "translation": "Ni" },
+    { "character": "ぬ", "pronunciation": "nu", "translation": "Nu" },
+    { "character": "ね", "pronunciation": "ne", "translation": "Ne" },
+    { "character": "の", "pronunciation": "no", "translation": "No" },
+    { "character": "は", "pronunciation": "ha", "translation": "Ha" },
+    { "character": "ひ", "pronunciation": "hi", "translation": "Hi" },
+    { "character": "ふ", "pronunciation": "fu", "translation": "Fu" },
+    { "character": "へ", "pronunciation": "he", "translation": "He" },
+    { "character": "ほ", "pronunciation": "ho", "translation": "Ho" },
+    { "character": "ま", "pronunciation": "ma", "translation": "Ma" },
+    { "character": "み", "pronunciation": "mi", "translation": "Mi" },
+    { "character": "む", "pronunciation": "mu", "translation": "Mu" },
+    { "character": "め", "pronunciation": "me", "translation": "Me" },
+    { "character": "も", "pronunciation": "mo", "translation": "Mo" },
+    { "character": "や", "pronunciation": "ya", "translation": "Ya" },
+    { "character": "ゆ", "pronunciation": "yu", "translation": "Yu" },
+    { "character": "よ", "pronunciation": "yo", "translation": "Yo" },
+    { "character": "ら", "pronunciation": "ra", "translation": "Ra" },
+    { "character": "り", "pronunciation": "ri", "translation": "Ri" },
+    { "character": "る", "pronunciation": "ru", "translation": "Ru" },
+    { "character": "れ", "pronunciation": "re", "translation": "Re" },
+    { "character": "ろ", "pronunciation": "ro", "translation": "Ro" },
+    { "character": "わ", "pronunciation": "wa", "translation": "Wa" },
+    { "character": "を", "pronunciation": "wo", "translation": "Wo" },
+    { "character": "ん", "pronunciation": "n", "translation": "N" }
+  ],
+
+  "katakanaAlphabet": [],
+
+  "vocabulary": [
+    {
+      "japaneseHiragana": "ありがとう",
+      "japaneseKatakana": "アリガトウ",
+      "pronunciation": "arigatou",
+      "translation": {
+        "german": "Danke",
+        "english": "Thank you"
+      },
+      "categories": ["Alltag"]
+    },
+    {
+      "japaneseHiragana": "おはよう",
+      "japaneseKatakana": "オハヨウ",
+      "pronunciation": "ohayou",
+      "translation": {
+        "german": "Guten Morgen",
+        "english": "Good morning"
+      },
+      "categories": ["Alltag"]
+    },
+    {
+      "japaneseHiragana": "こんにちは",
+      "japaneseKatakana": "コンニチワ",
+      "pronunciation": "konnichiwa",
+      "translation": {
+        "german": "Guten Tag",
+        "english": "Good afternoon"
+      },
+      "categories": ["Alltag"]
+    },
+    {
+      "japaneseHiragana": "こんばんは",
+      "japaneseKatakana": "コンバンワ",
+      "pronunciation": "konbanwa",
+      "translation": {
+        "german": "Guten Abend",
+        "english": "Good evening"
+      },
+      "categories": ["Alltag"]
+    },
+    {
+      "japaneseHiragana": "はい",
+      "japaneseKatakana": "ハイ",
+      "pronunciation": "hai",
+      "translation": {
+        "german": "Ja",
+        "english": "Yes"
+      },
+      "categories": ["Alltag"]
+    }
+  ]
+}
