@@ -1,0 +1,66 @@
+// src/pages/ExamPage/examPage.scss
+
+.exam-page-container {
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fafafa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  h2 {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .exam-question {
+    margin: 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    label {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      font-size: 15px;
+
+      input {
+        width: 200px;
+        padding: 6px 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .wrong {
+      color: red;
+      font-weight: bold;
+    }
+  }
+
+  .submit-button {
+    margin-top: 20px;
+    background: #007acc;
+    color: white;
+    padding: 8px 16px;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .exam-score {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+  }
+}

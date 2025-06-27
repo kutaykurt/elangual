@@ -1,98 +1,101 @@
-import React, { useEffect, useMemo } from "react";
+// src/pages/SearchResults/SearchResults.jsx
+import React, { useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import Fuse from "fuse.js";
 import { useDispatch, useSelector } from "react-redux";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
 import { generateVocabularyId } from "../../getId";
 
-const SearchResults = ({ data, onSearchResults }) => {
-  const location = useLocation();
+const SearchResults = ({ data }) => {
   const dispatch = useDispatch();
-
-  const { hiraganaVocabularyList, katakanaVocabularyList } = useSelector(
-    (state) => state.vocabulary
-  );
+  const location = useLocation();
 
   const query =
     new URLSearchParams(location.search).get("query")?.toLowerCase() || "";
 
-  const isInVocabulary = (id, scriptType) => {
-    const list =
-      scriptType === "hiragana"
-        ? hiraganaVocabularyList
-        : katakanaVocabularyList;
-    return list.some((vocab) => vocab.id === id);
-  };
+  const base = useSelector((state) => state.languages.baseLanguage);
+  const target = useSelector((state) => state.languages.targetLanguage);
 
-  const handleToggleVocabulary = (item, scriptType, language) => {
-    const id = generateVocabularyId(item, language);
-    const alreadyExists = isInVocabulary(id, scriptType);
+  const scriptType = base + target.charAt(0).toUpperCase() + target.slice(1);
 
-    if (alreadyExists) {
+  const selectedListRaw = useSelector(
+    (state) => state.vocabulary.dynamicVocabularies[scriptType]
+  );
+
+  // ❗️Memoisierung zur Vermeidung der Warnung
+  const selectedList = useMemo(() => selectedListRaw || [], [selectedListRaw]);
+
+  const isInVocabulary = (id) => selectedList.some((v) => v.id === id);
+
+  const toggle = (item) => {
+    const id = generateVocabularyId(item, base, target);
+    if (isInVocabulary(id)) {
       dispatch(removeVocabulary({ id, scriptType }));
     } else {
-      const newVocabulary = {
-        ...item,
-        translation: { [language]: item.translation[language] },
-        id,
-      };
-      dispatch(addVocabulary({ newVocabulary, scriptType }));
+      dispatch(addVocabulary({ newVocabulary: { ...item, id }, scriptType }));
     }
   };
 
-  const renderResults = (results, language, scriptType) => {
-    const filtered = results.filter((item) =>
-      scriptType === "hiragana"
-        ? !!item.japaneseHiragana
-        : !!item.japaneseKatakana
-    );
+  // Bei leerem Query Hinweis anzeigen
+  if (!query) {
+    return <p>Bitte gib einen Suchbegriff ein.</p>;
+  }
 
-    if (filtered.length === 0) return null;
+  // ✅ Duplikate anhand von ID entfernen
+  const uniqueMap = new Map();
+  for (const item of data) {
+    const id = generateVocabularyId(item, base, target);
+    if (!uniqueMap.has(id)) uniqueMap.set(id, item);
+  }
 
-    return (
-      <div className="Main">
-        <h2>
-          {scriptType.charAt(0).toUpperCase() + scriptType.slice(1)} Vocabulary
-          – {language.charAt(0).toUpperCase() + language.slice(1)}
-        </h2>
-        <table className="my-table">
+  const filtered = [...uniqueMap.values()].filter((item) => {
+    const sourceWord = item?.[base]?.toLowerCase() || "";
+    const targetWord = item?.translation?.[target]?.toLowerCase() || "";
+    return sourceWord.includes(query) || targetWord.includes(query);
+  });
+
+  return (
+    <div className="Main">
+      <h2>
+        Suchergebnisse: {base.charAt(0).toUpperCase() + base.slice(1)} –{" "}
+        {target.charAt(0).toUpperCase() + target.slice(1)}
+      </h2>
+
+      {filtered.length === 0 ? (
+        <p>Keine Ergebnisse gefunden.</p>
+      ) : (
+        <table className="my-table compact">
           <thead>
             <tr>
-              <th>Hiragana</th>
-              <th>Katakana</th>
-              <th>Pronunciation</th>
-              <th>Translation</th>
-              <th>Action</th>
+              <th>{base.charAt(0).toUpperCase() + base.slice(1)}</th>
+              <th>{target.charAt(0).toUpperCase() + target.slice(1)}</th>
+              <th>Aktion</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((item, index) => {
-              const id = generateVocabularyId(item, language);
-              const isSelected = isInVocabulary(id, scriptType);
+            {filtered.map((item) => {
+              const id = generateVocabularyId(item, base, target);
+              const selected = isInVocabulary(id);
 
               return (
-                <tr
-                  key={index}
-                  className={`list-items-container ${
-                    isSelected ? "selected" : ""
-                  }`}
-                >
+                <tr key={id} className={selected ? "selected" : ""}>
+                  <td>{item[base]}</td>
                   <td>
-                    {scriptType === "hiragana" ? item.japaneseHiragana : "-"}
+                    {item.translation[target]}
+                    {item.pronunciation && target === "spanish" && (
+                      <span className="pronunciation">
+                        {" "}
+                        ({item.pronunciation})
+                      </span>
+                    )}
                   </td>
-                  <td>
-                    {scriptType === "katakana" ? item.japaneseKatakana : "-"}
-                  </td>
-                  <td>{item.pronunciation}</td>
-                  <td>{item.translation[language]}</td>
                   <td>
                     <button
-                      onClick={() =>
-                        handleToggleVocabulary(item, scriptType, language)
-                      }
-                      className={`add-button ${isSelected ? "added" : ""}`}
+                      onClick={() => toggle(item)}
+                      className={`add-button ${
+                        selected ? "added" : "not-added"
+                      }`}
                     >
-                      {isSelected ? "Added" : "Add"}
+                      {selected ? "Added" : "Add"}
                     </button>
                   </td>
                 </tr>
@@ -100,38 +103,6 @@ const SearchResults = ({ data, onSearchResults }) => {
             })}
           </tbody>
         </table>
-      </div>
-    );
-  };
-
-  const germanResults = useMemo(
-    () =>
-      data.filter((item) =>
-        item.translation.german?.toLowerCase().includes(query)
-      ),
-    [data, query]
-  );
-
-  const englishResults = useMemo(
-    () =>
-      data.filter((item) =>
-        item.translation.english?.toLowerCase().includes(query)
-      ),
-    [data, query]
-  );
-
-  return (
-    <div className="search-results">
-      <h2>Search Results:</h2>
-      {data.length === 0 ? (
-        <p>No data available.</p>
-      ) : (
-        <>
-          {renderResults(germanResults, "german", "hiragana")}
-          {renderResults(germanResults, "german", "katakana")}
-          {renderResults(englishResults, "english", "hiragana")}
-          {renderResults(englishResults, "english", "katakana")}
-        </>
       )}
     </div>
   );

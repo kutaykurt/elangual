@@ -1,4 +1,5 @@
-import React from "react";
+// src/components/SearchFunction/SearchFunction.jsx
+import { useSelector } from "react-redux";
 import Fuse from "fuse.js";
 
 const SearchFunction = ({
@@ -8,6 +9,10 @@ const SearchFunction = ({
   setQuery,
   navigate,
 }) => {
+  const { baseLanguage, targetLanguage } = useSelector(
+    (state) => state.languages
+  );
+
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
@@ -15,15 +20,10 @@ const SearchFunction = ({
   const handleSearch = () => {
     if (query.trim() !== "") {
       const fuse = new Fuse(data, {
-        keys: [
-          "japaneseHiragana",
-          "japaneseKatakana",
-          "pronunciation",
-          "translation.english",
-          "translation.german",
-        ],
+        keys: [baseLanguage, `translation.${targetLanguage}`],
         threshold: 0.3,
       });
+
       const results = fuse.search(query).map((result) => result.item);
       onSearchResults(results);
       navigate(`/search?query=${query}`);

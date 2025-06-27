@@ -1,65 +1,44 @@
+// src/redux/vocabularySlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
+const LOCAL_KEY = "dynamicVocabularies";
+
 const initialState = {
-  hiraganaVocabularyList:
-    JSON.parse(localStorage.getItem("hiraganaVocabularies")) || [],
-  katakanaVocabularyList:
-    JSON.parse(localStorage.getItem("katakanaVocabularies")) || [],
-  selectedGermanVocabularies: [],
-  selectedEnglishVocabularies: [],
+  dynamicVocabularies: JSON.parse(localStorage.getItem(LOCAL_KEY)) || {},
 };
 
-const vocabularySlice = createSlice({
+const slice = createSlice({
   name: "vocabulary",
   initialState,
   reducers: {
-    addVocabulary: (state, action) => {
-      const { newVocabulary, scriptType } = action.payload;
-      const listKey =
-        scriptType === "hiragana"
-          ? "hiraganaVocabularyList"
-          : "katakanaVocabularyList";
-
-      if (!state[listKey].some((vocab) => vocab.id === newVocabulary.id)) {
-        state[listKey].push(newVocabulary);
+    addVocabulary(state, { payload: { newVocabulary, scriptType } }) {
+      if (!state.dynamicVocabularies[scriptType]) {
+        state.dynamicVocabularies[scriptType] = [];
+      }
+      if (
+        !state.dynamicVocabularies[scriptType].some(
+          (v) => v.id === newVocabulary.id
+        )
+      ) {
+        state.dynamicVocabularies[scriptType].push(newVocabulary);
         localStorage.setItem(
-          `${scriptType}Vocabularies`,
-          JSON.stringify(state[listKey])
+          LOCAL_KEY,
+          JSON.stringify(state.dynamicVocabularies)
         );
       }
     },
-    removeVocabulary: (state, action) => {
-      const { id, scriptType } = action.payload;
-      const listKey =
-        scriptType === "hiragana"
-          ? "hiraganaVocabularyList"
-          : "katakanaVocabularyList";
-
-      state[listKey] = state[listKey].filter((vocab) => vocab.id !== id);
+    removeVocabulary(state, { payload: { id, scriptType } }) {
+      if (!state.dynamicVocabularies[scriptType]) return;
+      state.dynamicVocabularies[scriptType] = state.dynamicVocabularies[
+        scriptType
+      ].filter((v) => v.id !== id);
       localStorage.setItem(
-        `${scriptType}Vocabularies`,
-        JSON.stringify(state[listKey])
+        LOCAL_KEY,
+        JSON.stringify(state.dynamicVocabularies)
       );
-    },
-    toggleSelectedVocabulary: (state, action) => {
-      const { item, language } = action.payload;
-      const selectedKey =
-        language === "german"
-          ? "selectedGermanVocabularies"
-          : "selectedEnglishVocabularies";
-
-      if (state[selectedKey].some((vocab) => vocab.id === item.id)) {
-        state[selectedKey] = state[selectedKey].filter(
-          (vocab) => vocab.id !== item.id
-        );
-      } else {
-        state[selectedKey].push(item);
-      }
     },
   },
 });
 
-export const { addVocabulary, removeVocabulary, toggleSelectedVocabulary } =
-  vocabularySlice.actions;
-
-export default vocabularySlice.reducer;
+export const { addVocabulary, removeVocabulary } = slice.actions;
+export default slice.reducer;

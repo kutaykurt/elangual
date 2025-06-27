@@ -1,0 +1,71 @@
+{
+  "base": "turkish",
+  "target": "german",
+  "vocabulary": [
+    {
+      "turkish": "ev",
+      "translation": { "german": "Haus" },
+      "category": "Everyday"
+    },
+    {
+      "turkish": "araba",
+      "translation": { "german": "Auto" },
+      "category": "Everyday"
+    },
+    {
+      "turkish": "okul",
+      "translation": { "german": "Schule" },
+      "category": "School"
+    },
+    {
+      "turkish": "masa",
+      "translation": { "german": "Tisch" },
+      "category": "School"
+    },
+    {
+      "turkish": "kitap",
+      "translation": { "german": "Buch" },
+      "category": "School"
+    },
+    {
+      "turkish": "pencere",
+      "translation": { "german": "Fenster" },
+      "category": "Home"
+    },
+    {
+      "turkish": "kapı",
+      "translation": { "german": "Tür" },
+      "category": "Home"
+    },
+    {
+      "turkish": "telefon",
+      "translation": { "german": "Telefon" },
+      "category": "Technology"
+    },
+    {
+      "turkish": "bilgisayar",
+      "translation": { "german": "Computer" },
+      "category": "Technology"
+    },
+    {
+      "turkish": "elma",
+      "translation": { "german": "Apfel" },
+      "category": "Food"
+    },
+    {
+      "turkish": "su",
+      "translation": { "german": "Wasser" },
+      "category": "Food"
+    },
+    {
+      "turkish": "kedi",
+      "translation": { "german": "Katze" },
+      "category": "Animals"
+    },
+    {
+      "turkish": "köpek",
+      "translation": { "german": "Hund" },
+      "category": "Animals"
+    }
+  ]
+}

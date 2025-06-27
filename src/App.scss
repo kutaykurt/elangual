@@ -51,31 +51,6 @@ $header-background: #def5ff;
     font-size: 56px;
   }
 }
-.search-field-container {
-  display: flex;
-  justify-content: center;
-}
-
-.search-input-field {
-  min-width: 500px;
-  border: $main-grey 1px solid;
-  border-radius: 4px 0px 0px 4px;
-}
-
-.search-container {
-  text-align: center;
-  margin: 32px 0px 64px 0px;
-}
-
-.search-button {
-  background-color: $main-yellow;
-  color: $main-black;
-  font-weight: 600;
-  border-radius: 0px 4px 4px 0px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-}
 
 .mb-3 {
   margin-top: 20px;
@@ -91,6 +66,41 @@ $header-background: #def5ff;
   button {
     width: 80px;
     margin: 0px 15px;
+  }
+}
+
+.add-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc; // Heller, dezenter Rand
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white; // Grundfarbe
+
+  &.added {
+    background-color: #4caf50; // grün
+    color: white;
+    border: 1px solid #4caf50; // optional: grün wie Hintergrund
+  }
+
+  &.not-added {
+    background-color: #f0f0f0; // grau
+    color: black;
+  }
+}
+
+.remove-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
   }
 }
 
@@ -194,7 +204,6 @@ $header-background: #def5ff;
   .body {
     padding: 0px 20px;
     overflow-x: hidden; // Ensure no horizontal scrolling
-
   }
 
   .add-button {

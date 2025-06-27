@@ -1,8 +1,11 @@
+// src/getId.js
 import md5 from "crypto-js/md5";
 
-export function generateVocabularyId(item, language) {
-  const key = `${
-    item.japaneseHiragana || item.japaneseKatakana || item.character
-  }-${item.pronunciation}-${item.translation?.[language] || ""}-${language}`; // Sprache am Ende hinzufügen
-  return md5(key).toString();
+export function generateVocabularyId(item, base, target) {
+  const source = item[base] || "";
+  const translation = item.translation?.[target] || "";
+  const pronunciation = item.pronunciation || "";
+  return md5(
+    `${base}-${target}-${source}-${translation}-${pronunciation}`
+  ).toString();
 }

@@ -1,0 +1,182 @@
+@import "../../App.scss"; // damit $main-blue verfügbar ist
+
+.my-table-title {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10px 0px;
+}
+
+.my-table {
+  width: 70%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 0 auto;
+  position: relative; // ✅ Wichtig für Dropdown-Z-Index
+  z-index: 1;
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #ccc;
+    overflow: visible; // ✅ Geändert für sichtbares Dropdown
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  thead {
+    background-color: $main-blue;
+
+    th {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+
+  &.compact td,
+  &.compact th {
+    padding: 4px 8px;
+    font-size: 14px;
+    line-height: 1.2;
+    vertical-align: middle;
+    height: 28px;
+  }
+
+  &.compact td button {
+    padding: 4px 6px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 20%;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 20%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 5%;
+  }
+}
+
+.search-field-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  margin: 15px 0px;
+}
+
+.search-input-field {
+  min-width: 400px;
+  height: 30px;
+  border: 1px solid $main-grey;
+  border-radius: 4px 0 0 4px;
+  padding: 0 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-button {
+  height: 30px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background-color: $main-yellow;
+  color: $main-black;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: darken($main-yellow, 10%);
+}
+
+.search-button:active {
+  transform: scale(0.97);
+}
+
+/* ===================== Dropdown ===================== */
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.action-button {
+  background-color: #f5c518;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-menu,
+.dropdown-menu-fixed {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu button,
+.dropdown-menu-fixed button {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover,
+.dropdown-menu-fixed button:hover {
+  background-color: #f0f0f0;
+}
+
+/* ===================== Highlight Styles ===================== */
+
+.highlighted-row {
+  background-color: #d1ffd1 !important;
+  transition: background-color 0.3s ease;
+}
+
+.highlighted-vocab {
+  background-color: #d1ffd1 !important; // hellgrün
+}
+
+.highlighted-exam {
+  background-color: #ffe9c1 !important; // hell-orange
+}
+
+.highlighted-both {
+  background-color: #b2e0b2 !important; // etwas satteres Grün
+  font-weight: bold;
+}

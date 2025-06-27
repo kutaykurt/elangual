@@ -1,0 +1,71 @@
+{
+  "base": "turkish",
+  "target": "english",
+  "vocabulary": [
+    {
+      "turkish": "ev",
+      "translation": { "english": "house" },
+      "category": "Everyday"
+    },
+    {
+      "turkish": "araba",
+      "translation": { "english": "car" },
+      "category": "Everyday"
+    },
+    {
+      "turkish": "okul",
+      "translation": { "english": "school" },
+      "category": "School"
+    },
+    {
+      "turkish": "masa",
+      "translation": { "english": "table" },
+      "category": "School"
+    },
+    {
+      "turkish": "kitap",
+      "translation": { "english": "book" },
+      "category": "School"
+    },
+    {
+      "turkish": "pencere",
+      "translation": { "english": "window" },
+      "category": "Home"
+    },
+    {
+      "turkish": "kapı",
+      "translation": { "english": "door" },
+      "category": "Home"
+    },
+    {
+      "turkish": "telefon",
+      "translation": { "english": "phone" },
+      "category": "Technology"
+    },
+    {
+      "turkish": "bilgisayar",
+      "translation": { "english": "computer" },
+      "category": "Technology"
+    },
+    {
+      "turkish": "elma",
+      "translation": { "english": "apple" },
+      "category": "Food"
+    },
+    {
+      "turkish": "su",
+      "translation": { "english": "water" },
+      "category": "Food"
+    },
+    {
+      "turkish": "kedi",
+      "translation": { "english": "cat" },
+      "category": "Animals"
+    },
+    {
+      "turkish": "köpek",
+      "translation": { "english": "dog" },
+      "category": "Animals"
+    }
+  ]
+}
