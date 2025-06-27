@@ -22,9 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-src\data\english-german.json
-src\data\english-spanish.json
-src\data\german-spanish.json
-src\data\turkish-german.json
-src\data\turkish-english.json
-src\data\turkish-spanish.json
+src/data/english-german.json
+src/data/english-spanish.json
+src/data/german-spanish.json
+src/data/turkish-german.json
+src/data/turkish-english.json
+src/data/turkish-spanish.json
