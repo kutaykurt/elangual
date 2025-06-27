@@ -7,8 +7,15 @@ export async function fetchVocabularyData(base, target) {
   const url = `/data/${languagePair}.json`;
 
   // 🔁 Sprachpaare, die bereits auf Firestore umgestellt sind
-  const useFirestore = ["turkish-english", "turkish-german"];
-
+  const useFirestore = [
+    "turkish-english",
+    "turkish-german",
+    "english-german",
+    "english-spanish",
+    "german-spanish",
+    "turkish-spanish",
+  ];
+  
   // 🔍 Firestore-Fallback aktiv?
   if (useFirestore.includes(languagePair)) {
     console.log("📡 Lade aus Firestore:", languagePair);

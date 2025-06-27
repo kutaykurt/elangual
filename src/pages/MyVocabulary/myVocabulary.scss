@@ -75,3 +75,19 @@
     width: 5%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .my-table-title {
+    width: 90%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .my-table {
+    width: 95%;
+    font-size: 13px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

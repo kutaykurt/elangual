@@ -196,7 +196,7 @@ export default function DynamicVocabulary() {
               <tr key={item.id} className={getRowClass(item)}>
                 <td>{item[baseLanguage]}</td>
                 <td>
-                  {item.translation[targetLanguage]}
+                  {item.translation[targetLanguage]} <span> </span>
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
                       ({item.pronunciation})

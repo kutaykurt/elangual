@@ -7,12 +7,8 @@
 }
 
 .my-table {
+  display: block;
   width: 70%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  margin: 0 auto;
-  position: relative; // ✅ Wichtig für Dropdown-Z-Index
-  z-index: 1;
 
   th,
   td {
@@ -179,4 +175,41 @@
 .highlighted-both {
   background-color: #b2e0b2 !important; // etwas satteres Grün
   font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .my-table-title {
+    width: 90%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .my-table {
+    width: 95%;
+    font-size: 13px;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .search-field-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .search-input-field {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
 }

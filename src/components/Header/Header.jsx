@@ -1,11 +1,10 @@
 // src/components/Header/Header.jsx
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setBaseLanguage, setTargetLanguage } from "../../redux/languagesSlice";
 import "./header.scss";
 
-// Keine führenden Slashes bei HashRouter!
 const languagePairs = [
   { path: "english-german", label: "En – De" },
   { path: "english-spanish", label: "En – Es" },
@@ -18,8 +17,19 @@ const languagePairs = [
 export default function Header() {
   const location = useLocation();
   const dispatch = useDispatch();
-
   const currentPath = location.pathname.replace(/^\/+/, "");
+
+  const { baseLanguage, targetLanguage } = useSelector(
+    (state) => state.languages
+  );
+  const vocabularies = useSelector(
+    (state) => state.vocabulary.dynamicVocabularies
+  );
+  
+  const vocabCount = Object.values(vocabularies).reduce(
+    (acc, list) => acc + (list?.length || 0),
+    0
+  );
 
   const getNavLinkClass = (path) => (currentPath === path ? "active" : "");
 
@@ -27,52 +37,65 @@ export default function Header() {
     const [base, target] = path.split("-");
     dispatch(setBaseLanguage(base));
     dispatch(setTargetLanguage(target));
+    localStorage.setItem("baseLanguage", base);
+    localStorage.setItem("targetLanguage", target);
   };
 
   return (
     <header className="Header">
       <div className="header-design-line" />
-
       <div className="header-main">
         <div className="column-one">
           <Link to="" className="link title">
-            <span className="learn-word">E</span>
-            <span className="japanese-word">Langual</span>
+            <span className="title-first-word">E</span>
+            <span className="title-letter-l">L</span>
+            <span className="title-second-word">angual</span>
             <div className="title-underline" />
           </Link>
         </div>
 
         <nav className="column-two">
           <ul className="navigation">
+            {/* ✅ Desktop Sprachpaare */}
+            <div className="show-on-desktop">
+              {languagePairs.map(({ path, label }) => (
+                <li key={path}>
+                  <Link
+                    to="/vocabulary"
+                    className={`link ${getNavLinkClass(path)}`}
+                    onClick={() => handleLanguageClick(path)}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </div>
+
+            {/* ✅ Einheitlicher Link zu Vocabulary */}
             <li>
-              <Link to="" className={`link ${getNavLinkClass("")}`}>
-                Home
+              <Link
+                to="/vocabulary"
+                className={`link ${getNavLinkClass("vocabulary")}`}
+              >
+                Library
               </Link>
             </li>
 
-            {languagePairs.map(({ path, label }) => (
-              <li key={path}>
-                <Link
-                  to="vocabulary"
-                  className={`link ${getNavLinkClass(path)}`}
-                  onClick={() => handleLanguageClick(path)}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-
             <li>
               <Link
-                to="myvocabularies"
+                to="/myvocabularies"
                 className={`link ${getNavLinkClass("myvocabularies")}`}
               >
-                My Vocabulary
+                My Vocabularies
+                {vocabCount > 0 && (
+                  <span className="vocab-badge">({vocabCount})</span>
+                )}
               </Link>
             </li>
+
             <li>
               <Link
-                to="myexams"
+                to="/myexams"
                 className={`link ${getNavLinkClass("myexams")}`}
               >
                 My Exams
