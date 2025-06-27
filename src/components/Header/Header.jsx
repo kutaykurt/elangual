@@ -1,4 +1,3 @@
-// src/components/Header/Header.jsx
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,7 +24,8 @@ export default function Header() {
   const vocabularies = useSelector(
     (state) => state.vocabulary.dynamicVocabularies
   );
-  
+
+  // Gesamtanzahl der Vokabeln über alle Sprachpaare
   const vocabCount = Object.values(vocabularies).reduce(
     (acc, list) => acc + (list?.length || 0),
     0
@@ -56,7 +56,7 @@ export default function Header() {
 
         <nav className="column-two">
           <ul className="navigation">
-            {/* ✅ Desktop Sprachpaare */}
+            {/* ✅ Desktop Sprachpaare als Links */}
             <div className="show-on-desktop">
               {languagePairs.map(({ path, label }) => (
                 <li key={path}>
@@ -71,13 +71,15 @@ export default function Header() {
               ))}
             </div>
 
-            {/* ✅ Einheitlicher Link zu Vocabulary */}
+            {/* ✅ Mobile Dropdown Sprachwahl */}
+
+            {/* ✅ Navigation */}
             <li>
               <Link
                 to="/vocabulary"
                 className={`link ${getNavLinkClass("vocabulary")}`}
               >
-                Library
+                Vocabularies
               </Link>
             </li>
 
@@ -86,7 +88,7 @@ export default function Header() {
                 to="/myvocabularies"
                 className={`link ${getNavLinkClass("myvocabularies")}`}
               >
-                My Vocabularies
+                My Library
                 {vocabCount > 0 && (
                   <span className="vocab-badge">({vocabCount})</span>
                 )}
@@ -100,6 +102,27 @@ export default function Header() {
               >
                 My Exams
               </Link>
+            </li>
+            <li className="hide-on-desktop">
+              <div className="language-dropdown">
+                <select
+                  onChange={(e) => {
+                    const path = e.target.value;
+                    if (path) {
+                      handleLanguageClick(path);
+                      window.location.href = "/#/vocabulary"; // Für HashRouter
+                    }
+                  }}
+                  value={`${baseLanguage}-${targetLanguage}`}
+                >
+                  <option value="">Select language pair</option>
+                  {languagePairs.map(({ path, label }) => (
+                    <option key={path} value={path}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </li>
           </ul>
         </nav>

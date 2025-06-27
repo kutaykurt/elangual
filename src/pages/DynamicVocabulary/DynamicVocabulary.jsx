@@ -22,9 +22,16 @@ export default function DynamicVocabulary() {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState(null);
   const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const scriptType = `${baseLanguage}-${targetLanguage}`;
   const savedList = allVocabs[scriptType] || [];
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (!baseLanguage || !targetLanguage) return;
@@ -65,21 +72,6 @@ export default function DynamicVocabulary() {
       });
   }, [baseLanguage, targetLanguage]);
 
-  // Dropdown schließt sich bei Klick außerhalb
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!openDropdownId) return;
-      const openDropdown = document.querySelector(
-        `.dropdown-container[data-id="${openDropdownId}"]`
-      );
-      if (openDropdown && !openDropdown.contains(event.target)) {
-        setOpenDropdownId(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [openDropdownId]);
-
   const handleSearch = () => {
     if (!searchQuery.trim()) {
       setFilteredData(allData);
@@ -98,6 +90,9 @@ export default function DynamicVocabulary() {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") handleSearch();
   };
+
+  const isInList = (item) => savedList.some((v) => v.id === item.id);
+  const isInExam = (item) => exams.some((v) => v.id === item.id);
 
   const handleAddVocabulary = (item) => {
     dispatch(
@@ -120,11 +115,7 @@ export default function DynamicVocabulary() {
 
   const handleAddExam = (item) => {
     dispatch(
-      addToExam({
-        ...item,
-        base: baseLanguage,
-        target: targetLanguage,
-      })
+      addToExam({ ...item, base: baseLanguage, target: targetLanguage })
     );
     setOpenDropdownId(null);
   };
@@ -140,9 +131,6 @@ export default function DynamicVocabulary() {
     setOpenDropdownId(null);
   };
 
-  const isInList = (item) => savedList.some((v) => v.id === item.id);
-  const isInExam = (item) => exams.some((v) => v.id === item.id);
-
   const getRowClass = (item) => {
     const inList = isInList(item);
     const inExam = isInExam(item);
@@ -153,8 +141,14 @@ export default function DynamicVocabulary() {
   };
 
   const toggleDropdown = (id) => {
-    setOpenDropdownId((prev) => (prev === id ? null : id));
+    if (isMobile) {
+      setOpenDropdownId(id); // Modal statt Dropdown
+    } else {
+      setOpenDropdownId((prev) => (prev === id ? null : id));
+    }
   };
+
+  const selectedItem = filteredData.find((i) => i.id === openDropdownId);
 
   return (
     <div className="Main">
@@ -183,7 +177,7 @@ export default function DynamicVocabulary() {
           <tr>
             <th>{baseLanguage}</th>
             <th>{targetLanguage}</th>
-            <th>Action</th>
+            {!isMobile && <th>Action</th>}
           </tr>
         </thead>
         <tbody>
@@ -193,63 +187,120 @@ export default function DynamicVocabulary() {
             </tr>
           ) : (
             filteredData.map((item) => (
-              <tr key={item.id} className={getRowClass(item)}>
+              <tr
+                key={item.id}
+                className={getRowClass(item)}
+                onClick={() => isMobile && toggleDropdown(item.id)}
+              >
                 <td>{item[baseLanguage]}</td>
                 <td>
-                  {item.translation[targetLanguage]} <span> </span>
+                  {item.translation[targetLanguage]}{" "}
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
                       ({item.pronunciation})
                     </span>
                   )}
                 </td>
-                <td>
-                  <div className="dropdown-container" data-id={item.id}>
-                    <button
-                      className="action-button"
-                      onClick={() => toggleDropdown(item.id)}
-                    >
-                      Action
-                    </button>
-                    {openDropdownId === item.id && (
-                      <div className="dropdown-menu-fixed">
-                        {isInList(item) ? (
-                          <button onClick={() => handleRemoveVocabulary(item)}>
-                            Remove from MyVocabularies
-                          </button>
-                        ) : (
-                          <button onClick={() => handleAddVocabulary(item)}>
-                            Add to MyVocabularies
-                          </button>
-                        )}
-
-                        {isInExam(item) ? (
-                          <button onClick={() => handleRemoveExam(item)}>
-                            Remove from MyExams
-                          </button>
-                        ) : (
-                          <button onClick={() => handleAddExam(item)}>
-                            Add to MyExams
-                          </button>
-                        )}
-
-                        {(isInList(item) || isInExam(item)) && (
-                          <button
-                            className="remove-completely-button"
-                            onClick={() => handleRemoveCompletely(item)}
-                          >
-                            Remove completely
-                          </button>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </td>
+                {!isMobile && (
+                  <td>
+                    <div className="dropdown-container">
+                      <button
+                        className="action-button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleDropdown(item.id);
+                        }}
+                      >
+                        Action
+                      </button>
+                      {openDropdownId === item.id && (
+                        <div className="dropdown-menu-fixed">
+                          {isInList(item) ? (
+                            <button
+                              onClick={() => handleRemoveVocabulary(item)}
+                            >
+                              Remove from MyVocabularies
+                            </button>
+                          ) : (
+                            <button onClick={() => handleAddVocabulary(item)}>
+                              Add to MyVocabularies
+                            </button>
+                          )}
+                          {isInExam(item) ? (
+                            <button onClick={() => handleRemoveExam(item)}>
+                              Remove from MyExams
+                            </button>
+                          ) : (
+                            <button onClick={() => handleAddExam(item)}>
+                              Add to MyExams
+                            </button>
+                          )}
+                          {(isInList(item) || isInExam(item)) && (
+                            <button
+                              className="remove-completely-button"
+                              onClick={() => handleRemoveCompletely(item)}
+                            >
+                              Remove completely
+                            </button>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </td>
+                )}
               </tr>
             ))
           )}
         </tbody>
       </table>
+
+      {/* ✅ MODAL für mobile Geräte */}
+      {isMobile && selectedItem && (
+        <div
+          className="mobile-modal-backdrop"
+          onClick={() => setOpenDropdownId(null)}
+        >
+          <div
+            className="mobile-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="close-button"
+              onClick={() => setOpenDropdownId(null)}
+            >
+              ✕
+            </button>
+            <div className="modal-actions">
+              {isInList(selectedItem) ? (
+                <button onClick={() => handleRemoveVocabulary(selectedItem)}>
+                  Remove from MyVocabularies
+                </button>
+              ) : (
+                <button onClick={() => handleAddVocabulary(selectedItem)}>
+                  Add to MyVocabularies
+                </button>
+              )}
+              {isInExam(selectedItem) ? (
+                <button onClick={() => handleRemoveExam(selectedItem)}>
+                  Remove from MyExams
+                </button>
+              ) : (
+                <button onClick={() => handleAddExam(selectedItem)}>
+                  Add to MyExams
+                </button>
+              )}
+              {(isInList(selectedItem) || isInExam(selectedItem)) && (
+                <button
+                  className="remove-completely-button"
+                  onClick={() => handleRemoveCompletely(selectedItem)}
+                >
+                  Remove completely
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

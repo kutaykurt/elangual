@@ -60,13 +60,18 @@
 
       .navigation {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        white-space: nowrap;
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 0 6px;
+
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
 
         li {
-          margin: 5px;
+          margin: 0 8px;
+          flex-shrink: 0;
         }
 
         li:hover .link {
@@ -83,6 +88,15 @@
           font-weight: bold;
           cursor: pointer;
         }
+
+        &::-webkit-scrollbar {
+          height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #888;
+          border-radius: 3px;
+        }
       }
     }
   }
@@ -98,15 +112,15 @@
     vertical-align: middle;
   }
 
-  // Desktop sichtbar, mobile ausgeblendet
   .show-on-desktop {
     display: flex;
   }
+
   .hide-on-desktop {
     display: none;
   }
 
-  // Responsive Breakpoints
+  // ✅ MOBILE bleibt wie es ist!
   @media screen and (max-width: 768px) {
     .header-main {
       display: flex;
