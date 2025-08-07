@@ -1,143 +1,114 @@
 @import "../../App.scss";
 
-ol,
-ul {
-  padding: 0px !important;
-}
-
-.footer {
+.Footer {
   background-color: $main-black;
-  color: white;
-  padding: 30px 0;
-  text-align: center;
-
-  .footer-content * {
-    color: white;
-  }
+  color: $main-white;
+  padding: 30px 20px 10px;
 
   .footer-content {
     display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .footer-section {
-      flex: 1;
-      padding: 20px;
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
 
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        input,
-        textarea {
-          width: 300px;
+    h1,
+    h2 {
+      color: $main-yellow;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      line-height: 1.4;
+      font-size: 14px;
+    }
+
+    ul {
+      li {
+        margin-bottom: 6px;
+
+        a {
+          color: $main-white;
+          font-size: 14px;
+
+          &:hover {
+            color: $main-blue;
+            text-decoration: underline;
+          }
         }
       }
+    }
 
-      h1,
-      h2 {
-        color: $main-blue;
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .text-input {
+        padding: 8px 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #eee;
+        color: $main-black;
       }
 
-      .logo-text {
-        font-size: 1.8em;
+      .btn {
+        background-color: $main-blue;
+        color: $main-white;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
         font-weight: bold;
-      }
+        font-size: 14px;
+        cursor: pointer;
 
-      .contact {
-        margin: 10px 0;
-
-        span {
-          display: block;
-          margin: 5px 0;
+        &:hover {
+          background-color: darken($main-blue, 10%);
         }
       }
 
-      .socials a {
-        font-size: 1.2em;
-        margin: 0 10px;
-        color: white;
-        text-decoration: none;
-      }
-
-      .links ul {
-        list-style-type: none;
-
-        li {
-          margin: 10px 0;
-
-          a {
-            color: white;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-
-      .contact-form {
-        form {
-          .text-input {
-            padding: 10px;
-            margin: 5px 0;
-            border: none;
-            border-radius: 5px;
-            width: 200px;
-          }
-
-          .btn-big {
-            padding: 10px 20px;
-            border: none;
-            background-color: #3498db;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-
-            i {
-              margin-right: 5px;
-            }
-          }
-        }
+      .success-message {
+        margin-top: 8px;
+        color: $main-yellow;
+        font-weight: 600;
+        font-size: 13px;
       }
     }
   }
 
   .footer-bottom {
-    background-color: #222;
-    color: #bbb;
-    padding: 10px 0;
-    font-size: 0.9em;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-section {
-    max-width: 500px;
-  }
-
-  .socials {
+    text-align: center;
+    color: #aaa;
+    border-top: 1px solid #444;
     margin-top: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-section {
-    padding: 10px;
+    padding-top: 10px;
+    font-size: 13px;
   }
 
-  .socials a {
-    font-size: 1em;
-    margin: 5px;
-  }
+  @media screen and (max-width: $breakpoint-md) {
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
 
-  .footer-bottom {
-    font-size: 0.8em;
+    .footer-section {
+      text-align: center;
+    }
   }
 }

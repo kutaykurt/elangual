@@ -1,69 +1,85 @@
-import React from "react";
-import "./Footer.scss";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Footer.scss";
 
 const Footer = () => {
+  const [form, setForm] = useState({ email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Hier könnte man später E-Mail-Versand oder API integrieren
+    setSubmitted(true);
+    setForm({ email: "", message: "" });
+    setTimeout(() => setSubmitted(false), 3000); // Meldung nach 3 Sek. ausblenden
+  };
+
   return (
-    <footer className="footer">
+    <footer className="Footer">
       <div className="footer-content">
         <div className="footer-section about">
-          <h1 className="logo-text">Learn Japanese</h1>
+          <h1 className="logo-text">E-Langual</h1>
           <p>
-            Deine Quelle für das Lernen von Japanisch. Verbessere dein Wissen
-            über Hiragana und Katakana.
+            Dein Begleiter für interaktives Sprachenlernen. Entdecke neue
+            Vokabeln in verschiedenen Sprachen!
           </p>
-          <div className="contact">
-            <span>
-              <i className="fas fa-phone"></i> &nbsp; +49 123 456 789
-            </span>
-            <span>
-              <i className="fas fa-envelope"></i> &nbsp; info@learnjapanese.com
-            </span>
-          </div>
         </div>
 
         <div className="footer-section links">
-          <h2>Links</h2>
+          <h2>Navigation</h2>
           <ul>
             <li>
-              <Link to="hiragana">Hiragana</Link>
+              <Link to="/vocabulary">Vocabularies</Link>
             </li>
             <li>
-              <Link to="katakana">Katakana</Link>
+              <Link to="/myvocabularies">My Library</Link>
             </li>
             <li>
-              <Link to="exercises">Übungen</Link>
+              <Link to="/myexams">My Exams</Link>
             </li>
             <li>
-              <Link to="aboutus">Über uns</Link>
+              <Link to="/aboutus">About Us</Link>
             </li>
           </ul>
         </div>
 
         <div className="footer-section contact-form">
           <h2>Kontakt</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="email"
               name="email"
-              className="text-input contact-input"
               placeholder="Deine Email-Adresse..."
+              className="text-input"
+              value={form.email}
+              onChange={handleChange}
+              required
             />
             <textarea
               name="message"
-              className="text-input contact-input"
               placeholder="Deine Nachricht..."
+              className="text-input"
+              rows="4"
+              value={form.message}
+              onChange={handleChange}
+              required
             ></textarea>
-            <button type="submit" className="btn btn-big">
-              <i className="fas fa-envelope"></i>
-              Senden
+            <button type="submit" className="btn">
+              ✉️ Senden
             </button>
+            {submitted && (
+              <p className="success-message">Danke für deine Nachricht!</p>
+            )}
           </form>
         </div>
       </div>
 
       <div className="footer-bottom">
-        &copy; learnjapanese.com | Designed by Kutay Kurt
+        &copy; {new Date().getFullYear()} E-Langual | Designed by Kutay Kurt
       </div>
     </footer>
   );

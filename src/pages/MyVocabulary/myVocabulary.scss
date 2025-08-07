@@ -23,9 +23,6 @@
     padding: 0.75rem 1rem;
     text-align: left;
     border: 1px solid #ccc;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   thead {
@@ -47,7 +44,7 @@
 
   &.compact td,
   &.compact th {
-    padding: 8px 10px;
+    padding: 4px 10px;
     line-height: 1.3;
     font-size: 15px;
     vertical-align: middle;
@@ -73,6 +70,22 @@
   th:nth-child(3),
   td:nth-child(3) {
     width: 5%;
+  }
+}
+
+.no-vocab-info {
+  text-align: center;
+  padding: 40px 20px;
+  color: $main-grey;
+
+  h2 {
+    font-size: 24px;
+    color: $main-blue;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
 

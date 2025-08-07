@@ -1,227 +1,103 @@
 @import "../../App.scss";
 
 .Homepage {
-  font-size: 18px;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 17px;
   color: $main-black;
-  padding: 0px 40px;
-  color: $main-black;
 
-  h2 {
-    font-size: 22px;
-    animation: language-description-title-effect 1.8s ease-in-out;
-  }
-
-  .description-first {
-    animation: description-first-effect 0.8s ease-in-out;
-    font-size: 18px;
-    margin: 16px 0px;
-  }
-
-  .note {
-    margin: 10px 0px;
+  .homepage-title {
+    font-size: 36px;
     color: $main-black;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    .highlight {
+      color: $main-blue;
+    }
   }
-}
 
-.line {
-  border: 1px $lines solid;
-  animation: movement 0.8s ease;
-}
+  .homepage-intro-section {
+    text-align: center;
+    line-height: 1.8;
 
-.language-descriptions {
-  list-style-type: none;
-  padding: 20px 0px;
-  margin: 0;
+    p {
+      margin-bottom: 16px;
 
-  .title {
-    display: flex;
-    font-weight: bold;
+      strong {
+        color: $main-blue;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .section-title {
+    margin: 60px 0 20px;
+    font-size: 24px;
     color: $main-blue;
-    line-height: 22px;
+    text-align: center;
   }
 
-  button {
-    width: 120px;
-    padding: 3px 0px;
-    margin: 10px 0px 24px 0px;
-    font-size: 18px;
-    background-color: $main-white;
-    border-radius: 5px;
-    color: $main-black;
-    box-shadow: 0px 0px 3px black;
-    transition: 0.2s;
-    border: none;
-  }
-  .hiragana:hover,
-  .katakana:hover {
-    background-color: $main-blue;
-    color: $main-white;
-    font-weight: bold;
-    transform: scale(1.08);
-    cursor: pointer;
-    box-shadow: 0px 0px 1px black;
-  }
-}
+  .example-table {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-size: 17px;
 
-.hiragana-description {
-  animation: hiragana-effect 0.7s ease-in-out;
-}
+    thead {
+      background: linear-gradient(
+        to right,
+        $main-blue,
+        lighten($main-blue, 10%)
+      );
+      color: $main-white;
 
-.katakana-description {
-  animation: katakana-effect 0.7s ease-in-out;
-}
-
-.kanji-description {
-  animation: kanji-effect 0.7s ease-in-out;
-}
-
-@keyframes language-description-title-effect {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
-
-  20% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes movement {
-  /* 0% {
-        transform: translateX(-200%);
+      th {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        padding: 12px;
+      }
     }
 
-    75% {
-        transform: translateX(10%);
+    td {
+      padding: 12px;
+      border: 1px solid #eee;
+      background-color: #fff;
     }
 
-    90% {
-        transform: translateX(-4%);
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
 
-    95% {
-        transform: translateX(2%);
-    }
-
-    100% {
-        transform: translateX(0);
-    } */
-  0% {
-    transform: translateX(-200%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes hiragana-effect {
-  0% {
-    opacity: 0;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes katakana-effect {
-  0% {
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes kanji-effect {
-  0% {
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes description-first-effect {
-  0% {
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-// Media Queries
-
-@media screen and (max-width: 480px) {
-  .Homepage {
-    font-size: 15px;
-    padding: 0px 10px;
-
-    h2 {
-      font-size: 20px;
-      padding-top: 20px;
-    }
-
-    .line {
-      margin: 20px 0px;
+    tbody tr:hover {
+      background-color: $list-item-blue;
+      transition: background-color 0.3s ease;
     }
   }
 
-  .description-first {
-    display: none;
-  }
-
-  .language-descriptions {
-    li {
-      margin: 0px 0px 20px 0px;
+  @media screen and (max-width: $breakpoint-sm) {
+    .homepage-title {
+      font-size: 28px;
     }
 
-    button {
-      font-size: 14px;
-      width: 100px;
-      padding: 0px;
+    .example-table {
+      font-size: 15px;
     }
   }
+}
+
+.hero-image-bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 660px;
+  height: auto;
+  z-index: 1;
 }

@@ -3421,6 +3421,3046 @@
       },
       "category": "Everyday",
       "pronunciation": "ter-mi-nar"
+    },
+    {
+      "turkish": "gömlek",
+      "translation": {
+        "spanish": "camisa"
+      },
+      "category": "Clothing",
+      "pronunciation": "ka-mi-sa"
+    },
+    {
+      "turkish": "pantolon",
+      "translation": {
+        "spanish": "pantalón"
+      },
+      "category": "Clothing",
+      "pronunciation": "pan-ta-lon"
+    },
+    {
+      "turkish": "etek",
+      "translation": {
+        "spanish": "falda"
+      },
+      "category": "Clothing",
+      "pronunciation": "fal-da"
+    },
+    {
+      "turkish": "elbise",
+      "translation": {
+        "spanish": "vestido"
+      },
+      "category": "Clothing",
+      "pronunciation": "bes-ti-do"
+    },
+    {
+      "turkish": "ceket",
+      "translation": {
+        "spanish": "chaqueta"
+      },
+      "category": "Clothing",
+      "pronunciation": "ça-ke-ta"
+    },
+    {
+      "turkish": "mont",
+      "translation": {
+        "spanish": "abrigo"
+      },
+      "category": "Clothing",
+      "pronunciation": "a-bri-go"
+    },
+    {
+      "turkish": "kazak",
+      "translation": {
+        "spanish": "suéter"
+      },
+      "category": "Clothing",
+      "pronunciation": "swe-ter"
+    },
+    {
+      "turkish": "tişört",
+      "translation": {
+        "spanish": "camiseta"
+      },
+      "category": "Clothing",
+      "pronunciation": "ka-mi-se-ta"
+    },
+    {
+      "turkish": "ayakkabı",
+      "translation": {
+        "spanish": "zapato"
+      },
+      "category": "Clothing",
+      "pronunciation": "sa-pa-to"
+    },
+    {
+      "turkish": "çorap",
+      "translation": {
+        "spanish": "calcetín"
+      },
+      "category": "Clothing",
+      "pronunciation": "kal-se-tin"
+    },
+    {
+      "turkish": "şapka",
+      "translation": {
+        "spanish": "sombrero"
+      },
+      "category": "Clothing",
+      "pronunciation": "som-bre-ro"
+    },
+    {
+      "turkish": "atkı",
+      "translation": {
+        "spanish": "bufanda"
+      },
+      "category": "Clothing",
+      "pronunciation": "bu-fan-da"
+    },
+    {
+      "turkish": "eldiven",
+      "translation": {
+        "spanish": "guantes"
+      },
+      "category": "Clothing",
+      "pronunciation": "gwan-tes"
+    },
+    {
+      "turkish": "gözlük",
+      "translation": {
+        "spanish": "gafas"
+      },
+      "category": "Clothing",
+      "pronunciation": "ga-fas"
+    },
+    {
+      "turkish": "saat",
+      "translation": {
+        "spanish": "reloj"
+      },
+      "category": "Clothing",
+      "pronunciation": "re-loh"
+    },
+    {
+      "turkish": "kemer",
+      "translation": {
+        "spanish": "cinturón"
+      },
+      "category": "Clothing",
+      "pronunciation": "sin-tu-ron"
+    },
+    {
+      "turkish": "çanta",
+      "translation": {
+        "spanish": "bolso"
+      },
+      "category": "Clothing",
+      "pronunciation": "bol-so"
+    },
+    {
+      "turkish": "bikini",
+      "translation": {
+        "spanish": "bikini"
+      },
+      "category": "Clothing",
+      "pronunciation": "bi-ki-ni"
+    },
+    {
+      "turkish": "terlik",
+      "translation": {
+        "spanish": "sandalia"
+      },
+      "category": "Clothing",
+      "pronunciation": "san-da-lya"
+    },
+    {
+      "turkish": "yağmurluk",
+      "translation": {
+        "spanish": "impermeable"
+      },
+      "category": "Clothing",
+      "pronunciation": "im-per-me-a-ble"
+    },
+    {
+      "turkish": "kırmızı",
+      "translation": {
+        "spanish": "rojo"
+      },
+      "category": "Colors",
+      "pronunciation": "ro-ho"
+    },
+    {
+      "turkish": "mavi",
+      "translation": {
+        "spanish": "azul"
+      },
+      "category": "Colors",
+      "pronunciation": "a-sul"
+    },
+    {
+      "turkish": "yeşil",
+      "translation": {
+        "spanish": "verde"
+      },
+      "category": "Colors",
+      "pronunciation": "ber-de"
+    },
+    {
+      "turkish": "sarı",
+      "translation": {
+        "spanish": "amarillo"
+      },
+      "category": "Colors",
+      "pronunciation": "a-ma-ri-yo"
+    },
+    {
+      "turkish": "turuncu",
+      "translation": {
+        "spanish": "naranja"
+      },
+      "category": "Colors",
+      "pronunciation": "na-ran-ha"
+    },
+    {
+      "turkish": "mor",
+      "translation": {
+        "spanish": "morado"
+      },
+      "category": "Colors",
+      "pronunciation": "mo-ra-do"
+    },
+    {
+      "turkish": "pembe",
+      "translation": {
+        "spanish": "rosa"
+      },
+      "category": "Colors",
+      "pronunciation": "ro-sa"
+    },
+    {
+      "turkish": "beyaz",
+      "translation": {
+        "spanish": "blanco"
+      },
+      "category": "Colors",
+      "pronunciation": "blan-ko"
+    },
+    {
+      "turkish": "siyah",
+      "translation": {
+        "spanish": "negro"
+      },
+      "category": "Colors",
+      "pronunciation": "ne-gro"
+    },
+    {
+      "turkish": "gri",
+      "translation": {
+        "spanish": "gris"
+      },
+      "category": "Colors",
+      "pronunciation": "gris"
+    },
+    {
+      "turkish": "kahverengi",
+      "translation": {
+        "spanish": "marrón"
+      },
+      "category": "Colors",
+      "pronunciation": "ma-ron"
+    },
+    {
+      "turkish": "açık",
+      "translation": {
+        "spanish": "claro"
+      },
+      "category": "Colors",
+      "pronunciation": "kla-ro"
+    },
+    {
+      "turkish": "koyu",
+      "translation": {
+        "spanish": "oscuro"
+      },
+      "category": "Colors",
+      "pronunciation": "os-ku-ro"
+    },
+    {
+      "turkish": "renk",
+      "translation": {
+        "spanish": "color"
+      },
+      "category": "Colors",
+      "pronunciation": "ko-lor"
+    },
+    {
+      "turkish": "şekil",
+      "translation": {
+        "spanish": "forma"
+      },
+      "category": "Shapes",
+      "pronunciation": "for-ma"
+    },
+    {
+      "turkish": "daire",
+      "translation": {
+        "spanish": "círculo"
+      },
+      "category": "Shapes",
+      "pronunciation": "sir-ku-lo"
+    },
+    {
+      "turkish": "kare",
+      "translation": {
+        "spanish": "cuadro"
+      },
+      "category": "Shapes",
+      "pronunciation": "kwa-dro"
+    },
+    {
+      "turkish": "üçgen",
+      "translation": {
+        "spanish": "triángulo"
+      },
+      "category": "Shapes",
+      "pronunciation": "tri-an-gu-lo"
+    },
+    {
+      "turkish": "dikdörtgen",
+      "translation": {
+        "spanish": "rectángulo"
+      },
+      "category": "Shapes",
+      "pronunciation": "rek-tan-gu-lo"
+    },
+    {
+      "turkish": "oval",
+      "translation": {
+        "spanish": "óvalo"
+      },
+      "category": "Shapes",
+      "pronunciation": "o-va-lo"
+    },
+    {
+      "turkish": "tatil",
+      "translation": {
+        "spanish": "vacaciones"
+      },
+      "category": "Travel",
+      "pronunciation": "ba-ka-syo-nes"
+    },
+    {
+      "turkish": "seyahat",
+      "translation": {
+        "spanish": "viaje"
+      },
+      "category": "Travel",
+      "pronunciation": "bya-he"
+    },
+    {
+      "turkish": "uçak",
+      "translation": {
+        "spanish": "avión"
+      },
+      "category": "Travel",
+      "pronunciation": "a-byón"
+    },
+    {
+      "turkish": "tren",
+      "translation": {
+        "spanish": "tren"
+      },
+      "category": "Travel",
+      "pronunciation": "tren"
+    },
+    {
+      "turkish": "otobüs",
+      "translation": {
+        "spanish": "autobús"
+      },
+      "category": "Travel",
+      "pronunciation": "aw-to-bus"
+    },
+    {
+      "turkish": "araba",
+      "translation": {
+        "spanish": "coche"
+      },
+      "category": "Travel",
+      "pronunciation": "ko-çe"
+    },
+    {
+      "turkish": "bilet",
+      "translation": {
+        "spanish": "billete"
+      },
+      "category": "Travel",
+      "pronunciation": "bi-ye-te"
+    },
+    {
+      "turkish": "pasaport",
+      "translation": {
+        "spanish": "pasaporte"
+      },
+      "category": "Travel",
+      "pronunciation": "pa-sa-por-te"
+    },
+    {
+      "turkish": "valiz",
+      "translation": {
+        "spanish": "maleta"
+      },
+      "category": "Travel",
+      "pronunciation": "ma-le-ta"
+    },
+    {
+      "turkish": "otel",
+      "translation": {
+        "spanish": "hotel"
+      },
+      "category": "Travel",
+      "pronunciation": "o-tel"
+    },
+    {
+      "turkish": "rezervasyon",
+      "translation": {
+        "spanish": "reserva"
+      },
+      "category": "Travel",
+      "pronunciation": "re-ser-va"
+    },
+    {
+      "turkish": "yol",
+      "translation": {
+        "spanish": "camino"
+      },
+      "category": "Travel",
+      "pronunciation": "ka-mi-no"
+    },
+    {
+      "turkish": "harita",
+      "translation": {
+        "spanish": "mapa"
+      },
+      "category": "Travel",
+      "pronunciation": "ma-pa"
+    },
+    {
+      "turkish": "havaalanı",
+      "translation": {
+        "spanish": "aeropuerto"
+      },
+      "category": "Travel",
+      "pronunciation": "a-e-ro-pwer-to"
+    },
+    {
+      "turkish": "gümrük",
+      "translation": {
+        "spanish": "aduana"
+      },
+      "category": "Travel",
+      "pronunciation": "a-dwa-na"
+    },
+    {
+      "turkish": "rehber",
+      "translation": {
+        "spanish": "guía"
+      },
+      "category": "Travel",
+      "pronunciation": "gi-a"
+    },
+    {
+      "turkish": "kamp",
+      "translation": {
+        "spanish": "campamento"
+      },
+      "category": "Travel",
+      "pronunciation": "kam-pa-men-to"
+    },
+    {
+      "turkish": "plaj",
+      "translation": {
+        "spanish": "playa"
+      },
+      "category": "Travel",
+      "pronunciation": "pla-ya"
+    },
+    {
+      "turkish": "gezmek",
+      "translation": {
+        "spanish": "pasear"
+      },
+      "category": "Travel",
+      "pronunciation": "pa-se-ar"
+    },
+    {
+      "turkish": "görmek",
+      "translation": {
+        "spanish": "ver"
+      },
+      "category": "Travel",
+      "pronunciation": "ber"
+    },
+    {
+      "turkish": "saat",
+      "translation": {
+        "spanish": "hora"
+      },
+      "category": "Time",
+      "pronunciation": "o-ra"
+    },
+    {
+      "turkish": "dakika",
+      "translation": {
+        "spanish": "minuto"
+      },
+      "category": "Time",
+      "pronunciation": "mi-nu-to"
+    },
+    {
+      "turkish": "saniye",
+      "translation": {
+        "spanish": "segundo"
+      },
+      "category": "Time",
+      "pronunciation": "se-gun-do"
+    },
+    {
+      "turkish": "zaman",
+      "translation": {
+        "spanish": "tiempo"
+      },
+      "category": "Time",
+      "pronunciation": "tyem-po"
+    },
+    {
+      "turkish": "gün",
+      "translation": {
+        "spanish": "día"
+      },
+      "category": "Time",
+      "pronunciation": "di-a"
+    },
+    {
+      "turkish": "hafta",
+      "translation": {
+        "spanish": "semana"
+      },
+      "category": "Time",
+      "pronunciation": "se-ma-na"
+    },
+    {
+      "turkish": "ay",
+      "translation": {
+        "spanish": "mes"
+      },
+      "category": "Time",
+      "pronunciation": "mes"
+    },
+    {
+      "turkish": "yıl",
+      "translation": {
+        "spanish": "año"
+      },
+      "category": "Time",
+      "pronunciation": "an-yo"
+    },
+    {
+      "turkish": "takvim",
+      "translation": {
+        "spanish": "calendario"
+      },
+      "category": "Time",
+      "pronunciation": "ka-len-da-rio"
+    },
+    {
+      "turkish": "randevu",
+      "translation": {
+        "spanish": "cita"
+      },
+      "category": "Time",
+      "pronunciation": "si-ta"
+    },
+    {
+      "turkish": "pazartesi",
+      "translation": {
+        "spanish": "lunes"
+      },
+      "category": "Weekdays",
+      "pronunciation": "lu-nes"
+    },
+    {
+      "turkish": "salı",
+      "translation": {
+        "spanish": "martes"
+      },
+      "category": "Weekdays",
+      "pronunciation": "mar-tes"
+    },
+    {
+      "turkish": "çarşamba",
+      "translation": {
+        "spanish": "miércoles"
+      },
+      "category": "Weekdays",
+      "pronunciation": "myer-ko-les"
+    },
+    {
+      "turkish": "perşembe",
+      "translation": {
+        "spanish": "jueves"
+      },
+      "category": "Weekdays",
+      "pronunciation": "hwe-ves"
+    },
+    {
+      "turkish": "cuma",
+      "translation": {
+        "spanish": "viernes"
+      },
+      "category": "Weekdays",
+      "pronunciation": "byer-nes"
+    },
+    {
+      "turkish": "cumartesi",
+      "translation": {
+        "spanish": "sábado"
+      },
+      "category": "Weekdays",
+      "pronunciation": "sa-ba-do"
+    },
+    {
+      "turkish": "pazar",
+      "translation": {
+        "spanish": "domingo"
+      },
+      "category": "Weekdays",
+      "pronunciation": "do-ming-go"
+    },
+    {
+      "turkish": "sabah",
+      "translation": {
+        "spanish": "mañana"
+      },
+      "category": "Time",
+      "pronunciation": "ma-nya-na"
+    },
+    {
+      "turkish": "öğle",
+      "translation": {
+        "spanish": "mediodía"
+      },
+      "category": "Time",
+      "pronunciation": "me-dyo-di-a"
+    },
+    {
+      "turkish": "akşam",
+      "translation": {
+        "spanish": "tarde"
+      },
+      "category": "Time",
+      "pronunciation": "tar-de"
+    },
+    {
+      "turkish": "sabırlı",
+      "translation": {
+        "spanish": "paciente"
+      },
+      "category": "Feelings",
+      "pronunciation": "pa-syen-te"
+    },
+    {
+      "turkish": "sabırsız",
+      "translation": {
+        "spanish": "impaciente"
+      },
+      "category": "Feelings",
+      "pronunciation": "im-pa-syen-te"
+    },
+    {
+      "turkish": "nazik",
+      "translation": {
+        "spanish": "amable"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-ma-ble"
+    },
+    {
+      "turkish": "kaba",
+      "translation": {
+        "spanish": "grosero"
+      },
+      "category": "Feelings",
+      "pronunciation": "gro-se-ro"
+    },
+    {
+      "turkish": "mutlu",
+      "translation": {
+        "spanish": "feliz"
+      },
+      "category": "Feelings",
+      "pronunciation": "fe-lis"
+    },
+    {
+      "turkish": "mutsuz",
+      "translation": {
+        "spanish": "triste"
+      },
+      "category": "Feelings",
+      "pronunciation": "tris-te"
+    },
+    {
+      "turkish": "yalnız",
+      "translation": {
+        "spanish": "solo"
+      },
+      "category": "Feelings",
+      "pronunciation": "so-lo"
+    },
+    {
+      "turkish": "arkadaş canlısı",
+      "translation": {
+        "spanish": "sociable"
+      },
+      "category": "Feelings",
+      "pronunciation": "so-sya-ble"
+    },
+    {
+      "turkish": "içine kapanık",
+      "translation": {
+        "spanish": "introvertido"
+      },
+      "category": "Feelings",
+      "pronunciation": "in-tro-ver-ti-do"
+    },
+    {
+      "turkish": "dışa dönük",
+      "translation": {
+        "spanish": "extrovertido"
+      },
+      "category": "Feelings",
+      "pronunciation": "eks-tro-ver-ti-do"
+    },
+    {
+      "turkish": "tembel",
+      "translation": {
+        "spanish": "perezoso"
+      },
+      "category": "Everyday",
+      "pronunciation": "pe-re-so-so"
+    },
+    {
+      "turkish": "çalışkan",
+      "translation": {
+        "spanish": "trabajador"
+      },
+      "category": "Everyday",
+      "pronunciation": "tra-ba-ha-dor"
+    },
+    {
+      "turkish": "dikkatli",
+      "translation": {
+        "spanish": "cuidadoso"
+      },
+      "category": "Everyday",
+      "pronunciation": "kwi-da-do-so"
+    },
+    {
+      "turkish": "dalgın",
+      "translation": {
+        "spanish": "distraído"
+      },
+      "category": "Everyday",
+      "pronunciation": "dis-tra-i-do"
+    },
+    {
+      "turkish": "dürüst",
+      "translation": {
+        "spanish": "honesto"
+      },
+      "category": "Everyday",
+      "pronunciation": "o-nes-to"
+    },
+    {
+      "turkish": "yalancı",
+      "translation": {
+        "spanish": "mentiroso"
+      },
+      "category": "Everyday",
+      "pronunciation": "men-ti-ro-so"
+    },
+    {
+      "turkish": "cesur",
+      "translation": {
+        "spanish": "valiente"
+      },
+      "category": "Everyday",
+      "pronunciation": "va-lyen-te"
+    },
+    {
+      "turkish": "korkak",
+      "translation": {
+        "spanish": "miedoso"
+      },
+      "category": "Everyday",
+      "pronunciation": "mye-do-so"
+    },
+    {
+      "turkish": "zeki",
+      "translation": {
+        "spanish": "inteligente"
+      },
+      "category": "Everyday",
+      "pronunciation": "in-te-li-hen-te"
+    },
+    {
+      "turkish": "aptal",
+      "translation": {
+        "spanish": "tonto"
+      },
+      "category": "Everyday",
+      "pronunciation": "ton-to"
+    },
+    {
+      "turkish": "iş",
+      "translation": {
+        "spanish": "trabajo"
+      },
+      "category": "Work",
+      "pronunciation": "tra-ba-ho"
+    },
+    {
+      "turkish": "meslek",
+      "translation": {
+        "spanish": "profesión"
+      },
+      "category": "Work",
+      "pronunciation": "pro-fe-syon"
+    },
+    {
+      "turkish": "ofis",
+      "translation": {
+        "spanish": "oficina"
+      },
+      "category": "Work",
+      "pronunciation": "o-fi-si-na"
+    },
+    {
+      "turkish": "toplantı",
+      "translation": {
+        "spanish": "reunión"
+      },
+      "category": "Work",
+      "pronunciation": "re-u-nyon"
+    },
+    {
+      "turkish": "patron",
+      "translation": {
+        "spanish": "jefe"
+      },
+      "category": "Work",
+      "pronunciation": "he-fe"
+    },
+    {
+      "turkish": "çalışan",
+      "translation": {
+        "spanish": "empleado"
+      },
+      "category": "Work",
+      "pronunciation": "em-ple-a-do"
+    },
+    {
+      "turkish": "maaş",
+      "translation": {
+        "spanish": "sueldo"
+      },
+      "category": "Work",
+      "pronunciation": "swe-el-do"
+    },
+    {
+      "turkish": "izin",
+      "translation": {
+        "spanish": "permiso"
+      },
+      "category": "Work",
+      "pronunciation": "per-mi-so"
+    },
+    {
+      "turkish": "iş arkadaşı",
+      "translation": {
+        "spanish": "compañero de trabajo"
+      },
+      "category": "Work",
+      "pronunciation": "kom-pa-nye-ro de tra-ba-ho"
+    },
+    {
+      "turkish": "yönetici",
+      "translation": {
+        "spanish": "gerente"
+      },
+      "category": "Work",
+      "pronunciation": "he-ren-te"
+    },
+    {
+      "turkish": "yazıcı",
+      "translation": {
+        "spanish": "impresora"
+      },
+      "category": "Work",
+      "pronunciation": "im-pre-so-ra"
+    },
+    {
+      "turkish": "bilgisayar",
+      "translation": {
+        "spanish": "ordenador"
+      },
+      "category": "Work",
+      "pronunciation": "or-de-na-dor"
+    },
+    {
+      "turkish": "klavye",
+      "translation": {
+        "spanish": "teclado"
+      },
+      "category": "Work",
+      "pronunciation": "tek-la-do"
+    },
+    {
+      "turkish": "fare",
+      "translation": {
+        "spanish": "ratón"
+      },
+      "category": "Work",
+      "pronunciation": "ra-ton"
+    },
+    {
+      "turkish": "dosya",
+      "translation": {
+        "spanish": "archivo"
+      },
+      "category": "Work",
+      "pronunciation": "ar-çi-bo"
+    },
+    {
+      "turkish": "belge",
+      "translation": {
+        "spanish": "documento"
+      },
+      "category": "Work",
+      "pronunciation": "do-ku-men-to"
+    },
+    {
+      "turkish": "çalışmak",
+      "translation": {
+        "spanish": "trabajar"
+      },
+      "category": "Work",
+      "pronunciation": "tra-ba-har"
+    },
+    {
+      "turkish": "toplantıya katılmak",
+      "translation": {
+        "spanish": "asistir a una reunión"
+      },
+      "category": "Work",
+      "pronunciation": "a-sis-tir a u-na re-u-nyon"
+    },
+    {
+      "turkish": "rapor hazırlamak",
+      "translation": {
+        "spanish": "preparar un informe"
+      },
+      "category": "Work",
+      "pronunciation": "pre-pa-rar un in-for-me"
+    },
+    {
+      "turkish": "sunum yapmak",
+      "translation": {
+        "spanish": "hacer una presentación"
+      },
+      "category": "Work",
+      "pronunciation": "a-ser u-na pre-sen-ta-syon"
+    },
+    {
+      "turkish": "ev işi",
+      "translation": {
+        "spanish": "tarea doméstica"
+      },
+      "category": "Home",
+      "pronunciation": "ta-re-a do-mes-ti-ka"
+    },
+    {
+      "turkish": "temizlik",
+      "translation": {
+        "spanish": "limpieza"
+      },
+      "category": "Home",
+      "pronunciation": "lim-pye-tha"
+    },
+    {
+      "turkish": "çamaşır yıkamak",
+      "translation": {
+        "spanish": "lavar la ropa"
+      },
+      "category": "Home",
+      "pronunciation": "la-var la ro-pa"
+    },
+    {
+      "turkish": "ütü yapmak",
+      "translation": {
+        "spanish": "planchar"
+      },
+      "category": "Home",
+      "pronunciation": "plan-çar"
+    },
+    {
+      "turkish": "bulaşık yıkamak",
+      "translation": {
+        "spanish": "lavar los platos"
+      },
+      "category": "Home",
+      "pronunciation": "la-var los pla-tos"
+    },
+    {
+      "turkish": "süpürmek",
+      "translation": {
+        "spanish": "barrer"
+      },
+      "category": "Home",
+      "pronunciation": "ba-rer"
+    },
+    {
+      "turkish": "silmek",
+      "translation": {
+        "spanish": "limpiar"
+      },
+      "category": "Home",
+      "pronunciation": "lim-pyar"
+    },
+    {
+      "turkish": "pişirmek",
+      "translation": {
+        "spanish": "cocinar"
+      },
+      "category": "Home",
+      "pronunciation": "ko-si-nar"
+    },
+    {
+      "turkish": "alışveriş yapmak",
+      "translation": {
+        "spanish": "hacer compras"
+      },
+      "category": "Home",
+      "pronunciation": "a-ser kom-pras"
+    },
+    {
+      "turkish": "çöp atmak",
+      "translation": {
+        "spanish": "tirar la basura"
+      },
+      "category": "Home",
+      "pronunciation": "ti-rar la ba-su-ra"
+    },
+    {
+      "turkish": "yatak yapmak",
+      "translation": {
+        "spanish": "hacer la cama"
+      },
+      "category": "Home",
+      "pronunciation": "a-ser la ka-ma"
+    },
+    {
+      "turkish": "bahçe sulamak",
+      "translation": {
+        "spanish": "regar el jardín"
+      },
+      "category": "Home",
+      "pronunciation": "re-gar el har-din"
+    },
+    {
+      "turkish": "cam silmek",
+      "translation": {
+        "spanish": "limpiar las ventanas"
+      },
+      "category": "Home",
+      "pronunciation": "lim-pyar las ben-ta-nas"
+    },
+    {
+      "turkish": "toz almak",
+      "translation": {
+        "spanish": "quitar el polvo"
+      },
+      "category": "Home",
+      "pronunciation": "ki-tar el pol-bo"
+    },
+    {
+      "turkish": "ev süpürmek",
+      "translation": {
+        "spanish": "aspirar la casa"
+      },
+      "category": "Home",
+      "pronunciation": "as-pi-rar la ka-sa"
+    },
+    {
+      "turkish": "yemek hazırlamak",
+      "translation": {
+        "spanish": "preparar la comida"
+      },
+      "category": "Home",
+      "pronunciation": "pre-pa-rar la ko-mi-da"
+    },
+    {
+      "turkish": "bulaşık makinesi",
+      "translation": {
+        "spanish": "lavavajillas"
+      },
+      "category": "Home",
+      "pronunciation": "la-va-va-hi-yas"
+    },
+    {
+      "turkish": "çamaşır makinesi",
+      "translation": {
+        "spanish": "lavadora"
+      },
+      "category": "Home",
+      "pronunciation": "la-va-do-ra"
+    },
+    {
+      "turkish": "temizlik malzemesi",
+      "translation": {
+        "spanish": "producto de limpieza"
+      },
+      "category": "Home",
+      "pronunciation": "pro-duk-to de lim-pye-tha"
+    },
+    {
+      "turkish": "bez",
+      "translation": {
+        "spanish": "trapo"
+      },
+      "category": "Home",
+      "pronunciation": "tra-po"
+    },
+    {
+      "turkish": "televizyon",
+      "translation": {
+        "spanish": "televisor"
+      },
+      "category": "Technology",
+      "pronunciation": "te-le-bi-sor"
+    },
+    {
+      "turkish": "radyo",
+      "translation": {
+        "spanish": "radio"
+      },
+      "category": "Technology",
+      "pronunciation": "ra-dyo"
+    },
+    {
+      "turkish": "kamera",
+      "translation": {
+        "spanish": "cámara"
+      },
+      "category": "Technology",
+      "pronunciation": "ka-ma-ra"
+    },
+    {
+      "turkish": "şarj aleti",
+      "translation": {
+        "spanish": "cargador"
+      },
+      "category": "Technology",
+      "pronunciation": "kar-ga-dor"
+    },
+    {
+      "turkish": "kulaklık",
+      "translation": {
+        "spanish": "auriculares"
+      },
+      "category": "Technology",
+      "pronunciation": "au-ri-ku-la-res"
+    },
+    {
+      "turkish": "faks",
+      "translation": {
+        "spanish": "fax"
+      },
+      "category": "Technology",
+      "pronunciation": "faks"
+    },
+    {
+      "turkish": "tarayıcı",
+      "translation": {
+        "spanish": "escáner"
+      },
+      "category": "Technology",
+      "pronunciation": "es-ka-ner"
+    },
+    {
+      "turkish": "projektör",
+      "translation": {
+        "spanish": "proyector"
+      },
+      "category": "Technology",
+      "pronunciation": "pro-yek-tor"
+    },
+    {
+      "turkish": "hoparlör",
+      "translation": {
+        "spanish": "altavoz"
+      },
+      "category": "Technology",
+      "pronunciation": "al-ta-boz"
+    },
+    {
+      "turkish": "uzaktan kumanda",
+      "translation": {
+        "spanish": "control remoto"
+      },
+      "category": "Technology",
+      "pronunciation": "kon-trol re-mo-to"
+    },
+    {
+      "turkish": "kablosuz",
+      "translation": {
+        "spanish": "inalámbrico"
+      },
+      "category": "Technology",
+      "pronunciation": "i-na-lam-bri-ko"
+    },
+    {
+      "turkish": "bağlantı",
+      "translation": {
+        "spanish": "conexión"
+      },
+      "category": "Technology",
+      "pronunciation": "ko-nek-syon"
+    },
+    {
+      "turkish": "veri",
+      "translation": {
+        "spanish": "datos"
+      },
+      "category": "Technology",
+      "pronunciation": "da-tos"
+    },
+    {
+      "turkish": "ayar",
+      "translation": {
+        "spanish": "ajuste"
+      },
+      "category": "Technology",
+      "pronunciation": "a-hus-te"
+    },
+    {
+      "turkish": "dosya",
+      "translation": {
+        "spanish": "archivo"
+      },
+      "category": "Technology",
+      "pronunciation": "ar-çi-bo"
+    },
+    {
+      "turkish": "program",
+      "translation": {
+        "spanish": "programa"
+      },
+      "category": "Technology",
+      "pronunciation": "pro-gra-ma"
+    },
+    {
+      "turkish": "sinyal",
+      "translation": {
+        "spanish": "señal"
+      },
+      "category": "Technology",
+      "pronunciation": "se-nyal"
+    },
+    {
+      "turkish": "ekran kartı",
+      "translation": {
+        "spanish": "tarjeta gráfica"
+      },
+      "category": "Technology",
+      "pronunciation": "tar-he-ta gra-fi-ka"
+    },
+    {
+      "turkish": "işlemci",
+      "translation": {
+        "spanish": "procesador"
+      },
+      "category": "Technology",
+      "pronunciation": "pro-se-sa-dor"
+    },
+    {
+      "turkish": "bellek",
+      "translation": {
+        "spanish": "memoria"
+      },
+      "category": "Technology",
+      "pronunciation": "me-mo-ria"
+    },
+    {
+      "turkish": "sevinç",
+      "translation": {
+        "spanish": "alegría"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-le-gri-a"
+    },
+    {
+      "turkish": "üzüntü",
+      "translation": {
+        "spanish": "tristeza"
+      },
+      "category": "Feelings",
+      "pronunciation": "tris-te-tha"
+    },
+    {
+      "turkish": "öfke",
+      "translation": {
+        "spanish": "ira"
+      },
+      "category": "Feelings",
+      "pronunciation": "i-ra"
+    },
+    {
+      "turkish": "heyecan",
+      "translation": {
+        "spanish": "emoción"
+      },
+      "category": "Feelings",
+      "pronunciation": "e-mo-thyon"
+    },
+    {
+      "turkish": "nefret",
+      "translation": {
+        "spanish": "odio"
+      },
+      "category": "Feelings",
+      "pronunciation": "o-dyo"
+    },
+    {
+      "turkish": "sevgi",
+      "translation": {
+        "spanish": "amor"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-mor"
+    },
+    {
+      "turkish": "saygı",
+      "translation": {
+        "spanish": "respeto"
+      },
+      "category": "Feelings",
+      "pronunciation": "res-pe-to"
+    },
+    {
+      "turkish": "utanma",
+      "translation": {
+        "spanish": "vergüenza"
+      },
+      "category": "Feelings",
+      "pronunciation": "ber-guen-tha"
+    },
+    {
+      "turkish": "kıskançlık",
+      "translation": {
+        "spanish": "celos"
+      },
+      "category": "Feelings",
+      "pronunciation": "se-los"
+    },
+    {
+      "turkish": "şefkat",
+      "translation": {
+        "spanish": "ternura"
+      },
+      "category": "Feelings",
+      "pronunciation": "ter-nu-ra"
+    },
+    {
+      "turkish": "selamlaşmak",
+      "translation": {
+        "spanish": "saludarse"
+      },
+      "category": "Communication",
+      "pronunciation": "sa-lu-dar-se"
+    },
+    {
+      "turkish": "vedalaşmak",
+      "translation": {
+        "spanish": "despedirse"
+      },
+      "category": "Communication",
+      "pronunciation": "des-pe-dir-se"
+    },
+    {
+      "turkish": "sormak",
+      "translation": {
+        "spanish": "preguntar"
+      },
+      "category": "Communication",
+      "pronunciation": "pre-gun-tar"
+    },
+    {
+      "turkish": "cevaplamak",
+      "translation": {
+        "spanish": "responder"
+      },
+      "category": "Communication",
+      "pronunciation": "res-pon-der"
+    },
+    {
+      "turkish": "dinlemek",
+      "translation": {
+        "spanish": "escuchar"
+      },
+      "category": "Communication",
+      "pronunciation": "es-ku-çar"
+    },
+    {
+      "turkish": "anlatmak",
+      "translation": {
+        "spanish": "explicar"
+      },
+      "category": "Communication",
+      "pronunciation": "eks-pli-kar"
+    },
+    {
+      "turkish": "tartışmak",
+      "translation": {
+        "spanish": "discutir"
+      },
+      "category": "Communication",
+      "pronunciation": "dis-ku-tir"
+    },
+    {
+      "turkish": "susmak",
+      "translation": {
+        "spanish": "callar"
+      },
+      "category": "Communication",
+      "pronunciation": "ka-yar"
+    },
+    {
+      "turkish": "bağırmak",
+      "translation": {
+        "spanish": "gritar"
+      },
+      "category": "Communication",
+      "pronunciation": "gri-tar"
+    },
+    {
+      "turkish": "anlaşmak",
+      "translation": {
+        "spanish": "entenderse"
+      },
+      "category": "Communication",
+      "pronunciation": "en-ten-der-se"
+    },
+    {
+      "turkish": "baş",
+      "translation": {
+        "spanish": "cabeza"
+      },
+      "category": "Body",
+      "pronunciation": "ka-be-sa"
+    },
+    {
+      "turkish": "göz",
+      "translation": {
+        "spanish": "ojo"
+      },
+      "category": "Body",
+      "pronunciation": "o-ho"
+    },
+    {
+      "turkish": "kulak",
+      "translation": {
+        "spanish": "oreja"
+      },
+      "category": "Body",
+      "pronunciation": "o-re-ha"
+    },
+    {
+      "turkish": "burun",
+      "translation": {
+        "spanish": "nariz"
+      },
+      "category": "Body",
+      "pronunciation": "na-ris"
+    },
+    {
+      "turkish": "ağız",
+      "translation": {
+        "spanish": "boca"
+      },
+      "category": "Body",
+      "pronunciation": "bo-ka"
+    },
+    {
+      "turkish": "diş",
+      "translation": {
+        "spanish": "diente"
+      },
+      "category": "Body",
+      "pronunciation": "dyen-te"
+    },
+    {
+      "turkish": "boyun",
+      "translation": {
+        "spanish": "cuello"
+      },
+      "category": "Body",
+      "pronunciation": "kwe-lyo"
+    },
+    {
+      "turkish": "omuz",
+      "translation": {
+        "spanish": "hombro"
+      },
+      "category": "Body",
+      "pronunciation": "om-bro"
+    },
+    {
+      "turkish": "kol",
+      "translation": {
+        "spanish": "brazo"
+      },
+      "category": "Body",
+      "pronunciation": "bra-so"
+    },
+    {
+      "turkish": "el",
+      "translation": {
+        "spanish": "mano"
+      },
+      "category": "Body",
+      "pronunciation": "ma-no"
+    },
+    {
+      "turkish": "parmak",
+      "translation": {
+        "spanish": "dedo"
+      },
+      "category": "Body",
+      "pronunciation": "de-do"
+    },
+    {
+      "turkish": "bacak",
+      "translation": {
+        "spanish": "pierna"
+      },
+      "category": "Body",
+      "pronunciation": "pye-rna"
+    },
+    {
+      "turkish": "ayak",
+      "translation": {
+        "spanish": "pie"
+      },
+      "category": "Body",
+      "pronunciation": "pye"
+    },
+    {
+      "turkish": "kalp",
+      "translation": {
+        "spanish": "corazón"
+      },
+      "category": "Body",
+      "pronunciation": "ko-ra-son"
+    },
+    {
+      "turkish": "mide",
+      "translation": {
+        "spanish": "estómago"
+      },
+      "category": "Body",
+      "pronunciation": "es-to-ma-go"
+    },
+    {
+      "turkish": "ciğer",
+      "translation": {
+        "spanish": "pulmón"
+      },
+      "category": "Body",
+      "pronunciation": "pul-mon"
+    },
+    {
+      "turkish": "kas",
+      "translation": {
+        "spanish": "músculo"
+      },
+      "category": "Body",
+      "pronunciation": "mus-ku-lo"
+    },
+    {
+      "turkish": "kemik",
+      "translation": {
+        "spanish": "hueso"
+      },
+      "category": "Body",
+      "pronunciation": "we-so"
+    },
+    {
+      "turkish": "ten",
+      "translation": {
+        "spanish": "piel"
+      },
+      "category": "Body",
+      "pronunciation": "piyel"
+    },
+    {
+      "turkish": "saç",
+      "translation": {
+        "spanish": "pelo"
+      },
+      "category": "Body",
+      "pronunciation": "pe-lo"
+    },
+    {
+      "turkish": "hastane",
+      "translation": {
+        "spanish": "hospital"
+      },
+      "category": "Health",
+      "pronunciation": "os-pi-tal"
+    },
+    {
+      "turkish": "doktor",
+      "translation": {
+        "spanish": "médico"
+      },
+      "category": "Health",
+      "pronunciation": "me-di-ko"
+    },
+    {
+      "turkish": "hemşire",
+      "translation": {
+        "spanish": "enfermera"
+      },
+      "category": "Health",
+      "pronunciation": "en-fer-me-ra"
+    },
+    {
+      "turkish": "eczane",
+      "translation": {
+        "spanish": "farmacia"
+      },
+      "category": "Health",
+      "pronunciation": "far-ma-thya"
+    },
+    {
+      "turkish": "ilaç",
+      "translation": {
+        "spanish": "medicina"
+      },
+      "category": "Health",
+      "pronunciation": "me-di-thi-na"
+    },
+    {
+      "turkish": "reçete",
+      "translation": {
+        "spanish": "receta"
+      },
+      "category": "Health",
+      "pronunciation": "re-se-ta"
+    },
+    {
+      "turkish": "muayene",
+      "translation": {
+        "spanish": "examen"
+      },
+      "category": "Health",
+      "pronunciation": "ek-sa-men"
+    },
+    {
+      "turkish": "ağrı",
+      "translation": {
+        "spanish": "dolor"
+      },
+      "category": "Health",
+      "pronunciation": "do-lor"
+    },
+    {
+      "turkish": "ateş",
+      "translation": {
+        "spanish": "fiebre"
+      },
+      "category": "Health",
+      "pronunciation": "fye-bre"
+    },
+    {
+      "turkish": "öksürük",
+      "translation": {
+        "spanish": "tos"
+      },
+      "category": "Health",
+      "pronunciation": "tos"
+    },
+    {
+      "turkish": "soğuk algınlığı",
+      "translation": {
+        "spanish": "resfriado"
+      },
+      "category": "Health",
+      "pronunciation": "res-fri-a-do"
+    },
+    {
+      "turkish": "grip",
+      "translation": {
+        "spanish": "gripe"
+      },
+      "category": "Health",
+      "pronunciation": "gri-pe"
+    },
+    {
+      "turkish": "baş ağrısı",
+      "translation": {
+        "spanish": "dolor de cabeza"
+      },
+      "category": "Health",
+      "pronunciation": "do-lor de ka-be-sa"
+    },
+    {
+      "turkish": "karın ağrısı",
+      "translation": {
+        "spanish": "dolor de estómago"
+      },
+      "category": "Health",
+      "pronunciation": "do-lor de es-to-ma-go"
+    },
+    {
+      "turkish": "yaralanma",
+      "translation": {
+        "spanish": "lesión"
+      },
+      "category": "Health",
+      "pronunciation": "le-syon"
+    },
+    {
+      "turkish": "kırık",
+      "translation": {
+        "spanish": "fractura"
+      },
+      "category": "Health",
+      "pronunciation": "frak-tu-ra"
+    },
+    {
+      "turkish": "burkulma",
+      "translation": {
+        "spanish": "esguince"
+      },
+      "category": "Health",
+      "pronunciation": "es-gin-the"
+    },
+    {
+      "turkish": "dikiş",
+      "translation": {
+        "spanish": "punto"
+      },
+      "category": "Health",
+      "pronunciation": "pun-to"
+    },
+    {
+      "turkish": "ameliyat",
+      "translation": {
+        "spanish": "cirugía"
+      },
+      "category": "Health",
+      "pronunciation": "si-ru-hi-a"
+    },
+    {
+      "turkish": "sağlık",
+      "translation": {
+        "spanish": "salud"
+      },
+      "category": "Health",
+      "pronunciation": "sa-lud"
+    },
+    {
+      "turkish": "şehir",
+      "translation": {
+        "spanish": "ciudad"
+      },
+      "category": "Places",
+      "pronunciation": "syu-dad"
+    },
+    {
+      "turkish": "köy",
+      "translation": {
+        "spanish": "pueblo"
+      },
+      "category": "Places",
+      "pronunciation": "pwe-blo"
+    },
+    {
+      "turkish": "kasaba",
+      "translation": {
+        "spanish": "villa"
+      },
+      "category": "Places",
+      "pronunciation": "vi-ya"
+    },
+    {
+      "turkish": "sokak",
+      "translation": {
+        "spanish": "calle"
+      },
+      "category": "Places",
+      "pronunciation": "ka-ye"
+    },
+    {
+      "turkish": "cadde",
+      "translation": {
+        "spanish": "avenida"
+      },
+      "category": "Places",
+      "pronunciation": "a-ve-ni-da"
+    },
+    {
+      "turkish": "meydan",
+      "translation": {
+        "spanish": "plaza"
+      },
+      "category": "Places",
+      "pronunciation": "pla-tha"
+    },
+    {
+      "turkish": "market",
+      "translation": {
+        "spanish": "mercado"
+      },
+      "category": "Places",
+      "pronunciation": "mer-ka-do"
+    },
+    {
+      "turkish": "kütüphane",
+      "translation": {
+        "spanish": "biblioteca"
+      },
+      "category": "Places",
+      "pronunciation": "bi-blio-te-ka"
+    },
+    {
+      "turkish": "sinema",
+      "translation": {
+        "spanish": "cine"
+      },
+      "category": "Places",
+      "pronunciation": "si-ne"
+    },
+    {
+      "turkish": "tiyatro",
+      "translation": {
+        "spanish": "teatro"
+      },
+      "category": "Places",
+      "pronunciation": "te-a-tro"
+    },
+    {
+      "turkish": "restoran",
+      "translation": {
+        "spanish": "restaurante"
+      },
+      "category": "Places",
+      "pronunciation": "res-tau-ran-te"
+    },
+    {
+      "turkish": "kafe",
+      "translation": {
+        "spanish": "cafetería"
+      },
+      "category": "Places",
+      "pronunciation": "ka-fe-te-ri-a"
+    },
+    {
+      "turkish": "park",
+      "translation": {
+        "spanish": "parque"
+      },
+      "category": "Places",
+      "pronunciation": "par-ke"
+    },
+    {
+      "turkish": "bahçe",
+      "translation": {
+        "spanish": "jardín"
+      },
+      "category": "Places",
+      "pronunciation": "har-din"
+    },
+    {
+      "turkish": "havaalanı",
+      "translation": {
+        "spanish": "aeropuerto"
+      },
+      "category": "Places",
+      "pronunciation": "a-e-ro-pwer-to"
+    },
+    {
+      "turkish": "tren istasyonu",
+      "translation": {
+        "spanish": "estación de tren"
+      },
+      "category": "Places",
+      "pronunciation": "es-ta-syon de tren"
+    },
+    {
+      "turkish": "otobüs durağı",
+      "translation": {
+        "spanish": "parada de autobús"
+      },
+      "category": "Places",
+      "pronunciation": "pa-ra-da de aw-to-bus"
+    },
+    {
+      "turkish": "benzin istasyonu",
+      "translation": {
+        "spanish": "gasolinera"
+      },
+      "category": "Places",
+      "pronunciation": "ga-so-li-ne-ra"
+    },
+    {
+      "turkish": "polis merkezi",
+      "translation": {
+        "spanish": "comisaría"
+      },
+      "category": "Places",
+      "pronunciation": "ko-mi-sa-ri-a"
+    },
+    {
+      "turkish": "belediye binası",
+      "translation": {
+        "spanish": "ayuntamiento"
+      },
+      "category": "Places",
+      "pronunciation": "a-yun-ta-myen-to"
+    },
+    {
+      "turkish": "aile",
+      "translation": {
+        "spanish": "familia"
+      },
+      "category": "Family",
+      "pronunciation": "fa-mi-lia"
+    },
+    {
+      "turkish": "anne",
+      "translation": {
+        "spanish": "madre"
+      },
+      "category": "Family",
+      "pronunciation": "ma-dre"
+    },
+    {
+      "turkish": "baba",
+      "translation": {
+        "spanish": "padre"
+      },
+      "category": "Family",
+      "pronunciation": "pa-dre"
+    },
+    {
+      "turkish": "kardeş",
+      "translation": {
+        "spanish": "hermano"
+      },
+      "category": "Family",
+      "pronunciation": "er-ma-no"
+    },
+    {
+      "turkish": "abi",
+      "translation": {
+        "spanish": "hermano mayor"
+      },
+      "category": "Family",
+      "pronunciation": "er-ma-no ma-yor"
+    },
+    {
+      "turkish": "abla",
+      "translation": {
+        "spanish": "hermana mayor"
+      },
+      "category": "Family",
+      "pronunciation": "er-ma-na ma-yor"
+    },
+    {
+      "turkish": "çocuk",
+      "translation": {
+        "spanish": "niño"
+      },
+      "category": "Family",
+      "pronunciation": "ni-nyo"
+    },
+    {
+      "turkish": "kız çocuk",
+      "translation": {
+        "spanish": "niña"
+      },
+      "category": "Family",
+      "pronunciation": "ni-nya"
+    },
+    {
+      "turkish": "erkek çocuk",
+      "translation": {
+        "spanish": "niño"
+      },
+      "category": "Family",
+      "pronunciation": "ni-nyo"
+    },
+    {
+      "turkish": "bebek",
+      "translation": {
+        "spanish": "bebé"
+      },
+      "category": "Family",
+      "pronunciation": "be-be"
+    },
+    {
+      "turkish": "dede",
+      "translation": {
+        "spanish": "abuelo"
+      },
+      "category": "Family",
+      "pronunciation": "a-bwe-lo"
+    },
+    {
+      "turkish": "nine",
+      "translation": {
+        "spanish": "abuela"
+      },
+      "category": "Family",
+      "pronunciation": "a-bwe-la"
+    },
+    {
+      "turkish": "torun",
+      "translation": {
+        "spanish": "nieto"
+      },
+      "category": "Family",
+      "pronunciation": "nye-to"
+    },
+    {
+      "turkish": "amca",
+      "translation": {
+        "spanish": "tío (paterno)"
+      },
+      "category": "Family",
+      "pronunciation": "ti-o pa-ter-no"
+    },
+    {
+      "turkish": "hala",
+      "translation": {
+        "spanish": "tía (paterna)"
+      },
+      "category": "Family",
+      "pronunciation": "ti-a pa-ter-na"
+    },
+    {
+      "turkish": "dayı",
+      "translation": {
+        "spanish": "tío (materno)"
+      },
+      "category": "Family",
+      "pronunciation": "ti-o ma-ter-no"
+    },
+    {
+      "turkish": "teyze",
+      "translation": {
+        "spanish": "tía (materna)"
+      },
+      "category": "Family",
+      "pronunciation": "ti-a ma-ter-na"
+    },
+    {
+      "turkish": "kuzen",
+      "translation": {
+        "spanish": "primo"
+      },
+      "category": "Family",
+      "pronunciation": "pri-mo"
+    },
+    {
+      "turkish": "karı",
+      "translation": {
+        "spanish": "esposa"
+      },
+      "category": "Family",
+      "pronunciation": "es-po-sa"
+    },
+    {
+      "turkish": "koca",
+      "translation": {
+        "spanish": "esposo"
+      },
+      "category": "Family",
+      "pronunciation": "es-po-so"
+    },
+    {
+      "turkish": "mutlu",
+      "translation": {
+        "spanish": "feliz"
+      },
+      "category": "Feelings",
+      "pronunciation": "fe-lis"
+    },
+    {
+      "turkish": "üzgün",
+      "translation": {
+        "spanish": "triste"
+      },
+      "category": "Feelings",
+      "pronunciation": "tris-te"
+    },
+    {
+      "turkish": "sinirli",
+      "translation": {
+        "spanish": "enojado"
+      },
+      "category": "Feelings",
+      "pronunciation": "e-no-ha-do"
+    },
+    {
+      "turkish": "sakin",
+      "translation": {
+        "spanish": "tranquilo"
+      },
+      "category": "Feelings",
+      "pronunciation": "tran-ki-lo"
+    },
+    {
+      "turkish": "neşeli",
+      "translation": {
+        "spanish": "alegre"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-le-gre"
+    },
+    {
+      "turkish": "şaşkın",
+      "translation": {
+        "spanish": "sorprendido"
+      },
+      "category": "Feelings",
+      "pronunciation": "sor-pren-di-do"
+    },
+    {
+      "turkish": "utanmış",
+      "translation": {
+        "spanish": "avergonzado"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-ber-gon-tha-do"
+    },
+    {
+      "turkish": "korkmuş",
+      "translation": {
+        "spanish": "asustado"
+      },
+      "category": "Feelings",
+      "pronunciation": "a-sus-ta-do"
+    },
+    {
+      "turkish": "yorgun",
+      "translation": {
+        "spanish": "cansado"
+      },
+      "category": "Feelings",
+      "pronunciation": "kan-sa-do"
+    },
+    {
+      "turkish": "heyecanlı",
+      "translation": {
+        "spanish": "emocionado"
+      },
+      "category": "Feelings",
+      "pronunciation": "e-mo-thyo-na-do"
+    },
+    {
+      "turkish": "sabırlı",
+      "translation": {
+        "spanish": "paciente"
+      },
+      "category": "Character",
+      "pronunciation": "pa-syen-te"
+    },
+    {
+      "turkish": "sabırsız",
+      "translation": {
+        "spanish": "impaciente"
+      },
+      "category": "Character",
+      "pronunciation": "im-pa-syen-te"
+    },
+    {
+      "turkish": "yardımsever",
+      "translation": {
+        "spanish": "servicial"
+      },
+      "category": "Character",
+      "pronunciation": "ser-vi-thyal"
+    },
+    {
+      "turkish": "bencil",
+      "translation": {
+        "spanish": "egoísta"
+      },
+      "category": "Character",
+      "pronunciation": "e-go-is-ta"
+    },
+    {
+      "turkish": "dürüst",
+      "translation": {
+        "spanish": "honesto"
+      },
+      "category": "Character",
+      "pronunciation": "o-nes-to"
+    },
+    {
+      "turkish": "yalancı",
+      "translation": {
+        "spanish": "mentiroso"
+      },
+      "category": "Character",
+      "pronunciation": "men-ti-ro-so"
+    },
+    {
+      "turkish": "komik",
+      "translation": {
+        "spanish": "gracioso"
+      },
+      "category": "Character",
+      "pronunciation": "gra-syo-so"
+    },
+    {
+      "turkish": "ciddi",
+      "translation": {
+        "spanish": "serio"
+      },
+      "category": "Character",
+      "pronunciation": "se-rio"
+    },
+    {
+      "turkish": "kibar",
+      "translation": {
+        "spanish": "educado"
+      },
+      "category": "Character",
+      "pronunciation": "e-du-ka-do"
+    },
+    {
+      "turkish": "kaba",
+      "translation": {
+        "spanish": "grosero"
+      },
+      "category": "Character",
+      "pronunciation": "gro-se-ro"
+    },
+    {
+      "turkish": "doğa",
+      "translation": {
+        "spanish": "naturaleza"
+      },
+      "category": "Nature",
+      "pronunciation": "na-tu-ra-le-tha"
+    },
+    {
+      "turkish": "ağaç",
+      "translation": {
+        "spanish": "árbol"
+      },
+      "category": "Nature",
+      "pronunciation": "ar-bol"
+    },
+    {
+      "turkish": "orman",
+      "translation": {
+        "spanish": "bosque"
+      },
+      "category": "Nature",
+      "pronunciation": "bos-ke"
+    },
+    {
+      "turkish": "dağ",
+      "translation": {
+        "spanish": "montaña"
+      },
+      "category": "Nature",
+      "pronunciation": "mon-ta-nya"
+    },
+    {
+      "turkish": "göl",
+      "translation": {
+        "spanish": "lago"
+      },
+      "category": "Nature",
+      "pronunciation": "la-go"
+    },
+    {
+      "turkish": "deniz",
+      "translation": {
+        "spanish": "mar"
+      },
+      "category": "Nature",
+      "pronunciation": "mar"
+    },
+    {
+      "turkish": "nehir",
+      "translation": {
+        "spanish": "río"
+      },
+      "category": "Nature",
+      "pronunciation": "ri-o"
+    },
+    {
+      "turkish": "çöl",
+      "translation": {
+        "spanish": "desierto"
+      },
+      "category": "Nature",
+      "pronunciation": "de-syer-to"
+    },
+    {
+      "turkish": "hava",
+      "translation": {
+        "spanish": "clima"
+      },
+      "category": "Nature",
+      "pronunciation": "kli-ma"
+    },
+    {
+      "turkish": "yağmur",
+      "translation": {
+        "spanish": "lluvia"
+      },
+      "category": "Nature",
+      "pronunciation": "yu-vya"
+    },
+    {
+      "turkish": "kar",
+      "translation": {
+        "spanish": "nieve"
+      },
+      "category": "Nature",
+      "pronunciation": "nye-be"
+    },
+    {
+      "turkish": "güneş",
+      "translation": {
+        "spanish": "sol"
+      },
+      "category": "Nature",
+      "pronunciation": "sol"
+    },
+    {
+      "turkish": "rüzgar",
+      "translation": {
+        "spanish": "viento"
+      },
+      "category": "Nature",
+      "pronunciation": "byen-to"
+    },
+    {
+      "turkish": "toprak",
+      "translation": {
+        "spanish": "tierra"
+      },
+      "category": "Nature",
+      "pronunciation": "tyer-ra"
+    },
+    {
+      "turkish": "hayvan",
+      "translation": {
+        "spanish": "animal"
+      },
+      "category": "Nature",
+      "pronunciation": "a-ni-mal"
+    },
+    {
+      "turkish": "bitki",
+      "translation": {
+        "spanish": "planta"
+      },
+      "category": "Nature",
+      "pronunciation": "plan-ta"
+    },
+    {
+      "turkish": "çiçek",
+      "translation": {
+        "spanish": "flor"
+      },
+      "category": "Nature",
+      "pronunciation": "flor"
+    },
+    {
+      "turkish": "ormanlık",
+      "translation": {
+        "spanish": "boscoso"
+      },
+      "category": "Nature",
+      "pronunciation": "bos-ko-so"
+    },
+    {
+      "turkish": "kirlilik",
+      "translation": {
+        "spanish": "contaminación"
+      },
+      "category": "Nature",
+      "pronunciation": "kon-ta-mi-na-thyon"
+    },
+    {
+      "turkish": "doğal",
+      "translation": {
+        "spanish": "natural"
+      },
+      "category": "Nature",
+      "pronunciation": "na-tu-ral"
+    },
+    {
+      "turkish": "araba",
+      "translation": {
+        "spanish": "coche"
+      },
+      "category": "Transport",
+      "pronunciation": "ko-çe"
+    },
+    {
+      "turkish": "otobüs",
+      "translation": {
+        "spanish": "autobús"
+      },
+      "category": "Transport",
+      "pronunciation": "aw-to-bus"
+    },
+    {
+      "turkish": "tren",
+      "translation": {
+        "spanish": "tren"
+      },
+      "category": "Transport",
+      "pronunciation": "tren"
+    },
+    {
+      "turkish": "uçak",
+      "translation": {
+        "spanish": "avión"
+      },
+      "category": "Transport",
+      "pronunciation": "a-vyon"
+    },
+    {
+      "turkish": "gemi",
+      "translation": {
+        "spanish": "barco"
+      },
+      "category": "Transport",
+      "pronunciation": "bar-ko"
+    },
+    {
+      "turkish": "bisiklet",
+      "translation": {
+        "spanish": "bicicleta"
+      },
+      "category": "Transport",
+      "pronunciation": "bi-thi-kle-ta"
+    },
+    {
+      "turkish": "motor",
+      "translation": {
+        "spanish": "moto"
+      },
+      "category": "Transport",
+      "pronunciation": "mo-to"
+    },
+    {
+      "turkish": "taksi",
+      "translation": {
+        "spanish": "taxi"
+      },
+      "category": "Transport",
+      "pronunciation": "tak-si"
+    },
+    {
+      "turkish": "metro",
+      "translation": {
+        "spanish": "metro"
+      },
+      "category": "Transport",
+      "pronunciation": "me-tro"
+    },
+    {
+      "turkish": "tramvay",
+      "translation": {
+        "spanish": "tranvía"
+      },
+      "category": "Transport",
+      "pronunciation": "tran-vya"
+    },
+    {
+      "turkish": "yol",
+      "translation": {
+        "spanish": "camino"
+      },
+      "category": "Transport",
+      "pronunciation": "ka-mi-no"
+    },
+    {
+      "turkish": "köprü",
+      "translation": {
+        "spanish": "puente"
+      },
+      "category": "Transport",
+      "pronunciation": "pwen-te"
+    },
+    {
+      "turkish": "trafik",
+      "translation": {
+        "spanish": "tráfico"
+      },
+      "category": "Transport",
+      "pronunciation": "tra-fi-ko"
+    },
+    {
+      "turkish": "durak",
+      "translation": {
+        "spanish": "parada"
+      },
+      "category": "Transport",
+      "pronunciation": "pa-ra-da"
+    },
+    {
+      "turkish": "bilet",
+      "translation": {
+        "spanish": "billete"
+      },
+      "category": "Transport",
+      "pronunciation": "bi-ye-te"
+    },
+    {
+      "turkish": "havaalanı",
+      "translation": {
+        "spanish": "aeropuerto"
+      },
+      "category": "Transport",
+      "pronunciation": "a-e-ro-pwer-to"
+    },
+    {
+      "turkish": "istasyon",
+      "translation": {
+        "spanish": "estación"
+      },
+      "category": "Transport",
+      "pronunciation": "es-ta-syon"
+    },
+    {
+      "turkish": "rotar",
+      "translation": {
+        "spanish": "retrasarse"
+      },
+      "category": "Transport",
+      "pronunciation": "re-tras-ar-se"
+    },
+    {
+      "turkish": "kaza",
+      "translation": {
+        "spanish": "accidente"
+      },
+      "category": "Transport",
+      "pronunciation": "ak-thi-den-te"
+    },
+    {
+      "turkish": "sürücü",
+      "translation": {
+        "spanish": "conductor"
+      },
+      "category": "Transport",
+      "pronunciation": "kon-duk-tor"
+    },
+    {
+      "turkish": "kitap okumak",
+      "translation": {
+        "spanish": "leer libros"
+      },
+      "category": "Leisure",
+      "pronunciation": "le-er li-bros"
+    },
+    {
+      "turkish": "film izlemek",
+      "translation": {
+        "spanish": "ver películas"
+      },
+      "category": "Leisure",
+      "pronunciation": "ber pe-li-ku-las"
+    },
+    {
+      "turkish": "müzik dinlemek",
+      "translation": {
+        "spanish": "escuchar música"
+      },
+      "category": "Leisure",
+      "pronunciation": "es-ku-çar mu-si-ka"
+    },
+    {
+      "turkish": "resim yapmak",
+      "translation": {
+        "spanish": "pintar"
+      },
+      "category": "Leisure",
+      "pronunciation": "pin-tar"
+    },
+    {
+      "turkish": "yüzmek",
+      "translation": {
+        "spanish": "nadar"
+      },
+      "category": "Leisure",
+      "pronunciation": "na-dar"
+    },
+    {
+      "turkish": "koşmak",
+      "translation": {
+        "spanish": "correr"
+      },
+      "category": "Leisure",
+      "pronunciation": "ko-rer"
+    },
+    {
+      "turkish": "yürümek",
+      "translation": {
+        "spanish": "caminar"
+      },
+      "category": "Leisure",
+      "pronunciation": "ka-mi-nar"
+    },
+    {
+      "turkish": "oyun oynamak",
+      "translation": {
+        "spanish": "jugar"
+      },
+      "category": "Leisure",
+      "pronunciation": "hu-gar"
+    },
+    {
+      "turkish": "yemek yapmak",
+      "translation": {
+        "spanish": "cocinar"
+      },
+      "category": "Leisure",
+      "pronunciation": "ko-si-nar"
+    },
+    {
+      "turkish": "fotoğraf çekmek",
+      "translation": {
+        "spanish": "sacar fotos"
+      },
+      "category": "Leisure",
+      "pronunciation": "sa-kar fo-tos"
+    },
+    {
+      "turkish": "dans etmek",
+      "translation": {
+        "spanish": "bailar"
+      },
+      "category": "Leisure",
+      "pronunciation": "bay-lar"
+    },
+    {
+      "turkish": "yazı yazmak",
+      "translation": {
+        "spanish": "escribir"
+      },
+      "category": "Leisure",
+      "pronunciation": "es-kri-bir"
+    },
+    {
+      "turkish": "bahçeyle uğraşmak",
+      "translation": {
+        "spanish": "jardinería"
+      },
+      "category": "Leisure",
+      "pronunciation": "har-di-ne-ri-a"
+    },
+    {
+      "turkish": "balık tutmak",
+      "translation": {
+        "spanish": "pescar"
+      },
+      "category": "Leisure",
+      "pronunciation": "pes-kar"
+    },
+    {
+      "turkish": "dağa tırmanmak",
+      "translation": {
+        "spanish": "escalar montañas"
+      },
+      "category": "Leisure",
+      "pronunciation": "es-ka-lar mon-ta-nyas"
+    },
+    {
+      "turkish": "alışveriş yapmak",
+      "translation": {
+        "spanish": "ir de compras"
+      },
+      "category": "Leisure",
+      "pronunciation": "ir de kom-pras"
+    },
+    {
+      "turkish": "arkadaşlarla buluşmak",
+      "translation": {
+        "spanish": "reunirse con amigos"
+      },
+      "category": "Leisure",
+      "pronunciation": "reu-nir-se kon a-mi-gos"
+    },
+    {
+      "turkish": "yeni şeyler öğrenmek",
+      "translation": {
+        "spanish": "aprender cosas nuevas"
+      },
+      "category": "Leisure",
+      "pronunciation": "a-pren-der ko-sas nwe-vas"
+    },
+    {
+      "turkish": "bulmaca çözmek",
+      "translation": {
+        "spanish": "resolver crucigramas"
+      },
+      "category": "Leisure",
+      "pronunciation": "re-sol-ver kru-thi-gra-mas"
+    },
+    {
+      "turkish": "internette gezinmek",
+      "translation": {
+        "spanish": "navegar por internet"
+      },
+      "category": "Leisure",
+      "pronunciation": "na-ve-gar por in-ter-net"
+    },
+    {
+      "turkish": "bilgisayar",
+      "translation": {
+        "spanish": "ordenador"
+      },
+      "category": "Technology",
+      "pronunciation": "or-de-na-dor"
+    },
+    {
+      "turkish": "telefon",
+      "translation": {
+        "spanish": "teléfono"
+      },
+      "category": "Technology",
+      "pronunciation": "te-le-fo-no"
+    },
+    {
+      "turkish": "tablet",
+      "translation": {
+        "spanish": "tableta"
+      },
+      "category": "Technology",
+      "pronunciation": "ta-ble-ta"
+    },
+    {
+      "turkish": "internet",
+      "translation": {
+        "spanish": "internet"
+      },
+      "category": "Technology",
+      "pronunciation": "in-ter-net"
+    },
+    {
+      "turkish": "web sitesi",
+      "translation": {
+        "spanish": "sitio web"
+      },
+      "category": "Technology",
+      "pronunciation": "si-tyo web"
+    },
+    {
+      "turkish": "uygulama",
+      "translation": {
+        "spanish": "aplicación"
+      },
+      "category": "Technology",
+      "pronunciation": "a-pli-ka-thyon"
+    },
+    {
+      "turkish": "şifre",
+      "translation": {
+        "spanish": "contraseña"
+      },
+      "category": "Technology",
+      "pronunciation": "kon-tra-se-nya"
+    },
+    {
+      "turkish": "ekran",
+      "translation": {
+        "spanish": "pantalla"
+      },
+      "category": "Technology",
+      "pronunciation": "pan-ta-ya"
+    },
+    {
+      "turkish": "dosya",
+      "translation": {
+        "spanish": "archivo"
+      },
+      "category": "Technology",
+      "pronunciation": "ar-çi-bo"
+    },
+    {
+      "turkish": "klavye",
+      "translation": {
+        "spanish": "teclado"
+      },
+      "category": "Technology",
+      "pronunciation": "tek-la-do"
+    },
+    {
+      "turkish": "fare",
+      "translation": {
+        "spanish": "ratón"
+      },
+      "category": "Technology",
+      "pronunciation": "ra-ton"
+    },
+    {
+      "turkish": "yazıcı",
+      "translation": {
+        "spanish": "impresora"
+      },
+      "category": "Technology",
+      "pronunciation": "im-pre-so-ra"
+    },
+    {
+      "turkish": "tarayıcı",
+      "translation": {
+        "spanish": "navegador"
+      },
+      "category": "Technology",
+      "pronunciation": "na-ve-ga-dor"
+    },
+    {
+      "turkish": "arama motoru",
+      "translation": {
+        "spanish": "motor de búsqueda"
+      },
+      "category": "Technology",
+      "pronunciation": "mo-tor de bus-ke-da"
+    },
+    {
+      "turkish": "indirmek",
+      "translation": {
+        "spanish": "descargar"
+      },
+      "category": "Technology",
+      "pronunciation": "des-kar-gar"
+    },
+    {
+      "turkish": "yüklemek",
+      "translation": {
+        "spanish": "subir"
+      },
+      "category": "Technology",
+      "pronunciation": "su-bir"
+    },
+    {
+      "turkish": "bağlanmak",
+      "translation": {
+        "spanish": "conectarse"
+      },
+      "category": "Technology",
+      "pronunciation": "ko-nek-tar-se"
+    },
+    {
+      "turkish": "video izlemek",
+      "translation": {
+        "spanish": "ver videos"
+      },
+      "category": "Technology",
+      "pronunciation": "ber bi-de-os"
+    },
+    {
+      "turkish": "fotoğraf yüklemek",
+      "translation": {
+        "spanish": "subir fotos"
+      },
+      "category": "Technology",
+      "pronunciation": "su-bir fo-tos"
+    },
+    {
+      "turkish": "sosyal medya",
+      "translation": {
+        "spanish": "redes sociales"
+      },
+      "category": "Technology",
+      "pronunciation": "re-des so-sya-les"
+    },
+    {
+      "turkish": "öğretmen",
+      "translation": {
+        "spanish": "profesor"
+      },
+      "category": "Jobs",
+      "pronunciation": "pro-fe-sor"
+    },
+    {
+      "turkish": "doktor",
+      "translation": {
+        "spanish": "médico"
+      },
+      "category": "Jobs",
+      "pronunciation": "me-di-ko"
+    },
+    {
+      "turkish": "hemşire",
+      "translation": {
+        "spanish": "enfermera"
+      },
+      "category": "Jobs",
+      "pronunciation": "en-fer-me-ra"
+    },
+    {
+      "turkish": "polis",
+      "translation": {
+        "spanish": "policía"
+      },
+      "category": "Jobs",
+      "pronunciation": "po-li-thi-a"
+    },
+    {
+      "turkish": "itfaiyeci",
+      "translation": {
+        "spanish": "bombero"
+      },
+      "category": "Jobs",
+      "pronunciation": "bom-be-ro"
+    },
+    {
+      "turkish": "mühendis",
+      "translation": {
+        "spanish": "ingeniero"
+      },
+      "category": "Jobs",
+      "pronunciation": "in-he-nye-ro"
+    },
+    {
+      "turkish": "mimar",
+      "translation": {
+        "spanish": "arquitecto"
+      },
+      "category": "Jobs",
+      "pronunciation": "ar-ki-tek-to"
+    },
+    {
+      "turkish": "şoför",
+      "translation": {
+        "spanish": "conductor"
+      },
+      "category": "Jobs",
+      "pronunciation": "kon-duk-tor"
+    },
+    {
+      "turkish": "garson",
+      "translation": {
+        "spanish": "camarero"
+      },
+      "category": "Jobs",
+      "pronunciation": "ka-ma-re-ro"
+    },
+    {
+      "turkish": "aşçı",
+      "translation": {
+        "spanish": "cocinero"
+      },
+      "category": "Jobs",
+      "pronunciation": "ko-thi-ne-ro"
+    },
+    {
+      "turkish": "temizlikçi",
+      "translation": {
+        "spanish": "limpiador"
+      },
+      "category": "Jobs",
+      "pronunciation": "lim-pya-dor"
+    },
+    {
+      "turkish": "çiftçi",
+      "translation": {
+        "spanish": "agricultor"
+      },
+      "category": "Jobs",
+      "pronunciation": "a-gri-kul-tor"
+    },
+    {
+      "turkish": "kasap",
+      "translation": {
+        "spanish": "carnicero"
+      },
+      "category": "Jobs",
+      "pronunciation": "kar-ni-se-ro"
+    },
+    {
+      "turkish": "fırıncı",
+      "translation": {
+        "spanish": "panadero"
+      },
+      "category": "Jobs",
+      "pronunciation": "pa-na-de-ro"
+    },
+    {
+      "turkish": "terzi",
+      "translation": {
+        "spanish": "sastre"
+      },
+      "category": "Jobs",
+      "pronunciation": "sas-tre"
+    },
+    {
+      "turkish": "berber",
+      "translation": {
+        "spanish": "barbero"
+      },
+      "category": "Jobs",
+      "pronunciation": "bar-be-ro"
+    },
+    {
+      "turkish": "sekreter",
+      "translation": {
+        "spanish": "secretario"
+      },
+      "category": "Jobs",
+      "pronunciation": "se-kre-ta-rio"
+    },
+    {
+      "turkish": "avukat",
+      "translation": {
+        "spanish": "abogado"
+      },
+      "category": "Jobs",
+      "pronunciation": "a-bo-ga-do"
+    },
+    {
+      "turkish": "hakim",
+      "translation": {
+        "spanish": "juez"
+      },
+      "category": "Jobs",
+      "pronunciation": "hu-eth"
+    },
+    {
+      "turkish": "işçi",
+      "translation": {
+        "spanish": "trabajador"
+      },
+      "category": "Jobs",
+      "pronunciation": "tra-ba-ha-dor"
     }
   ]
 }

@@ -5,11 +5,11 @@ import { setBaseLanguage, setTargetLanguage } from "../../redux/languagesSlice";
 import "./header.scss";
 
 const languagePairs = [
-  { path: "english-german", label: "En – De" },
-  { path: "english-spanish", label: "En – Es" },
   { path: "turkish-english", label: "Tr – En" },
   { path: "turkish-german", label: "Tr – De" },
   { path: "turkish-spanish", label: "Tr – Es" },
+  { path: "english-german", label: "En – De" },
+  { path: "english-spanish", label: "En – Es" },
   { path: "german-spanish", label: "De – Es" },
 ];
 
@@ -25,7 +25,6 @@ export default function Header() {
     (state) => state.vocabulary.dynamicVocabularies
   );
 
-  // Gesamtanzahl der Vokabeln über alle Sprachpaare
   const vocabCount = Object.values(vocabularies).reduce(
     (acc, list) => acc + (list?.length || 0),
     0
@@ -46,17 +45,16 @@ export default function Header() {
       <div className="header-design-line" />
       <div className="header-main">
         <div className="column-one">
-          <Link to="" className="link title">
+          <Link to="/" className="title">
             <span className="title-first-word">E</span>
-            <span className="title-letter-l">L</span>
-            <span className="title-second-word">angual</span>
-            <div className="title-underline" />
+            <span className="title-second-word">Langual</span>
           </Link>
+          <div className="slogan">Start today. Speak tomorrow.</div>
         </div>
 
         <nav className="column-two">
           <ul className="navigation">
-            {/* ✅ Desktop Sprachpaare als Links */}
+            {/* Desktop Language Selection */}
             <div className="show-on-desktop">
               {languagePairs.map(({ path, label }) => (
                 <li key={path}>
@@ -71,9 +69,16 @@ export default function Header() {
               ))}
             </div>
 
-            {/* ✅ Mobile Dropdown Sprachwahl */}
+            {/* Navigation */}
+            <li>
+              <Link
+                to="/learngrammar"
+                className={`link my-exams ${getNavLinkClass("myexams")}`}
+              >
+                Grammar
+              </Link>
+            </li>
 
-            {/* ✅ Navigation */}
             <li>
               <Link
                 to="/vocabulary"
@@ -90,7 +95,7 @@ export default function Header() {
               >
                 My Library
                 {vocabCount > 0 && (
-                  <span className="vocab-badge">({vocabCount})</span>
+                  <span className="vocab-badge">{vocabCount}</span>
                 )}
               </Link>
             </li>
@@ -98,19 +103,21 @@ export default function Header() {
             <li>
               <Link
                 to="/myexams"
-                className={`link ${getNavLinkClass("myexams")}`}
+                className={`link my-exams ${getNavLinkClass("myexams")}`}
               >
                 My Exams
               </Link>
             </li>
-            <li className="hide-on-desktop">
+
+            {/* Mobile Language Dropdown */}
+            <div className="hide-on-desktop mobile-language-wrapper">
               <div className="language-dropdown">
                 <select
                   onChange={(e) => {
                     const path = e.target.value;
                     if (path) {
                       handleLanguageClick(path);
-                      window.location.href = "/#/vocabulary"; // Für HashRouter
+                      window.location.href = "/#/vocabulary"; // HashRouter
                     }
                   }}
                   value={`${baseLanguage}-${targetLanguage}`}
@@ -123,7 +130,7 @@ export default function Header() {
                   ))}
                 </select>
               </div>
-            </li>
+            </div>
           </ul>
         </nav>
       </div>

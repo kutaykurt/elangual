@@ -18,7 +18,6 @@ export async function fetchVocabularyData(base, target) {
   
   // 🔍 Firestore-Fallback aktiv?
   if (useFirestore.includes(languagePair)) {
-    console.log("📡 Lade aus Firestore:", languagePair);
     try {
       const collRef = collection(db, languagePair);
       const snapshot = await getDocs(collRef);

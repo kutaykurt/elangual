@@ -1,267 +1,253 @@
-@import "../../App.scss"; // damit $main-blue verfügbar ist
+@import "../../App.scss";
 
 .my-table-title {
-  width: 70%;
-  margin: 0 auto;
-  padding: 10px 0px;
-}
-
-.my-table {
-  display: block;
-  width: 70%;
-
-  th,
-  td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border: 1px solid #ccc;
-    overflow: visible; // ✅ Geändert für sichtbares Dropdown
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  thead {
-    background-color: $main-blue;
-
-    th {
-      color: white;
-      font-weight: bold;
-    }
-  }
-
-  tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-  }
-
-  tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-  }
-
-  &.compact td,
-  &.compact th {
-    padding: 4px 8px;
-    font-size: 14px;
-    line-height: 1.2;
-    vertical-align: middle;
-    height: 28px;
-  }
-
-  &.compact td button {
-    padding: 4px 6px;
-    font-size: 13px;
-    line-height: 1;
-  }
-
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 20%;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2) {
-    width: 20%;
-  }
-
-  th:nth-child(3),
-  td:nth-child(3) {
-    width: 5%;
-  }
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto 10px;
+  text-align: center;
+  font-size: 28px;
+  color: $main-blue;
+  font-weight: 600;
 }
 
 .search-field-container {
   display: flex;
   justify-content: center;
-  align-items: stretch;
-  margin: 15px 0px;
+  align-items: center;
+  gap: 8px;
+  margin: 20px auto;
+  flex-wrap: wrap;
+
+  .search-input-field {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid $main-grey;
+    font-size: 14px;
+    width: 280px;
+  }
+
+  .search-button {
+    background: $main-yellow;
+    color: $main-black;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: darken($main-yellow, 10%);
+    }
+  }
 }
 
-.search-input-field {
-  min-width: 400px;
-  height: 30px;
-  border: 1px solid $main-grey;
-  border-radius: 4px 0 0 4px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
+.my-table td {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-.search-button {
-  height: 30px;
-  padding: 0 14px;
-  border: none;
-  border-radius: 0 4px 4px 0;
+.my-table {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  background-color: white;
+  font-size: 17px;
+
+  thead {
+    background-color: $main-black;
+    text-transform: uppercase;
+
+    th {
+      color: $main-white;
+      text-align: left;
+      padding: 14px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .action-wrapper-container {
+    text-align: center;
+  }
+
+  .action-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f2faff;
+      }
+
+      td {
+        padding: 14px;
+        font-size: 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+
+        .pronunciation {
+          color: $main-grey;
+          font-style: italic;
+          margin-left: 4px;
+        }
+      }
+
+      &.highlighted-vocab {
+        background-color: #d8f6e0;
+      }
+
+      &.highlighted-exam {
+        background-color: #fff5cc;
+      }
+
+      &.highlighted-both {
+        background-color: #bdeacc;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.action-button {
   background-color: $main-yellow;
-  color: $main-black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
   font-weight: 600;
-  font-size: 14px;
+  color: $main-black;
   cursor: pointer;
+  font-size: 13px;
   transition: background-color 0.2s ease;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  &:hover {
+    background-color: darken($main-yellow, 10%);
+  }
 }
-
-.search-button:hover {
-  background-color: darken($main-yellow, 10%);
-}
-
-.search-button:active {
-  transform: scale(0.97);
-}
-
-/* ===================== Dropdown ===================== */
 
 .dropdown-container {
   position: relative;
   display: inline-block;
 }
 
-.action-button {
-  background-color: #f5c518;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.dropdown-menu,
 .dropdown-menu-fixed {
   position: absolute;
   top: 100%;
   left: 0;
-  background: white;
+  background: $main-white;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  min-width: 160px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   z-index: 9999;
 
   display: flex;
   flex-direction: column;
-}
+  min-width: 180px;
 
-.dropdown-menu button,
-.dropdown-menu-fixed button {
-  padding: 8px 12px;
-  background: none;
-  border: none;
-  text-align: left;
-  font-size: 14px;
-  cursor: pointer;
-}
+  button {
+    padding: 10px 12px;
+    border: none;
+    background: none;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
 
-.dropdown-menu button:hover,
-.dropdown-menu-fixed button:hover {
-  background-color: #f0f0f0;
-}
+    &:hover {
+      background-color: #f6f6f6;
+    }
 
-/* ===================== Highlight Styles ===================== */
-
-.highlighted-row {
-  background-color: #d1ffd1 !important;
-  transition: background-color 0.3s ease;
-}
-
-.highlighted-vocab {
-  background-color: #d1ffd1 !important; // hellgrün
-}
-
-.highlighted-exam {
-  background-color: #ffe9c1 !important; // hell-orange
-}
-
-.highlighted-both {
-  background-color: #b2e0b2 !important; // etwas satteres Grün
-  font-weight: bold;
-}
-
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-
-  .my-table {
-    min-width: 300px;
-    width: 100%;
-    table-layout: fixed;
-
-    th,
-    td {
-      word-wrap: break-word;
-      white-space: normal;
+    &.remove-completely-button {
+      color: $main-red;
     }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .my-table {
-    width: calc(100% - 12px); // 6px links + 6px rechts
-    margin: 0 6px;
-    display: table;
+/* ✅ Modal für mobile Ansicht */
+.mobile-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    th,
-    td {
-      white-space: normal; // Zeilenumbruch bei langen Wörtern
-      word-break: break-word;
-    }
+.mobile-modal-content {
+  background: $main-white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 320px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+  .close-button {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 18px;
+    border: none;
+    background: none;
+    cursor: pointer;
   }
 
-  .mobile-modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 10000;
+  .modal-actions {
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    flex-direction: column;
+    gap: 10px;
 
-  .mobile-modal-content {
-    background: white;
-    border-radius: 8px;
-    padding: 16px;
-    width: 90%;
-    max-width: 320px;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    button {
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      background: #eee;
+      cursor: pointer;
 
-    .modal-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-
-      button {
-        padding: 6px 10px;
-        font-size: 13px;
-        border: none;
-        border-radius: 4px;
-        background-color: #eee;
-        cursor: pointer;
+      &:hover {
+        background: #ddd;
       }
 
-      button:hover {
-        background-color: #ddd;
-      }
+      &.remove-completely-button {
+        color: $main-red;
+        background: #ffe6e6;
 
-      .remove-completely-button {
-        color: red;
+        &:hover {
+          background: #ffd4d4;
+        }
       }
     }
+  }
+}
 
-    .close-button {
-      position: absolute;
-      top: 6px;
-      right: 6px;
-      background: none;
-      border: none;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
+@media screen and (max-width: $breakpoint-md) {
+  .my-table-title {
+    color: $main-black;
+    margin: 7px auto;
+  }
+
+  .search-field-container {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    .search-input-field {
+      width: 60%;
+      min-width: 180px;
+      font-size: 13px;
+      padding: 6px 10px;
+    }
+
+    .search-button {
+      font-size: 14px;
+      padding: 2px 10px;
     }
   }
 }

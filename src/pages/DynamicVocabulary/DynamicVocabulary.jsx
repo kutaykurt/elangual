@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+// src/pages/DynamicVocabulary/DynamicVocabulary.jsx
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
 import { addToExam, removeFromExam } from "../../redux/examSlice";
 import { fetchVocabularyData } from "../../fetchVocabularyData";
 import { generateVocabularyId } from "../../getId";
 import Fuse from "fuse.js";
+import Pagination from "../../components/Pagination/Pagination";
 import "./dynamicVocabulary.scss";
 
 export default function DynamicVocabulary() {
@@ -24,8 +26,19 @@ export default function DynamicVocabulary() {
   const [openDropdownId, setOpenDropdownId] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  const paginatedData = filteredData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   const scriptType = `${baseLanguage}-${targetLanguage}`;
   const savedList = allVocabs[scriptType] || [];
+
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -64,6 +77,7 @@ export default function DynamicVocabulary() {
         setAllData(cleaned);
         setFilteredData(cleaned);
         setError(null);
+        setCurrentPage(1); // auf Seite 1 zurücksetzen
       })
       .catch((err) => {
         setError(`Error loading data: ${err.message}`);
@@ -72,9 +86,23 @@ export default function DynamicVocabulary() {
       });
   }, [baseLanguage, targetLanguage]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpenDropdownId(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleSearch = () => {
     if (!searchQuery.trim()) {
       setFilteredData(allData);
+      setCurrentPage(1);
       return;
     }
 
@@ -85,6 +113,7 @@ export default function DynamicVocabulary() {
 
     const results = fuse.search(searchQuery).map((r) => r.item);
     setFilteredData(results);
+    setCurrentPage(1);
   };
 
   const handleKeyDown = (e) => {
@@ -150,6 +179,14 @@ export default function DynamicVocabulary() {
 
   const selectedItem = filteredData.find((i) => i.id === openDropdownId);
 
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
   return (
     <div className="Main">
       <h2 className="my-table-title">
@@ -181,20 +218,20 @@ export default function DynamicVocabulary() {
           </tr>
         </thead>
         <tbody>
-          {filteredData.length === 0 ? (
+          {paginatedData.length === 0 ? (
             <tr>
               <td colSpan={3}>No results found</td>
             </tr>
           ) : (
-            filteredData.map((item) => (
+            paginatedData.map((item) => (
               <tr
                 key={item.id}
                 className={getRowClass(item)}
                 onClick={() => isMobile && toggleDropdown(item.id)}
               >
-                <td>{item[baseLanguage]}</td>
-                <td>
-                  {item.translation[targetLanguage]}{" "}
+                <td data-label={baseLanguage}>{item[baseLanguage]}</td>
+                <td data-label={targetLanguage}>
+                  {item.translation[targetLanguage]}
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
                       ({item.pronunciation})
@@ -202,8 +239,8 @@ export default function DynamicVocabulary() {
                   )}
                 </td>
                 {!isMobile && (
-                  <td>
-                    <div className="dropdown-container">
+                  <td className="action-wrapper-container">
+                    <div className="action-wrapper">
                       <button
                         className="action-button"
                         onClick={(e) => {
@@ -214,7 +251,7 @@ export default function DynamicVocabulary() {
                         Action
                       </button>
                       {openDropdownId === item.id && (
-                        <div className="dropdown-menu-fixed">
+                        <div className="dropdown-menu-fixed" ref={dropdownRef}>
                           {isInList(item) ? (
                             <button
                               onClick={() => handleRemoveVocabulary(item)}
@@ -254,7 +291,13 @@ export default function DynamicVocabulary() {
         </tbody>
       </table>
 
-      {/* ✅ MODAL für mobile Geräte */}
+      <Pagination
+        page={currentPage}
+        total={totalPages}
+        onPrev={handlePrevPage}
+        onNext={handleNextPage}
+      />
+
       {isMobile && selectedItem && (
         <div
           className="mobile-modal-backdrop"

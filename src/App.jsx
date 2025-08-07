@@ -10,6 +10,10 @@ import MyExams from "./pages/MyExams/MyExams.jsx";
 
 import "./App.scss";
 import ExamPage from "./pages/ExamPage/ExamPage.jsx";
+import LGTurkishGerman from "./pages/LearnGrammar/LGTurkishGerman.jsx";
+import TestPage from "./pages/LearnGrammar/TestPage/TestPage.jsx";
+
+import { uploadAllVocabularies } from "./utils/importAllVocabularies.js";
 
 export default function App() {
   return (
@@ -19,6 +23,8 @@ export default function App() {
       <div className="body">
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/learngrammar" element={<LGTurkishGerman />} />
+          <Route path="/test/:testId" element={<TestPage />} />
           <Route path="/vocabulary" element={<DynamicVocabulary />} />
           <Route path="/myvocabularies" element={<MyVocabulary />} />
           <Route path="/myexams" element={<MyExams />} />
