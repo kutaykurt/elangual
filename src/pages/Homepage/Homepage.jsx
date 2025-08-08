@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./homepage.scss";
 import { fetchVocabularyData } from "../../fetchVocabularyData";
 
@@ -6,6 +7,8 @@ export default function Homepage() {
   // Startseite zeigt IMMER Turkish -> English
   const HOME_BASE = "turkish";
   const HOME_TARGET = "english";
+
+  const navigate = useNavigate();
 
   const [randomVocabs, setRandomVocabs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,7 +43,6 @@ export default function Homepage() {
       <section className="hero">
         <div className="hero__content">
           <h1 className="hero__title">
-            {/* <<< No-wrap sorgt dafür, dass es in einer Zeile bleibt (Desktop) */}
             <span className="nowrap">
               <span className="brand">E-Langual</span>’a hoş geldin!
             </span>
@@ -53,12 +55,12 @@ export default function Homepage() {
           </p>
 
           <div className="hero__cta">
-            <a href="/vocabulary" className="btn btn-primary">
+            <NavLink to="/vocabulary" className="btn btn-primary">
               Sözlükleri Keşfet
-            </a>
-            <a href="/myvocabularies" className="btn btn-secondary">
+            </NavLink>
+            <NavLink to="/myvocabularies" className="btn btn-secondary">
               Kütüphanem
-            </a>
+            </NavLink>
           </div>
 
           <div className="hero__pair">
@@ -106,7 +108,13 @@ export default function Homepage() {
         ) : (
           <div className="vocab-grid">
             {randomVocabs.map((item, idx) => (
-              <div className="vocab-card" key={idx}>
+              <button
+                type="button"
+                className="vocab-card"
+                key={idx}
+                onClick={() => navigate("/vocabulary")}
+                title="Sözlüklere git"
+              >
                 <div className="vocab-card__base">{item[HOME_BASE]}</div>
                 <div className="vocab-card__arrow">→</div>
                 <div className="vocab-card__target">
@@ -118,15 +126,15 @@ export default function Homepage() {
                     </span>
                   )}
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         )}
 
         <div className="section-cta">
-          <a href="/vocabulary" className="btn btn-primary">
+          <NavLink to="/vocabulary" className="btn btn-primary">
             Tüm kelimeleri gör
-          </a>
+          </NavLink>
         </div>
       </section>
 
@@ -135,12 +143,12 @@ export default function Homepage() {
         <h3>Öğrenmeyi alışkanlığa çevir.</h3>
         <p>Her gün 10 yeni kelime ekle, haftada bir mini sınav çöz!</p>
         <div className="cta-banner__actions">
-          <a href="/myexams" className="btn btn-secondary">
+          <NavLink to="/myexams" className="btn btn-secondary">
             Sınavlarım
-          </a>
-          <a href="/grammar" className="btn btn-ghost">
+          </NavLink>
+          <NavLink to="/grammar" className="btn btn-ghost">
             Dilbilgisi
-          </a>
+          </NavLink>
         </div>
       </section>
     </div>

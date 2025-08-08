@@ -3,9 +3,9 @@ import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Grammar.scss";
 
 const LANGS = [
-  { code: "en", label: "English", enabled: true },
-  { code: "de", label: "Deutsch", enabled: false },
-  { code: "es", label: "Español", enabled: false },
+  { code: "en", label: "İngilizce", enabled: true },
+  { code: "de", label: "Almanca", enabled: false },
+  { code: "es", label: "İspanyolca", enabled: false },
 ];
 
 const LEVELS = ["A1", "A2", "B1", "B2"];
