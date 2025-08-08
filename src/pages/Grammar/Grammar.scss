@@ -1,0 +1,438 @@
+/* ===== Layout & Header ===== */
+.grammar-layout {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.en-tag {
+  font-weight: 400;
+  opacity: 0.7;
+  font-size: 0.9em;
+  margin-left: 0.35rem;
+}
+
+.grammar-header {
+  margin-bottom: 12px;
+
+  .title {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin-bottom: 2px;
+  }
+  .subtitle {
+    color: #6b7280;
+    margin-bottom: 10px;
+  }
+
+  .lang-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .lang-tab {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.15s;
+    &.is-active {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+    }
+    .soon {
+      margin-left: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .level-tabs {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+  }
+  .level-tab {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.15s;
+    &.is-active {
+      background: #2563eb;
+      color: #fff;
+      border-color: #2563eb;
+    }
+  }
+}
+
+.grammar-content {
+  padding: 8px 0 20px;
+}
+
+/* ===== Document styles ===== */
+.g-doc {
+  line-height: 1.7;
+  font-size: 1rem;
+
+  .intro {
+    color: #374151;
+    margin-bottom: 8px;
+  }
+
+  .g-section {
+    margin: 40px 0;
+  } /* mehr Luft zwischen Kapiteln */
+
+  h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #111827;
+    letter-spacing: 0.2px;
+  }
+
+  .tr-tag {
+    font-size: 0.95rem;
+    color: #2563eb;
+    margin-left: 8px;
+    font-weight: 700;
+    background: #eef2ff;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .rule-box {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    color: #111827;
+  }
+
+  .g-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+
+    th,
+    td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    thead th {
+      background: #fff7ed;
+      color: #7c2d12;
+      font-weight: 800;
+      border-bottom-color: #fde7c7;
+    }
+    tbody tr:nth-child(odd) {
+      background: #fafafa;
+    }
+  }
+
+  .examples {
+    background: #f9fafb;
+    border-left: 4px solid #2563eb;
+    padding: 10px 12px;
+    margin-top: 8px;
+    border-radius: 6px 10px 10px 6px;
+    p {
+      margin: 6px 0;
+    }
+    .pron {
+      color: #6b7280;
+      font-style: italic;
+    }
+  }
+
+  .practice {
+    margin: 8px 0 0 18px;
+    li {
+      margin: 4px 0;
+    }
+  }
+  .note {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+}
+
+/* Code chips */
+code {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+    monospace;
+  font-size: 0.95em;
+}
+
+/* ===== Pronunciation-Karten ===== */
+.pb-grid {
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 900px) {
+  .pb-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pb-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+.pb-card + .pb-card {
+  margin-top: 10px;
+}
+
+.pb-card > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: baseline;
+  gap: 8px;
+}
+.pb-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.pb-title {
+  font-weight: 800;
+}
+.pb-bullet {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.pb-cta {
+  display: inline-block;
+  min-width: 96px;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #0f172a;
+  color: #fff;
+  font-weight: 800;
+  border: 1px solid #0f172a;
+}
+
+.pb-body {
+  padding: 10px 12px 12px;
+  border-top: 1px dashed #e5e7eb;
+}
+.howto .ex {
+  margin-top: 6px;
+  padding: 8px 10px;
+  background: #f9fafb;
+  border-left: 4px solid #2563eb;
+  border-radius: 4px;
+}
+.howto .dont {
+  margin-top: 4px;
+  color: #b91c1c;
+}
+.tight {
+  margin: 6px 0 0 18px;
+}
+.mt-6 {
+  margin-top: 6px;
+}
+
+/* Mobile kompakter */
+/* ===== Mobile: kompaktere Karten, weniger Zeilenumbrüche ===== */
+@media (max-width: 480px) {
+  .grammar-page {
+    font-size: 0.93rem;
+    line-height: 1.52;
+  }
+
+  /* Kapitel-Abstand etwas kleiner, damit weniger Scrollen */
+  .g-doc .g-section {
+    margin: 28px 0;
+  }
+
+  /* Grid enger */
+  .pb-grid {
+    gap: 8px;
+  }
+
+  .pb-card {
+    border-radius: 10px;
+  }
+
+  /* Summary sehr kompakt: alles in eine Zeile, falls möglich */
+  .pb-card > summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    line-height: 1.2;
+    grid-template-columns: none; /* von Grid weg -> flex */
+  }
+
+  /* Titel + Bullet nicht umbrechen, sonst wächst die Höhe massiv */
+  .pb-title,
+  .pb-bullet {
+    white-space: nowrap;
+  }
+
+  /* Bullet darf schrumpfen und mit Ellipsis enden */
+  .pb-bullet {
+    color: #4b5563;
+    font-size: 0.9rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1; /* füllt den verbleibenden Platz */
+    min-width: 0; /* wichtig für Ellipsis in Flexbox */
+  }
+
+  /* CTA breiter, aber kompakt */
+  .pb-cta {
+    min-width: 90px;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    background: #0f172a;
+    color: #fff;
+    font-weight: 800;
+    border: 1px solid #0f172a;
+  }
+
+  /* Inhalt der Karte enger */
+  .pb-body {
+    padding: 8px 10px;
+  }
+
+  /* Beispiele kompakter */
+  .howto .ex {
+    padding: 6px 8px;
+  }
+  .howto .dont {
+    margin-top: 3px;
+  }
+
+  /* Code-Chips kleiner */
+  code {
+    padding: 0 4px;
+  }
+
+  /* Abstand zwischen zwei Karten */
+  .pb-card + .pb-card {
+    margin-top: 8px;
+  }
+}
+
+/* XS: Wenn’s wirklich sehr schmal wird, Bullet im Header ausblenden */
+@media (max-width: 360px) {
+  .pb-bullet {
+    display: none;
+  }
+}
+
+/* ===== Quick Practice ===== */
+.qp {
+  margin-top: 8px;
+}
+.qp-list {
+  display: grid;
+  gap: 10px;
+}
+.qp-item {
+  padding-bottom: 4px;
+}
+
+.qp-prompt .idx {
+  font-weight: 800;
+  margin-right: 4px;
+}
+.hint {
+  color: #6b7280;
+  margin-left: 6px;
+  font-size: 0.95rem;
+}
+
+.qp-input {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin: 0 6px;
+  min-width: 90px;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.qp-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.qp-input.is-correct {
+  border-color: #16a34a;
+  background: #ecfdf5;
+}
+.qp-input.is-wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.qp-feedback {
+  margin-top: 4px;
+  font-weight: 700;
+  color: #dc2626;
+}
+.qp-feedback.ok {
+  color: #16a34a;
+}
+.qp-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+.primary-btn {
+  background: #2563eb;
+  color: #fff;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.ghost-btn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.qp-score {
+  font-weight: 800;
+}

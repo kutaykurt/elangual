@@ -34,6 +34,11 @@ export default function Header() {
 
   const currentPair = `${baseLanguage}-${targetLanguage}` || "turkish-english";
 
+  // 👇 Nur auf der Vocabulary-Seite die Mobile-Chips zeigen
+  const showMobileLangRail =
+    location.pathname === "/vocabulary" ||
+    location.pathname.startsWith("/vocabulary/");
+
   return (
     <header className="AppHeader" role="banner">
       <a className="skip-link" href="#main">
@@ -64,14 +69,14 @@ export default function Header() {
 
           {/* PRIMARY NAV */}
           <nav className="nav" aria-label="Primary">
-            <NavLink to="/learngrammar" className="nav__link">
+            <NavLink to="/grammar" className="nav__link">
               Grammar
             </NavLink>
             <NavLink to="/vocabulary" className="nav__link">
               Vocabularies
             </NavLink>
             <NavLink to="/myvocabularies" className="nav__link">
-              My Library
+              My Library{" "}
               {vocabCount > 0 && <span className="badge">{vocabCount}</span>}
             </NavLink>
             <NavLink to="/myexams" className="nav__link">
@@ -79,7 +84,8 @@ export default function Header() {
             </NavLink>
           </nav>
 
-          {/* DESKTOP: LANGUAGE DROPDOWN */}
+          {/* DESKTOP: LANGUAGE DROPDOWN (bleibt immer sichtbar – wenn du’s
+              auch nur auf /vocabulary willst, einfach dieselbe Bedingung verwenden) */}
           <div className="lang-select desktop-only">
             <label htmlFor="lang-dd" className="sr-only">
               Language pair
@@ -100,23 +106,25 @@ export default function Header() {
         </div>
       </div>
 
-      {/* MOBILE: CHIP RAIL (kein Dropdown) */}
-      <div className="lang-rail mobile-only" aria-label="Language pair">
-        <div className="rail container">
-          {languagePairs.map(({ path, label }) => (
-            <button
-              key={path}
-              type="button"
-              className={`chip ${currentPair === path ? "is-active" : ""}`}
-              aria-pressed={currentPair === path}
-              onClick={() => handleLanguage(path)}
-              title={`${label} dictionary`}
-            >
-              {label}
-            </button>
-          ))}
+      {/* MOBILE: CHIP RAIL nur auf /vocabulary */}
+      {showMobileLangRail && (
+        <div className="lang-rail mobile-only" aria-label="Language pair">
+          <div className="rail container">
+            {languagePairs.map(({ path, label }) => (
+              <button
+                key={path}
+                type="button"
+                className={`chip ${currentPair === path ? "is-active" : ""}`}
+                aria-pressed={currentPair === path}
+                onClick={() => handleLanguage(path)}
+                title={`${label} dictionary`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

@@ -25,6 +25,9 @@ export default function DynamicVocabulary() {
   const [openDropdownId, setOpenDropdownId] = useState(null); // nur für Mobile-Modal
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // kleines Feedback auf Zeilenebene (Glow)
+  const [flashRowId, setFlashRowId] = useState(null);
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
@@ -85,7 +88,7 @@ export default function DynamicVocabulary() {
       });
   }, [baseLanguage, targetLanguage]);
 
-  // Klick außerhalb schließt Mobile-Modal (falls du das Modal klickst)
+  // Klick außerhalb schließt Mobile-Modal
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -117,6 +120,12 @@ export default function DynamicVocabulary() {
   const isInList = (item) => savedList.some((v) => v.id === item.id);
   const isInExam = (item) => exams.some((v) => v.id === item.id);
 
+  // kleines visuelles Feedback (Zeile pulsiert kurz)
+  const flashRow = (id) => {
+    setFlashRowId(id);
+    setTimeout(() => setFlashRowId(null), 550);
+  };
+
   // Actions
   const handleAddVocabulary = (item) => {
     dispatch(
@@ -125,35 +134,42 @@ export default function DynamicVocabulary() {
         scriptType,
       })
     );
+    flashRow(item.id);
     setOpenDropdownId(null);
   };
   const handleRemoveVocabulary = (item) => {
     dispatch(removeVocabulary({ id: item.id, scriptType }));
+    flashRow(item.id);
     setOpenDropdownId(null);
   };
   const handleAddExam = (item) => {
     dispatch(
       addToExam({ ...item, base: baseLanguage, target: targetLanguage })
     );
+    flashRow(item.id);
     setOpenDropdownId(null);
   };
   const handleRemoveExam = (item) => {
     dispatch(removeFromExam(item.id));
+    flashRow(item.id);
     setOpenDropdownId(null);
   };
   const handleRemoveCompletely = (item) => {
     dispatch(removeVocabulary({ id: item.id, scriptType }));
     dispatch(removeFromExam(item.id));
+    flashRow(item.id);
     setOpenDropdownId(null);
   };
 
   const getRowClass = (item) => {
     const inList = isInList(item);
     const inExam = isInExam(item);
-    if (inList && inExam) return "highlighted-both";
-    if (inExam) return "highlighted-exam";
-    if (inList) return "highlighted-vocab";
-    return "";
+    let cls = "";
+    if (inList && inExam) cls = "highlighted-both";
+    else if (inExam) cls = "highlighted-exam";
+    else if (inList) cls = "highlighted-vocab";
+    if (flashRowId === item.id) cls += " flash";
+    return cls.trim();
   };
 
   const toggleMobile = (id) => setOpenDropdownId(id);
@@ -213,13 +229,12 @@ export default function DynamicVocabulary() {
                   {item.translation[targetLanguage]}
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
-                      {" "}
                       ({item.pronunciation})
                     </span>
                   )}
                 </td>
 
-                {/* Desktop: Inline-Aktionen */}
+                {/* Desktop: Inline-Aktionen (OHNE Kaldır) */}
                 {!isMobile && (
                   <td className="islem">
                     <div
@@ -266,20 +281,6 @@ export default function DynamicVocabulary() {
                       >
                         {isInExam(item) ? "− Sınav" : "+ Sınav"}
                       </button>
-
-                      {/* Kaldır nur in Mobile Ansicht */}
-                      {isMobile && (isInList(item) || isInExam(item)) && (
-                        <button
-                          className="mini danger"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleRemoveCompletely(item);
-                          }}
-                          title="Tamamen kaldır"
-                        >
-                          Kaldır
-                        </button>
-                      )}
                     </div>
                   </td>
                 )}
@@ -296,20 +297,21 @@ export default function DynamicVocabulary() {
         onNext={handleNextPage}
       />
 
-      {/* Mobile Modal bleibt wie gehabt */}
+      {/* Mobile Modal mit „Tamamen kaldır“ */}
       {isMobile && selectedItem && (
         <div
           className="mobile-modal-backdrop"
           onClick={() => setOpenDropdownId(null)}
         >
           <div
-            className="mobile-modal-content"
+            className={`mobile-modal-content open`}
             onClick={(e) => e.stopPropagation()}
             ref={dropdownRef}
           >
             <button
               className="close-button"
               onClick={() => setOpenDropdownId(null)}
+              aria-label="Kapat"
             >
               ✕
             </button>

@@ -138,7 +138,7 @@ export default function Homepage() {
           <a href="/myexams" className="btn btn-secondary">
             Sınavlarım
           </a>
-          <a href="/learngrammar" className="btn btn-ghost">
+          <a href="/grammar" className="btn btn-ghost">
             Dilbilgisi
           </a>
         </div>

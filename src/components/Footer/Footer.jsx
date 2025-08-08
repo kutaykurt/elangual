@@ -20,7 +20,7 @@ const Footer = () => {
 
   return (
     <footer className="Footer">
-      <div className="footer-content">
+      {/* <div className="footer-content">
         <div className="footer-section about">
           <h1 className="logo-text">E-Langual</h1>
           <p>
@@ -76,7 +76,7 @@ const Footer = () => {
             )}
           </form>
         </div>
-      </div>
+      </div> */}
 
       <div className="footer-bottom">
         &copy; {new Date().getFullYear()} E-Langual | Designed by Kutay Kurt
