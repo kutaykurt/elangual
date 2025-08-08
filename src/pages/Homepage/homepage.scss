@@ -1,103 +1,246 @@
 @import "../../App.scss";
 
 .Homepage {
-  padding: 60px 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-  font-size: 17px;
   color: $main-black;
 
-  .homepage-title {
-    font-size: 36px;
-    color: $main-black;
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 40px;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 14px;
+    padding: 0.7rem 1.1rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: transform 0.06s ease, box-shadow 0.2s ease, background 0.2s ease;
 
-    .highlight {
-      color: $main-blue;
+    &:active {
+      transform: translateY(1px);
     }
-  }
 
-  .homepage-intro-section {
-    text-align: center;
-    line-height: 1.8;
-
-    p {
-      margin-bottom: 16px;
-
-      strong {
-        color: $main-blue;
-        margin-right: 6px;
+    &-primary {
+      background: $main-orange;
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(255, 140, 73, 0.25);
+      &:hover {
+        filter: brightness(1.03);
+      }
+    }
+    &-secondary {
+      background: #fff;
+      color: $main-black;
+      border-color: #e6e6e6;
+      &:hover {
+        background: #fafafa;
+      }
+    }
+    &-ghost {
+      background: transparent;
+      color: $main-black;
+      border-color: #e6e6e6;
+      &:hover {
+        background: #fafafa;
+      }
+    }
+    &-link {
+      background: transparent;
+      color: $main-orange;
+      padding: 0.4rem 0.6rem;
+      border-radius: 10px;
+      &:hover {
+        background: #fff3ec;
       }
     }
   }
 
-  .section-title {
-    margin: 60px 0 20px;
-    font-size: 24px;
-    color: $main-blue;
+  .hero {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 22px;
+    padding: 2.4rem 1.2rem;
     text-align: center;
+    box-shadow: 0 6px 24px rgba(17, 17, 17, 0.04);
+
+    &__content {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      color: $main-orange;
+    }
+
+    /* <<< Immer eine Zeile auf Desktop */
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    &__title {
+      font-size: clamp(30px, 4.2vw, 48px); /* etwas größer & flexibler */
+      margin: 0 0 0.6rem;
+      line-height: 1.12;
+      letter-spacing: 0.2px;
+    }
+    &__subtitle {
+      color: $main-grey;
+      margin: 0 auto 1.2rem;
+      max-width: 780px;
+    }
+    &__cta {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.6rem;
+    }
+    &__pair {
+      color: $main-grey;
+      font-size: 0.95rem;
+    }
   }
 
-  .example-table {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 600px;
-    border-collapse: collapse;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    font-size: 17px;
+  .features {
+    margin: 2rem 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
 
-    thead {
+    .feature {
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 4px 16px rgba(17, 17, 17, 0.03);
+      h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.05rem;
+        color: $main-black;
+      }
+      p {
+        margin: 0;
+        color: $main-grey;
+      }
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .random-vocabs {
+    margin-top: 1.6rem;
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        margin: 0;
+        font-size: clamp(20px, 3.5vw, 26px);
+      }
+    }
+
+    .vocab-grid,
+    .skeleton-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 560px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .vocab-card,
+    .skeleton-card {
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 16px;
+      padding: 0.9rem 0.9rem;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 16px rgba(17, 17, 17, 0.03);
+    }
+
+    .vocab-card__base {
+      font-weight: 700;
+      color: $main-black;
+    }
+    .vocab-card__arrow {
+      color: $main-orange;
+      opacity: 0.9;
+    }
+    .vocab-card__target {
+      color: $main-grey;
+    }
+    .vocab-card__pron {
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    .skeleton-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .skeleton-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background: linear-gradient(
-        to right,
-        $main-blue,
-        lighten($main-blue, 10%)
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.05),
+        transparent
       );
-      color: $main-white;
-
-      th {
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        padding: 12px;
+      transform: translateX(-100%);
+      animation: shimmer 1.2s infinite;
+    }
+    @keyframes shimmer {
+      to {
+        transform: translateX(100%);
       }
     }
 
-    td {
-      padding: 12px;
-      border: 1px solid #eee;
-      background-color: #fff;
-    }
-
-    tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    tbody tr:hover {
-      background-color: $list-item-blue;
-      transition: background-color 0.3s ease;
+    .section-cta {
+      margin-top: 1.1rem;
+      text-align: center;
     }
   }
 
-  @media screen and (max-width: $breakpoint-sm) {
-    .homepage-title {
-      font-size: 28px;
+  .cta-banner {
+    margin: 2rem 0 1rem;
+    background: linear-gradient(180deg, #fffaf6, #ffffff);
+    border: 1px solid #f2e7df;
+    border-radius: 20px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(17, 17, 17, 0.04);
+    h3 {
+      margin: 0 0 0.35rem;
+      color: $main-black;
     }
-
-    .example-table {
-      font-size: 15px;
+    p {
+      margin: 0 0 0.7rem;
+      color: $main-grey;
+    }
+    &__actions {
+      display: flex;
+      gap: 0.7rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
-}
 
-.hero-image-bottom-right {
-  position: absolute;
-  right: 0;
-  bottom: -50px;
-  width: 660px;
-  height: auto;
-  z-index: 1;
+  /* Auf sehr kleinen Geräten wieder erlauben zu umbrechen,
+     damit nichts abgeschnitten wird */
+  @media (max-width: 560px) {
+    .hero .nowrap {
+      white-space: normal;
+    }
+  }
 }

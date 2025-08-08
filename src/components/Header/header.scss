@@ -1,219 +1,296 @@
 @import "../../App.scss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700&family=Open+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@700;900&display=swap");
 
-.Header {
-  background-color: $main-black;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+:root {
+  --hdr-bg: #2b2b2b;
+  --hdr-fg: #f3f4f6;
+  --muted: #a1a1aa;
+  --accent: #ff8c49;
+  --badge-bg: #ff8c49;
+  --badge-fg: #111;
+  --chip-bg: #1f2937;
+  --chip-br: #334155;
+  --underline: rgba(255, 255, 255, 0.18);
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
 
-  .header-design-line {
-    background-color: $main-orange;
-    height: 6px;
-    box-shadow: 0px 2px 4px 1px black;
-  }
+.AppHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--hdr-bg);
+  color: var(--hdr-fg);
+  box-shadow: var(--shadow);
+}
 
-  .header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px 10px 30px;
-    flex-wrap: wrap;
-  }
-
-  .column-one {
-    display: flex;
-    flex-direction: column;
-
-    .title {
-      font-family: "Raleway", sans-serif;
-      font-weight: 700;
-      font-size: 30px;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-
-      .title-first-word {
-        color: $main-white;
-      }
-
-      .title-letter-l {
-        color: $main-orange;
-      }
-
-      .title-second-word {
-        color: $main-orange;
-      }
-
-      &:hover {
-        opacity: 0.95;
-      }
-    }
-
-    .slogan {
-      font-weight: 500;
-      font-size: 15px;
-      color: $main-grey;
-    }
-
-    .title-underline {
-      height: 4px;
-      background-color: $main-yellow;
-      margin-top: 4px;
-      border-radius: 2px;
-      width: 100%;
-    }
-  }
-
-  .column-two {
-    display: flex;
-    align-items: center;
-
-    .navigation {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-
-      li {
-        .link {
-          text-decoration: none;
-          color: $main-white;
-          font-size: 17px;
-          padding: 6px 12px;
-          border-radius: 6px;
-          transition: all 0.2s ease;
-
-          &.active {
-            font-weight: 600;
-            color: $main-white;
-            border-bottom: $main-white 1px solid;
-            border-radius: 1px;
-          }
-
-          &:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-1px);
-          }
-        }
-
-        .vocab-badge {
-          background-color: $main-yellow;
-          color: $main-black;
-          border-radius: 50%;
-          padding: 2px 7px;
-          margin-left: 4px;
-          font-size: 12px;
-          font-weight: bold;
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-        }
-      }
-    }
-  }
-
-  .show-on-desktop {
-    display: flex;
-  }
-
-  .hide-on-desktop {
-    display: none;
-  }
-
-  // ===================== MOBILE =====================
-  @media screen and (max-width: $breakpoint-md) {
-    .header-main {
-      flex-direction: column;
-      align-items: center;
-      padding: 12px 0px 0px 0px;
-      gap: 4px;
-    }
-
-    .column-one {
-      align-items: center;
-
-      .title {
-        font-size: 26px;
-      }
-
-      .title-underline {
-        display: none;
-      }
-
-      .slogan {
-        font-size: 13px;
-        margin-top: 2px;
-      }
-    }
-
-    .column-two {
-      margin-top: 4px;
-      margin-bottom: 4px;
-
-      .navigation {
-        flex-direction: row;
-        justify-content: center;
-        gap: 2px;
-
-        li {
-          width: auto;
-          text-align: center;
-
-          .link {
-            font-size: 16px;
-            letter-spacing: 1px;
-          }
-        }
-
-        .vocab-badge {
-          margin-left: 4px;
-        }
-      }
-    }
-
-    .show-on-desktop {
-      display: none;
-    }
-
-    .hide-on-desktop {
-      display: block;
-    }
+/* A11y */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  &:focus {
+    left: 10px;
+    top: 10px;
+    background: $main-yellow;
+    color: #111;
+    padding: 6px 10px;
+    border-radius: 10px;
+    z-index: 100;
   }
 }
 
-// ===================== MOBILE LANGUAGE DROPDOWN SEPARAT =====================
-.mobile-language-wrapper {
-  display: none;
-  justify-content: center;
-  width: 100%;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 6px;
+.topbar {
+  border-top: 6px solid var(--accent);
+}
 
-  .language-dropdown {
-    display: flex;
-    justify-content: center;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 16px; /* etwas mehr Luft */
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  column-gap: 12px; /* mehr Abstand */
+  row-gap: 6px;
+}
+
+/* ===== BRAND ===== */
+.brand {
+  display: grid;
+  grid-template-columns: auto;
+  align-items: start;
+
+  &__link {
+    display: inline-flex;
     align-items: center;
-    padding: 5px 0px;
-
-    select {
-      background-color: $main-white;
-      color: $main-black;
-      padding: 6px 12px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-weight: 600;
-      cursor: pointer;
-
-      &:hover {
-        border-color: $main-blue;
-      }
-    }
+    gap: 10px;
+    text-decoration: none;
+    white-space: nowrap; /* niemals umbrechen */
   }
 
-  @media screen and (max-width: $breakpoint-md) {
-    display: flex;
+  &__badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--badge-bg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(0);
+    transition: transform 0.15s ease, filter 0.15s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+  &__badge-e {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1;
+    color: var(--badge-fg);
+  }
+
+  &__name {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 22px; /* Basis, Desktop weiter unten größer */
+    color: #fff;
+    letter-spacing: 0.3px;
+  }
+
+  &__link:hover .brand__badge {
+    transform: translateY(-1px);
+    filter: brightness(0.98);
+  }
+
+  &__tag {
+    margin-top: -2px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+}
+
+/* ===== NAV ===== */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap; /* kein Umbruch */
+  min-width: 0; /* vermeidet Layout-Push */
+}
+
+.nav__link {
+  position: relative;
+  color: var(--hdr-fg);
+  text-decoration: none;
+  padding: 6px 8px; /* kompakt, Desktop später größer */
+  border-radius: 8px;
+  font-size: 13px; /* Basis, Desktop größer */
+  white-space: nowrap; /* kein Umbruch pro Link */
+  transition: background 0.2s, transform 0.06s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &[aria-current="page"] {
+    font-weight: 700;
+  }
+  &[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--underline);
+    border-radius: 2px;
+  }
+}
+
+/* Badge for library count */
+.badge {
+  margin-left: 4px;
+  background: $main-yellow;
+  color: #111;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 0 6px;
+  line-height: 1.2;
+  font-size: 11px;
+  min-width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desktop language dropdown */
+.lang-select select {
+  background: #1f2937;
+  color: #f3f4f6;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px; /* Desktop größer unten */
+  min-width: 150px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 140, 73, 0.35);
+    border-color: var(--accent);
+  }
+}
+
+/* Mobile chip rail */
+.lang-rail {
+  display: none;
+  background: #1f1f1f;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.lang-rail .rail {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px 12px;
+  scrollbar-width: thin;
+}
+.chip {
+  border: 1px solid var(--chip-br);
+  background: var(--chip-bg);
+  color: var(--hdr-fg);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.06s;
+  &:hover {
+    background: #0f172a;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &.is-active {
+    background: var(--accent);
+    color: #111;
+    border-color: var(--accent);
+  }
+}
+
+/* Visibility helpers */
+.desktop-only {
+  display: block;
+}
+.mobile-only {
+  display: none;
+}
+
+/* ===== Desktop Upgrades: größere Schrift NUR Web ===== */
+@media (min-width: 981px) {
+  .brand__badge {
+    width: 30px;
+    height: 30px;
+  }
+  .brand__badge-e {
+    font-size: 19px;
+  }
+  .brand__name {
+    font-size: 24px;
+  } /* ↑ Logo-Text größer */
+
+  .nav__link {
+    font-size: 15px; /* ↑ Links größer */
+    padding: 7px 10px; /* etwas mehr Fläche */
+  }
+
+  .lang-select select {
+    font-size: 14px;
+    padding: 7px 12px;
+  }
+
+  /* mehr Platz insgesamt, ohne Umbruch zu riskieren */
+  .container {
+    column-gap: 14px;
+  }
+}
+
+/* ===== Tablet/Mobile ===== */
+@media (max-width: 980px) {
+  .container {
+    grid-template-columns: 1fr auto;
+    row-gap: 6px;
+  }
+  .brand__tag {
+    display: none;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 8px 12px;
+  }
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .brand__name {
+    font-size: 20px;
+  }
+  .brand__badge {
+    width: 26px;
+    height: 26px;
+  }
+  .brand__badge-e {
+    font-size: 17px;
   }
 }

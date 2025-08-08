@@ -1,4 +1,3 @@
-// src/pages/DynamicVocabulary/DynamicVocabulary.jsx
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
@@ -23,13 +22,12 @@ export default function DynamicVocabulary() {
   const [filteredData, setFilteredData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState(null);
-  const [openDropdownId, setOpenDropdownId] = useState(null);
+  const [openDropdownId, setOpenDropdownId] = useState(null); // nur für Mobile-Modal
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-
   const paginatedData = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -37,15 +35,16 @@ export default function DynamicVocabulary() {
 
   const scriptType = `${baseLanguage}-${targetLanguage}`;
   const savedList = allVocabs[scriptType] || [];
-
   const dropdownRef = useRef(null);
 
+  // Resize watcher
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Data load
   useEffect(() => {
     if (!baseLanguage || !targetLanguage) return;
 
@@ -77,7 +76,7 @@ export default function DynamicVocabulary() {
         setAllData(cleaned);
         setFilteredData(cleaned);
         setError(null);
-        setCurrentPage(1); // auf Seite 1 zurücksetzen
+        setCurrentPage(1);
       })
       .catch((err) => {
         setError(`Error loading data: ${err.message}`);
@@ -86,74 +85,62 @@ export default function DynamicVocabulary() {
       });
   }, [baseLanguage, targetLanguage]);
 
+  // Klick außerhalb schließt Mobile-Modal (falls du das Modal klickst)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenDropdownId(null);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Suche
   const handleSearch = () => {
     if (!searchQuery.trim()) {
       setFilteredData(allData);
       setCurrentPage(1);
       return;
     }
-
     const fuse = new Fuse(allData, {
       keys: [baseLanguage, `translation.${targetLanguage}`],
       threshold: 0.3,
     });
-
     const results = fuse.search(searchQuery).map((r) => r.item);
     setFilteredData(results);
     setCurrentPage(1);
   };
+  const handleKeyDown = (e) => e.key === "Enter" && handleSearch();
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleSearch();
-  };
-
+  // Statusprüfungen
   const isInList = (item) => savedList.some((v) => v.id === item.id);
   const isInExam = (item) => exams.some((v) => v.id === item.id);
 
+  // Actions
   const handleAddVocabulary = (item) => {
     dispatch(
       addVocabulary({
-        newVocabulary: {
-          ...item,
-          base: baseLanguage,
-          target: targetLanguage,
-        },
+        newVocabulary: { ...item, base: baseLanguage, target: targetLanguage },
         scriptType,
       })
     );
     setOpenDropdownId(null);
   };
-
   const handleRemoveVocabulary = (item) => {
     dispatch(removeVocabulary({ id: item.id, scriptType }));
     setOpenDropdownId(null);
   };
-
   const handleAddExam = (item) => {
     dispatch(
       addToExam({ ...item, base: baseLanguage, target: targetLanguage })
     );
     setOpenDropdownId(null);
   };
-
   const handleRemoveExam = (item) => {
     dispatch(removeFromExam(item.id));
     setOpenDropdownId(null);
   };
-
   const handleRemoveCompletely = (item) => {
     dispatch(removeVocabulary({ id: item.id, scriptType }));
     dispatch(removeFromExam(item.id));
@@ -169,41 +156,33 @@ export default function DynamicVocabulary() {
     return "";
   };
 
-  const toggleDropdown = (id) => {
-    if (isMobile) {
-      setOpenDropdownId(id); // Modal statt Dropdown
-    } else {
-      setOpenDropdownId((prev) => (prev === id ? null : id));
-    }
-  };
+  const toggleMobile = (id) => setOpenDropdownId(id);
+
+  // Paging
+  const handlePrevPage = () => currentPage > 1 && setCurrentPage((p) => p - 1);
+  const handleNextPage = () =>
+    currentPage < totalPages && setCurrentPage((p) => p + 1);
 
   const selectedItem = filteredData.find((i) => i.id === openDropdownId);
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
-  };
-
   return (
-    <div className="Main">
+    <div className="Main DynamicVocabulary">
       <h2 className="my-table-title">
         {baseLanguage} – {targetLanguage}
       </h2>
 
-      <div className="search-field-container">
+      <div className="search-field-container" role="search">
         <input
           type="text"
-          placeholder="Search vocabularies..."
+          placeholder="Kelime ara…"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyDown}
           className="search-input-field"
+          aria-label="Kelime ara"
         />
         <button onClick={handleSearch} className="search-button">
-          Search
+          Ara
         </button>
       </div>
 
@@ -214,73 +193,92 @@ export default function DynamicVocabulary() {
           <tr>
             <th>{baseLanguage}</th>
             <th>{targetLanguage}</th>
-            {!isMobile && <th>Action</th>}
+            {!isMobile && <th className="islem-head">İşlemler</th>}
           </tr>
         </thead>
         <tbody>
           {paginatedData.length === 0 ? (
             <tr>
-              <td colSpan={3}>No results found</td>
+              <td colSpan={isMobile ? 2 : 3}>Sonuç bulunamadı</td>
             </tr>
           ) : (
             paginatedData.map((item) => (
               <tr
                 key={item.id}
                 className={getRowClass(item)}
-                onClick={() => isMobile && toggleDropdown(item.id)}
+                onClick={() => isMobile && toggleMobile(item.id)}
               >
                 <td data-label={baseLanguage}>{item[baseLanguage]}</td>
                 <td data-label={targetLanguage}>
                   {item.translation[targetLanguage]}
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
+                      {" "}
                       ({item.pronunciation})
                     </span>
                   )}
                 </td>
+
+                {/* Desktop: Inline-Aktionen */}
                 {!isMobile && (
-                  <td className="action-wrapper-container">
-                    <div className="action-wrapper">
+                  <td className="islem">
+                    <div
+                      className="row-actions"
+                      role="group"
+                      aria-label="İşlemler"
+                    >
                       <button
-                        className="action-button"
+                        className={`mini ${
+                          isInList(item) ? "outline" : "primary"
+                        }`}
+                        aria-pressed={isInList(item)}
                         onClick={(e) => {
                           e.stopPropagation();
-                          toggleDropdown(item.id);
+                          isInList(item)
+                            ? handleRemoveVocabulary(item)
+                            : handleAddVocabulary(item);
                         }}
+                        title={
+                          isInList(item)
+                            ? "Kütüphaneden çıkar"
+                            : "Kütüphaneye ekle"
+                        }
                       >
-                        Action
+                        {isInList(item) ? "− Kütüphane" : "+ Kütüphane"}
                       </button>
-                      {openDropdownId === item.id && (
-                        <div className="dropdown-menu-fixed" ref={dropdownRef}>
-                          {isInList(item) ? (
-                            <button
-                              onClick={() => handleRemoveVocabulary(item)}
-                            >
-                              Remove from MyVocabularies
-                            </button>
-                          ) : (
-                            <button onClick={() => handleAddVocabulary(item)}>
-                              Add to MyVocabularies
-                            </button>
-                          )}
-                          {isInExam(item) ? (
-                            <button onClick={() => handleRemoveExam(item)}>
-                              Remove from MyExams
-                            </button>
-                          ) : (
-                            <button onClick={() => handleAddExam(item)}>
-                              Add to MyExams
-                            </button>
-                          )}
-                          {(isInList(item) || isInExam(item)) && (
-                            <button
-                              className="remove-completely-button"
-                              onClick={() => handleRemoveCompletely(item)}
-                            >
-                              Remove completely
-                            </button>
-                          )}
-                        </div>
+
+                      <button
+                        className={`mini ${
+                          isInExam(item) ? "outline" : "secondary"
+                        }`}
+                        aria-pressed={isInExam(item)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          isInExam(item)
+                            ? handleRemoveExam(item)
+                            : handleAddExam(item);
+                        }}
+                        title={
+                          isInExam(item)
+                            ? "Sınavlardan çıkar"
+                            : "Sınavlara ekle"
+                        }
+                      >
+                        {isInExam(item) ? "− Sınav" : "+ Sınav"}
+                      </button>
+
+                      {/* Kaldır nur in Mobile Ansicht */}
+                      {isMobile && (isInList(item) || isInExam(item)) && (
+                        <button
+                          className="mini danger"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleRemoveCompletely(item);
+                          }}
+                          title="Tamamen kaldır"
+                        >
+                          Kaldır
+                        </button>
                       )}
                     </div>
                   </td>
@@ -298,6 +296,7 @@ export default function DynamicVocabulary() {
         onNext={handleNextPage}
       />
 
+      {/* Mobile Modal bleibt wie gehabt */}
       {isMobile && selectedItem && (
         <div
           className="mobile-modal-backdrop"
@@ -306,6 +305,7 @@ export default function DynamicVocabulary() {
           <div
             className="mobile-modal-content"
             onClick={(e) => e.stopPropagation()}
+            ref={dropdownRef}
           >
             <button
               className="close-button"
@@ -316,20 +316,20 @@ export default function DynamicVocabulary() {
             <div className="modal-actions">
               {isInList(selectedItem) ? (
                 <button onClick={() => handleRemoveVocabulary(selectedItem)}>
-                  Remove from MyVocabularies
+                  Kütüphaneden çıkar
                 </button>
               ) : (
                 <button onClick={() => handleAddVocabulary(selectedItem)}>
-                  Add to MyVocabularies
+                  Kütüphaneye ekle
                 </button>
               )}
               {isInExam(selectedItem) ? (
                 <button onClick={() => handleRemoveExam(selectedItem)}>
-                  Remove from MyExams
+                  Sınavlardan çıkar
                 </button>
               ) : (
                 <button onClick={() => handleAddExam(selectedItem)}>
-                  Add to MyExams
+                  Sınavlara ekle
                 </button>
               )}
               {(isInList(selectedItem) || isInExam(selectedItem)) && (
@@ -337,7 +337,7 @@ export default function DynamicVocabulary() {
                   className="remove-completely-button"
                   onClick={() => handleRemoveCompletely(selectedItem)}
                 >
-                  Remove completely
+                  Tamamen kaldır
                 </button>
               )}
             </div>

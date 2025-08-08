@@ -1,106 +1,106 @@
 // src/pages/MyVocabulary/myVocabulary.scss
-
 @import "../../App.scss";
 
 .MyVocabulary {
   padding: 16px;
-}
 
-.my-table-title {
-  width: 70%;
-  margin: 0 auto;
-  padding: 10px 0px;
-}
-
-.my-table {
-  width: 70%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  margin: 0 auto;
-
-  th,
-  td {
-    padding: 0.75rem 1rem;
-    text-align: left;
-    border: 1px solid #ccc;
-  }
-
-  thead {
-    background-color: $main-blue;
-
-    th {
-      color: white;
-      font-weight: bold;
-    }
-  }
-
-  tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-  }
-
-  tbody tr:nth-child(even) {
-    background-color: #f7f7f7;
-  }
-
-  &.compact td,
-  &.compact th {
-    padding: 4px 10px;
-    line-height: 1.3;
-    font-size: 15px;
-    vertical-align: middle;
-    height: 36px;
-  }
-
-  &.compact td button {
-    padding: 4px 8px;
-    font-size: 14px;
-    line-height: 1;
-  }
-
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 20%;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2) {
-    width: 20%;
-  }
-
-  th:nth-child(3),
-  td:nth-child(3) {
-    width: 5%;
-  }
-}
-
-.no-vocab-info {
-  text-align: center;
-  padding: 40px 20px;
-  color: $main-grey;
-
-  h2 {
-    font-size: 24px;
-    color: $main-blue;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .my-table-title {
-    width: 90%;
-    font-size: 18px;
-    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    padding: 10px 0px;
   }
 
   .my-table {
-    width: 95%;
-    font-size: 13px;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    width: 70%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin: 0 auto;
+
+    th,
+    td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border: 1px solid #ccc;
+    }
+
+    thead {
+      background-color: $main-blue;
+
+      th {
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f7f7f7;
+    }
+
+    &.compact td,
+    &.compact th {
+      padding: 4px 10px;
+      line-height: 1.3;
+      font-size: 15px;
+      vertical-align: middle;
+      height: 36px;
+    }
+
+    &.compact td button {
+      padding: 4px 8px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* Nur für MyVocabulary – fixe Breiten */
+    thead th:nth-child(1),
+    tbody td:nth-child(1) {
+      width: 20%;
+    }
+
+    thead th:nth-child(2),
+    tbody td:nth-child(2) {
+      width: 20%;
+    }
+
+    thead th:nth-child(3),
+    tbody td:nth-child(3) {
+      width: 5%;
+    }
+  }
+
+  .no-vocab-info {
+    text-align: center;
+    padding: 40px 20px;
+    color: $main-grey;
+
+    h2 {
+      font-size: 24px;
+      color: $main-blue;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .my-table-title {
+      width: 90%;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .my-table {
+      width: 95%;
+      font-size: 13px;
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
   }
 }

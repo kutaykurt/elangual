@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setBaseLanguage, setTargetLanguage } from "../../redux/languagesSlice";
 import "./header.scss";
@@ -8,131 +8,114 @@ const languagePairs = [
   { path: "turkish-english", label: "Tr – En" },
   { path: "turkish-german", label: "Tr – De" },
   { path: "turkish-spanish", label: "Tr – Es" },
-  { path: "english-german", label: "En – De" },
-  { path: "english-spanish", label: "En – Es" },
-  { path: "german-spanish", label: "De – Es" },
 ];
 
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const currentPath = location.pathname.replace(/^\/+/, "");
 
-  const { baseLanguage, targetLanguage } = useSelector(
-    (state) => state.languages
-  );
-  const vocabularies = useSelector(
-    (state) => state.vocabulary.dynamicVocabularies
-  );
+  const { baseLanguage, targetLanguage } = useSelector((s) => s.languages);
+  const vocabularies = useSelector((s) => s.vocabulary.dynamicVocabularies);
 
   const vocabCount = Object.values(vocabularies).reduce(
     (acc, list) => acc + (list?.length || 0),
     0
   );
 
-  const getNavLinkClass = (path) => (currentPath === path ? "active" : "");
-
-  const handleLanguageClick = (path) => {
-    const [base, target] = path.split("-");
+  const handleLanguage = (pair) => {
+    const [base, target] = pair.split("-");
     dispatch(setBaseLanguage(base));
     dispatch(setTargetLanguage(target));
     localStorage.setItem("baseLanguage", base);
     localStorage.setItem("targetLanguage", target);
+    if (location.pathname !== "/vocabulary") navigate("/vocabulary");
   };
 
+  const currentPair = `${baseLanguage}-${targetLanguage}` || "turkish-english";
+
   return (
-    <header className="Header">
-      <div className="header-design-line" />
-      <div className="header-main">
-        <div className="column-one">
-          <Link to="/" className="title">
-            <span className="title-first-word">E</span>
-            <span className="title-second-word">Langual</span>
-          </Link>
-          <div className="slogan">Start today. Speak tomorrow.</div>
-        </div>
+    <header className="AppHeader" role="banner">
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
 
-        <nav className="column-two">
-          <ul className="navigation">
-            {/* Desktop Language Selection */}
-            <div className="show-on-desktop">
+      <div className="topbar">
+        <div className="container">
+          {/* BRAND */}
+          <div className="brand" itemScope itemType="https://schema.org/Brand">
+            <NavLink
+              to="/"
+              className="brand__link"
+              aria-label="E-Langual Home"
+              itemProp="url"
+            >
+              <span className="brand__badge" aria-hidden>
+                <span className="brand__badge-e">E</span>
+              </span>
+              <span className="brand__name" itemProp="name">
+                Langual
+              </span>
+            </NavLink>
+            <span className="brand__tag" itemProp="slogan">
+              Learn languages. Unlock worlds.
+            </span>
+          </div>
+
+          {/* PRIMARY NAV */}
+          <nav className="nav" aria-label="Primary">
+            <NavLink to="/learngrammar" className="nav__link">
+              Grammar
+            </NavLink>
+            <NavLink to="/vocabulary" className="nav__link">
+              Vocabularies
+            </NavLink>
+            <NavLink to="/myvocabularies" className="nav__link">
+              My Library
+              {vocabCount > 0 && <span className="badge">{vocabCount}</span>}
+            </NavLink>
+            <NavLink to="/myexams" className="nav__link">
+              My Exams
+            </NavLink>
+          </nav>
+
+          {/* DESKTOP: LANGUAGE DROPDOWN */}
+          <div className="lang-select desktop-only">
+            <label htmlFor="lang-dd" className="sr-only">
+              Language pair
+            </label>
+            <select
+              id="lang-dd"
+              value={currentPair}
+              onChange={(e) => handleLanguage(e.target.value)}
+              aria-label="Select language pair"
+            >
               {languagePairs.map(({ path, label }) => (
-                <li key={path}>
-                  <Link
-                    to="/vocabulary"
-                    className={`link ${getNavLinkClass(path)}`}
-                    onClick={() => handleLanguageClick(path)}
-                  >
-                    {label}
-                  </Link>
-                </li>
+                <option key={path} value={path}>
+                  {label}
+                </option>
               ))}
-            </div>
+            </select>
+          </div>
+        </div>
+      </div>
 
-            {/* Navigation */}
-            <li>
-              <Link
-                to="/learngrammar"
-                className={`link my-exams ${getNavLinkClass("myexams")}`}
-              >
-                Grammar
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/vocabulary"
-                className={`link ${getNavLinkClass("vocabulary")}`}
-              >
-                Vocabularies
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/myvocabularies"
-                className={`link ${getNavLinkClass("myvocabularies")}`}
-              >
-                My Library
-                {vocabCount > 0 && (
-                  <span className="vocab-badge">{vocabCount}</span>
-                )}
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/myexams"
-                className={`link my-exams ${getNavLinkClass("myexams")}`}
-              >
-                My Exams
-              </Link>
-            </li>
-
-            {/* Mobile Language Dropdown */}
-            <div className="hide-on-desktop mobile-language-wrapper">
-              <div className="language-dropdown">
-                <select
-                  onChange={(e) => {
-                    const path = e.target.value;
-                    if (path) {
-                      handleLanguageClick(path);
-                      window.location.href = "/#/vocabulary"; // HashRouter
-                    }
-                  }}
-                  value={`${baseLanguage}-${targetLanguage}`}
-                >
-                  <option value="">Select language pair</option>
-                  {languagePairs.map(({ path, label }) => (
-                    <option key={path} value={path}>
-                      {label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </ul>
-        </nav>
+      {/* MOBILE: CHIP RAIL (kein Dropdown) */}
+      <div className="lang-rail mobile-only" aria-label="Language pair">
+        <div className="rail container">
+          {languagePairs.map(({ path, label }) => (
+            <button
+              key={path}
+              type="button"
+              className={`chip ${currentPair === path ? "is-active" : ""}`}
+              aria-pressed={currentPair === path}
+              onClick={() => handleLanguage(path)}
+              title={`${label} dictionary`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </header>
   );
