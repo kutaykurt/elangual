@@ -1,0 +1,6236 @@
+{
+  "base": "english",
+  "target": "german",
+  "vocabulary": [
+    {
+      "english": "house",
+      "translation": {
+        "german": "Haus"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "car",
+      "translation": {
+        "german": "Auto"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "tree",
+      "translation": {
+        "german": "Baum"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "sun",
+      "translation": {
+        "german": "Sonne"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "moon",
+      "translation": {
+        "german": "Mond"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "book",
+      "translation": {
+        "german": "Buch"
+      },
+      "category": "School"
+    },
+    {
+      "english": "pen",
+      "translation": {
+        "german": "Stift"
+      },
+      "category": "School"
+    },
+    {
+      "english": "student",
+      "translation": {
+        "german": "Schüler"
+      },
+      "category": "School"
+    },
+    {
+      "english": "teacher",
+      "translation": {
+        "german": "Lehrer"
+      },
+      "category": "School"
+    },
+    {
+      "english": "table",
+      "translation": {
+        "german": "Tisch"
+      },
+      "category": "School"
+    },
+    {
+      "english": "dog",
+      "translation": {
+        "german": "Hund"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "cat",
+      "translation": {
+        "german": "Katze"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "bird",
+      "translation": {
+        "german": "Vogel"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "fish",
+      "translation": {
+        "german": "Fisch"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "mother",
+      "translation": {
+        "german": "Mutter"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "father",
+      "translation": {
+        "german": "Vater"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "sister",
+      "translation": {
+        "german": "Schwester"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "brother",
+      "translation": {
+        "german": "Bruder"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "bread",
+      "translation": {
+        "german": "Brot"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "water",
+      "translation": {
+        "german": "Wasser"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "milk",
+      "translation": {
+        "german": "Milch"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "cheese",
+      "translation": {
+        "german": "Käse"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "apple",
+      "translation": {
+        "german": "Apfel"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "banana",
+      "translation": {
+        "german": "Banane"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "window",
+      "translation": {
+        "german": "Fenster"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "door",
+      "translation": {
+        "german": "Tür"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bed",
+      "translation": {
+        "german": "Bett"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "chair",
+      "translation": {
+        "german": "Stuhl"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "light",
+      "translation": {
+        "german": "Licht"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "clock",
+      "translation": {
+        "german": "Uhr"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "road",
+      "translation": {
+        "german": "Straße"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "city",
+      "translation": {
+        "german": "Stadt"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "village",
+      "translation": {
+        "german": "Dorf"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "market",
+      "translation": {
+        "german": "Markt"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "shop",
+      "translation": {
+        "german": "Geschäft"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "money",
+      "translation": {
+        "german": "Geld"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "phone",
+      "translation": {
+        "german": "Telefon"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "computer",
+      "translation": {
+        "german": "Computer"
+      },
+      "category": "Everyday"
+    },
+    {
+      "english": "window",
+      "translation": {
+        "german": "Fenster"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "floor",
+      "translation": {
+        "german": "Boden"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "wall",
+      "translation": {
+        "german": "Wand"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "ceiling",
+      "translation": {
+        "german": "Decke"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "kitchen",
+      "translation": {
+        "german": "Küche"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bathroom",
+      "translation": {
+        "german": "Badezimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "mirror",
+      "translation": {
+        "german": "Spiegel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "plate",
+      "translation": {
+        "german": "Teller"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "cup",
+      "translation": {
+        "german": "Tasse"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "knife",
+      "translation": {
+        "german": "Messer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "fork",
+      "translation": {
+        "german": "Gabel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "spoon",
+      "translation": {
+        "german": "Löffel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "rice",
+      "translation": {
+        "german": "Reis"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "meat",
+      "translation": {
+        "german": "Fleisch"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "egg",
+      "translation": {
+        "german": "Ei"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "salt",
+      "translation": {
+        "german": "Salz"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "pepper",
+      "translation": {
+        "german": "Pfeffer"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "sugar",
+      "translation": {
+        "german": "Zucker"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "butter",
+      "translation": {
+        "german": "Butter"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "breakfast",
+      "translation": {
+        "german": "Frühstück"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "lunch",
+      "translation": {
+        "german": "Mittagessen"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "dinner",
+      "translation": {
+        "german": "Abendessen"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "child",
+      "translation": {
+        "german": "Kind"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "baby",
+      "translation": {
+        "german": "Baby"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "parents",
+      "translation": {
+        "german": "Eltern"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "grandmother",
+      "translation": {
+        "german": "Großmutter"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "grandfather",
+      "translation": {
+        "german": "Großvater"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "aunt",
+      "translation": {
+        "german": "Tante"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "uncle",
+      "translation": {
+        "german": "Onkel"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "cousin",
+      "translation": {
+        "german": "Cousin"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "nephew",
+      "translation": {
+        "german": "Neffe"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "niece",
+      "translation": {
+        "german": "Nichte"
+      },
+      "category": "Family"
+    },
+    {
+      "english": "friend",
+      "translation": {
+        "german": "Freund"
+      },
+      "category": "People"
+    },
+    {
+      "english": "enemy",
+      "translation": {
+        "german": "Feind"
+      },
+      "category": "People"
+    },
+    {
+      "english": "boy",
+      "translation": {
+        "german": "Junge"
+      },
+      "category": "People"
+    },
+    {
+      "english": "girl",
+      "translation": {
+        "german": "Mädchen"
+      },
+      "category": "People"
+    },
+    {
+      "english": "man",
+      "translation": {
+        "german": "Mann"
+      },
+      "category": "People"
+    },
+    {
+      "english": "woman",
+      "translation": {
+        "german": "Frau"
+      },
+      "category": "People"
+    },
+    {
+      "english": "person",
+      "translation": {
+        "german": "Person"
+      },
+      "category": "People"
+    },
+    {
+      "english": "people",
+      "translation": {
+        "german": "Leute"
+      },
+      "category": "People"
+    },
+    {
+      "english": "name",
+      "translation": {
+        "german": "Name"
+      },
+      "category": "People"
+    },
+    {
+      "english": "age",
+      "translation": {
+        "german": "Alter"
+      },
+      "category": "People"
+    },
+    {
+      "english": "job",
+      "translation": {
+        "german": "Beruf"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "worker",
+      "translation": {
+        "german": "Arbeiter"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "boss",
+      "translation": {
+        "german": "Chef"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "office",
+      "translation": {
+        "german": "Büro"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "company",
+      "translation": {
+        "german": "Firma"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "meeting",
+      "translation": {
+        "german": "Besprechung"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "document",
+      "translation": {
+        "german": "Dokument"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "paper",
+      "translation": {
+        "german": "Papier"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "pen",
+      "translation": {
+        "german": "Stift"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "notebook",
+      "translation": {
+        "german": "Notizbuch"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "schoolbag",
+      "translation": {
+        "german": "Schultasche"
+      },
+      "category": "School"
+    },
+    {
+      "english": "classroom",
+      "translation": {
+        "german": "Klassenzimmer"
+      },
+      "category": "School"
+    },
+    {
+      "english": "teacher's desk",
+      "translation": {
+        "german": "Lehrerpult"
+      },
+      "category": "School"
+    },
+    {
+      "english": "student's desk",
+      "translation": {
+        "german": "Schülertisch"
+      },
+      "category": "School"
+    },
+    {
+      "english": "blackboard",
+      "translation": {
+        "german": "Tafel"
+      },
+      "category": "School"
+    },
+    {
+      "english": "chalk",
+      "translation": {
+        "german": "Kreide"
+      },
+      "category": "School"
+    },
+    {
+      "english": "marker",
+      "translation": {
+        "german": "Marker"
+      },
+      "category": "School"
+    },
+    {
+      "english": "bookcase",
+      "translation": {
+        "german": "Bücherregal"
+      },
+      "category": "School"
+    },
+    {
+      "english": "dictionary",
+      "translation": {
+        "german": "Wörterbuch"
+      },
+      "category": "School"
+    },
+    {
+      "english": "homework",
+      "translation": {
+        "german": "Hausaufgabe"
+      },
+      "category": "School"
+    },
+    {
+      "english": "exam",
+      "translation": {
+        "german": "Prüfung"
+      },
+      "category": "School"
+    },
+    {
+      "english": "test",
+      "translation": {
+        "german": "Test"
+      },
+      "category": "School"
+    },
+    {
+      "english": "lesson",
+      "translation": {
+        "german": "Unterricht"
+      },
+      "category": "School"
+    },
+    {
+      "english": "subject",
+      "translation": {
+        "german": "Fach"
+      },
+      "category": "School"
+    },
+    {
+      "english": "math",
+      "translation": {
+        "german": "Mathematik"
+      },
+      "category": "School"
+    },
+    {
+      "english": "science",
+      "translation": {
+        "german": "Naturwissenschaften"
+      },
+      "category": "School"
+    },
+    {
+      "english": "history",
+      "translation": {
+        "german": "Geschichte"
+      },
+      "category": "School"
+    },
+    {
+      "english": "geography",
+      "translation": {
+        "german": "Geografie"
+      },
+      "category": "School"
+    },
+    {
+      "english": "art",
+      "translation": {
+        "german": "Kunst"
+      },
+      "category": "School"
+    },
+    {
+      "english": "music",
+      "translation": {
+        "german": "Musik"
+      },
+      "category": "School"
+    },
+    {
+      "english": "sport",
+      "translation": {
+        "german": "Sport"
+      },
+      "category": "School"
+    },
+    {
+      "english": "grade",
+      "translation": {
+        "german": "Note"
+      },
+      "category": "School"
+    },
+    {
+      "english": "question",
+      "translation": {
+        "german": "Frage"
+      },
+      "category": "School"
+    },
+    {
+      "english": "answer",
+      "translation": {
+        "german": "Antwort"
+      },
+      "category": "School"
+    },
+    {
+      "english": "university",
+      "translation": {
+        "german": "Universität"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "college",
+      "translation": {
+        "german": "Hochschule"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "student ID",
+      "translation": {
+        "german": "Studentenausweis"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "lecture",
+      "translation": {
+        "german": "Vorlesung"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "library",
+      "translation": {
+        "german": "Bibliothek"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "research",
+      "translation": {
+        "german": "Forschung"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "train",
+      "translation": {
+        "german": "Zug"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bus",
+      "translation": {
+        "german": "Bus"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "tram",
+      "translation": {
+        "german": "Straßenbahn"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bicycle",
+      "translation": {
+        "german": "Fahrrad"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "motorcycle",
+      "translation": {
+        "german": "Motorrad"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "airplane",
+      "translation": {
+        "german": "Flugzeug"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "airport",
+      "translation": {
+        "german": "Flughafen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "station",
+      "translation": {
+        "german": "Bahnhof"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "ticket",
+      "translation": {
+        "german": "Fahrkarte"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "driver",
+      "translation": {
+        "german": "Fahrer"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "passenger",
+      "translation": {
+        "german": "Passagier"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "stop",
+      "translation": {
+        "german": "Haltestelle"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "line",
+      "translation": {
+        "german": "Linie"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "schedule",
+      "translation": {
+        "german": "Fahrplan"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "map",
+      "translation": {
+        "german": "Karte"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "road sign",
+      "translation": {
+        "german": "Verkehrsschild"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "traffic",
+      "translation": {
+        "german": "Verkehr"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "gas station",
+      "translation": {
+        "german": "Tankstelle"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "garage",
+      "translation": {
+        "german": "Garage"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "speed",
+      "translation": {
+        "german": "Geschwindigkeit"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "seat",
+      "translation": {
+        "german": "Sitzplatz"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "luggage",
+      "translation": {
+        "german": "Gepäck"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "arrival",
+      "translation": {
+        "german": "Ankunft"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "departure",
+      "translation": {
+        "german": "Abfahrt"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "platform",
+      "translation": {
+        "german": "Bahnsteig"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "path",
+      "translation": {
+        "german": "Weg"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bridge",
+      "translation": {
+        "german": "Brücke"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "crosswalk",
+      "translation": {
+        "german": "Zebrastreifen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "roundabout",
+      "translation": {
+        "german": "Kreisverkehr"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "traffic light",
+      "translation": {
+        "german": "Ampel"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "hospital",
+      "translation": {
+        "german": "Krankenhaus"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "doctor",
+      "translation": {
+        "german": "Arzt"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "nurse",
+      "translation": {
+        "german": "Krankenschwester"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "patient",
+      "translation": {
+        "german": "Patient"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "medicine",
+      "translation": {
+        "german": "Medizin"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "pill",
+      "translation": {
+        "german": "Tablette"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "prescription",
+      "translation": {
+        "german": "Rezept"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "pharmacy",
+      "translation": {
+        "german": "Apotheke"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "fever",
+      "translation": {
+        "german": "Fieber"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "cough",
+      "translation": {
+        "german": "Husten"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "cold",
+      "translation": {
+        "german": "Erkältung"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "flu",
+      "translation": {
+        "german": "Grippe"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "headache",
+      "translation": {
+        "german": "Kopfschmerzen"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "toothache",
+      "translation": {
+        "german": "Zahnschmerzen"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "backache",
+      "translation": {
+        "german": "Rückenschmerzen"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "injury",
+      "translation": {
+        "german": "Verletzung"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "wound",
+      "translation": {
+        "german": "Wunde"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "cut",
+      "translation": {
+        "german": "Schnitt"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "bruise",
+      "translation": {
+        "german": "Bluterguss"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "bandage",
+      "translation": {
+        "german": "Verband"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "thermometer",
+      "translation": {
+        "german": "Thermometer"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "stethoscope",
+      "translation": {
+        "german": "Stethoskop"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "operation",
+      "translation": {
+        "german": "Operation"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "appointment",
+      "translation": {
+        "german": "Termin"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "clinic",
+      "translation": {
+        "german": "Klinik"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "health",
+      "translation": {
+        "german": "Gesundheit"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "disease",
+      "translation": {
+        "german": "Krankheit"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "symptom",
+      "translation": {
+        "german": "Symptom"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "treatment",
+      "translation": {
+        "german": "Behandlung"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "recovery",
+      "translation": {
+        "german": "Genesung"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "weather",
+      "translation": {
+        "german": "Wetter"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "rain",
+      "translation": {
+        "german": "Regen"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "snow",
+      "translation": {
+        "german": "Schnee"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "wind",
+      "translation": {
+        "german": "Wind"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "cloud",
+      "translation": {
+        "german": "Wolke"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "storm",
+      "translation": {
+        "german": "Sturm"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "lightning",
+      "translation": {
+        "german": "Blitz"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "thunder",
+      "translation": {
+        "german": "Donner"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "temperature",
+      "translation": {
+        "german": "Temperatur"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "sunshine",
+      "translation": {
+        "german": "Sonnenschein"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "fog",
+      "translation": {
+        "german": "Nebel"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "ice",
+      "translation": {
+        "german": "Eis"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "river",
+      "translation": {
+        "german": "Fluss"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "lake",
+      "translation": {
+        "german": "See"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "sea",
+      "translation": {
+        "german": "Meer"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "ocean",
+      "translation": {
+        "german": "Ozean"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "mountain",
+      "translation": {
+        "german": "Berg"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "valley",
+      "translation": {
+        "german": "Tal"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "hill",
+      "translation": {
+        "german": "Hügel"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "forest",
+      "translation": {
+        "german": "Wald"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "tree",
+      "translation": {
+        "german": "Baum"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "leaf",
+      "translation": {
+        "german": "Blatt"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "flower",
+      "translation": {
+        "german": "Blume"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "grass",
+      "translation": {
+        "german": "Gras"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "stone",
+      "translation": {
+        "german": "Stein"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "sand",
+      "translation": {
+        "german": "Sand"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "soil",
+      "translation": {
+        "german": "Erde"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "earthquake",
+      "translation": {
+        "german": "Erdbeben"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "volcano",
+      "translation": {
+        "german": "Vulkan"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "island",
+      "translation": {
+        "german": "Insel"
+      },
+      "category": "Nature"
+    },
+    {
+      "english": "kitchen",
+      "translation": {
+        "german": "Küche"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "living room",
+      "translation": {
+        "german": "Wohnzimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bedroom",
+      "translation": {
+        "german": "Schlafzimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bathroom",
+      "translation": {
+        "german": "Badezimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "attic",
+      "translation": {
+        "german": "Dachboden"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "basement",
+      "translation": {
+        "german": "Keller"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "garden",
+      "translation": {
+        "german": "Garten"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "balcony",
+      "translation": {
+        "german": "Balkon"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "door",
+      "translation": {
+        "german": "Tür"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "window",
+      "translation": {
+        "german": "Fenster"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "floor",
+      "translation": {
+        "german": "Boden"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "wall",
+      "translation": {
+        "german": "Wand"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "ceiling",
+      "translation": {
+        "german": "Decke"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "lamp",
+      "translation": {
+        "german": "Lampe"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "sofa",
+      "translation": {
+        "german": "Sofa"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "armchair",
+      "translation": {
+        "german": "Sessel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bed",
+      "translation": {
+        "german": "Bett"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "pillow",
+      "translation": {
+        "german": "Kissen"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "blanket",
+      "translation": {
+        "german": "Decke"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "curtain",
+      "translation": {
+        "german": "Vorhang"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "carpet",
+      "translation": {
+        "german": "Teppich"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "mirror",
+      "translation": {
+        "german": "Spiegel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "clock",
+      "translation": {
+        "german": "Uhr"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "shelf",
+      "translation": {
+        "german": "Regal"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "drawer",
+      "translation": {
+        "german": "Schublade"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "wardrobe",
+      "translation": {
+        "german": "Kleiderschrank"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "sink",
+      "translation": {
+        "german": "Spüle"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "stove",
+      "translation": {
+        "german": "Herd"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "fridge",
+      "translation": {
+        "german": "Kühlschrank"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "washing machine",
+      "translation": {
+        "german": "Waschmaschine"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "restaurant",
+      "translation": {
+        "german": "Restaurant"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "menu",
+      "translation": {
+        "german": "Speisekarte"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "waiter",
+      "translation": {
+        "german": "Kellner"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "waitress",
+      "translation": {
+        "german": "Kellnerin"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "bill",
+      "translation": {
+        "german": "Rechnung"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "tip",
+      "translation": {
+        "german": "Trinkgeld"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "order",
+      "translation": {
+        "german": "Bestellung"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "reservation",
+      "translation": {
+        "german": "Reservierung"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "table",
+      "translation": {
+        "german": "Tisch"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "chair",
+      "translation": {
+        "german": "Stuhl"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "meal",
+      "translation": {
+        "german": "Mahlzeit"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "dish",
+      "translation": {
+        "german": "Gericht"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "appetizer",
+      "translation": {
+        "german": "Vorspeise"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "main course",
+      "translation": {
+        "german": "Hauptgericht"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "dessert",
+      "translation": {
+        "german": "Nachtisch"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "drink",
+      "translation": {
+        "german": "Getränk"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "juice",
+      "translation": {
+        "german": "Saft"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "coffee",
+      "translation": {
+        "german": "Kaffee"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "tea",
+      "translation": {
+        "german": "Tee"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "wine",
+      "translation": {
+        "german": "Wein"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "beer",
+      "translation": {
+        "german": "Bier"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "glass",
+      "translation": {
+        "german": "Glas"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "bottle",
+      "translation": {
+        "german": "Flasche"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "knife",
+      "translation": {
+        "german": "Messer"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "fork",
+      "translation": {
+        "german": "Gabel"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "spoon",
+      "translation": {
+        "german": "Löffel"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "napkin",
+      "translation": {
+        "german": "Serviette"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "salt",
+      "translation": {
+        "german": "Salz"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "pepper",
+      "translation": {
+        "german": "Pfeffer"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "mustard",
+      "translation": {
+        "german": "Senf"
+      },
+      "category": "Food"
+    },
+    {
+      "english": "day",
+      "translation": {
+        "german": "Tag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "week",
+      "translation": {
+        "german": "Woche"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "month",
+      "translation": {
+        "german": "Monat"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "year",
+      "translation": {
+        "german": "Jahr"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "morning",
+      "translation": {
+        "german": "Morgen"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "afternoon",
+      "translation": {
+        "german": "Nachmittag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "evening",
+      "translation": {
+        "german": "Abend"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "night",
+      "translation": {
+        "german": "Nacht"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "today",
+      "translation": {
+        "german": "heute"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "tomorrow",
+      "translation": {
+        "german": "morgen"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "yesterday",
+      "translation": {
+        "german": "gestern"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "now",
+      "translation": {
+        "german": "jetzt"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "later",
+      "translation": {
+        "german": "später"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "soon",
+      "translation": {
+        "german": "bald"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "always",
+      "translation": {
+        "german": "immer"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "often",
+      "translation": {
+        "german": "oft"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "sometimes",
+      "translation": {
+        "german": "manchmal"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "never",
+      "translation": {
+        "german": "nie"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "early",
+      "translation": {
+        "german": "früh"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "late",
+      "translation": {
+        "german": "spät"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "clock",
+      "translation": {
+        "german": "Uhr"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "minute",
+      "translation": {
+        "german": "Minute"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "second",
+      "translation": {
+        "german": "Sekunde"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "hour",
+      "translation": {
+        "german": "Stunde"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "calendar",
+      "translation": {
+        "german": "Kalender"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "date",
+      "translation": {
+        "german": "Datum"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "holiday",
+      "translation": {
+        "german": "Feiertag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "birthday",
+      "translation": {
+        "german": "Geburtstag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "anniversary",
+      "translation": {
+        "german": "Jahrestag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "season",
+      "translation": {
+        "german": "Jahreszeit"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "sport",
+      "translation": {
+        "german": "Sport"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "game",
+      "translation": {
+        "german": "Spiel"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "ball",
+      "translation": {
+        "german": "Ball"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "team",
+      "translation": {
+        "german": "Mannschaft"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "player",
+      "translation": {
+        "german": "Spieler"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "score",
+      "translation": {
+        "german": "Punktestand"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "goal",
+      "translation": {
+        "german": "Tor"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "referee",
+      "translation": {
+        "german": "Schiedsrichter"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "swimming",
+      "translation": {
+        "german": "Schwimmen"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "running",
+      "translation": {
+        "german": "Laufen"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "cycling",
+      "translation": {
+        "german": "Radfahren"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "tennis",
+      "translation": {
+        "german": "Tennis"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "football",
+      "translation": {
+        "german": "Fußball"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "basketball",
+      "translation": {
+        "german": "Basketball"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "volleyball",
+      "translation": {
+        "german": "Volleyball"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "gym",
+      "translation": {
+        "german": "Fitnessstudio"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "exercise",
+      "translation": {
+        "german": "Übung"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "dance",
+      "translation": {
+        "german": "Tanz"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "music",
+      "translation": {
+        "german": "Musik"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "movie",
+      "translation": {
+        "german": "Film"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "cinema",
+      "translation": {
+        "german": "Kino"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "actor",
+      "translation": {
+        "german": "Schauspieler"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "actress",
+      "translation": {
+        "german": "Schauspielerin"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "theatre",
+      "translation": {
+        "german": "Theater"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "concert",
+      "translation": {
+        "german": "Konzert"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "painting",
+      "translation": {
+        "german": "Gemälde"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "drawing",
+      "translation": {
+        "german": "Zeichnung"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "photo",
+      "translation": {
+        "german": "Foto"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "camera",
+      "translation": {
+        "german": "Kamera"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "hobby",
+      "translation": {
+        "german": "Hobby"
+      },
+      "category": "Leisure"
+    },
+    {
+      "english": "bank",
+      "translation": {
+        "german": "Bank"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "money",
+      "translation": {
+        "german": "Geld"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "cash",
+      "translation": {
+        "german": "Bargeld"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "credit card",
+      "translation": {
+        "german": "Kreditkarte"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "debit card",
+      "translation": {
+        "german": "EC-Karte"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "account",
+      "translation": {
+        "german": "Konto"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "balance",
+      "translation": {
+        "german": "Kontostand"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "ATM",
+      "translation": {
+        "german": "Geldautomat"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "loan",
+      "translation": {
+        "german": "Darlehen"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "interest",
+      "translation": {
+        "german": "Zinsen"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "payment",
+      "translation": {
+        "german": "Zahlung"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "bill",
+      "translation": {
+        "german": "Rechnung"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "receipt",
+      "translation": {
+        "german": "Quittung"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "salary",
+      "translation": {
+        "german": "Gehalt"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "wage",
+      "translation": {
+        "german": "Lohn"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "tax",
+      "translation": {
+        "german": "Steuer"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "fine",
+      "translation": {
+        "german": "Geldstrafe"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "budget",
+      "translation": {
+        "german": "Haushaltsplan"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "cost",
+      "translation": {
+        "german": "Kosten"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "price",
+      "translation": {
+        "german": "Preis"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "value",
+      "translation": {
+        "german": "Wert"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "expense",
+      "translation": {
+        "german": "Ausgabe"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "income",
+      "translation": {
+        "german": "Einkommen"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "profit",
+      "translation": {
+        "german": "Gewinn"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "loss",
+      "translation": {
+        "german": "Verlust"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "investment",
+      "translation": {
+        "german": "Investition"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "insurance",
+      "translation": {
+        "german": "Versicherung"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "currency",
+      "translation": {
+        "german": "Währung"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "exchange",
+      "translation": {
+        "german": "Wechsel"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "coin",
+      "translation": {
+        "german": "Münze"
+      },
+      "category": "Finance"
+    },
+    {
+      "english": "shop",
+      "translation": {
+        "german": "Geschäft"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "store",
+      "translation": {
+        "german": "Laden"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "supermarket",
+      "translation": {
+        "german": "Supermarkt"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "mall",
+      "translation": {
+        "german": "Einkaufszentrum"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "cash register",
+      "translation": {
+        "german": "Kasse"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "checkout",
+      "translation": {
+        "german": "Kassenschalter"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "shopping cart",
+      "translation": {
+        "german": "Einkaufswagen"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "basket",
+      "translation": {
+        "german": "Korb"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "bag",
+      "translation": {
+        "german": "Tüte"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "product",
+      "translation": {
+        "german": "Produkt"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "item",
+      "translation": {
+        "german": "Artikel"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "sale",
+      "translation": {
+        "german": "Ausverkauf"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "discount",
+      "translation": {
+        "german": "Rabatt"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "offer",
+      "translation": {
+        "german": "Angebot"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "customer",
+      "translation": {
+        "german": "Kunde"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "shop assistant",
+      "translation": {
+        "german": "Verkäufer"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "price tag",
+      "translation": {
+        "german": "Preisschild"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "receipt",
+      "translation": {
+        "german": "Quittung"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "change",
+      "translation": {
+        "german": "Wechselgeld"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "refund",
+      "translation": {
+        "german": "Rückerstattung"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "exchange",
+      "translation": {
+        "german": "Umtausch"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "size",
+      "translation": {
+        "german": "Größe"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "color",
+      "translation": {
+        "german": "Farbe"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "brand",
+      "translation": {
+        "german": "Marke"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "quality",
+      "translation": {
+        "german": "Qualität"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "fitting room",
+      "translation": {
+        "german": "Umkleidekabine"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "queue",
+      "translation": {
+        "german": "Warteschlange"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "open",
+      "translation": {
+        "german": "geöffnet"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "closed",
+      "translation": {
+        "german": "geschlossen"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "receipt number",
+      "translation": {
+        "german": "Belegnummer"
+      },
+      "category": "Shopping"
+    },
+    {
+      "english": "computer",
+      "translation": {
+        "german": "Computer"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "laptop",
+      "translation": {
+        "german": "Laptop"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "tablet",
+      "translation": {
+        "german": "Tablet"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "smartphone",
+      "translation": {
+        "german": "Smartphone"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "keyboard",
+      "translation": {
+        "german": "Tastatur"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "mouse",
+      "translation": {
+        "german": "Maus"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "screen",
+      "translation": {
+        "german": "Bildschirm"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "monitor",
+      "translation": {
+        "german": "Monitor"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "printer",
+      "translation": {
+        "german": "Drucker"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "scanner",
+      "translation": {
+        "german": "Scanner"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "software",
+      "translation": {
+        "german": "Software"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "hardware",
+      "translation": {
+        "german": "Hardware"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "file",
+      "translation": {
+        "german": "Datei"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "folder",
+      "translation": {
+        "german": "Ordner"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "document",
+      "translation": {
+        "german": "Dokument"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "website",
+      "translation": {
+        "german": "Webseite"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "internet",
+      "translation": {
+        "german": "Internet"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "email",
+      "translation": {
+        "german": "E-Mail"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "password",
+      "translation": {
+        "german": "Passwort"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "username",
+      "translation": {
+        "german": "Benutzername"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "download",
+      "translation": {
+        "german": "Herunterladen"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "upload",
+      "translation": {
+        "german": "Hochladen"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "link",
+      "translation": {
+        "german": "Link"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "browser",
+      "translation": {
+        "german": "Browser"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "app",
+      "translation": {
+        "german": "App"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "network",
+      "translation": {
+        "german": "Netzwerk"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "data",
+      "translation": {
+        "german": "Daten"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "cloud",
+      "translation": {
+        "german": "Cloud"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "server",
+      "translation": {
+        "german": "Server"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "code",
+      "translation": {
+        "german": "Code"
+      },
+      "category": "Technology"
+    },
+    {
+      "english": "animal",
+      "translation": {
+        "german": "Tier"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "dog",
+      "translation": {
+        "german": "Hund"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "cat",
+      "translation": {
+        "german": "Katze"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "mouse",
+      "translation": {
+        "german": "Maus"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "rabbit",
+      "translation": {
+        "german": "Kaninchen"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "horse",
+      "translation": {
+        "german": "Pferd"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "cow",
+      "translation": {
+        "german": "Kuh"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "pig",
+      "translation": {
+        "german": "Schwein"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "sheep",
+      "translation": {
+        "german": "Schaf"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "goat",
+      "translation": {
+        "german": "Ziege"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "chicken",
+      "translation": {
+        "german": "Huhn"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "duck",
+      "translation": {
+        "german": "Ente"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "bird",
+      "translation": {
+        "german": "Vogel"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "fish",
+      "translation": {
+        "german": "Fisch"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "lion",
+      "translation": {
+        "german": "Löwe"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "tiger",
+      "translation": {
+        "german": "Tiger"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "bear",
+      "translation": {
+        "german": "Bär"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "wolf",
+      "translation": {
+        "german": "Wolf"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "fox",
+      "translation": {
+        "german": "Fuchs"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "monkey",
+      "translation": {
+        "german": "Affe"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "elephant",
+      "translation": {
+        "german": "Elefant"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "giraffe",
+      "translation": {
+        "german": "Giraffe"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "zebra",
+      "translation": {
+        "german": "Zebra"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "kangaroo",
+      "translation": {
+        "german": "Känguru"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "crocodile",
+      "translation": {
+        "german": "Krokodil"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "snake",
+      "translation": {
+        "german": "Schlange"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "turtle",
+      "translation": {
+        "german": "Schildkröte"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "frog",
+      "translation": {
+        "german": "Frosch"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "insect",
+      "translation": {
+        "german": "Insekt"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "bee",
+      "translation": {
+        "german": "Biene"
+      },
+      "category": "Animals"
+    },
+    {
+      "english": "Monday",
+      "translation": {
+        "german": "Montag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Tuesday",
+      "translation": {
+        "german": "Dienstag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Wednesday",
+      "translation": {
+        "german": "Mittwoch"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Thursday",
+      "translation": {
+        "german": "Donnerstag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Friday",
+      "translation": {
+        "german": "Freitag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Saturday",
+      "translation": {
+        "german": "Samstag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "Sunday",
+      "translation": {
+        "german": "Sonntag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "January",
+      "translation": {
+        "german": "Januar"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "February",
+      "translation": {
+        "german": "Februar"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "March",
+      "translation": {
+        "german": "März"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "April",
+      "translation": {
+        "german": "April"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "May",
+      "translation": {
+        "german": "Mai"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "June",
+      "translation": {
+        "german": "Juni"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "July",
+      "translation": {
+        "german": "Juli"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "August",
+      "translation": {
+        "german": "August"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "September",
+      "translation": {
+        "german": "September"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "October",
+      "translation": {
+        "german": "Oktober"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "November",
+      "translation": {
+        "german": "November"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "December",
+      "translation": {
+        "german": "Dezember"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "spring",
+      "translation": {
+        "german": "Frühling"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "summer",
+      "translation": {
+        "german": "Sommer"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "autumn",
+      "translation": {
+        "german": "Herbst"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "winter",
+      "translation": {
+        "german": "Winter"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "morning",
+      "translation": {
+        "german": "Morgen"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "noon",
+      "translation": {
+        "german": "Mittag"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "evening",
+      "translation": {
+        "german": "Abend"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "night",
+      "translation": {
+        "german": "Nacht"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "midnight",
+      "translation": {
+        "german": "Mitternacht"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "hour",
+      "translation": {
+        "german": "Stunde"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "minute",
+      "translation": {
+        "german": "Minute"
+      },
+      "category": "Time"
+    },
+    {
+      "english": "kitchen",
+      "translation": {
+        "german": "Küche"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "sink",
+      "translation": {
+        "german": "Spüle"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "oven",
+      "translation": {
+        "german": "Backofen"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "microwave",
+      "translation": {
+        "german": "Mikrowelle"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "toaster",
+      "translation": {
+        "german": "Toaster"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "blender",
+      "translation": {
+        "german": "Mixer"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "dishwasher",
+      "translation": {
+        "german": "Geschirrspüler"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "fridge",
+      "translation": {
+        "german": "Kühlschrank"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "freezer",
+      "translation": {
+        "german": "Gefrierschrank"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "pan",
+      "translation": {
+        "german": "Pfanne"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "pot",
+      "translation": {
+        "german": "Topf"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "plate",
+      "translation": {
+        "german": "Teller"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "bowl",
+      "translation": {
+        "german": "Schüssel"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "cup",
+      "translation": {
+        "german": "Tasse"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "glass",
+      "translation": {
+        "german": "Glas"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "knife",
+      "translation": {
+        "german": "Messer"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "fork",
+      "translation": {
+        "german": "Gabel"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "spoon",
+      "translation": {
+        "german": "Löffel"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "napkin",
+      "translation": {
+        "german": "Serviette"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "trash",
+      "translation": {
+        "german": "Müll"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "broom",
+      "translation": {
+        "german": "Besen"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "mop",
+      "translation": {
+        "german": "Wischmopp"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "vacuum cleaner",
+      "translation": {
+        "german": "Staubsauger"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "washing machine",
+      "translation": {
+        "german": "Waschmaschine"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "dryer",
+      "translation": {
+        "german": "Trockner"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "iron",
+      "translation": {
+        "german": "Bügeleisen"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "ironing board",
+      "translation": {
+        "german": "Bügelbrett"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "detergent",
+      "translation": {
+        "german": "Waschmittel"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "soap",
+      "translation": {
+        "german": "Seife"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "towel",
+      "translation": {
+        "german": "Handtuch"
+      },
+      "category": "Household"
+    },
+    {
+      "english": "travel",
+      "translation": {
+        "german": "Reise"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "trip",
+      "translation": {
+        "german": "Ausflug"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "journey",
+      "translation": {
+        "german": "Fahrt"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "vacation",
+      "translation": {
+        "german": "Urlaub"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "tour",
+      "translation": {
+        "german": "Tour"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "tourist",
+      "translation": {
+        "german": "Tourist"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "guide",
+      "translation": {
+        "german": "Reiseführer"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "map",
+      "translation": {
+        "german": "Karte"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "hotel",
+      "translation": {
+        "german": "Hotel"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "hostel",
+      "translation": {
+        "german": "Hostel"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "room",
+      "translation": {
+        "german": "Zimmer"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "reservation",
+      "translation": {
+        "german": "Reservierung"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "passport",
+      "translation": {
+        "german": "Reisepass"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "visa",
+      "translation": {
+        "german": "Visum"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "luggage",
+      "translation": {
+        "german": "Gepäck"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "bag",
+      "translation": {
+        "german": "Tasche"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "suitcase",
+      "translation": {
+        "german": "Koffer"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "flight",
+      "translation": {
+        "german": "Flug"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "ticket",
+      "translation": {
+        "german": "Ticket"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "airport",
+      "translation": {
+        "german": "Flughafen"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "boarding pass",
+      "translation": {
+        "german": "Boardingpass"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "departure",
+      "translation": {
+        "german": "Abflug"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "arrival",
+      "translation": {
+        "german": "Ankunft"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "gate",
+      "translation": {
+        "german": "Gate"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "customs",
+      "translation": {
+        "german": "Zoll"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "security",
+      "translation": {
+        "german": "Sicherheitskontrolle"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "train",
+      "translation": {
+        "german": "Zug"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "station",
+      "translation": {
+        "german": "Bahnhof"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "bus",
+      "translation": {
+        "german": "Bus"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "platform",
+      "translation": {
+        "german": "Bahnsteig"
+      },
+      "category": "Travel"
+    },
+    {
+      "english": "school",
+      "translation": {
+        "german": "Schule"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "university",
+      "translation": {
+        "german": "Universität"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "college",
+      "translation": {
+        "german": "Hochschule"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "student",
+      "translation": {
+        "german": "Student"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "teacher",
+      "translation": {
+        "german": "Lehrer"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "class",
+      "translation": {
+        "german": "Klasse"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "lesson",
+      "translation": {
+        "german": "Unterricht"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "subject",
+      "translation": {
+        "german": "Fach"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "homework",
+      "translation": {
+        "german": "Hausaufgabe"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "exam",
+      "translation": {
+        "german": "Prüfung"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "test",
+      "translation": {
+        "german": "Test"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "grade",
+      "translation": {
+        "german": "Note"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "report",
+      "translation": {
+        "german": "Zeugnis"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "blackboard",
+      "translation": {
+        "german": "Tafel"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "chalk",
+      "translation": {
+        "german": "Kreide"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "pen",
+      "translation": {
+        "german": "Stift"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "pencil",
+      "translation": {
+        "german": "Bleistift"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "eraser",
+      "translation": {
+        "german": "Radiergummi"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "sharpener",
+      "translation": {
+        "german": "Anspitzer"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "ruler",
+      "translation": {
+        "german": "Lineal"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "notebook",
+      "translation": {
+        "german": "Notizbuch"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "book",
+      "translation": {
+        "german": "Buch"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "dictionary",
+      "translation": {
+        "german": "Wörterbuch"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "library",
+      "translation": {
+        "german": "Bibliothek"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "lecture",
+      "translation": {
+        "german": "Vorlesung"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "semester",
+      "translation": {
+        "german": "Semester"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "certificate",
+      "translation": {
+        "german": "Zertifikat"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "degree",
+      "translation": {
+        "german": "Abschluss"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "school bag",
+      "translation": {
+        "german": "Schultasche"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "school bus",
+      "translation": {
+        "german": "Schulbus"
+      },
+      "category": "Education"
+    },
+    {
+      "english": "city",
+      "translation": {
+        "german": "Stadt"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "village",
+      "translation": {
+        "german": "Dorf"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "town",
+      "translation": {
+        "german": "Kleinstadt"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "capital",
+      "translation": {
+        "german": "Hauptstadt"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "country",
+      "translation": {
+        "german": "Land"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "continent",
+      "translation": {
+        "german": "Kontinent"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "mountain",
+      "translation": {
+        "german": "Berg"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "river",
+      "translation": {
+        "german": "Fluss"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "lake",
+      "translation": {
+        "german": "See"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "sea",
+      "translation": {
+        "german": "Meer"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "ocean",
+      "translation": {
+        "german": "Ozean"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "beach",
+      "translation": {
+        "german": "Strand"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "forest",
+      "translation": {
+        "german": "Wald"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "park",
+      "translation": {
+        "german": "Park"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "zoo",
+      "translation": {
+        "german": "Zoo"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "museum",
+      "translation": {
+        "german": "Museum"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "church",
+      "translation": {
+        "german": "Kirche"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "mosque",
+      "translation": {
+        "german": "Moschee"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "synagogue",
+      "translation": {
+        "german": "Synagoge"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "school",
+      "translation": {
+        "german": "Schule"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "hospital",
+      "translation": {
+        "german": "Krankenhaus"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "library",
+      "translation": {
+        "german": "Bibliothek"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "cinema",
+      "translation": {
+        "german": "Kino"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "restaurant",
+      "translation": {
+        "german": "Restaurant"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "café",
+      "translation": {
+        "german": "Café"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "market",
+      "translation": {
+        "german": "Markt"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "store",
+      "translation": {
+        "german": "Laden"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "bank",
+      "translation": {
+        "german": "Bank"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "post office",
+      "translation": {
+        "german": "Post"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "police station",
+      "translation": {
+        "german": "Polizeistation"
+      },
+      "category": "Places"
+    },
+    {
+      "english": "love",
+      "translation": {
+        "german": "Liebe"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "hate",
+      "translation": {
+        "german": "Hass"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "joy",
+      "translation": {
+        "german": "Freude"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "sadness",
+      "translation": {
+        "german": "Traurigkeit"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "anger",
+      "translation": {
+        "german": "Wut"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "fear",
+      "translation": {
+        "german": "Angst"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "surprise",
+      "translation": {
+        "german": "Überraschung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "disgust",
+      "translation": {
+        "german": "Ekel"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "shame",
+      "translation": {
+        "german": "Scham"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "pride",
+      "translation": {
+        "german": "Stolz"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "happiness",
+      "translation": {
+        "german": "Glück"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "loneliness",
+      "translation": {
+        "german": "Einsamkeit"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "hope",
+      "translation": {
+        "german": "Hoffnung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "trust",
+      "translation": {
+        "german": "Vertrauen"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "jealousy",
+      "translation": {
+        "german": "Eifersucht"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "nervousness",
+      "translation": {
+        "german": "Nervosität"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "grief",
+      "translation": {
+        "german": "Kummer"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "relief",
+      "translation": {
+        "german": "Erleichterung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "curiosity",
+      "translation": {
+        "german": "Neugier"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "boredom",
+      "translation": {
+        "german": "Langeweile"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "compassion",
+      "translation": {
+        "german": "Mitgefühl"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "guilt",
+      "translation": {
+        "german": "Schuld"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "sympathy",
+      "translation": {
+        "german": "Sympathie"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "resentment",
+      "translation": {
+        "german": "Groll"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "frustration",
+      "translation": {
+        "german": "Frustration"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "affection",
+      "translation": {
+        "german": "Zuneigung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "despair",
+      "translation": {
+        "german": "Verzweiflung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "confusion",
+      "translation": {
+        "german": "Verwirrung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "admiration",
+      "translation": {
+        "german": "Bewunderung"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "anxiety",
+      "translation": {
+        "german": "Angstzustand"
+      },
+      "category": "Emotions"
+    },
+    {
+      "english": "job",
+      "translation": {
+        "german": "Job"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "career",
+      "translation": {
+        "german": "Karriere"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "profession",
+      "translation": {
+        "german": "Beruf"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "employee",
+      "translation": {
+        "german": "Angestellter"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "employer",
+      "translation": {
+        "german": "Arbeitgeber"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "boss",
+      "translation": {
+        "german": "Chef"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "manager",
+      "translation": {
+        "german": "Manager"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "secretary",
+      "translation": {
+        "german": "Sekretärin"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "meeting",
+      "translation": {
+        "german": "Besprechung"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "appointment",
+      "translation": {
+        "german": "Termin"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "interview",
+      "translation": {
+        "german": "Vorstellungsgespräch"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "salary",
+      "translation": {
+        "german": "Gehalt"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "wage",
+      "translation": {
+        "german": "Lohn"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "bonus",
+      "translation": {
+        "german": "Bonus"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "promotion",
+      "translation": {
+        "german": "Beförderung"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "contract",
+      "translation": {
+        "german": "Vertrag"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "overtime",
+      "translation": {
+        "german": "Überstunden"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "vacation",
+      "translation": {
+        "german": "Urlaub"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "retirement",
+      "translation": {
+        "german": "Ruhestand"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "resignation",
+      "translation": {
+        "german": "Kündigung"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "colleague",
+      "translation": {
+        "german": "Kollege"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "team",
+      "translation": {
+        "german": "Team"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "project",
+      "translation": {
+        "german": "Projekt"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "deadline",
+      "translation": {
+        "german": "Frist"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "task",
+      "translation": {
+        "german": "Aufgabe"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "office",
+      "translation": {
+        "german": "Büro"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "desk",
+      "translation": {
+        "german": "Schreibtisch"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "computer",
+      "translation": {
+        "german": "Computer"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "printer",
+      "translation": {
+        "german": "Drucker"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "document",
+      "translation": {
+        "german": "Dokument"
+      },
+      "category": "Work"
+    },
+    {
+      "english": "clothes",
+      "translation": {
+        "german": "Kleidung"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "shirt",
+      "translation": {
+        "german": "Hemd"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "t-shirt",
+      "translation": {
+        "german": "T-Shirt"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "blouse",
+      "translation": {
+        "german": "Bluse"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "jacket",
+      "translation": {
+        "german": "Jacke"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "coat",
+      "translation": {
+        "german": "Mantel"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "sweater",
+      "translation": {
+        "german": "Pullover"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "dress",
+      "translation": {
+        "german": "Kleid"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "skirt",
+      "translation": {
+        "german": "Rock"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "jeans",
+      "translation": {
+        "german": "Jeans"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "trousers",
+      "translation": {
+        "german": "Hose"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "shorts",
+      "translation": {
+        "german": "Shorts"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "socks",
+      "translation": {
+        "german": "Socken"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "shoes",
+      "translation": {
+        "german": "Schuhe"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "boots",
+      "translation": {
+        "german": "Stiefel"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "sandals",
+      "translation": {
+        "german": "Sandalen"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "hat",
+      "translation": {
+        "german": "Hut"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "cap",
+      "translation": {
+        "german": "Mütze"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "scarf",
+      "translation": {
+        "german": "Schal"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "gloves",
+      "translation": {
+        "german": "Handschuhe"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "belt",
+      "translation": {
+        "german": "Gürtel"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "tie",
+      "translation": {
+        "german": "Krawatte"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "underwear",
+      "translation": {
+        "german": "Unterwäsche"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "bra",
+      "translation": {
+        "german": "BH"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "pyjamas",
+      "translation": {
+        "german": "Schlafanzug"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "swimsuit",
+      "translation": {
+        "german": "Badeanzug"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "bikini",
+      "translation": {
+        "german": "Bikini"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "sneakers",
+      "translation": {
+        "german": "Turnschuhe"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "hoodie",
+      "translation": {
+        "german": "Kapuzenshirt"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "raincoat",
+      "translation": {
+        "german": "Regenmantel"
+      },
+      "category": "Clothing"
+    },
+    {
+      "english": "body",
+      "translation": {
+        "german": "Körper"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "head",
+      "translation": {
+        "german": "Kopf"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "face",
+      "translation": {
+        "german": "Gesicht"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "eye",
+      "translation": {
+        "german": "Auge"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "ear",
+      "translation": {
+        "german": "Ohr"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "nose",
+      "translation": {
+        "german": "Nase"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "mouth",
+      "translation": {
+        "german": "Mund"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "tooth",
+      "translation": {
+        "german": "Zahn"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "tongue",
+      "translation": {
+        "german": "Zunge"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "neck",
+      "translation": {
+        "german": "Hals"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "shoulder",
+      "translation": {
+        "german": "Schulter"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "arm",
+      "translation": {
+        "german": "Arm"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "elbow",
+      "translation": {
+        "german": "Ellenbogen"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "hand",
+      "translation": {
+        "german": "Hand"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "finger",
+      "translation": {
+        "german": "Finger"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "chest",
+      "translation": {
+        "german": "Brust"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "stomach",
+      "translation": {
+        "german": "Bauch"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "back",
+      "translation": {
+        "german": "Rücken"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "leg",
+      "translation": {
+        "german": "Bein"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "knee",
+      "translation": {
+        "german": "Knie"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "foot",
+      "translation": {
+        "german": "Fuß"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "toe",
+      "translation": {
+        "german": "Zeh"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "skin",
+      "translation": {
+        "german": "Haut"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "bone",
+      "translation": {
+        "german": "Knochen"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "muscle",
+      "translation": {
+        "german": "Muskel"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "heart",
+      "translation": {
+        "german": "Herz"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "lung",
+      "translation": {
+        "german": "Lunge"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "brain",
+      "translation": {
+        "german": "Gehirn"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "blood",
+      "translation": {
+        "german": "Blut"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "doctor",
+      "translation": {
+        "german": "Arzt"
+      },
+      "category": "Health"
+    },
+    {
+      "english": "house",
+      "translation": {
+        "german": "Haus"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "apartment",
+      "translation": {
+        "german": "Wohnung"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "room",
+      "translation": {
+        "german": "Zimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "kitchen",
+      "translation": {
+        "german": "Küche"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bathroom",
+      "translation": {
+        "german": "Badezimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bedroom",
+      "translation": {
+        "german": "Schlafzimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "living room",
+      "translation": {
+        "german": "Wohnzimmer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "hall",
+      "translation": {
+        "german": "Flur"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "garden",
+      "translation": {
+        "german": "Garten"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "garage",
+      "translation": {
+        "german": "Garage"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "furniture",
+      "translation": {
+        "german": "Möbel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "table",
+      "translation": {
+        "german": "Tisch"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "chair",
+      "translation": {
+        "german": "Stuhl"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "sofa",
+      "translation": {
+        "german": "Sofa"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bed",
+      "translation": {
+        "german": "Bett"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "lamp",
+      "translation": {
+        "german": "Lampe"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "curtain",
+      "translation": {
+        "german": "Vorhang"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "carpet",
+      "translation": {
+        "german": "Teppich"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "mirror",
+      "translation": {
+        "german": "Spiegel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "shelf",
+      "translation": {
+        "german": "Regal"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "broom",
+      "translation": {
+        "german": "Besen"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "mop",
+      "translation": {
+        "german": "Wischmopp"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "bucket",
+      "translation": {
+        "german": "Eimer"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "vacuum cleaner",
+      "translation": {
+        "german": "Staubsauger"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "detergent",
+      "translation": {
+        "german": "Waschmittel"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "soap",
+      "translation": {
+        "german": "Seife"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "towel",
+      "translation": {
+        "german": "Handtuch"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "washing machine",
+      "translation": {
+        "german": "Waschmaschine"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "dryer",
+      "translation": {
+        "german": "Trockner"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "trash",
+      "translation": {
+        "german": "Müll"
+      },
+      "category": "Home"
+    },
+    {
+      "english": "car",
+      "translation": {
+        "german": "Auto"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bus",
+      "translation": {
+        "german": "Bus"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "train",
+      "translation": {
+        "german": "Zug"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "tram",
+      "translation": {
+        "german": "Straßenbahn"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "subway",
+      "translation": {
+        "german": "U-Bahn"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bicycle",
+      "translation": {
+        "german": "Fahrrad"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "motorcycle",
+      "translation": {
+        "german": "Motorrad"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "scooter",
+      "translation": {
+        "german": "Roller"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "truck",
+      "translation": {
+        "german": "Lastwagen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "taxi",
+      "translation": {
+        "german": "Taxi"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "airplane",
+      "translation": {
+        "german": "Flugzeug"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "airport",
+      "translation": {
+        "german": "Flughafen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "boat",
+      "translation": {
+        "german": "Boot"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "ship",
+      "translation": {
+        "german": "Schiff"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "harbor",
+      "translation": {
+        "german": "Hafen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "station",
+      "translation": {
+        "german": "Bahnhof"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bus stop",
+      "translation": {
+        "german": "Bushaltestelle"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "ticket",
+      "translation": {
+        "german": "Fahrkarte"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "platform",
+      "translation": {
+        "german": "Bahnsteig"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "traffic",
+      "translation": {
+        "german": "Verkehr"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "road",
+      "translation": {
+        "german": "Straße"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "highway",
+      "translation": {
+        "german": "Autobahn"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "bridge",
+      "translation": {
+        "german": "Brücke"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "crosswalk",
+      "translation": {
+        "german": "Zebrastreifen"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "traffic light",
+      "translation": {
+        "german": "Ampel"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "parking",
+      "translation": {
+        "german": "Parken"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "license",
+      "translation": {
+        "german": "Führerschein"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "seatbelt",
+      "translation": {
+        "german": "Sicherheitsgurt"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "helmet",
+      "translation": {
+        "german": "Helm"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "fuel",
+      "translation": {
+        "german": "Kraftstoff"
+      },
+      "category": "Transport"
+    },
+    {
+      "english": "family",
+      "translation": {
+        "german": "Familie"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "mother",
+      "translation": {
+        "german": "Mutter"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "father",
+      "translation": {
+        "german": "Vater"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "parent",
+      "translation": {
+        "german": "Elternteil"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "child",
+      "translation": {
+        "german": "Kind"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "son",
+      "translation": {
+        "german": "Sohn"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "daughter",
+      "translation": {
+        "german": "Tochter"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "brother",
+      "translation": {
+        "german": "Bruder"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "sister",
+      "translation": {
+        "german": "Schwester"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "grandmother",
+      "translation": {
+        "german": "Großmutter"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "grandfather",
+      "translation": {
+        "german": "Großvater"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "grandparents",
+      "translation": {
+        "german": "Großeltern"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "grandchild",
+      "translation": {
+        "german": "Enkelkind"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "uncle",
+      "translation": {
+        "german": "Onkel"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "aunt",
+      "translation": {
+        "german": "Tante"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "cousin",
+      "translation": {
+        "german": "Cousin/Cousine"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "nephew",
+      "translation": {
+        "german": "Neffe"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "niece",
+      "translation": {
+        "german": "Nichte"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "husband",
+      "translation": {
+        "german": "Ehemann"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "wife",
+      "translation": {
+        "german": "Ehefrau"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "marriage",
+      "translation": {
+        "german": "Ehe"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "divorce",
+      "translation": {
+        "german": "Scheidung"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "partner",
+      "translation": {
+        "german": "Partner"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "friend",
+      "translation": {
+        "german": "Freund"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "boyfriend",
+      "translation": {
+        "german": "Freund (Beziehung)"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "girlfriend",
+      "translation": {
+        "german": "Freundin (Beziehung)"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "relationship",
+      "translation": {
+        "german": "Beziehung"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "love",
+      "translation": {
+        "german": "Liebe"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "trust",
+      "translation": {
+        "german": "Vertrauen"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "care",
+      "translation": {
+        "german": "Fürsorge"
+      },
+      "category": "Relationships"
+    },
+    {
+      "english": "kind",
+      "translation": {
+        "german": "freundlich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "mean",
+      "translation": {
+        "german": "gemein"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "happy",
+      "translation": {
+        "german": "glücklich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "sad",
+      "translation": {
+        "german": "traurig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "angry",
+      "translation": {
+        "german": "wütend"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "funny",
+      "translation": {
+        "german": "lustig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "serious",
+      "translation": {
+        "german": "ernst"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "brave",
+      "translation": {
+        "german": "mutig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "shy",
+      "translation": {
+        "german": "schüchtern"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "polite",
+      "translation": {
+        "german": "höflich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "rude",
+      "translation": {
+        "german": "unhöflich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "smart",
+      "translation": {
+        "german": "klug"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "stupid",
+      "translation": {
+        "german": "dumm"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "lazy",
+      "translation": {
+        "german": "faul"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "hardworking",
+      "translation": {
+        "german": "fleißig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "friendly",
+      "translation": {
+        "german": "freundlich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "honest",
+      "translation": {
+        "german": "ehrlich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "dishonest",
+      "translation": {
+        "german": "unehrlich"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "generous",
+      "translation": {
+        "german": "großzügig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "selfish",
+      "translation": {
+        "german": "egoistisch"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "quiet",
+      "translation": {
+        "german": "ruhig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "loud",
+      "translation": {
+        "german": "laut"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "helpful",
+      "translation": {
+        "german": "hilfsbereit"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "reliable",
+      "translation": {
+        "german": "zuverlässig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "creative",
+      "translation": {
+        "german": "kreativ"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "curious",
+      "translation": {
+        "german": "neugierig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "ambitious",
+      "translation": {
+        "german": "ehrgeizig"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "confident",
+      "translation": {
+        "german": "selbstbewusst"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "nervous",
+      "translation": {
+        "german": "nervös"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "optimistic",
+      "translation": {
+        "german": "optimistisch"
+      },
+      "category": "Personality"
+    },
+    {
+      "english": "hobby",
+      "translation": {
+        "german": "Hobby"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "game",
+      "translation": {
+        "german": "Spiel"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "sport",
+      "translation": {
+        "german": "Sport"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "music",
+      "translation": {
+        "german": "Musik"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "song",
+      "translation": {
+        "german": "Lied"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "guitar",
+      "translation": {
+        "german": "Gitarre"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "piano",
+      "translation": {
+        "german": "Klavier"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "dance",
+      "translation": {
+        "german": "Tanzen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "book",
+      "translation": {
+        "german": "Buch"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "reading",
+      "translation": {
+        "german": "Lesen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "writing",
+      "translation": {
+        "german": "Schreiben"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "drawing",
+      "translation": {
+        "german": "Zeichnen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "painting",
+      "translation": {
+        "german": "Malen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "cinema",
+      "translation": {
+        "german": "Kino"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "movie",
+      "translation": {
+        "german": "Film"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "series",
+      "translation": {
+        "german": "Serie"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "photography",
+      "translation": {
+        "german": "Fotografie"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "camera",
+      "translation": {
+        "german": "Kamera"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "travel",
+      "translation": {
+        "german": "Reisen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "trip",
+      "translation": {
+        "german": "Reise"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "swimming",
+      "translation": {
+        "german": "Schwimmen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "cycling",
+      "translation": {
+        "german": "Radfahren"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "hiking",
+      "translation": {
+        "german": "Wandern"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "camping",
+      "translation": {
+        "german": "Camping"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "fishing",
+      "translation": {
+        "german": "Angeln"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "cooking",
+      "translation": {
+        "german": "Kochen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "baking",
+      "translation": {
+        "german": "Backen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "knitting",
+      "translation": {
+        "german": "Stricken"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "gaming",
+      "translation": {
+        "german": "Spielen"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "english": "gardening",
+      "translation": {
+        "german": "Gärtnern"
+      },
+      "category": "Hobbies"
+    },
+    {
+      "base": "investment",
+      "target": "die Investition",
+      "category": "economy"
+    },
+    {
+      "base": "environment",
+      "target": "die Umwelt",
+      "category": "nature"
+    },
+    {
+      "base": "climate",
+      "target": "das Klima",
+      "category": "nature"
+    },
+    {
+      "base": "freedom",
+      "target": "die Freiheit",
+      "category": "society"
+    },
+    {
+      "base": "protection",
+      "target": "der Schutz",
+      "category": "general"
+    },
+    {
+      "base": "tradition",
+      "target": "die Tradition",
+      "category": "culture"
+    },
+    {
+      "base": "opinion",
+      "target": "die Meinung",
+      "category": "communication"
+    },
+    {
+      "base": "education",
+      "target": "die Bildung",
+      "category": "school"
+    },
+    {
+      "base": "violence",
+      "target": "die Gewalt",
+      "category": "society"
+    },
+    {
+      "base": "custom",
+      "target": "der Brauch",
+      "category": "culture"
+    },
+    {
+      "base": "evidence",
+      "target": "der Beweis",
+      "category": "law"
+    },
+    {
+      "base": "justice",
+      "target": "die Gerechtigkeit",
+      "category": "law"
+    },
+    {
+      "base": "poverty",
+      "target": "die Armut",
+      "category": "society"
+    },
+    {
+      "base": "wealth",
+      "target": "der Reichtum",
+      "category": "society"
+    },
+    {
+      "base": "power",
+      "target": "die Macht",
+      "category": "society"
+    },
+    {
+      "base": "election",
+      "target": "die Wahl",
+      "category": "politics"
+    },
+    {
+      "base": "government",
+      "target": "die Regierung",
+      "category": "politics"
+    },
+    {
+      "base": "leader",
+      "target": "der Anführer",
+      "category": "society"
+    },
+    {
+      "base": "law",
+      "target": "das Gesetz",
+      "category": "law"
+    },
+    {
+      "base": "rule",
+      "target": "die Regel",
+      "category": "general"
+    },
+    {
+      "base": "fine",
+      "target": "die Geldstrafe",
+      "category": "law"
+    },
+    {
+      "base": "crime",
+      "target": "das Verbrechen",
+      "category": "law"
+    },
+    {
+      "base": "punishment",
+      "target": "die Strafe",
+      "category": "law"
+    },
+    {
+      "base": "court",
+      "target": "das Gericht",
+      "category": "law"
+    },
+    {
+      "base": "prison",
+      "target": "das Gefängnis",
+      "category": "law"
+    },
+    {
+      "base": "judge",
+      "target": "der Richter",
+      "category": "law"
+    },
+    {
+      "base": "witness",
+      "target": "der Zeuge",
+      "category": "law"
+    },
+    {
+      "base": "equality",
+      "target": "die Gleichheit",
+      "category": "society"
+    }
+  ]
+}

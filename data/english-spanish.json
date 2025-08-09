@@ -1,0 +1,56 @@
+{
+  "base": "english",
+  "target": "spanish",
+  "vocabulary": [
+    {
+      "english": "house",
+      "translation": { "spanish": "casa" },
+      "category": "Everyday"
+    },
+    {
+      "english": "car",
+      "translation": { "spanish": "coche" },
+      "category": "Everyday"
+    },
+    {
+      "english": "school",
+      "translation": { "spanish": "escuela" },
+      "category": "Education"
+    },
+    {
+      "english": "window",
+      "translation": { "spanish": "ventana" },
+      "category": "Home"
+    },
+    {
+      "english": "book",
+      "translation": { "spanish": "libro" },
+      "category": "Education"
+    },
+    {
+      "english": "sun",
+      "translation": { "spanish": "sol" },
+      "category": "Nature"
+    },
+    {
+      "english": "water",
+      "translation": { "spanish": "agua" },
+      "category": "Everyday"
+    },
+    {
+      "english": "apple",
+      "translation": { "spanish": "manzana" },
+      "category": "Food"
+    },
+    {
+      "english": "table",
+      "translation": { "spanish": "mesa" },
+      "category": "Home"
+    },
+    {
+      "english": "friend",
+      "translation": { "spanish": "amigo" },
+      "category": "Social"
+    }
+  ]
+}
