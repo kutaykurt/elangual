@@ -1,3 +1,4 @@
+// src/pages/dynamic/DynamicVocabulary.jsx
 import React, {
   useEffect,
   useMemo,
@@ -6,6 +7,7 @@ import React, {
   useCallback,
 } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
 import { addToExam, removeFromExam } from "../../redux/examSlice";
 import { fetchVocabularyData } from "../../fetchVocabularyData";
@@ -14,97 +16,11 @@ import Fuse from "fuse.js";
 import Pagination from "../../components/Pagination/Pagination";
 import "./dynamicVocabulary.scss";
 
-/* ---------- TTS: kleiner Hook für Speech Synthesis ---------- */
-function useSpeech() {
-  const [voices, setVoices] = useState([]);
-
-  const loadVoices = useCallback(() => {
-    const v = window.speechSynthesis?.getVoices?.() || [];
-    if (v.length) setVoices(v);
-  }, []);
-
-  useEffect(() => {
-    loadVoices();
-    if (typeof window !== "undefined" && window.speechSynthesis) {
-      // Chrome lädt Stimmen asynchron
-      window.speechSynthesis.onvoiceschanged = loadVoices;
-    }
-    return () => {
-      if (window.speechSynthesis) {
-        window.speechSynthesis.onvoiceschanged = null;
-      }
-    };
-  }, [loadVoices]);
-
-  // Mappe deine Sprach-Keys auf BCP-47 Tags
-  const langMap = {
-    german: "de-DE",
-    turkish: "tr-TR",
-    english: "en-US",
-    spanish: "es-ES",
-    japanese: "ja-JP",
-    // bei Bedarf erweitern: french -> fr-FR, etc.
-  };
-
-  const getVoice = (bcp47) => {
-    if (!voices.length) return null;
-    // exakte Sprache bevorzugen
-    let voice = voices.find((v) => v.lang === bcp47);
-    if (voice) return voice;
-    // sonst startsWith (de-*, en-*, …)
-    const base = bcp47.split("-")[0];
-    voice = voices.find((v) => (v.lang || "").toLowerCase().startsWith(base));
-    return voice || null;
-  };
-
-  const speak = (text, bcp47) => {
-    if (!text || !("speechSynthesis" in window)) return;
-    // vorherige Stoppen, damit es knackig wirkt
-    window.speechSynthesis.cancel();
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = bcp47;
-    const v = getVoice(bcp47);
-    if (v) utter.voice = v;
-    // leichte Anpassungen (optional)
-    utter.rate = 0.95;
-    utter.pitch = 1.0;
-    window.speechSynthesis.speak(utter);
-  };
-
-  const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
-
-  return { speak, canSpeak, langMap };
-}
-
-/* ---------- Kleiner Button für Lautsprecher ---------- */
-function SpeakButton({ text, lang, label = "Vorlesen" }) {
-  const { speak, canSpeak, langMap } = useSpeech();
-  const resolvedLang = langMap[lang] || "en-US";
-
-  if (!text || !canSpeak) {
-    return null; // Button ausblenden, wenn TTS nicht verfügbar
-  }
-
-  const onClick = (e) => {
-    e.stopPropagation(); // verhindert, dass dein Mobile-Modal aufgeht
-    speak(text.toString(), resolvedLang);
-  };
-
-  return (
-    <button
-      className="speak-btn"
-      onClick={onClick}
-      aria-label={`${label}: ${text}`}
-      title={`${label}`}
-      type="button"
-    >
-      🔊
-    </button>
-  );
-}
-
 export default function DynamicVocabulary() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { baseLanguage, targetLanguage } = useSelector(
     (state) => state.languages
   );
@@ -118,16 +34,12 @@ export default function DynamicVocabulary() {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState(null);
 
-  // UI state
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [openDropdownId, setOpenDropdownId] = useState(null); // nur für Mobile-Modal
+  const [openDropdownId, setOpenDropdownId] = useState(null);
   const [flashRowId, setFlashRowId] = useState(null);
 
-  // Paging + Sort
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(20);
-
-  // Sortiermodus: "<base|target>-asc|desc"
   const defaultSort = `${baseLanguage || "base"}-asc`;
   const [sortMode, setSortMode] = useState(defaultSort);
 
@@ -136,20 +48,17 @@ export default function DynamicVocabulary() {
 
   const dropdownRef = useRef(null);
 
-  // Resize watcher
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // reset sort wenn Sprachen wechseln
   useEffect(() => {
     if (!baseLanguage || !targetLanguage) return;
     setSortMode(`${baseLanguage}-asc`);
   }, [baseLanguage, targetLanguage]);
 
-  // Data load
   useEffect(() => {
     if (!baseLanguage || !targetLanguage) return;
 
@@ -190,7 +99,6 @@ export default function DynamicVocabulary() {
       });
   }, [baseLanguage, targetLanguage]);
 
-  // Klick außerhalb schließt Mobile-Modal
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -201,24 +109,51 @@ export default function DynamicVocabulary() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Suche
-  const handleSearch = () => {
-    if (!searchQuery.trim()) {
-      setFilteredData(allData);
+  const performSearch = useCallback(
+    (query) => {
+      const q = (query || "").trim();
+      if (!q) {
+        setFilteredData(allData);
+        setCurrentPage(1);
+        return;
+      }
+      const fuse = new Fuse(allData, {
+        keys: [baseLanguage, `translation.${targetLanguage}`],
+        threshold: 0.3,
+      });
+      const results = fuse.search(q).map((r) => r.item);
+      setFilteredData(results);
       setCurrentPage(1);
-      return;
-    }
-    const fuse = new Fuse(allData, {
-      keys: [baseLanguage, `translation.${targetLanguage}`],
-      threshold: 0.3,
-    });
-    const results = fuse.search(searchQuery).map((r) => r.item);
-    setFilteredData(results);
-    setCurrentPage(1);
+    },
+    [allData, baseLanguage, targetLanguage]
+  );
+
+  const handleSearch = () => {
+    performSearch(searchQuery);
+    const q = (searchQuery || "").trim();
+    if (q)
+      navigate(`/vocabulary?q=${encodeURIComponent(q)}`, { replace: true });
+    else navigate(`/vocabulary`, { replace: true });
   };
+
   const handleKeyDown = (e) => e.key === "Enter" && handleSearch();
 
-  // Sortierung (memoized)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search || "");
+    const q = params.get("q") || "";
+    setSearchQuery(q);
+    performSearch(q);
+    setCurrentPage(1);
+  }, [location.search, performSearch]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search || "");
+    const q = params.get("q") || "";
+    if (q) performSearch(q);
+    else setFilteredData(allData);
+    setCurrentPage(1);
+  }, [allData, baseLanguage, targetLanguage, location.search, performSearch]);
+
   const sortedData = useMemo(() => {
     const [field, dir] = (sortMode || defaultSort).split("-");
     const isBase = field === baseLanguage || field === "base";
@@ -240,24 +175,20 @@ export default function DynamicVocabulary() {
     return copy;
   }, [filteredData, sortMode, baseLanguage, targetLanguage, defaultSort]);
 
-  // Paging kalkulieren basierend auf sortedData
   const totalPages = Math.ceil(sortedData.length / itemsPerPage) || 1;
   const paginatedData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     return sortedData.slice(start, start + itemsPerPage);
   }, [sortedData, currentPage, itemsPerPage]);
 
-  // Statusprüfungen
   const isInList = (item) => savedList.some((v) => v.id === item.id);
   const isInExam = (item) => exams.some((v) => v.id === item.id);
 
-  // kleines visuelles Feedback (Zeile pulsiert kurz)
   const flashRow = (id) => {
     setFlashRowId(id);
     setTimeout(() => setFlashRowId(null), 550);
   };
 
-  // Actions
   const handleAddVocabulary = (item) => {
     dispatch(
       addVocabulary({
@@ -305,19 +236,16 @@ export default function DynamicVocabulary() {
 
   const toggleMobile = (id) => setOpenDropdownId(id);
 
-  // Paging Controls
   const handlePrevPage = () => currentPage > 1 && setCurrentPage((p) => p - 1);
   const handleNextPage = () =>
     currentPage < totalPages && setCurrentPage((p) => p + 1);
 
-  // Wenn itemsPerPage sich ändert, auf Seite 1 springen
   useEffect(() => {
     setCurrentPage(1);
   }, [itemsPerPage, sortMode]);
 
   const selectedItem = sortedData.find((i) => i.id === openDropdownId);
 
-  // Labels für Sort-Dropdown
   const baseAscLabel = `${baseLanguage} A–Z`;
   const baseDescLabel = `${baseLanguage} Z–A`;
   const targetAscLabel = `${targetLanguage} A–Z`;
@@ -329,7 +257,6 @@ export default function DynamicVocabulary() {
         {baseLanguage} – {targetLanguage}
       </h2>
 
-      {/* Such- & Listen-Controls */}
       <div className="controls-row" role="group" aria-label="Liste steuern">
         <div className="search-field-container" role="search">
           <input
@@ -344,7 +271,6 @@ export default function DynamicVocabulary() {
         </div>
 
         <div className="list-controls">
-          {/* Sortierung */}
           <label className="sr-only" htmlFor="sortSelect">
             Sıralama
           </label>
@@ -361,7 +287,6 @@ export default function DynamicVocabulary() {
             <option value={`${targetLanguage}-desc`}>{targetDescLabel}</option>
           </select>
 
-          {/* Items pro Seite */}
           <label className="sr-only" htmlFor="pageSizeSelect">
             Sayfa başına kelime
           </label>
@@ -402,17 +327,9 @@ export default function DynamicVocabulary() {
                 className={getRowClass(item)}
                 onClick={() => isMobile && toggleMobile(item.id)}
               >
-                {/* BASE-WORT + Lautsprecher */}
                 <td data-label={baseLanguage}>
                   <span className="cell-word">{item[baseLanguage]}</span>
-                  <SpeakButton
-                    text={item[baseLanguage]}
-                    lang={baseLanguage}
-                    label="Aussprache (Ausgangssprache)"
-                  />
                 </td>
-
-                {/* TARGET-Übersetzung + optionale eigene Aussprache + Lautsprecher */}
                 <td data-label={targetLanguage}>
                   <span className="cell-word">
                     {item.translation[targetLanguage]}
@@ -422,14 +339,8 @@ export default function DynamicVocabulary() {
                       ({item.pronunciation})
                     </span>
                   )}
-                  <SpeakButton
-                    text={item.translation[targetLanguage]}
-                    lang={targetLanguage}
-                    label="Aussprache (Zielsprache)"
-                  />
                 </td>
 
-                {/* Desktop: Inline-Aktionen */}
                 {!isMobile && (
                   <td className="islem">
                     <div
@@ -494,7 +405,6 @@ export default function DynamicVocabulary() {
         onNext={handleNextPage}
       />
 
-      {/* Mobile Modal mit „Tamamen kaldır“ */}
       {isMobile && selectedItem && (
         <div
           className="mobile-modal-backdrop"

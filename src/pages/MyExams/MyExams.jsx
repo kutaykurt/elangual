@@ -1,3 +1,4 @@
+// src/pages/MyExams/MyExams.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +8,7 @@ export default function MyExams() {
   const exams = useSelector((state) => state.exam.exams);
   const navigate = useNavigate();
 
-  // Lokale Listen (pro scriptType = "base-target")
+  // Yerel listeler (scriptType = "base-target" başına)
   const [list1, setList1] = useState(
     () => JSON.parse(localStorage.getItem("examList1")) || {}
   );
@@ -15,7 +16,7 @@ export default function MyExams() {
     () => JSON.parse(localStorage.getItem("examList2")) || {}
   );
 
-  // Persistenz
+  // Kalıcılık
   useEffect(
     () => localStorage.setItem("examList1", JSON.stringify(list1)),
     [list1]
@@ -26,7 +27,7 @@ export default function MyExams() {
   );
 
   // ================
-  //   Synchronisation mit Redux (exams)
+  //   Redux (exams) ile senkronizasyon
   // ================
   const idsByScript = useMemo(() => {
     const map = {};
@@ -55,7 +56,7 @@ export default function MyExams() {
     setList2((p) => clean(p));
   }, [idsByScript]);
 
-  // Gruppiert die verfügbaren Exam-Wörter pro Sprachpaar
+  // Mevcut sınav kelimelerini dil çiftine göre grupla
   const groupedByScript = useMemo(() => {
     return exams.reduce((acc, item) => {
       const key = `${item.base}-${item.target}`;
@@ -64,7 +65,7 @@ export default function MyExams() {
     }, {});
   }, [exams]);
 
-  // Helpers
+  // Yardımcılar
   const isInList = (scriptType, listState, item) =>
     (listState[scriptType] || []).some((v) => v.id === item.id);
 
@@ -82,7 +83,7 @@ export default function MyExams() {
     }
   };
 
-  // Einzelnes Entfernen direkt aus List 1/2
+  // List 1/2 içinden tek tek kaldırma
   const removeFromList = (scriptType, setListState, itemId) => {
     setListState((prev) => {
       const curr = prev[scriptType] || [];
@@ -100,7 +101,7 @@ export default function MyExams() {
 
   return (
     <div className="MyExams">
-      <h1 className="page-title">My Exam Words</h1>
+      <h1 className="page-title">Sınav Kelimelerim</h1>
 
       {Object.entries(groupedByScript).map(([scriptType, items]) => {
         const count1 = list1[scriptType]?.length || 0;
@@ -111,24 +112,24 @@ export default function MyExams() {
             <header className="card-head">
               <h2>{scriptType}</h2>
               <div className="counters" aria-live="polite">
-                <span>List 1: {count1}/10</span>
-                <span>List 2: {count2}/10</span>
+                <span>Liste 1: {count1}/10</span>
+                <span>Liste 2: {count2}/10</span>
               </div>
             </header>
 
-            {/* Tabelle der verfügbaren Wörter (aus Redux exams) */}
+            {/* Redux exams'ten gelen uygun kelimeler tablosu */}
             <table className="exam-table">
               <thead>
                 <tr>
-                  <th>Vocabulary</th>
-                  <th className="actions-col">Actions</th>
+                  <th>Kelime</th>
+                  <th className="actions-col">İşlemler</th>
                 </tr>
               </thead>
               <tbody>
                 {items.length === 0 ? (
                   <tr>
                     <td colSpan={2} className="muted">
-                      No words available.
+                      Uygun kelime yok.
                     </td>
                   </tr>
                 ) : (
@@ -152,10 +153,15 @@ export default function MyExams() {
                             onClick={() =>
                               toggleItem(scriptType, list1, setList1, item)
                             }
+                            title={
+                              isInList(scriptType, list1, item)
+                                ? "Liste 1'den kaldır"
+                                : "Liste 1'e ekle"
+                            }
                           >
                             {isInList(scriptType, list1, item)
-                              ? "Remove 1"
-                              : "Add to 1"}
+                              ? "Liste 1'den kaldır"
+                              : "Liste 1'e ekle"}
                           </button>
                           <button
                             className={`mini ${
@@ -166,10 +172,15 @@ export default function MyExams() {
                             onClick={() =>
                               toggleItem(scriptType, list2, setList2, item)
                             }
+                            title={
+                              isInList(scriptType, list2, item)
+                                ? "Liste 2'den kaldır"
+                                : "Liste 2'ye ekle"
+                            }
                           >
                             {isInList(scriptType, list2, item)
-                              ? "Remove 2"
-                              : "Add to 2"}
+                              ? "Liste 2'den kaldır"
+                              : "Liste 2'ye ekle"}
                           </button>
                         </div>
                       </td>
@@ -179,12 +190,12 @@ export default function MyExams() {
               </tbody>
             </table>
 
-            {/* Zwei Listen (je 10 Slots) */}
+            {/* İki liste (her biri 10 hücre) */}
             <div className="lists-grid">
-              {/* List 1 */}
+              {/* Liste 1 */}
               <div className="exam-list">
                 <div className="list-head">
-                  <h3>List 1</h3>
+                  <h3>Liste 1</h3>
                   <span className="badge">{count1}/10</span>
                 </div>
                 <table>
@@ -196,11 +207,13 @@ export default function MyExams() {
                         <td className="tight">
                           <button
                             className="icon-btn"
-                            title="Remove from List 1"
+                            title="Liste 1'den kaldır"
                             onClick={() =>
                               removeFromList(scriptType, setList1, it.id)
                             }
-                            aria-label={`Remove ${it[it.base]} from List 1`}
+                            aria-label={`${
+                              it[it.base]
+                            } kelimesini Liste 1'den kaldır`}
                           >
                             ✕
                           </button>
@@ -218,10 +231,10 @@ export default function MyExams() {
                 </table>
               </div>
 
-              {/* List 2 */}
+              {/* Liste 2 */}
               <div className="exam-list">
                 <div className="list-head">
-                  <h3>List 2</h3>
+                  <h3>Liste 2</h3>
                   <span className="badge">{count2}/10</span>
                 </div>
                 <table>
@@ -233,11 +246,13 @@ export default function MyExams() {
                         <td className="tight">
                           <button
                             className="icon-btn"
-                            title="Remove from List 2"
+                            title="Liste 2'den kaldır"
                             onClick={() =>
                               removeFromList(scriptType, setList2, it.id)
                             }
-                            aria-label={`Remove ${it[it.base]} from List 2`}
+                            aria-label={`${
+                              it[it.base]
+                            } kelimesini Liste 2'den kaldır`}
                           >
                             ✕
                           </button>
@@ -256,7 +271,7 @@ export default function MyExams() {
               </div>
             </div>
 
-            {/* Start Buttons */}
+            {/* Başlat butonları */}
             <div className="start-row">
               <button
                 className={`btn primary ${count1 !== 10 ? "disabled" : ""}`}
@@ -265,7 +280,7 @@ export default function MyExams() {
                   handleStartExam(scriptType, list1[scriptType] || [])
                 }
               >
-                Start exam with List 1
+                Liste 1 ile sınavı başlat
               </button>
               <button
                 className={`btn outline ${count2 !== 10 ? "disabled" : ""}`}
@@ -274,7 +289,7 @@ export default function MyExams() {
                   handleStartExam(scriptType, list2[scriptType] || [])
                 }
               >
-                Start exam with List 2
+                Liste 2 ile sınavı başlat
               </button>
             </div>
           </section>

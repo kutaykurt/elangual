@@ -8,17 +8,18 @@ const MyVocabulary = () => {
   const dispatch = useDispatch();
   const dynamic = useSelector((s) => s.vocabulary.dynamicVocabularies);
 
+  // Baş harfi büyük, geri kalanı küçük yaz
   const fmt = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-  // 🔍 Prüfen, ob ALLE Listen leer sind
+  // 🔍 TÜM listeler boş mu?
   const allEmpty = Object.values(dynamic).every((list) => list.length === 0);
 
   return (
     <div className="MyVocabulary">
       {allEmpty ? (
         <div className="no-vocab-info">
-          <h2>No vocabularies yet</h2>
-          <p>You haven't added any vocabulary items to your list.</p>
+          <h2>Henüz kelime eklenmedi</h2>
+          <p>Listene henüz hiçbir kelime eklemedin.</p>
         </div>
       ) : (
         Object.entries(dynamic).map(([key, list]) => {
@@ -36,7 +37,7 @@ const MyVocabulary = () => {
                   <tr>
                     <th>{fmt(base)}</th>
                     <th>{fmt(target)}</th>
-                    <th>Action</th>
+                    <th>İşlem</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,13 +61,15 @@ const MyVocabulary = () => {
                       <td>
                         <button
                           className="remove-button"
+                          title="Listeden kaldır"
+                          aria-label="Listeden kaldır"
                           onClick={() =>
                             dispatch(
                               removeVocabulary({ id: v.id, scriptType: key })
                             )
                           }
                         >
-                          X
+                          ✕
                         </button>
                       </td>
                     </tr>
