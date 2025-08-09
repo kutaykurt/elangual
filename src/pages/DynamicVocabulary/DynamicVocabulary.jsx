@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
 import { addToExam, removeFromExam } from "../../redux/examSlice";
@@ -7,6 +13,95 @@ import { generateVocabularyId } from "../../getId";
 import Fuse from "fuse.js";
 import Pagination from "../../components/Pagination/Pagination";
 import "./dynamicVocabulary.scss";
+
+/* ---------- TTS: kleiner Hook für Speech Synthesis ---------- */
+function useSpeech() {
+  const [voices, setVoices] = useState([]);
+
+  const loadVoices = useCallback(() => {
+    const v = window.speechSynthesis?.getVoices?.() || [];
+    if (v.length) setVoices(v);
+  }, []);
+
+  useEffect(() => {
+    loadVoices();
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      // Chrome lädt Stimmen asynchron
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+    return () => {
+      if (window.speechSynthesis) {
+        window.speechSynthesis.onvoiceschanged = null;
+      }
+    };
+  }, [loadVoices]);
+
+  // Mappe deine Sprach-Keys auf BCP-47 Tags
+  const langMap = {
+    german: "de-DE",
+    turkish: "tr-TR",
+    english: "en-US",
+    spanish: "es-ES",
+    japanese: "ja-JP",
+    // bei Bedarf erweitern: french -> fr-FR, etc.
+  };
+
+  const getVoice = (bcp47) => {
+    if (!voices.length) return null;
+    // exakte Sprache bevorzugen
+    let voice = voices.find((v) => v.lang === bcp47);
+    if (voice) return voice;
+    // sonst startsWith (de-*, en-*, …)
+    const base = bcp47.split("-")[0];
+    voice = voices.find((v) => (v.lang || "").toLowerCase().startsWith(base));
+    return voice || null;
+  };
+
+  const speak = (text, bcp47) => {
+    if (!text || !("speechSynthesis" in window)) return;
+    // vorherige Stoppen, damit es knackig wirkt
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = bcp47;
+    const v = getVoice(bcp47);
+    if (v) utter.voice = v;
+    // leichte Anpassungen (optional)
+    utter.rate = 0.95;
+    utter.pitch = 1.0;
+    window.speechSynthesis.speak(utter);
+  };
+
+  const canSpeak = typeof window !== "undefined" && "speechSynthesis" in window;
+
+  return { speak, canSpeak, langMap };
+}
+
+/* ---------- Kleiner Button für Lautsprecher ---------- */
+function SpeakButton({ text, lang, label = "Vorlesen" }) {
+  const { speak, canSpeak, langMap } = useSpeech();
+  const resolvedLang = langMap[lang] || "en-US";
+
+  if (!text || !canSpeak) {
+    return null; // Button ausblenden, wenn TTS nicht verfügbar
+  }
+
+  const onClick = (e) => {
+    e.stopPropagation(); // verhindert, dass dein Mobile-Modal aufgeht
+    speak(text.toString(), resolvedLang);
+  };
+
+  return (
+    <button
+      className="speak-btn"
+      onClick={onClick}
+      aria-label={`${label}: ${text}`}
+      title={`${label}`}
+      type="button"
+    >
+      🔊
+    </button>
+  );
+}
 
 export default function DynamicVocabulary() {
   const dispatch = useDispatch();
@@ -135,7 +230,6 @@ export default function DynamicVocabulary() {
         (isBase ? a[baseLanguage] : a.translation[targetLanguage]) || "";
       const bVal =
         (isBase ? b[baseLanguage] : b.translation[targetLanguage]) || "";
-      // case-insensitive, sprachsensitiv wenn möglich
       return (
         sign *
         aVal
@@ -247,9 +341,6 @@ export default function DynamicVocabulary() {
             className="search-input-field"
             aria-label="Kelime ara"
           />
-          <button onClick={handleSearch} className="search-button">
-            Ara
-          </button>
         </div>
 
         <div className="list-controls">
@@ -311,14 +402,31 @@ export default function DynamicVocabulary() {
                 className={getRowClass(item)}
                 onClick={() => isMobile && toggleMobile(item.id)}
               >
-                <td data-label={baseLanguage}>{item[baseLanguage]}</td>
+                {/* BASE-WORT + Lautsprecher */}
+                <td data-label={baseLanguage}>
+                  <span className="cell-word">{item[baseLanguage]}</span>
+                  <SpeakButton
+                    text={item[baseLanguage]}
+                    lang={baseLanguage}
+                    label="Aussprache (Ausgangssprache)"
+                  />
+                </td>
+
+                {/* TARGET-Übersetzung + optionale eigene Aussprache + Lautsprecher */}
                 <td data-label={targetLanguage}>
-                  {item.translation[targetLanguage]}
+                  <span className="cell-word">
+                    {item.translation[targetLanguage]}
+                  </span>
                   {item.pronunciation && targetLanguage === "spanish" && (
                     <span className="pronunciation">
                       ({item.pronunciation})
                     </span>
                   )}
+                  <SpeakButton
+                    text={item.translation[targetLanguage]}
+                    lang={targetLanguage}
+                    label="Aussprache (Zielsprache)"
+                  />
                 </td>
 
                 {/* Desktop: Inline-Aktionen */}
@@ -345,6 +453,7 @@ export default function DynamicVocabulary() {
                             ? "Kütüphaneden çıkar"
                             : "Kütüphaneye ekle"
                         }
+                        type="button"
                       >
                         {isInList(item) ? "− Kütüphane" : "+ Kütüphane"}
                       </button>
@@ -365,6 +474,7 @@ export default function DynamicVocabulary() {
                             ? "Sınavlardan çıkar"
                             : "Sınavlara ekle"
                         }
+                        type="button"
                       >
                         {isInExam(item) ? "− Sınav" : "+ Sınav"}
                       </button>
@@ -399,25 +509,38 @@ export default function DynamicVocabulary() {
               className="close-button"
               onClick={() => setOpenDropdownId(null)}
               aria-label="Kapat"
+              type="button"
             >
               ✕
             </button>
             <div className="modal-actions">
               {isInList(selectedItem) ? (
-                <button onClick={() => handleRemoveVocabulary(selectedItem)}>
+                <button
+                  onClick={() => handleRemoveVocabulary(selectedItem)}
+                  type="button"
+                >
                   Kütüphaneden çıkar
                 </button>
               ) : (
-                <button onClick={() => handleAddVocabulary(selectedItem)}>
+                <button
+                  onClick={() => handleAddVocabulary(selectedItem)}
+                  type="button"
+                >
                   Kütüphaneye ekle
                 </button>
               )}
               {isInExam(selectedItem) ? (
-                <button onClick={() => handleRemoveExam(selectedItem)}>
+                <button
+                  onClick={() => handleRemoveExam(selectedItem)}
+                  type="button"
+                >
                   Sınavlardan çıkar
                 </button>
               ) : (
-                <button onClick={() => handleAddExam(selectedItem)}>
+                <button
+                  onClick={() => handleAddExam(selectedItem)}
+                  type="button"
+                >
                   Sınavlara ekle
                 </button>
               )}
@@ -425,6 +548,7 @@ export default function DynamicVocabulary() {
                 <button
                   className="remove-completely-button"
                   onClick={() => handleRemoveCompletely(selectedItem)}
+                  type="button"
                 >
                   Tamamen kaldır
                 </button>
