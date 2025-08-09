@@ -1,16 +1,21 @@
 import React, { useMemo, useState } from "react";
 import "./Grammar.scss";
 
-/* ---------- kleine Bausteine ---------- */
+/* ---------- Küçük Yapı Taşları ---------- */
 const Section = ({ title, tr, children }) => {
-  // Zahl "n) " am Anfang des englischen Titels abgreifen (z. B. "1) Something")
   const isStringTitle = typeof title === "string";
   const match = isStringTitle ? title.match(/^\s*(\d+)\)\s*/) : null;
   const num = match ? `${match[1]}) ` : "";
   const cleanTitle = match ? title.replace(/^\s*\d+\)\s*/, "") : title;
 
   return (
-    <section className="g-section">
+    <section
+      className="g-section"
+      id={cleanTitle
+        ?.toString()
+        .toLowerCase()
+        .replace(/[^\w]+/g, "-")}
+    >
       <h2>
         {num}
         {tr} <span className="en-tag">({cleanTitle})</span>
@@ -33,7 +38,53 @@ const Examples = ({ items }) => (
   </div>
 );
 
-/* ---------- Pronunciation: Karten mit eigenem Toggle ---------- */
+/* ---------- Yeni: Uyarı Kutuları & Formüller & Mini Tablo ---------- */
+const Callout = ({ type = "tip", title, children }) => (
+  <div className={`callout ${type}`}>
+    {title && <div className="callout-title">{title}</div>}
+    <div className="callout-body">{children}</div>
+  </div>
+);
+
+const Formula = ({ rows = [] }) => (
+  <div className="formula">
+    {rows.map((r, i) => (
+      <div className="formula-row" key={i}>
+        <span className="part">{r[0]}</span>
+        <span className="arrow">→</span>
+        <span className="result">{r[1]}</span>
+        {r[2] && <span className="hint-inline">{r[2]}</span>}
+      </div>
+    ))}
+  </div>
+);
+
+const MiniTable = ({ head = [], rows = [] }) => (
+  <div className="mini-table-wrap">
+    <table className="mini-table">
+      {head.length > 0 && (
+        <thead>
+          <tr>
+            {head.map((h, i) => (
+              <th key={i}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+      )}
+      <tbody>
+        {rows.map((r, i) => (
+          <tr key={i}>
+            {r.map((c, j) => (
+              <td key={j}>{c}</td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
+
+/* ---------- Telaffuz Kartları ---------- */
 const RuleCard = ({ id, title, bullet, children, isOpen, onToggle }) => (
   <details className="pb-card" open={isOpen} onToggle={() => onToggle(id)}>
     <summary>
@@ -198,7 +249,7 @@ const PronunciationBasics = () => {
         <table className="g-table">
           <thead>
             <tr>
-              <th>Word</th>
+              <th>Kelime</th>
               <th>Doğru Yazım (TR)</th>
               <th>Türkçe</th>
             </tr>
@@ -231,47 +282,60 @@ const PronunciationBasics = () => {
   );
 };
 
-/* ---------- Quick Practice ---------- */
+/* ---------- Hızlı Alıştırma (tamamen TR yönergeler) ---------- */
 function normalize(s = "") {
   return s.toLowerCase().replaceAll("’", "'").replace(/\s+/g, " ").trim();
 }
 
-/* Klammern: 1 richtige + 2 falsche, direkt gemischt */
 const PRACTICE_ITEMS = [
   {
     id: "be-am",
-    promptBefore: "Fill in: I ",
+    promptBefore: "Doldur: I ",
     promptAfter: " a student.",
     answers: ["am"],
     distractors: ["is", "am", "are"],
   },
   {
     id: "3sg-s",
-    promptBefore: "Choose: She ",
+    promptBefore: "Seç: She ",
     promptAfter: " at a bank.",
     answers: ["works"],
     distractors: ["work", "works", "is work"],
   },
   {
     id: "be-neg",
-    promptBefore: "Make negative: They are happy. → They ",
+    promptBefore: "Olumsuz yap: They are happy. → They ",
     promptAfter: " happy.",
     answers: ["aren't", "are not"],
     distractors: ["isn't", "aren't", "am not"],
   },
   {
     id: "do-q",
-    promptBefore: "Ask a question: You like coffee. → ",
+    promptBefore: "Soru sor: You like coffee. → ",
     promptAfter: " you like coffee?",
     answers: ["do"],
     distractors: ["does", "do", "are"],
   },
   {
     id: "an-article",
-    promptBefore: "Pick the article: I have ",
+    promptBefore: "Artikel seç: I have ",
     promptAfter: " umbrella.",
     answers: ["an"],
     distractors: ["a", "the", "an"],
+  },
+  {
+    id: "doesnt",
+    promptBefore: "Tamamla: He ",
+    promptAfter: " like tea.",
+    answers: ["doesn't"],
+    distractors: ["don't", "doesn't", "isn't"],
+  },
+  {
+    id: "has",
+    promptBefore: "Doldur: She ",
+    promptAfter: " two brothers.",
+    answers: ["has"],
+    distractors: ["have", "has", "haves"],
   },
 ];
 
@@ -302,7 +366,6 @@ function QuickPracticeEN_A1() {
     setValues(Object.fromEntries(PRACTICE_ITEMS.map((i) => [i.id, ""])));
     setSubmitted(false);
   };
-
   const hint = (opts = []) => (opts.length ? `(${opts.join(" / ")})` : "");
 
   return (
@@ -323,7 +386,7 @@ function QuickPracticeEN_A1() {
                 <span className="idx">{idx + 1}.</span>{" "}
                 <span>{it.promptBefore}</span>
                 <input
-                  aria-label={`Antwort zu Aufgabe ${idx + 1}`}
+                  aria-label={`Soru ${idx + 1} için cevap`}
                   className={cls}
                   type="text"
                   value={values[it.id]}
@@ -339,11 +402,11 @@ function QuickPracticeEN_A1() {
 
               {submitted && !state.ok && (
                 <div className="qp-feedback">
-                  ❌ Richtig wäre: <em>{it.answers.join(" / ")}</em>
+                  ❌ Doğru cevap: <em>{it.answers.join(" / ")}</em>
                 </div>
               )}
               {submitted && state.ok && (
-                <div className="qp-feedback ok">✔️ Richtig</div>
+                <div className="qp-feedback ok">✔️ Doğru</div>
               )}
             </div>
           );
@@ -353,15 +416,15 @@ function QuickPracticeEN_A1() {
       <div className="qp-actions">
         {!submitted ? (
           <button className="primary-btn" onClick={handleSubmit}>
-            Prüfen
+            Kontrol et
           </button>
         ) : (
           <>
             <div className="qp-score">
-              {correctCount} / {PRACTICE_ITEMS.length} richtig
+              {correctCount} / {PRACTICE_ITEMS.length} doğru
             </div>
             <button className="ghost-btn" onClick={handleReset}>
-              Neu starten
+              Yeniden başlat
             </button>
           </>
         )}
@@ -370,29 +433,108 @@ function QuickPracticeEN_A1() {
   );
 }
 
-/* ---------- Hauptseite ---------- */
+/* ---------- Mini Çoktan Seçmeli (TR) ---------- */
+const MC_ITEMS = [
+  {
+    q: "Simple Present için işaret sözcükleri hangileri?",
+    choices: [
+      "yesterday, last week",
+      "every day, usually, always",
+      "now, at the moment",
+    ],
+    correctIndex: 1,
+    tr: "Geniş zaman sinyalleri: every day, usually, always…",
+  },
+  {
+    q: "3. tekil kişi kuralı (He/She/It) nedir?",
+    choices: ["fiil + s/es/ies", "değişmez", "fiil + ing"],
+    correctIndex: 0,
+    tr: "He/She/It → fiile -s/-es/-ies eklenir.",
+  },
+];
+
+function MiniMC() {
+  const [answers, setAnswers] = useState({});
+  return (
+    <div className="mini-mc">
+      {MC_ITEMS.map((it, i) => {
+        const picked = answers[i];
+        const isDone = picked !== undefined;
+        return (
+          <div className="mini-mc-item" key={i}>
+            <div className="q">
+              {i + 1}. {it.q}
+            </div>
+            <div className="choices">
+              {it.choices.map((c, idx) => {
+                const isCorrect = idx === it.correctIndex;
+                const cls = isDone
+                  ? idx === picked
+                    ? isCorrect
+                      ? "choice correct"
+                      : "choice wrong"
+                    : "choice disabled"
+                  : "choice";
+                return (
+                  <button
+                    key={idx}
+                    className={cls}
+                    onClick={() => setAnswers((s) => ({ ...s, [i]: idx }))}
+                    disabled={isDone}
+                    aria-label={`Seçenek ${idx + 1}`}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
+            </div>
+            {isDone && (
+              <div
+                className={`mc-feedback ${
+                  answers[i] === it.correctIndex ? "ok" : "bad"
+                }`}
+              >
+                {answers[i] === it.correctIndex ? "✔️ Doğru!" : "❌ Yanlış."}{" "}
+                <span className="tr">{it.tr}</span>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ---------- Ana Sayfa ---------- */
 export default function GrammarEnA1() {
   return (
     <div className="g-doc grammar-page">
       <p className="intro">
-        English A1 for Turkish speakers: short rules, clear examples, Turkish
-        explanations and correct pronunciation tips.
+        Türkçe konuşanlar için A1 İngilizce: kısa kurallar, net örnekler, doğru
+        telaffuz ve <strong>hata uyarıları</strong>.
         <br />
-        Türkçe konuşanlar için A1 İngilizce: kısa kurallar, net örnekler ve
-        doğru telaffuz.
+        English A1 for Turkish speakers: clear rules, examples, pronunciation
+        tips.
       </p>
 
+      {/* 0) Telaffuz */}
+      {/* <PronunciationBasics /> */}
+
+      {/* 1) Özne Zamirleri */}
       <Section title="1) Subject Pronouns" tr="Özne Zamirleri">
         <Rule>
           İngilizce özneler: <em>I, you, he, she, it, we, you, they</em>.
           Türkçedeki “o” İngilizcede <em>he/she/it</em> olarak ayrılır.
+          <br />
+          <strong>you</strong> tekil & çoğul olabilir; <strong>it</strong>{" "}
+          nesne/hayvan ve bazen “görünen özne” (hava, saat).
         </Rule>
 
         <table className="g-table">
           <thead>
             <tr>
-              <th>English</th>
-              <th>Pronunciation (TR)</th>
+              <th>İngilizce</th>
+              <th>Telaffuz (TR)</th>
               <th>Türkçe</th>
             </tr>
           </thead>
@@ -437,59 +579,44 @@ export default function GrammarEnA1() {
 
         <Examples
           items={[
-            { en: "I am Ali.", tr: "Ben Ali’yim.", pron: "ay em ali" },
-            {
-              en: "She is my sister.",
-              tr: "O benim kız kardeşim.",
-              pron: "şii ız may sıstır",
-            },
-            {
-              en: "They are students.",
-              tr: "Onlar öğrenci.",
-              pron: "dey ar stüdınts",
-            },
+            { en: "It is cold.", tr: "Hava soğuk.", pron: "ıt ız kould" },
+            { en: "They are here.", tr: "Onlar burada.", pron: "dey ar hir" },
           ]}
         />
       </Section>
 
+      {/* 2) To be: am/is/are */}
       <Section
         title='2) Verb "to be": am / is / are'
         tr="“to be” fiili: am / is / are"
       >
         <Rule>
-          Sıra: <em>Özne + am/is/are + tamamlayıcı</em>. Negatif:{" "}
-          <em>am not / isn’t / aren’t</em>. Soru: <em>Am/Is/Are + subject?</em>
+          <strong>Kuruluş</strong>
+          <Formula
+            rows={[
+              [
+                "Olumlu",
+                "Özne + am/is/are + ...",
+                "I am / You are / He is ...",
+              ],
+              ["Olumsuz", "Özne + am not / isn’t / aren’t + ...", ""],
+              [
+                "Soru",
+                "Am/Is/Are + Özne + ... ?",
+                "Kısa cevaplar: Yes, I am. / No, he isn’t.",
+              ],
+            ]}
+          />
         </Rule>
 
-        <table className="g-table">
-          <tbody>
-            <tr>
-              <td>I am</td>
-              <td>ay em</td>
-              <td>ben …yim</td>
-            </tr>
-            <tr>
-              <td>you are</td>
-              <td>yu ar</td>
-              <td>sen/siz …sin/siniz</td>
-            </tr>
-            <tr>
-              <td>he/she/it is</td>
-              <td>hii/şii/ıt ız</td>
-              <td>o …</td>
-            </tr>
-            <tr>
-              <td>we are</td>
-              <td>vii ar</td>
-              <td>biz …yiz</td>
-            </tr>
-            <tr>
-              <td>they are</td>
-              <td>dey ar</td>
-              <td>onlar …</td>
-            </tr>
-          </tbody>
-        </table>
+        <MiniTable
+          head={["Özne", "Form", "TR İpucu"]}
+          rows={[
+            ["I", "am", "Sadece I → am"],
+            ["you/we/they", "are", "çoğul/you → are"],
+            ["he/she/it", "is", "tekil üçüncü şahıs → is"],
+          ]}
+        />
 
         <Examples
           items={[
@@ -512,65 +639,34 @@ export default function GrammarEnA1() {
             },
           ]}
         />
+
+        <Callout type="tip" title="Kısa cevaplar">
+          <strong>Yes, I am / No, I’m not</strong> ·{" "}
+          <strong>Yes, he is / No, he isn’t</strong> ·{" "}
+          <strong>Yes, they are / No, they aren’t</strong>
+        </Callout>
       </Section>
 
+      {/* 3) İyelik Sıfatları */}
       <Section title="3) Possessive Adjectives" tr="İyelik Sıfatları">
         <Rule>
           Sahiplik: <em>my, your, his, her, its, our, your, their</em> — isimden
           önce gelir.
         </Rule>
 
-        <table className="g-table">
-          <thead>
-            <tr>
-              <th>Owner</th>
-              <th>Form</th>
-              <th>TR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>I</td>
-              <td>my</td>
-              <td>benim</td>
-            </tr>
-            <tr>
-              <td>you</td>
-              <td>your</td>
-              <td>senin/sizin</td>
-            </tr>
-            <tr>
-              <td>he</td>
-              <td>his</td>
-              <td>onun (erkek)</td>
-            </tr>
-            <tr>
-              <td>she</td>
-              <td>her</td>
-              <td>onun (kadın)</td>
-            </tr>
-            <tr>
-              <td>it</td>
-              <td>its</td>
-              <td>onun (nesne/hayvan)</td>
-            </tr>
-            <tr>
-              <td>we</td>
-              <td>our</td>
-              <td>bizim</td>
-            </tr>
-            <tr>
-              <td>you</td>
-              <td>your</td>
-              <td>sizlerin</td>
-            </tr>
-            <tr>
-              <td>they</td>
-              <td>their</td>
-              <td>onların</td>
-            </tr>
-          </tbody>
-        </table>
+        <MiniTable
+          head={["Sahip", "Biçim", "Türkçe"]}
+          rows={[
+            ["I", "my", "benim"],
+            ["you", "your", "senin/sizin"],
+            ["he", "his", "onun (erkek)"],
+            ["she", "her", "onun (kadın)"],
+            ["it", "its", "onun (nesne/hayvan)"],
+            ["we", "our", "bizim"],
+            ["you", "your", "sizlerin"],
+            ["they", "their", "onların"],
+          ]}
+        />
 
         <Examples
           items={[
@@ -591,15 +687,34 @@ export default function GrammarEnA1() {
             },
           ]}
         />
+
+        <Callout type="error" title="Hata: its ≠ it’s">
+          <strong>its</strong> = onun (iyelik). <strong>it’s</strong> = it is /
+          it has (kısaltma).
+        </Callout>
       </Section>
 
+      {/* 4) Artikeller */}
       <Section
         title="4) Articles: a / an / the"
         tr="Belirtisiz/Belirli Artikeller"
       >
         <Rule>
-          <strong>a/an</strong> belirsiz: <em>a book</em>, <em>an apple</em>.{" "}
-          <strong>the</strong> belirli: <em>the book on the table</em>.
+          <Formula
+            rows={[
+              [
+                "Belirtisiz",
+                "a + ünsüz sesi / an + ünlü sesi",
+                "a book, a dog / an apple, an hour",
+              ],
+              ["Belirli", "the + bilinen/özgül şey", "the book on the table"],
+              [
+                "Sıfır artikel",
+                "çoğul & sayılamayan genel",
+                "Milk is healthy. Books are expensive.",
+              ],
+            ]}
+          />
         </Rule>
 
         <Examples
@@ -619,20 +734,55 @@ export default function GrammarEnA1() {
               tr: "Lütfen kapıyı aç.",
               pron: "oupın dı dor pliiz",
             },
+            {
+              en: "Sugar is sweet.",
+              tr: "Şeker tatlıdır.",
+              pron: "şugır iz sviit",
+            },
           ]}
         />
       </Section>
 
+      {/* 5) Simple Present */}
       <Section
         title="5) Basic Word Order & Simple Present"
-        tr="Temel Cümle Dizilimi & Geniş Zaman"
+        tr="Temel Dizilim & Geniş Zaman"
       >
         <Rule>
-          Sıra: <strong>Subject + Verb + Object</strong>. Simple Present:
-          alışkanlıklar/genel doğrular.
-          <em> he/she/it</em> → fiile <strong>-s</strong>. Negatif:{" "}
-          <em>do/does not</em>. Soru: <em>Do/Does + subject + verb?</em>
+          <Formula
+            rows={[
+              ["Dizilim", "Özne + Fiil + Nesne", "I play football."],
+              [
+                "Olumsuz",
+                "Özne + do/does + not + Fiil1",
+                "She doesn’t like tea.",
+              ],
+              ["Soru", "Do/Does + Özne + Fiil1 ?", "Does he live in Izmir?"],
+            ]}
+          />
         </Rule>
+
+        <Callout type="tip" title="He/She/It kural paketi">
+          <ul className="compact-list">
+            <li>
+              Fiile <strong>-s</strong> gelir: play → plays
+            </li>
+            <li>
+              <strong>-es</strong>: -ch/-sh/-o/-x/-ss → go → goes, watch →
+              watches
+            </li>
+            <li>
+              <strong>-ies</strong>: <em>ünsüz + y</em> → study → studies
+            </li>
+            <li>
+              <strong>have → has</strong>
+            </li>
+            <li>
+              <strong>does/doesn’t</strong> varsa fiil <u>temel</u> kalır:{" "}
+              <em>doesn’t go</em> ✅ <em>doesn’t goes</em> ❌
+            </li>
+          </ul>
+        </Callout>
 
         <Examples
           items={[
@@ -658,10 +808,31 @@ export default function GrammarEnA1() {
             },
           ]}
         />
+
+        <Callout type="tip" title="Sinyal sözcükler (genelde Simple Present)">
+          every day / usually / always / never / often / sometimes / on Mondays
+        </Callout>
+
+        <Callout type="error" title="Yaygın hatalar">
+          <ul className="compact-list">
+            <li>
+              <em>He don’t like…</em> ❌ → <strong>He doesn’t like…</strong> ✅
+            </li>
+            <li>
+              <em>She doesn’t likes…</em> ❌ →{" "}
+              <strong>She doesn’t like…</strong> ✅
+            </li>
+            <li>
+              <em>He have…</em> ❌ → <strong>He has…</strong> ✅
+            </li>
+          </ul>
+        </Callout>
       </Section>
 
-      <Section title="6) Hızlı Alıştırma" tr="Hızlı Alıştırma">
+      {/* 6) Hızlı Alıştırma + Mini MC */}
+      <Section title="6) Quick Practice" tr="Hızlı Alıştırma">
         <QuickPracticeEN_A1 />
+        <MiniMC />
       </Section>
     </div>
   );

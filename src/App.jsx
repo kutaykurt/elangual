@@ -17,7 +17,10 @@ import GrammarEnA1 from "./pages/Grammar/GrammarEnA1.jsx";
 
 import "./App.scss";
 
+import { uploadAllVocabularies } from "./utils/importAllVocabularies.js";
+
 export default function App() {
+
   return (
     <div className="App">
       <Header />

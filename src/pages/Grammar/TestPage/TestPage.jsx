@@ -1,13 +1,18 @@
 import React, { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { tests } from "../../../data/testData";
+// ❌ Direkt-Import aus public nicht erlaubt – vorübergehend auskommentiert
+// import { tests } from "../../../../public/data/testData";
 import "./TestPage.scss";
 
 const TestPage = () => {
   const { testId } = useParams();
 
-  // testData wird memoisiert, damit ESLint nicht meckert
-  const testData = useMemo(() => tests[testId] ?? [], [testId]);
+  // Vorübergehend leeres Array als Fallback
+  // TODO: Später per fetch(`${process.env.PUBLIC_URL}/data/testData.json`) laden
+  const testData = useMemo(() => {
+    // return tests[testId] ?? [];
+    return [];
+  }, [testId]);
 
   const [inputs, setInputs] = useState(Array(testData.length).fill(""));
   const [submitted, setSubmitted] = useState(false);

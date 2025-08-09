@@ -1,103 +1,270 @@
-.my-exams-container {
-  padding: 20px;
-  font-size: 14px;
+@import "../../App.scss";
+
+.MyExams {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+  padding: 16px;
+
+  .page-title {
+    margin: 8px 0 12px;
+    font-size: clamp(22px, 3.6vw, 28px);
+    color: $main-black;
+  }
+}
+
+/* Card */
+.script-card {
+  background: #fff;
+  border: 1px solid #e9e9ee;
+  border-radius: 14px;
+  padding: 14px;
+  margin: 18px 0 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
 
   h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  h3 {
-    margin-top: 32px;
+    margin: 0;
     font-size: 18px;
-    color: #333;
+    color: #0f213a;
   }
 
-  h4 {
-    margin: 12px 0;
-    font-size: 16px;
+  .counters {
+    display: inline-flex;
+    gap: 10px;
+    color: #5b6470;
+    font-size: 13px;
+    span {
+      background: #f7f8fb;
+      border: 1px solid #e6e8f0;
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+  }
+}
+
+/* Main table with available words */
+.exam-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 6px 0 14px;
+  border: 1px solid #ececf2;
+  border-radius: 12px;
+  overflow: hidden;
+
+  thead {
+    background: $main-black;
+  }
+  thead th {
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 13px;
   }
 
-  .exam-table {
+  tbody tr:nth-child(even) {
+    background: #fafafa;
+  }
+  tbody tr:hover {
+    background: #f2faff;
+  }
+
+  td,
+  th {
+    border-right: 1px solid #ececf2;
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .vocab-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    .base {
+      font-weight: 600;
+    }
+    .sep {
+      color: #97a0ad;
+    }
+    .target {
+      color: #3a4656;
+    }
+  }
+
+  .actions-col,
+  .actions-cell {
+    text-align: center;
+  }
+}
+
+.row-actions {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  padding: 0 12px;
+  font-size: 13px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease,
+    transform 0.06s ease;
+
+  &.primary {
+    background: $main-yellow;
+    color: #111;
+    border-color: darken($main-yellow, 8%);
+  }
+  &.secondary {
+    background: #eaf3ff;
+    color: #0f213a;
+    border-color: #cfe2ff;
+  }
+  &.outline {
+    background: #fff;
+    color: #111;
+    border-color: #d9dbe0;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Lists */
+.lists-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 10px 0 8px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.exam-list {
+  border: 1px solid #ececf2;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+
+  .list-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: #f7f8fb;
+    border-bottom: 1px solid #ececf2;
+
+    h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+    .badge {
+      background: #fff;
+      border: 1px solid #e0e4ef;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+    }
+  }
+
+  table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 16px;
-
-    th,
-    td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      font-size: 13px;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 8px;
-
-      button {
-        padding: 4px 8px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-    }
+  }
+  td {
+    padding: 10px 12px;
+    border-top: 1px solid #ececf2;
+    font-size: 14px;
+  }
+  .tight {
+    width: 44px;
+    text-align: center;
   }
 
-  .lists-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 16px;
-  }
-
-  .exam-list {
-    flex: 1;
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-
-      td {
-        padding: 6px;
-        border: 1px solid #ddd;
-        font-size: 13px;
-      }
-
-      .empty-row {
-        background-color: #f9f9f9;
-        height: 34px;
-      }
-
-      .highlighted-row {
-        background-color: #d1ffd1;
-      }
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid #e0e3ea;
+    background: #fff;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 14px;
+    &:hover {
+      background: #f2f4f8;
     }
   }
 
-  .start-button-container {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 40px;
-
-    .start-button {
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: bold;
-      background-color: #f5c518;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-
-      &.disabled {
-        background-color: #ddd;
-        cursor: not-allowed;
-      }
-    }
+  tr.empty td {
+    height: 34px;
+    background: #fafafa;
   }
+}
 
-  .section-divider {
-    border: none;
-    height: 2px;
-    background-color: #ccc;
-    margin: 30px 0;
+/* Start buttons */
+.start-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+
+  @media (min-width: 560px) {
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+
+  &.primary {
+    background: $main-yellow;
+    color: #111;
+    border-color: darken($main-yellow, 8%);
+  }
+  &.outline {
+    background: #fff;
+    color: #111;
+    border-color: #d9dbe0;
+  }
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* small helpers */
+.muted {
+  color: #8a93a3;
 }

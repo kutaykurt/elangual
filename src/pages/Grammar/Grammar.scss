@@ -95,7 +95,16 @@
 
   .g-section {
     margin: 40px 0;
-  } /* mehr Luft zwischen Kapiteln */
+  }
+
+  /* ---------- NEU: Kapitel-Trennlinie am Ende JEDER Section (außer der letzten) ---------- */
+  .g-section:not(:last-of-type)::after {
+    content: "";
+    display: block;
+    border-top: 3px solid #4b5563; /* dunkelgrau */
+    opacity: 0.8;
+    margin: 45px 0; /* Luft über/unter der Linie */
+  }
 
   h2 {
     font-size: 1.35rem;
@@ -266,54 +275,45 @@ code {
 }
 
 /* Mobile kompakter */
-/* ===== Mobile: kompaktere Karten, weniger Zeilenumbrüche ===== */
 @media (max-width: 480px) {
   .grammar-page {
     font-size: 0.93rem;
     line-height: 1.52;
   }
-
-  /* Kapitel-Abstand etwas kleiner, damit weniger Scrollen */
   .g-doc .g-section {
     margin: 28px 0;
   }
+  /* Linie auf Mobile etwas luftiger */
+  .g-doc .g-section:not(:last-of-type)::after {
+    margin: 14px 0;
+  }
 
-  /* Grid enger */
   .pb-grid {
     gap: 8px;
   }
-
   .pb-card {
     border-radius: 10px;
   }
-
-  /* Summary sehr kompakt: alles in eine Zeile, falls möglich */
   .pb-card > summary {
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 10px;
     line-height: 1.2;
-    grid-template-columns: none; /* von Grid weg -> flex */
+    grid-template-columns: none;
   }
-
-  /* Titel + Bullet nicht umbrechen, sonst wächst die Höhe massiv */
   .pb-title,
   .pb-bullet {
     white-space: nowrap;
   }
-
-  /* Bullet darf schrumpfen und mit Ellipsis enden */
   .pb-bullet {
     color: #4b5563;
     font-size: 0.9rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    flex: 1; /* füllt den verbleibenden Platz */
-    min-width: 0; /* wichtig für Ellipsis in Flexbox */
+    flex: 1;
+    min-width: 0;
   }
-
-  /* CTA breiter, aber kompakt */
   .pb-cta {
     min-width: 90px;
     text-align: center;
@@ -325,32 +325,23 @@ code {
     font-weight: 800;
     border: 1px solid #0f172a;
   }
-
-  /* Inhalt der Karte enger */
   .pb-body {
     padding: 8px 10px;
   }
-
-  /* Beispiele kompakter */
   .howto .ex {
     padding: 6px 8px;
   }
   .howto .dont {
     margin-top: 3px;
   }
-
-  /* Code-Chips kleiner */
   code {
     padding: 0 4px;
   }
-
-  /* Abstand zwischen zwei Karten */
   .pb-card + .pb-card {
     margin-top: 8px;
   }
 }
 
-/* XS: Wenn’s wirklich sehr schmal wird, Bullet im Header ausblenden */
 @media (max-width: 360px) {
   .pb-bullet {
     display: none;
@@ -410,6 +401,7 @@ code {
 .qp-feedback.ok {
   color: #16a34a;
 }
+
 .qp-actions {
   display: flex;
   gap: 8px;
@@ -435,4 +427,156 @@ code {
 }
 .qp-score {
   font-weight: 800;
+}
+
+/* === NEW: Enhancements === */
+
+/* Callouts */
+.callout {
+  border: 1px solid #e5e7eb;
+  border-left-width: 4px;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  background: #ffffff;
+}
+.callout .callout-title {
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.callout.tip {
+  border-left-color: #2563eb;
+  background: #f8fbff;
+}
+.callout.tip .callout-title {
+  color: #1e40af;
+}
+.callout.error {
+  border-left-color: #dc2626;
+  background: #fff7f7;
+}
+.callout.error .callout-title {
+  color: #b91c1c;
+}
+
+/* Formula rows */
+.formula {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0;
+}
+.formula-row {
+  display: grid;
+  grid-template-columns: 110px 24px 1fr auto;
+  gap: 6px;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px dashed #e5e7eb;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.formula-row .part {
+  font-weight: 700;
+  color: #111827;
+}
+.formula-row .arrow {
+  text-align: center;
+}
+.formula-row .result {
+  font-weight: 600;
+}
+.hint-inline {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Mini table */
+.mini-table-wrap {
+  margin: 8px 0;
+}
+.mini-table {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+.mini-table th,
+.mini-table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 6px 10px;
+  text-align: left;
+}
+.mini-table thead th {
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
+/* Compact list */
+.compact-list {
+  margin: 6px 0 0 18px;
+}
+.compact-list li {
+  margin: 4px 0;
+}
+
+/* Mini Multiple Choice */
+.mini-mc {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+.mini-mc-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.mini-mc-item .q {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.choice {
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #f9fafb;
+  cursor: pointer;
+  font-weight: 600;
+}
+.choice:hover {
+  border-color: #cbd5e1;
+}
+.choice.correct {
+  background: #ecfdf5;
+  border-color: #86efac;
+}
+.choice.wrong {
+  background: #fef2f2;
+  border-color: #fca5a5;
+}
+.choice.disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.mc-feedback {
+  margin-top: 6px;
+  font-weight: 700;
+}
+.mc-feedback.ok {
+  color: #16a34a;
+}
+.mc-feedback.bad {
+  color: #dc2626;
+}
+.mc-feedback .tr {
+  color: #374151;
+  margin-left: 6px;
 }
