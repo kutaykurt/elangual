@@ -1,11 +1,12 @@
+// src/pages/Grammar/GrammarLayout.jsx
 import React from "react";
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Grammar.scss";
 
 const LANGS = [
   { code: "en", label: "İngilizce", enabled: true },
-  { code: "de", label: "Almanca", enabled: false },
-  { code: "es", label: "İspanyolca", enabled: false },
+  { code: "ger", label: "Almanca", enabled: true },
+  { code: "es", label: "İspanyolca", enabled: true }, // aktif
 ];
 
 const LEVELS = ["A1", "A2", "B1", "B2"];
@@ -25,12 +26,10 @@ export default function GrammarLayout() {
   return (
     <div className="grammar-layout">
       <header className="grammar-header">
-        <h1 className="title">Grammar</h1>
-        <p className="subtitle">
-          Choose your target language • Hedef dili seç • Dil seçimi
-        </p>
+        <h1 className="title">Dilbilgisi</h1>
+        <p className="subtitle">Dil seçimi</p>
 
-        <div className="lang-tabs" role="tablist" aria-label="Target language">
+        <div className="lang-tabs" role="tablist" aria-label="Hedef dil">
           {LANGS.map(({ code, label, enabled }) => (
             <button
               key={code}
@@ -38,16 +37,16 @@ export default function GrammarLayout() {
               aria-selected={currentLang === code}
               className={`lang-tab ${currentLang === code ? "is-active" : ""}`}
               disabled={!enabled}
-              title={enabled ? label : "Coming soon"}
+              title={enabled ? label : "Yakında"}
               onClick={() => enabled && go(code, currentLevel)}
             >
               {label}
-              {!enabled && <span className="soon">soon</span>}
+              {!enabled && <span className="soon">yakında</span>}
             </button>
           ))}
         </div>
 
-        <nav className="level-tabs" aria-label="Levels">
+        <nav className="level-tabs" aria-label="Seviyeler">
           {LEVELS.map((lv) => (
             <button
               key={lv}

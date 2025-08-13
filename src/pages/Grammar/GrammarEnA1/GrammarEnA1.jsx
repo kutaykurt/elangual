@@ -1,26 +1,91 @@
-import React, { useMemo, useState } from "react";
-import "./Grammar.scss";
+import React, { useMemo, useState, useEffect, useRef } from "react";
+import "../Grammar.scss";
+import { Link } from "react-router-dom";
+import SectionNav from "../../../components/SectionNav/SectionNav";
+import JumpRow from "../../../components/JumpRow/JumpRow";
 
-/* ---------- Küçük Yapı Taşları ---------- */
+/* ---------- Kleine UI-Helfer für Hervorhebungen ---------- */
+const Key = ({ children }) => <mark className="key">{children}</mark>;
+const Term = ({ children }) => <strong className="term">{children}</strong>;
+
+/* ---------- Hilfs-Hook: Vor/Zurück-Abschnitt aus DOM ermitteln ---------- */
+function useSectionMeta(sectionId) {
+  const [meta, setMeta] = useState({ prev: null, next: null });
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll(".g-section")).map(
+      (el, i) => {
+        const h = el.querySelector("h2");
+        const raw = h?.textContent?.trim() || `Abschnitt ${i + 1}`;
+        const noParen = raw.replace(/\s*\([^)]*\)\s*$/, "");
+        const clean = noParen.replace(/^\s*\d+\)\s*/, "").trim();
+        return { id: el.id, idx: i + 1, raw, title: clean };
+      }
+    );
+    const idx = sections.findIndex((s) => s.id === sectionId);
+    setMeta({
+      prev: sections[idx - 1] || null,
+      next: sections[idx + 1] || null,
+    });
+  }, [sectionId]);
+
+  return meta;
+}
+
+/* ---------- Bausteine ---------- */
 const Section = ({ title, tr, children }) => {
   const isStringTitle = typeof title === "string";
   const match = isStringTitle ? title.match(/^\s*(\d+)\)\s*/) : null;
   const num = match ? `${match[1]}) ` : "";
   const cleanTitle = match ? title.replace(/^\s*\d+\)\s*/, "") : title;
 
+  const sectionId = cleanTitle
+    ?.toString()
+    .toLowerCase()
+    .replace(/[^\w]+/g, "-");
+  const meta = useSectionMeta(sectionId);
+
+  const scrollToId = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const cssVal = getComputedStyle(document.documentElement)
+      .getPropertyValue("--header-h")
+      .trim();
+    const headerH = Number.isFinite(parseFloat(cssVal))
+      ? parseFloat(cssVal)
+      : 0;
+    const y = el.getBoundingClientRect().top + window.scrollY - headerH - 6;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
-    <section
-      className="g-section"
-      id={cleanTitle
-        ?.toString()
-        .toLowerCase()
-        .replace(/[^\w]+/g, "-")}
-    >
+    <section className="g-section" id={sectionId}>
       <h2>
         {num}
         {tr} <span className="en-tag">({cleanTitle})</span>
       </h2>
       {children}
+
+      <div className="section-foot">
+        {meta.prev ? (
+          <button
+            className="sec-nav ghost"
+            onClick={() => scrollToId(meta.prev.id)}
+          >
+            ← Abschnitt {meta.prev.idx} – {meta.prev.title}
+          </button>
+        ) : (
+          <span />
+        )}
+        {meta.next && (
+          <button
+            className="sec-nav primary"
+            onClick={() => scrollToId(meta.next.id)}
+          >
+            Weiter mit Abschnitt {meta.next.idx} – {meta.next.title} →
+          </button>
+        )}
+      </div>
     </section>
   );
 };
@@ -38,7 +103,7 @@ const Examples = ({ items }) => (
   </div>
 );
 
-/* ---------- Yeni: Uyarı Kutuları & Formüller & Mini Tablo ---------- */
+/* ---------- Callouts, Formeln, Mini-Tabellen ---------- */
 const Callout = ({ type = "tip", title, children }) => (
   <div className={`callout ${type}`}>
     {title && <div className="callout-title">{title}</div>}
@@ -84,20 +149,56 @@ const MiniTable = ({ head = [], rows = [] }) => (
   </div>
 );
 
-/* ---------- Telaffuz Kartları ---------- */
-const RuleCard = ({ id, title, bullet, children, isOpen, onToggle }) => (
-  <details className="pb-card" open={isOpen} onToggle={() => onToggle(id)}>
-    <summary>
-      <span className="pb-title">{title}</span>
-      <span className="pb-bullet">{bullet}</span>
-      <span className="pb-cta" aria-hidden>
-        {isOpen ? "Kapat" : "Aç"}
-      </span>
-    </summary>
-    <div className="pb-body">{children}</div>
-  </details>
-);
+/* ------------------------------------------------------------------ */
+/*   Minimalistische Accordion-Zeile (pb2)                             */
+/* ------------------------------------------------------------------ */
+const Pb2Item = ({ id, title, bullet, open, onToggle, children }) => {
+  const innerRef = useRef(null);
+  const [maxH, setMaxH] = useState(0);
 
+  useEffect(() => {
+    const measure = () => {
+      if (innerRef.current) setMaxH(innerRef.current.scrollHeight);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (innerRef.current) ro.observe(innerRef.current);
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [open, children]);
+
+  return (
+    <div className={`pb2-item ${open ? "is-open" : ""}`}>
+      <button
+        type="button"
+        className="pb2-head"
+        onClick={() => onToggle(id)}
+        aria-expanded={open}
+      >
+        <span className="pb2-title">{title}</span>
+        <span className="pb2-bullet">{bullet}</span>
+        <span className="pb2-caret" aria-hidden>
+          ▾
+        </span>
+      </button>
+
+      <div
+        className="pb2-body"
+        style={{ maxHeight: open ? `${maxH}px` : 0 }}
+        aria-hidden={!open}
+      >
+        <div ref={innerRef} className="pb2-inner">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ---------- Aussprache (minimal) ---------- */
 const PronunciationBasics = () => {
   const ids = ["th", "i", "w", "r", "o-ou", "schwa"];
   const [openMap, setOpenMap] = useState(
@@ -106,16 +207,16 @@ const PronunciationBasics = () => {
   const toggle = (id) => setOpenMap((m) => ({ ...m, [id]: !m[id] }));
 
   return (
-    <Section title="0) Pronunciation" tr="Telaffuz Kuralları (Hızlı ve Net)">
-      <p className="explanation">
-        Aşağıdaki kurallar Türkçe konuşanlar için sadeleştirildi. Kısayolu gör,
-        ayrıntıyı <strong>Aç/Kapat</strong> butonuyla göster.
+    <Section title="1) Pronunciation" tr="Telaffuz Kuralları (Hızlı ve Net)">
+      <p className="intro" style={{ marginBottom: 8 }}>
+        Türkçe konuşanlar için sadeleştirilmiş kısa kurallar. Kısayı gör,
+        ayrıntıyı açmak için tıkla.
       </p>
 
-      <div className="pb-grid">
-        <RuleCard
+      <div className="pb2-list">
+        <Pb2Item
           id="th"
-          isOpen={openMap["th"]}
+          open={openMap["th"]}
           onToggle={toggle}
           title={
             <>
@@ -144,11 +245,11 @@ const PronunciationBasics = () => {
               Yanlış: <code>sink</code>, <code>zrii</code>
             </div>
           </div>
-        </RuleCard>
+        </Pb2Item>
 
-        <RuleCard
+        <Pb2Item
           id="i"
-          isOpen={openMap["i"]}
+          open={openMap["i"]}
           onToggle={toggle}
           title="Kısa i & Uzun ii"
           bullet="this → dıs; she → şii"
@@ -166,11 +267,11 @@ const PronunciationBasics = () => {
           <div className="dont">
             Yanlış: <code>this → dis</code>, <code>she → şe</code>
           </div>
-        </RuleCard>
+        </Pb2Item>
 
-        <RuleCard
+        <Pb2Item
           id="w"
-          isOpen={openMap["w"]}
+          open={openMap["w"]}
           onToggle={toggle}
           title={
             <>
@@ -186,11 +287,11 @@ const PronunciationBasics = () => {
               <code>votır</code>
             </div>
           </div>
-        </RuleCard>
+        </Pb2Item>
 
-        <RuleCard
+        <Pb2Item
           id="r"
-          isOpen={openMap["r"]}
+          open={openMap["r"]}
           onToggle={toggle}
           title="İngilizce r (yumuşak)"
           bullet="work/word/bird → vörk/vörd/börd"
@@ -206,11 +307,11 @@ const PronunciationBasics = () => {
               Yanlış: <code>vork</code>, <code>verrk</code>
             </div>
           </div>
-        </RuleCard>
+        </Pb2Item>
 
-        <RuleCard
+        <Pb2Item
           id="o-ou"
-          isOpen={openMap["o-ou"]}
+          open={openMap["o-ou"]}
           onToggle={toggle}
           title="o vs. ou"
           bullet="go → gou; hot → hat"
@@ -226,11 +327,11 @@ const PronunciationBasics = () => {
           <div className="ex">
             coffee → <code>kofi</code> (ilk hece kısa)
           </div>
-        </RuleCard>
+        </Pb2Item>
 
-        <RuleCard
+        <Pb2Item
           id="schwa"
-          isOpen={openMap["schwa"]}
+          open={openMap["schwa"]}
           onToggle={toggle}
           title="Zayıf hece = kısa ı"
           bullet="teacher → tiiçır; about → ıbaut"
@@ -242,7 +343,7 @@ const PronunciationBasics = () => {
               problem → <code>problım</code> · about → <code>ıbaut</code>
             </div>
           </div>
-        </RuleCard>
+        </Pb2Item>
       </div>
 
       <div className="pb-table-wrap">
@@ -282,7 +383,7 @@ const PronunciationBasics = () => {
   );
 };
 
-/* ---------- Hızlı Alıştırma (tamamen TR yönergeler) ---------- */
+/* ---------- Übung (TR yönergeler) ---------- */
 function normalize(s = "") {
   return s.toLowerCase().replaceAll("’", "'").replace(/\s+/g, " ").trim();
 }
@@ -336,6 +437,27 @@ const PRACTICE_ITEMS = [
     promptAfter: " two brothers.",
     answers: ["has"],
     distractors: ["have", "has", "haves"],
+  },
+  {
+    id: "there-are",
+    promptBefore: "Doldur: ",
+    promptAfter: " many cars in the street.",
+    answers: ["There are"],
+    distractors: ["There is", "There are"],
+  },
+  {
+    id: "can",
+    promptBefore: "Doldur: I ",
+    promptAfter: " swim.",
+    answers: ["can"],
+    distractors: ["can", "am", "do"],
+  },
+  {
+    id: "freq",
+    promptBefore: "Doldur: She ",
+    promptAfter: " always cooks.",
+    answers: [""],
+    distractors: ["is", "(boş)", "does"],
   },
 ];
 
@@ -433,7 +555,7 @@ function QuickPracticeEN_A1() {
   );
 }
 
-/* ---------- Mini Çoktan Seçmeli (TR) ---------- */
+/* ---------- Mini-Choice ---------- */
 const MC_ITEMS = [
   {
     q: "Simple Present için işaret sözcükleri hangileri?",
@@ -450,6 +572,16 @@ const MC_ITEMS = [
     choices: ["fiil + s/es/ies", "değişmez", "fiil + ing"],
     correctIndex: 0,
     tr: "He/She/It → fiile -s/-es/-ies eklenir.",
+  },
+  {
+    q: "Be fiilinde soru kurarken ne olur?",
+    choices: [
+      "Özne başa gelir",
+      "Be başa gelir (Am/Is/Are)",
+      "Do/Does başa gelir",
+    ],
+    correctIndex: 1,
+    tr: "Be-questions: Am/Is/Are + Özne…",
   },
 ];
 
@@ -505,29 +637,52 @@ function MiniMC() {
   );
 }
 
-/* ---------- Ana Sayfa ---------- */
+/* ---------- Seite ---------- */
 export default function GrammarEnA1() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="g-doc grammar-page">
+      <SectionNav />
+      <JumpRow />
+
       <p className="intro">
-        Türkçe konuşanlar için A1 İngilizce: kısa kurallar, net örnekler, doğru
-        telaffuz ve <strong>hata uyarıları</strong>.
+        <b>A1 İngilizce</b> kısa kurallar, net örnekler, doğru telaffuz ve{" "}
+        <strong>hata uyarıları</strong>. <Key>Kalın/renkli vurgular</Key> kritik
+        noktaları akılda kalıcı yapar.
         <br />
-        English A1 for Turkish speakers: clear rules, examples, pronunciation
-        tips.
       </p>
 
-      {/* 0) Telaffuz */}
-      {/* <PronunciationBasics /> */}
+      <div className="conversation-invite">
+        <b>Gerçek konuşmalarla pratik yapmak ister misin? </b>
+        <Link to="/a1-conversations" className="invite-link">
+          Buraya tıkla →
+        </Link>
+      </div>
+
+      <PronunciationBasics />
 
       {/* 1) Özne Zamirleri */}
-      <Section title="1) Subject Pronouns" tr="Özne Zamirleri">
+      <Section title="2) Subject Pronouns" tr="Özne Zamirleri">
         <Rule>
-          İngilizce özneler: <em>I, you, he, she, it, we, you, they</em>.
-          Türkçedeki “o” İngilizcede <em>he/she/it</em> olarak ayrılır.
+          İngilizce özneler: <Term>I, you, he, she, it, we, you, they</Term>.
+          Türkçedeki “o” İngilizcede <Term>he/she/it</Term> olarak ayrılır.
           <br />
-          <strong>you</strong> tekil & çoğul olabilir; <strong>it</strong>{" "}
-          nesne/hayvan ve bazen “görünen özne” (hava, saat).
+          <Term>you</Term> tekil & çoğul olabilir; <Term>it</Term> nesne/hayvan
+          ve bazen “görünen özne” (hava, saat).
         </Rule>
 
         <table className="g-table">
@@ -585,13 +740,13 @@ export default function GrammarEnA1() {
         />
       </Section>
 
-      {/* 2) To be: am/is/are */}
+      {/* 2) To be */}
       <Section
-        title='2) Verb "to be": am / is / are'
+        title='3) Verb "to be": am / is / are'
         tr="“to be” fiili: am / is / are"
       >
         <Rule>
-          <strong>Kuruluş</strong>
+          <Term>Kuruluş</Term>
           <Formula
             rows={[
               [
@@ -612,9 +767,9 @@ export default function GrammarEnA1() {
         <MiniTable
           head={["Özne", "Form", "TR İpucu"]}
           rows={[
-            ["I", "am", "Sadece I → am"],
-            ["you/we/they", "are", "çoğul/you → are"],
-            ["he/she/it", "is", "tekil üçüncü şahıs → is"],
+            ["I", <Key>am</Key>, "Sadece I → am"],
+            ["you/we/they", <Key>are</Key>, "çoğul/you → are"],
+            ["he/she/it", <Key>is</Key>, "tekil üçüncü şahıs → is"],
           ]}
         />
 
@@ -641,17 +796,17 @@ export default function GrammarEnA1() {
         />
 
         <Callout type="tip" title="Kısa cevaplar">
-          <strong>Yes, I am / No, I’m not</strong> ·{" "}
-          <strong>Yes, he is / No, he isn’t</strong> ·{" "}
-          <strong>Yes, they are / No, they aren’t</strong>
+          <Term>Yes, I am / No, I’m not</Term> ·{" "}
+          <Term>Yes, he is / No, he isn’t</Term> ·{" "}
+          <Term>Yes, they are / No, they aren’t</Term>
         </Callout>
       </Section>
 
       {/* 3) İyelik Sıfatları */}
-      <Section title="3) Possessive Adjectives" tr="İyelik Sıfatları">
+      <Section title="4) Possessive Adjectives" tr="İyelik Sıfatları">
         <Rule>
-          Sahiplik: <em>my, your, his, her, its, our, your, their</em> — isimden
-          önce gelir.
+          Sahiplik: <Term>my, your, his, her, its, our, your, their</Term> —{" "}
+          <Key>isimden önce</Key> gelir.
         </Rule>
 
         <MiniTable
@@ -689,14 +844,14 @@ export default function GrammarEnA1() {
         />
 
         <Callout type="error" title="Hata: its ≠ it’s">
-          <strong>its</strong> = onun (iyelik). <strong>it’s</strong> = it is /
-          it has (kısaltma).
+          <Term>its</Term> = onun (iyelik). <Term>it’s</Term> = it is / it has
+          (kısaltma).
         </Callout>
       </Section>
 
       {/* 4) Artikeller */}
       <Section
-        title="4) Articles: a / an / the"
+        title="5) Articles: a / an / the"
         tr="Belirtisiz/Belirli Artikeller"
       >
         <Rule>
@@ -704,10 +859,18 @@ export default function GrammarEnA1() {
             rows={[
               [
                 "Belirtisiz",
-                "a + ünsüz sesi / an + ünlü sesi",
+                <>
+                  <Term>a</Term> + ünsüz sesi / <Term>an</Term> + ünlü sesi
+                </>,
                 "a book, a dog / an apple, an hour",
               ],
-              ["Belirli", "the + bilinen/özgül şey", "the book on the table"],
+              [
+                "Belirli",
+                <>
+                  <Term>the</Term> + bilinen/özgül şey
+                </>,
+                "the book on the table",
+              ],
               [
                 "Sıfır artikel",
                 "çoğul & sayılamayan genel",
@@ -743,21 +906,35 @@ export default function GrammarEnA1() {
         />
       </Section>
 
-      {/* 5) Simple Present */}
+      {/* 5) Simple Present + Dizilim */}
       <Section
-        title="5) Basic Word Order & Simple Present"
+        title="6) Basic Word Order & Simple Present"
         tr="Temel Dizilim & Geniş Zaman"
       >
         <Rule>
           <Formula
             rows={[
-              ["Dizilim", "Özne + Fiil + Nesne", "I play football."],
+              [
+                "Dizilim",
+                <>
+                  <Term>Özne + Fiil + Nesne</Term>
+                </>,
+                "I play football.",
+              ],
               [
                 "Olumsuz",
-                "Özne + do/does + not + Fiil1",
+                <>
+                  <Term>Özne + do/does + not + Fiil1</Term>
+                </>,
                 "She doesn’t like tea.",
               ],
-              ["Soru", "Do/Does + Özne + Fiil1 ?", "Does he live in Izmir?"],
+              [
+                "Soru",
+                <>
+                  <Term>Do/Does + Özne + Fiil1 ?</Term>
+                </>,
+                "Does he live in Izmir?",
+              ],
             ]}
           />
         </Rule>
@@ -765,20 +942,19 @@ export default function GrammarEnA1() {
         <Callout type="tip" title="He/She/It kural paketi">
           <ul className="compact-list">
             <li>
-              Fiile <strong>-s</strong> gelir: play → plays
+              Fiile <Term>-s</Term> gelir: play → plays
             </li>
             <li>
-              <strong>-es</strong>: -ch/-sh/-o/-x/-ss → go → goes, watch →
-              watches
+              <Term>-es</Term>: -ch/-sh/-o/-x/-ss → go → goes, watch → watches
             </li>
             <li>
-              <strong>-ies</strong>: <em>ünsüz + y</em> → study → studies
+              <Term>-ies</Term>: <em>ünsüz + y</em> → study → studies
             </li>
             <li>
-              <strong>have → has</strong>
+              <Term>have → has</Term>
             </li>
             <li>
-              <strong>does/doesn’t</strong> varsa fiil <u>temel</u> kalır:{" "}
+              <Key>does/doesn’t varsa fiil temel kalır</Key>:{" "}
               <em>doesn’t go</em> ✅ <em>doesn’t goes</em> ❌
             </li>
           </ul>
@@ -810,30 +986,345 @@ export default function GrammarEnA1() {
         />
 
         <Callout type="tip" title="Sinyal sözcükler (genelde Simple Present)">
-          every day / usually / always / never / often / sometimes / on Mondays
+          <Term>
+            every day / usually / always / never / often / sometimes / on
+            Mondays
+          </Term>
         </Callout>
 
         <Callout type="error" title="Yaygın hatalar">
           <ul className="compact-list">
             <li>
-              <em>He don’t like…</em> ❌ → <strong>He doesn’t like…</strong> ✅
+              <em>He don’t like…</em> ❌ → <Term>He doesn’t like…</Term> ✅
             </li>
             <li>
-              <em>She doesn’t likes…</em> ❌ →{" "}
-              <strong>She doesn’t like…</strong> ✅
+              <em>She doesn’t likes…</em> ❌ → <Term>She doesn’t like…</Term> ✅
             </li>
             <li>
-              <em>He have…</em> ❌ → <strong>He has…</strong> ✅
+              <em>He have…</em> ❌ → <Term>He has…</Term> ✅
             </li>
           </ul>
         </Callout>
       </Section>
 
-      {/* 6) Hızlı Alıştırma + Mini MC */}
-      <Section title="6) Quick Practice" tr="Hızlı Alıştırma">
+      {/* 6) Objektpronomen */}
+      <Section title="7) Object Pronouns" tr="Nesne Zamirleri">
+        <Rule>
+          Özne → Nesne dönüşümü: <Key>I → me</Key>, <Key>you → you</Key>,{" "}
+          <Key>he → him</Key>, <Key>she → her</Key>, <Key>it → it</Key>,{" "}
+          <Key>we → us</Key>, <Key>they → them</Key>.
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "I know her.",
+              tr: "Onu (kadın) tanıyorum.",
+              pron: "ay nou hör",
+            },
+            {
+              en: "They help us.",
+              tr: "Bize yardım ederler.",
+              pron: "dey help as",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 7) Possessive ’s */}
+      <Section title="8) Possessive - ’s / of" tr="İyelik: ’s / of">
+        <Rule>
+          <Term>’s</Term> genelde insanlar/tekil isimler: <Key>Ayşe’s book</Key>
+          . <Term>of</Term> genelde uzun/nesne:{" "}
+          <Key>the name of the street</Key>.
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "Ali’s car is new.",
+              tr: "Ali’nin arabası yeni.",
+              pron: "aliz kar iz nüu",
+            },
+            {
+              en: "The roof of the house is old.",
+              tr: "Evin çatısı eski.",
+              pron: "dı ruuf ov dı haus iz old",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 8) There is/are + some/any */}
+      <Section title="9) There is / There are" tr="Var/Yok yapısı + some/any">
+        <Rule>
+          <Formula
+            rows={[
+              [
+                "Olumlu",
+                <>
+                  <Term>There is</Term> (tekil) / <Term>There are</Term> (çoğul)
+                </>,
+                "There is a cat. / There are two cats.",
+              ],
+              ["Olumsuz", "There isn’t / There aren’t", ""],
+              [
+                "Soru",
+                "Is there…? / Are there…?",
+                "Yes, there is/are. / No, there isn’t/aren’t.",
+              ],
+            ]}
+          />
+          <p className="note">
+            <Key>some</Key> (olumlu) · <Key>any</Key> (olumsuz/soru) ·{" "}
+            <Key>a lot of</Key> (çok).
+          </p>
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "There is a book on the table.",
+              tr: "Masada bir kitap var.",
+              pron: "der iz ı buk on dı teybıl",
+            },
+            {
+              en: "Are there any chairs?",
+              tr: "Hiç sandalye var mı?",
+              pron: "ar der eni çerz",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 9) Demonstratives */}
+      <Section
+        title="10) Demonstratives"
+        tr="İşaret Zamirleri: this/that/these/those"
+      >
+        <Rule>
+          Yakın/uzak ve tekil/çoğul: <Key>this (bu)</Key>,{" "}
+          <Key>that (şu/o)</Key>, <Key>these (bunlar)</Key>,{" "}
+          <Key>those (şunlar/onlar)</Key>.
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "This is my phone.",
+              tr: "Bu benim telefonum.",
+              pron: "dis iz may foun",
+            },
+            { en: "Those are new.", tr: "Şunlar yeni.", pron: "dooz ar nüu" },
+          ]}
+        />
+      </Section>
+
+      {/* 10) Prepositions of place */}
+      <Section title="11) Prepositions of Place" tr="Yer Edatları">
+        <Rule>
+          Temel eşleşmeler: <Key>in (içinde)</Key>, <Key>on (üstünde)</Key>,{" "}
+          <Key>under (altında)</Key>, <Key>next to (yanında)</Key>,{" "}
+          <Key>behind (arkasında)</Key>, <Key>in front of (önünde)</Key>,{" "}
+          <Key>between (arasında)</Key>.
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "The keys are on the table.",
+              tr: "Anahtarlar masanın üstünde.",
+              pron: "dı kiiz ar on dı teybıl",
+            },
+            {
+              en: "The cat is under the chair.",
+              tr: "Kedi sandalyenin altında.",
+              pron: "dı ket iz andır dı çer",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 11) can / can’t */}
+      <Section title="12) Can / Can’t" tr="Yetenek ve rica">
+        <Rule>
+          <Formula
+            rows={[
+              [
+                "Olumlu",
+                <>
+                  <Term>Özne + can + Fiil1</Term>
+                </>,
+                "I can swim.",
+              ],
+              [
+                "Olumsuz",
+                <>
+                  <Term>Özne + can’t + Fiil1</Term>
+                </>,
+                "She can’t drive.",
+              ],
+              [
+                "Soru",
+                <>
+                  <Term>Can + Özne + Fiil1 ?</Term>
+                </>,
+                "Can you help me?",
+              ],
+            ]}
+          />
+          <p className="note">
+            <Key>can</Key> kısalmaz; üçüncü şahısta da değişmez (he/she/it{" "}
+            <Key>can</Key>).
+          </p>
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "Can you speak English?",
+              tr: "İngilizce konuşabiliyor musun?",
+              pron: "ken yu spiik ingliş",
+            },
+            {
+              en: "He can’t come today.",
+              tr: "O bugün gelemez.",
+              pron: "hi kent kam tüdey",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 12) Adverbs of frequency */}
+      <Section title="13) Adverbs of Frequency" tr="Sıklık Zarfları (yerleşim)">
+        <Rule>
+          <p>
+            <Key>always, usually, often, sometimes, rarely, never</Key>
+          </p>
+          <ul className="compact-list">
+            <li>
+              <Term>Be</Term> ile: <Key>Önce zarf, sonra tamamlayıcı</Key> —{" "}
+              <em>She is always late.</em>
+            </li>
+            <li>
+              <Term>Diğer fiiller</Term>: <Key>Özne + zarf + fiil</Key> —{" "}
+              <em>I often read.</em>
+            </li>
+          </ul>
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "She is usually happy.",
+              tr: "Genellikle mutludur.",
+              pron: "şii iz yujıli hepi",
+            },
+            {
+              en: "They often play tennis.",
+              tr: "Sık sık tenis oynarlar.",
+              pron: "dey ofın pley tenis",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 13) Present Continuous + fark */}
+      <Section title="14) Present Continuous" tr="Şimdiki Zaman & Farkı">
+        <Rule>
+          <Formula
+            rows={[
+              [
+                "Kuruluş",
+                <>
+                  <Term>am/is/are + V-ing</Term>
+                </>,
+                "I am working.",
+              ],
+              ["Olumsuz", "am/is/are + not + V-ing", "He isn’t studying."],
+              ["Soru", "Am/Is/Are + Özne + V-ing ?", "Are they coming?"],
+            ]}
+          />
+          <Callout type="tip" title="Simple Present vs Present Continuous">
+            <ul className="compact-list">
+              <li>
+                <Term>Simple Present</Term> = <Key>rutin/alışkanlık</Key>{" "}
+                (usually, always…)
+              </li>
+              <li>
+                <Term>Present Continuous</Term> = <Key>şu an</Key> (now, at the
+                moment…)
+              </li>
+            </ul>
+          </Callout>
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "I’m reading now.",
+              tr: "Şu an okuyorum.",
+              pron: "aym riiding nau",
+            },
+            {
+              en: "She usually reads in the evening.",
+              tr: "Genelde akşamları okur.",
+              pron: "şii yujuıli riidz in dı ivning",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 14) Wh-Questions */}
+      <Section title="15) Wh-Questions" tr="W-Soruları (Ne/Nerede/Neden…)">
+        <Rule>
+          <ul className="compact-list">
+            <li>
+              <Term>What / Where / When / Who / Why / How</Term>
+            </li>
+            <li>
+              <Key>Be</Key> ile: <Term>Wh + am/is/are + Özne…?</Term> —{" "}
+              <em>Where is he?</em>
+            </li>
+            <li>
+              <Key>Diğer fiiller</Key>:{" "}
+              <Term>Wh + do/does + Özne + Fiil1…?</Term> —{" "}
+              <em>What do you do?</em>
+            </li>
+          </ul>
+        </Rule>
+        <Examples
+          items={[
+            {
+              en: "Where are you from?",
+              tr: "Nerelisin?",
+              pron: "ver ar yu from",
+            },
+            {
+              en: "Why does she study English?",
+              tr: "Neden İngilizce çalışıyor?",
+              pron: "vay daz şii stadi ingliş",
+            },
+          ]}
+        />
+      </Section>
+
+      {/* 15) Alıştırmalar */}
+      <Section title="16) Quick Practice" tr="Hızlı Alıştırma">
         <QuickPracticeEN_A1 />
         <MiniMC />
       </Section>
+
+      {showScrollTop && (
+        <button
+          className="scroll-top-btn"
+          onClick={scrollToTop}
+          aria-label="Nach oben scrollen"
+          title="Nach oben"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M12 4l-7 7h4v7h6v-7h4z" fill="currentColor" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }

@@ -1,173 +1,250 @@
 @import "../../App.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@700;900&display=swap");
 
+/* =========================
+   THEME TOKENS
+   ========================= */
 :root {
-  --hdr-bg: #2b2b2b;
+  --hdr-bg: #0b0e14;
   --hdr-fg: #f3f4f6;
   --muted: #a1a1aa;
   --accent: #ff8c49;
-  --badge-bg: #ff8c49;
-  --badge-fg: #111;
-  --chip-bg: #1f2937;
-  --chip-br: #334155;
-  --underline: rgba(255, 255, 255, 0.18);
-  --shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 
-  /* NEU: Dropdown-Design (Dark) */
-  --dd-bg: #111827; /* Hintergrund des Selects */
-  --dd-fg: #e5e7eb; /* Textfarbe (hell) */
-  --dd-br: #374151; /* Randfarbe */
-  --dd-hover: #0b1220; /* Hover-Farbe */
+  /* Links (werden unten hart auf Weiß gesetzt) */
+  --link: #ffffff;
+  --link-hover: #ffffff;
+  --link-active-bg: rgba(255, 140, 73, 0.18);
+
+  --chip-bg: #101826;
+  --chip-br: #22324a;
+
+  --underline: rgba(255, 255, 255, 0.18);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  --ring: rgba(255, 140, 73, 0.5);
+  --ring-soft: rgba(255, 140, 73, 0.25);
+
+  /* Select */
+  --dd-bg: #0e1525;
+  --dd-fg: #e5e7eb;
+  --dd-br: #2b3a55;
+  --dd-hover: #0b1220;
   --dd-focus-ring: rgba(255, 140, 73, 0.35);
-  --dd-opt-bg: #0b1220; /* Option-Hintergrund (sofern unterstützt) */
-  --dd-opt-fg: #e5e7eb; /* Option-Text (hell) */
-  --dd-opt-dis: #6b7280; /* Disabled-Option */
+  --dd-opt-bg: #0b1220;
+  --dd-opt-fg: #e5e7eb;
+  --dd-opt-dis: #6b7280;
 }
 
+/* =========================
+   HEADER WRAPPER
+   ========================= */
 .AppHeader {
-  position: sticky;
+  position: relative; /* bei Bedarf auf sticky stellen */
   top: 0;
   z-index: 50;
-  background: var(--hdr-bg);
   color: var(--hdr-fg);
+  background: radial-gradient(
+      1200px 120px at 10% 0%,
+      rgba(255, 140, 73, 0.08),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0) 60%
+    ),
+    var(--hdr-bg);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
-/* A11y */
+/* Skip-Link */
 .skip-link {
   position: absolute;
   left: -9999px;
   top: -9999px;
   &:focus {
-    left: 10px;
-    top: 10px;
+    left: 12px;
+    top: 12px;
     background: $main-yellow;
     color: #111;
-    padding: 6px 10px;
+    padding: 8px 12px;
     border-radius: 10px;
     z-index: 100;
+    box-shadow: 0 0 0 3px var(--ring);
   }
 }
 
+/* Obere Akzentkante */
 .topbar {
-  border-top: 6px solid var(--accent);
+  height: 6px;
+  background: linear-gradient(90deg, #ffb165, #ff8c49 40%, #ff6d3a);
 }
 
+/* Layout-Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 16px; /* etwas mehr Luft */
+  padding: 12px 16px;
+}
+
+/* Grid für Brand / Nav / Select */
+.navwrap {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  column-gap: 12px; /* mehr Abstand */
+  column-gap: 16px;
   row-gap: 6px;
 }
 
-/* ===== BRAND ===== */
+/* =========================
+   BRAND / LOGO
+   ========================= */
 .brand {
   display: grid;
-  grid-template-columns: auto;
+  grid-auto-flow: row;
   align-items: start;
-
-  &__link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    white-space: nowrap; /* niemals umbrechen */
-  }
-
-  &__badge {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: var(--badge-bg);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateZ(0);
-    transition: transform 0.15s ease, filter 0.15s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  }
-  &__badge-e {
-    font-family: "Raleway", sans-serif;
-    font-weight: 900;
-    font-size: 18px;
-    line-height: 1;
-    color: var(--badge-fg);
-  }
-
-  &__name {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 22px; /* Basis, Desktop weiter unten größer */
-    color: #fff;
-    letter-spacing: 0.3px;
-  }
-
-  &__link:hover .brand__badge {
-    transform: translateY(-1px);
-    filter: brightness(0.98);
-  }
-
-  &__tag {
-    margin-top: -2px;
-    font-size: 12px;
-    color: var(--muted);
-  }
 }
 
-/* ===== NAV ===== */
+.brand__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.brand__badge {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: radial-gradient(
+    120% 120% at 20% 20%,
+    #ffe3d1,
+    #ff8c49 60%,
+    #ff6d3a
+  );
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(0);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(255, 140, 73, 0.35);
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+.brand__badge-glow {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(
+    80% 80% at 30% 20%,
+    rgba(255, 255, 255, 0.35),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+.brand__badge-e {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1;
+  color: #111;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.brand__link:hover .brand__badge {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.brand__name {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 0.2px;
+
+  .sidebar {
+    color: black;
+  }
+}
+.brand__tag {
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
 .nav {
+  min-width: 0;
+}
+
+.nav__list {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap; /* kein Umbruch */
-  min-width: 0; /* vermeidet Layout-Push */
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
+.nav__item {
+  position: relative;
+}
+
+/* Basestyle */
 .nav__link {
   position: relative;
-  color: var(--hdr-fg);
+  color: var(--link);
   text-decoration: none;
-  padding: 6px 8px; /* kompakt, Desktop später größer */
-  border-radius: 8px;
-  font-size: 14px; /* Basis, Desktop größer */
-  white-space: nowrap; /* kein Umbruch pro Link */
-  transition: background 0.2s, transform 0.06s;
+  padding: 9px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.06s ease, box-shadow 0.2s ease,
+    color 0.15s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
   }
   &:active {
     transform: translateY(1px);
   }
-
-  &[aria-current="page"] {
-    font-weight: 700;
-  }
-  &[aria-current="page"]::after {
-    content: "";
-    position: absolute;
-    left: 8px;
-    right: 8px;
-    bottom: 2px;
-    height: 2px;
-    background: var(--underline);
-    border-radius: 2px;
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--ring);
   }
 }
 
-/* Badge for library count */
+/* Aktiver Menüpunkt */
+.nav__link[aria-current="page"] {
+  font-weight: 700;
+  background: var(--link-active-bg);
+}
+.nav__link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--underline);
+}
+
+/* Badge */
 .badge {
-  margin-left: 4px;
+  margin-left: 6px;
   background: $main-yellow;
   color: #111;
   font-weight: 800;
   border-radius: 999px;
   padding: 0 6px;
-  line-height: 1.2;
+  line-height: 1.25;
   font-size: 11px;
   min-width: 18px;
   display: inline-flex;
@@ -175,7 +252,18 @@
   justify-content: center;
 }
 
-/* ===== Desktop language dropdown — ÜBERARBEITET ===== */
+/* Sicherheitsnetz: keine globale Dimmung */
+.nav,
+.nav__list,
+.nav__item,
+.nav__link {
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+/* =========================
+   DESKTOP: LANGUAGE DROPDOWN
+   ========================= */
 .lang-select {
   position: relative;
 }
@@ -187,94 +275,93 @@
   background-color: var(--dd-bg);
   color: var(--dd-fg);
   border: 1px solid var(--dd-br);
-  border-radius: 10px;
-  padding: 8px 36px 8px 12px; /* Platz für Chevron */
+  border-radius: 12px;
+  padding: 10px 40px 10px 14px;
   font-size: 14px;
-  min-width: 170px;
+  min-width: 172px;
   line-height: 1.25;
   cursor: pointer;
 
-  /* eigener Chevron (SVG) */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23e5e7eb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
   background-repeat: no-repeat;
-  background-position: right 10px center;
+  background-position: right 12px center;
 
   transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s,
     transform 0.06s;
-}
-.lang-select select:hover {
-  background-color: var(--dd-hover);
-}
-.lang-select select:active {
-  transform: translateY(1px);
-}
-.lang-select select:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--dd-focus-ring);
-  border-color: var(--accent);
-}
 
-/* Windows-Oldie-Pfeil ausblenden */
+  &:hover {
+    background-color: var(--dd-hover);
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--dd-focus-ring);
+    border-color: var(--accent);
+  }
+}
 .lang-select select::-ms-expand {
   display: none;
 }
-
-/* Option-Farben (nicht in jedem Browser sichtbar, aber schadet nie) */
 .lang-select select option {
   color: var(--dd-opt-fg);
   background-color: var(--dd-opt-bg);
 }
-.lang-select select option[disabled],
 .lang-select select option:disabled {
   color: var(--dd-opt-dis);
 }
 
-/* Firefox-Lesbarkeitstrick für invertierte Fokus-States */
-@-moz-document url-prefix() {
-  .lang-select select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 var(--dd-fg);
-  }
-}
-
-/* ===== Mobile chip rail ===== */
+/* =========================
+   MOBILE CHIP-RAIL
+   ========================= */
 .lang-rail {
   display: none;
-  background: #1f1f1f;
+  background: #0d121c;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .lang-rail .rail {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   overflow-x: auto;
-  padding: 6px 12px;
+  padding: 8px 12px;
   scrollbar-width: thin;
 }
 .chip {
   border: 1px solid var(--chip-br);
   background: var(--chip-bg);
   color: var(--hdr-fg);
-  padding: 6px 10px;
+  padding: 7px 12px;
   border-radius: 999px;
   font-weight: 600;
   font-size: 12px;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, transform 0.06s;
+  transition: background 0.2s, border-color 0.2s, transform 0.06s,
+    box-shadow 0.2s;
+
   &:hover {
     background: #0f172a;
   }
   &:active {
     transform: translateY(1px);
   }
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--ring-soft);
+  }
+
   &.is-active {
     background: var(--accent);
     color: #111;
     border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(255, 140, 73, 0.35);
   }
 }
 
-/* Visibility helpers */
+/* =========================
+   VISIBILITY HELPERS
+   ========================= */
 .desktop-only {
   display: block;
 }
@@ -282,39 +369,20 @@
   display: none;
 }
 
-/* ===== Desktop Upgrades ===== */
+/* =========================
+   RESPONSIVE
+   ========================= */
 @media (min-width: 981px) {
-  .brand__badge {
-    width: 30px;
-    height: 30px;
-  }
-  .brand__badge-e {
-    font-size: 19px;
-  }
   .brand__name {
-    font-size: 24px;
-  } /* ↑ Logo-Text größer */
-
-  .nav__link {
-    font-size: 15px;
-    padding: 7px 10px;
-  }
-
-  .lang-select select {
-    font-size: 14px;
-    padding: 9px 38px 9px 12px;
-  } /* größer + Chevron-Platz */
-
-  .container {
-    column-gap: 14px;
+    font-size: 26px;
   }
 }
 
-/* ===== Tablet/Mobile ===== */
+/* Tablet & Mobile: EIN Reihe, kein Scroll, kompakt */
 @media (max-width: 980px) {
-  .container {
-    grid-template-columns: 1fr auto;
-    row-gap: 6px;
+  .navwrap {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
   }
   .brand__tag {
     display: none;
@@ -325,26 +393,60 @@
   .mobile-only {
     display: block;
   }
+
+  .nav {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .nav__list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* gleichmäßig verteilt */
+    gap: 4px;
+    flex-wrap: nowrap; /* kein Umbruch */
+    overflow: hidden; /* keine Scrollleiste */
+    padding: 4px 0;
+  }
+  .nav__item {
+    flex: 0 1 auto;
+  }
+
+  .nav__link {
+    padding: 4px 6px; /* weniger Padding */
+    border-radius: 8px;
+    font-size: clamp(13px, 2.9vw, 13px); /* kleinere Schrift */
+    line-height: 1.05;
+  }
+
+  .badge {
+    font-size: 10px;
+    padding: 0 5px;
+    min-width: 16px;
+  }
 }
 
-@media (max-width: 640px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 8px 12px;
-  }
-  .nav {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-  .brand__name {
-    font-size: 20px;
-  }
-  .brand__badge {
-    width: 26px;
-    height: 26px;
-  }
-  .brand__badge-e {
-    font-size: 17px;
-  }
+/* =========================
+   HARD OVERRIDES: Links IMMER WEISS
+   ========================= */
+.AppHeader .nav__link,
+.AppHeader .nav__link:link,
+.AppHeader .nav__link:visited,
+.AppHeader .nav__link:hover,
+.AppHeader .nav__link:focus,
+.AppHeader .nav__link:focus-visible,
+.AppHeader .nav__link[aria-current="page"],
+.AppHeader .nav__link[aria-current="page"]:visited {
+  color: #e0e0e0 !important;
+}
+
+.AppHeader .nav,
+.AppHeader .nav__list,
+.AppHeader .nav__item,
+.AppHeader .nav__link {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }

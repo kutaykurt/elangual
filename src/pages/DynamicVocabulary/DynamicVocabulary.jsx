@@ -128,7 +128,7 @@ export default function DynamicVocabulary() {
     [allData, baseLanguage, targetLanguage]
   );
 
-  const handleSearch = () => {
+  const runSearch = () => {
     performSearch(searchQuery);
     const q = (searchQuery || "").trim();
     if (q)
@@ -136,7 +136,7 @@ export default function DynamicVocabulary() {
     else navigate(`/vocabulary`, { replace: true });
   };
 
-  const handleKeyDown = (e) => e.key === "Enter" && handleSearch();
+  const handleKeyDown = (e) => e.key === "Enter" && runSearch();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search || "");
@@ -258,9 +258,17 @@ export default function DynamicVocabulary() {
       </h2>
 
       <div className="controls-row" role="group" aria-label="Liste steuern">
-        <div className="search-field-container" role="search">
+        {/* Suche: jetzt als <form> inkl. Button "Ara" */}
+        <form
+          className="search-field-container"
+          role="search"
+          onSubmit={(e) => {
+            e.preventDefault();
+            runSearch();
+          }}
+        >
           <input
-            type="text"
+            type="search"
             placeholder="Kelime ara…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -268,7 +276,10 @@ export default function DynamicVocabulary() {
             className="search-input-field"
             aria-label="Kelime ara"
           />
-        </div>
+          <button type="submit" className="search-button">
+            Ara
+          </button>
+        </form>
 
         <div className="list-controls">
           <label className="sr-only" htmlFor="sortSelect">

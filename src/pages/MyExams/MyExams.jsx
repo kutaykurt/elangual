@@ -1,11 +1,12 @@
-// src/pages/MyExams/MyExams.jsx
 import React, { useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromExam } from "../../redux/examSlice";
 import { useNavigate } from "react-router-dom";
 import "./myExams.scss";
 
 export default function MyExams() {
   const exams = useSelector((state) => state.exam.exams);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // Yerel listeler (scriptType = "base-target" başına)
@@ -95,6 +96,15 @@ export default function MyExams() {
     });
   };
 
+  // NEW: Sınavdan tamamen sil (ve yerel listelerden de kaldır)
+  const handleDeleteFromExams = (item) => {
+    const scriptType = `${item.base}-${item.target}`;
+    dispatch(removeFromExam(item.id));
+    // UI anında güncellensin diye local listeleri de temizle
+    removeFromList(scriptType, setList1, item.id);
+    removeFromList(scriptType, setList2, item.id);
+  };
+
   const handleStartExam = (scriptType, list) => {
     navigate("/exam", { state: { vocabList: list, scriptType } });
   };
@@ -155,14 +165,15 @@ export default function MyExams() {
                             }
                             title={
                               isInList(scriptType, list1, item)
-                                ? "Liste 1'den kaldır"
-                                : "Liste 1'e ekle"
+                                ? "- Liste 1"
+                                : "+ Liste 1"
                             }
                           >
                             {isInList(scriptType, list1, item)
-                              ? "Liste 1'den kaldır"
-                              : "Liste 1'e ekle"}
+                              ? "- Liste 1"
+                              : "+ Liste 1"}
                           </button>
+
                           <button
                             className={`mini ${
                               isInList(scriptType, list2, item)
@@ -174,13 +185,25 @@ export default function MyExams() {
                             }
                             title={
                               isInList(scriptType, list2, item)
-                                ? "Liste 2'den kaldır"
-                                : "Liste 2'ye ekle"
+                                ? "- Liste 2"
+                                : "+ Liste 2"
                             }
                           >
                             {isInList(scriptType, list2, item)
-                              ? "Liste 2'den kaldır"
-                              : "Liste 2'ye ekle"}
+                              ? "- Liste 2"
+                              : "+ Liste 2"}
+                          </button>
+
+                          {/* NEW: Sil butonu */}
+                          <button
+                            className="mini danger"
+                            onClick={() => handleDeleteFromExams(item)}
+                            title="Sınav listesinden sil"
+                            aria-label={`${
+                              item[item.base]
+                            } kelimesini sınav listesinden sil`}
+                          >
+                            Sil
                           </button>
                         </div>
                       </td>

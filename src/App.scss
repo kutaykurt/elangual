@@ -1,42 +1,110 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Raleway:wght@600;700&family=Open+Sans:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap");
+/* ===========================
+   Fonts (ausgedünnt)
+=========================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Karla:wght@400;600;700&family=Raleway:wght@600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* ===========================
+   Design-Variablen
+=========================== */
+$main-white: #f8fafc; // Hintergrund (warm)
+$surface: #ffffff;
+$surface-2: #f6f7fb;
 
-$main-white: #f5f5f5;
-$main-black: #353535;
-$main-blue: #256e99;
-$main-red: #ff6f78;
-$main-orange: rgb(255, 140, 73);
-$main-grey: #6f6f6f;
-$main-yellow: #ffd51c;
-$lines: #535353;
-$list-item-blue: #eefaff;
-$header-background: #def5ff;
+$main-black: #1f2937; // Text (dunkelgrau)
+$main-grey: #6b7280; // Sekundärtext
 
+$main-blue: #2563eb; // Primär
+$main-red: #ef4444; // Fehler
+$main-orange: #f59e0b; // Akzent
+$main-yellow: #fbbf24; // Badge
+
+$lines: #445;
+$list-item-blue: #eef6ff;
+$header-background: #eaf7fc;
+
+$success: #16a34a;
+$danger: #ef4444;
+$warning: #f59e0b;
+
+$border: #e5e7eb;
+$shadow: rgba(17, 24, 39, 0.08);
+
+/* Breakpoints */
 $breakpoint-sm: 480px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 
-* {
-  margin: 0;
-  padding: 0;
+/* ===========================
+   Reset & Basistypo (SAFE)
+=========================== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: "Karla", sans-serif;
-  color: $main-black;
-  line-height: 30px;
-  list-style-type: none;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Karla", "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  color: $main-black; /* globale Textfarbe */
+  background-color: $main-white;
+  line-height: 1.6; /* RELATIVE Zeilenhöhe */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Form Controls erben Schrift */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Bilder/Videos responsiv */
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* Links */
+a {
+  color: $main-blue;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Listen: Defaults behalten; bei Bedarf gezielt entfernen */
+ul,
+ol {
+  padding-left: 1.2rem;
+}
+ul.no-bullets,
+ol.no-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* ===========================
+   App-Container
+=========================== */
 .App {
-  background-color: rgb(252, 252, 252);
+  background-color: $main-white;
 }
-
 .app-main {
   animation: showup 0.4s ease-in-out;
 }
@@ -48,6 +116,9 @@ $breakpoint-lg: 1024px;
   min-height: 100vh;
 }
 
+/* ===========================
+   Prologue
+=========================== */
 .prologue {
   display: flex;
   justify-content: center;
@@ -57,68 +128,79 @@ $breakpoint-lg: 1024px;
 
   .learn-word {
     animation: learn-pulse 2.2s ease-in-out;
-    color: #222222;
+    color: #222;
   }
-
   .japanese-word {
     animation: japanese-pulse 2.2s ease-in-out;
-    color: #2d92bd;
+    color: $main-blue;
     font-size: 56px;
   }
 }
 
+/* Utilities */
 .mb-3 {
   margin-top: 20px;
   display: flex;
   justify-content: center;
 }
 
+/* ===========================
+   Pagination
+=========================== */
 .pagination {
-  margin: 20px 0px 30px 0px;
+  margin: 20px 0 30px;
   display: flex;
   justify-content: center;
 
   button {
     width: 80px;
-    margin: 0px 15px;
+    margin: 0 15px;
   }
 }
 
+/* ===========================
+   Buttons
+=========================== */
 .add-button {
   padding: 5px 10px;
-  border: 1px solid #ccc; // Heller, dezenter Rand
-  border-radius: 4px;
+  border: 1px solid $border;
+  border-radius: 6px;
   cursor: pointer;
-  background-color: white; // Grundfarbe
+  background-color: $surface;
+  font-weight: 600;
+  box-shadow: 0 4px 10px $shadow;
 
   &.added {
-    background-color: #4caf50; // grün
-    color: white;
-    border: 1px solid #4caf50; // optional: grün wie Hintergrund
+    background-color: $success;
+    color: #fff;
+    border: 1px solid $success;
   }
-
   &.not-added {
-    background-color: #f0f0f0; // grau
-    color: black;
+    background-color: $surface-2;
+    color: $main-black;
   }
 }
 
 .remove-button {
   padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  color: black;
+  border: 1px solid $border;
+  border-radius: 6px;
+  background-color: $surface;
+  color: $main-black;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-weight: 600;
 
   &:hover {
-    background-color: #f8d7da;
+    background-color: #fdeaea;
     color: #721c24;
     border-color: #f5c6cb;
   }
 }
 
+/* ===========================
+   Tabs (IDs belassen)
+=========================== */
 #uncontrolled-tab-example-tab-KatakanaAlphabet,
 #uncontrolled-tab-example-tab-KatakanaVocabularyGerman,
 #uncontrolled-tab-example-tab-KatakanaVocabularyEnglish,
@@ -126,6 +208,7 @@ $breakpoint-lg: 1024px;
 #uncontrolled-tab-example-tab-VocabularyGerman,
 #uncontrolled-tab-example-tab-VocabularyEnglish {
   color: $main-blue;
+  font-weight: 500;
 
   &.active {
     color: $main-grey;
@@ -133,75 +216,68 @@ $breakpoint-lg: 1024px;
   }
 }
 
+/* ===========================
+   Animations
+=========================== */
 @keyframes learn-pulse {
   0% {
     opacity: 0;
   }
-
-  25% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
+  25%,
   70% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
-
 @keyframes japanese-pulse {
-  0% {
-    opacity: 0;
-  }
-
+  0%,
   25% {
     opacity: 0;
   }
-
-  50% {
-    opacity: 1;
-  }
-
+  50%,
   70% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
-
 @keyframes showup {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
 
-@media screen and (max-width: 480px) {
+/* ===========================
+   Responsive
+=========================== */
+/* Mobile */
+@media screen and (max-width: $breakpoint-sm) {
   .body {
     font-size: 12px;
   }
-
   .search-results-table {
     font-size: 13px;
   }
-
   .search-input-field {
     min-width: 80%;
   }
-
   .search-container {
-    margin: 20px 0px;
+    margin: 20px 0;
+  }
+
+  button {
+    white-space: normal;
+    height: auto;
+    line-height: 1.3;
+    padding: 0.4rem 0.8rem;
+    text-align: center;
+    word-break: break-word;
   }
 
   #uncontrolled-tab-example-tab-KatakanaAlphabet,
@@ -210,25 +286,23 @@ $breakpoint-lg: 1024px;
   #uncontrolled-tab-example-tab-Alphabet,
   #uncontrolled-tab-example-tab-VocabularyGerman,
   #uncontrolled-tab-example-tab-VocabularyEnglish {
-    padding: 5px 5px;
+    padding: 5px;
     font-size: 12px;
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* Tablet/kleinere Desktops */
+@media screen and (max-width: $breakpoint-lg) {
   .body {
-    padding: 0px 20px;
-    overflow-x: hidden; // Ensure no horizontal scrolling
+    padding: 0 20px;
+    overflow-x: hidden;
   }
-
   .add-button {
     line-height: 20px;
   }
-
   .search-input-field {
     height: 30px;
   }
-
   .mb-3 {
     display: flex;
     justify-content: center;
