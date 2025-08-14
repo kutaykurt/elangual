@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromExam } from "../../redux/examSlice";
 import { useNavigate } from "react-router-dom";
+import SEO from "../../components/SEO";
 import "./myExams.scss";
 
 export default function MyExams() {
@@ -9,7 +10,6 @@ export default function MyExams() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Yerel listeler (scriptType = "base-target" başına)
   const [list1, setList1] = useState(
     () => JSON.parse(localStorage.getItem("examList1")) || {}
   );
@@ -17,7 +17,6 @@ export default function MyExams() {
     () => JSON.parse(localStorage.getItem("examList2")) || {}
   );
 
-  // Kalıcılık
   useEffect(
     () => localStorage.setItem("examList1", JSON.stringify(list1)),
     [list1]
@@ -27,9 +26,6 @@ export default function MyExams() {
     [list2]
   );
 
-  // ================
-  //   Redux (exams) ile senkronizasyon
-  // ================
   const idsByScript = useMemo(() => {
     const map = {};
     for (const it of exams) {
@@ -57,7 +53,6 @@ export default function MyExams() {
     setList2((p) => clean(p));
   }, [idsByScript]);
 
-  // Mevcut sınav kelimelerini dil çiftine göre grupla
   const groupedByScript = useMemo(() => {
     return exams.reduce((acc, item) => {
       const key = `${item.base}-${item.target}`;
@@ -66,7 +61,6 @@ export default function MyExams() {
     }, {});
   }, [exams]);
 
-  // Yardımcılar
   const isInList = (scriptType, listState, item) =>
     (listState[scriptType] || []).some((v) => v.id === item.id);
 
@@ -84,7 +78,6 @@ export default function MyExams() {
     }
   };
 
-  // List 1/2 içinden tek tek kaldırma
   const removeFromList = (scriptType, setListState, itemId) => {
     setListState((prev) => {
       const curr = prev[scriptType] || [];
@@ -96,11 +89,9 @@ export default function MyExams() {
     });
   };
 
-  // NEW: Sınavdan tamamen sil (ve yerel listelerden de kaldır)
   const handleDeleteFromExams = (item) => {
     const scriptType = `${item.base}-${item.target}`;
     dispatch(removeFromExam(item.id));
-    // UI anında güncellensin diye local listeleri de temizle
     removeFromList(scriptType, setList1, item.id);
     removeFromList(scriptType, setList2, item.id);
   };
@@ -111,6 +102,13 @@ export default function MyExams() {
 
   return (
     <div className="MyExams">
+      <SEO
+        title="Sınavlarım – Elangual"
+        description="Seçtiğin kelimelerle iki farklı liste oluştur; her biri 10 soruluk hızlı sınav."
+        canonical="https://elangual.com/myexams"
+        robots="noindex,follow"
+      />
+
       <h1 className="page-title">Sınav Kelimelerim</h1>
 
       {Object.entries(groupedByScript).map(([scriptType, items]) => {
@@ -127,7 +125,6 @@ export default function MyExams() {
               </div>
             </header>
 
-            {/* Redux exams'ten gelen uygun kelimeler tablosu */}
             <table className="exam-table">
               <thead>
                 <tr>
@@ -194,7 +191,6 @@ export default function MyExams() {
                               : "+ Liste 2"}
                           </button>
 
-                          {/* NEW: Sil butonu */}
                           <button
                             className="mini danger"
                             onClick={() => handleDeleteFromExams(item)}
@@ -213,9 +209,7 @@ export default function MyExams() {
               </tbody>
             </table>
 
-            {/* İki liste (her biri 10 hücre) */}
             <div className="lists-grid">
-              {/* Liste 1 */}
               <div className="exam-list">
                 <div className="list-head">
                   <h3>Liste 1</h3>
@@ -254,7 +248,6 @@ export default function MyExams() {
                 </table>
               </div>
 
-              {/* Liste 2 */}
               <div className="exam-list">
                 <div className="list-head">
                   <h3>Liste 2</h3>
@@ -294,7 +287,6 @@ export default function MyExams() {
               </div>
             </div>
 
-            {/* Başlat butonları */}
             <div className="start-row">
               <button
                 className={`btn primary ${count1 !== 10 ? "disabled" : ""}`}

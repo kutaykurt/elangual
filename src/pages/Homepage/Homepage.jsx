@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addVocabulary, removeVocabulary } from "../../redux/vocabularySlice";
 import { addToExam, removeFromExam } from "../../redux/examSlice";
 import { generateVocabularyId } from "../../getId";
+import SEO from "../../components/SEO";
 
 /* Mini-Icons */
 const IconBooks = (props) => (
@@ -67,32 +68,6 @@ const IconExam = (props) => (
     />
   </svg>
 );
-
-/* JSON-LD für WebSite + Suchfunktion (SEO) */
-function SeoHomeSchema() {
-  const origin =
-    typeof window !== "undefined"
-      ? window.location.origin
-      : "https://example.com";
-  const site = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Langual",
-    url: origin,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${origin}/vocabulary?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
-  };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(site) }}
-      // eslint-disable-next-line react/no-danger
-    />
-  );
-}
 
 export default function Homepage() {
   // Startseite zeigt IMMER Turkish -> English
@@ -198,16 +173,37 @@ export default function Homepage() {
 
   const selectedItem = randomVocabs.find((i) => i.id === openDropdownId);
 
+  // JSON-LD (WebSite + Suche)
+  const origin =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : "https://elangual.com";
+  const jsonLdSite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Elangual",
+    url: origin,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${origin}/vocabulary?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <div className="Homepage Main">
-      {/* SEO */}
-      <SeoHomeSchema />
+      {/* SEO für die Startseite */}
+      <SEO
+        title="Elangual – Yabancı Dil Öğren"
+        description="Türkçe açıklamalarla Almanca öğren: A1–A2 gramer, kelimeler, örnekler ve telaffuz."
+        canonical="https://elangual.com/"
+        jsonLd={jsonLdSite}
+      />
 
       {/* Header: Titel + Untertitel + Navigationen */}
       <section className="hp-header">
         <div className="hp-header__bg" aria-hidden="true" />
         <div className="hp-header__inner">
-          {/* Neuer Brand-Titel (ohne Bindestrich) */}
           <h1
             className="hp-brand-title"
             aria-label="E Langual"
@@ -219,24 +215,6 @@ export default function Homepage() {
             </span>
             <span className="hp-brand-name">yarın konuş</span>
           </h1>
-
-          {/* <p className="hp-subtitle">Bugün başla, yarın konuş.</p> */}
-
-          {/* Navigationen */}
-          {/* <div className="hp-nav">
-            <NavLink to="/grammar" className="btn btn-primary">
-              Dilbilgisi
-            </NavLink>
-            <NavLink to="/vocabulary" className="btn btn-secondary">
-              Sözlükler
-            </NavLink>
-            <NavLink to="/myvocabularies" className="btn btn-secondary">
-              Kütüphanem
-            </NavLink>
-            <NavLink to="/myexams" className="btn btn-ghost">
-              Sınavlarım
-            </NavLink>
-          </div> */}
 
           {/* Suche */}
           <form className="hp-search" onSubmit={submitHomeSearch} role="search">

@@ -1,13 +1,13 @@
-// src/pages/Grammar/GrammarLayout.jsx
 import React from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Grammar.scss";
-import "./WideModal.scss"; // <— Neu: Modal-/Opener-Styles
+import "./WideModal.scss";
+import SEO from "../../components/SEO";
 
 const LANGS = [
   { code: "en", label: "İngilizce", enabled: true },
   { code: "ger", label: "Almanca", enabled: false },
-  { code: "es", label: "İspanyolca", enabled: false }, // aktif
+  { code: "es", label: "İspanyolca", enabled: false },
 ];
 
 const LEVELS = ["A1", "A2", "B1", "B2"];
@@ -16,7 +16,6 @@ export default function GrammarLayout() {
   const loc = useLocation();
   const navigate = useNavigate();
 
-  // current language from URL (/grammar/:lang/:level)
   const [, , langSegment, levelSegment] = loc.pathname.split("/");
   const currentLang = LANGS.find((l) => l.code === langSegment)?.code || "en";
   const currentLevel = (levelSegment || "a1").toUpperCase();
@@ -26,6 +25,12 @@ export default function GrammarLayout() {
 
   return (
     <div className="grammar-layout">
+      <SEO
+        title="Dilbilgisi – Elangual"
+        description="A1–B2 Almanca dilbilgisi: konular, tablolar ve anlaşılır açıklamalar."
+        canonical="https://elangual.com/grammar"
+      />
+
       <header className="grammar-header">
         <h1 className="title">Dilbilgisi</h1>
         <p className="subtitle">Dil seçimi</p>

@@ -1,4 +1,3 @@
-// src/pages/dynamic/DynamicVocabulary.jsx
 import React, {
   useEffect,
   useMemo,
@@ -14,6 +13,7 @@ import { fetchVocabularyData } from "../../fetchVocabularyData";
 import { generateVocabularyId } from "../../getId";
 import Fuse from "fuse.js";
 import Pagination from "../../components/Pagination/Pagination";
+import SEO from "../../components/SEO";
 import "./dynamicVocabulary.scss";
 
 export default function DynamicVocabulary() {
@@ -251,14 +251,31 @@ export default function DynamicVocabulary() {
   const targetAscLabel = `${targetLanguage} A–Z`;
   const targetDescLabel = `${targetLanguage} Z–A`;
 
+  // ===== SEO: Title/Description/Robots/Canonical =====
+  const params = new URLSearchParams(location.search || "");
+  const hasQuery = !!(params.get("q") || "").trim();
+  const robots = hasQuery ? "noindex,follow" : "index,follow";
+  const title =
+    baseLanguage && targetLanguage
+      ? `Sözlük – ${baseLanguage} → ${targetLanguage} | Elangual`
+      : "Sözlük – Elangual";
+  const description = "Kelime arayın, çift yönlü çeviri ve telaffuz notları.";
+
   return (
     <div className="Main DynamicVocabulary">
+      <SEO
+        title={title}
+        description={description}
+        canonical="https://elangual.com/vocabulary"
+        robots={robots}
+      />
+
       <h2 className="my-table-title">
         {baseLanguage} – {targetLanguage}
       </h2>
 
       <div className="controls-row" role="group" aria-label="Liste steuern">
-        {/* Suche: jetzt als <form> inkl. Button "Ara" */}
+        {/* Suche */}
         <form
           className="search-field-container"
           role="search"

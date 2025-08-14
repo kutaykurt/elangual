@@ -1,9 +1,9 @@
-// src/pages/Grammar/SectionPage.jsx
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import SectionNav from "../../components/SectionNav/SectionNav";
 import { getCourse } from "../Grammar/registry/registry";
 import { NumberingProvider, SectionHeader } from "./blocks";
+import SEO from "../../components/SEO";
 
 export default function SectionPage() {
   const navigate = useNavigate();
@@ -64,11 +64,9 @@ export default function SectionPage() {
         (btn) => btn.parentElement && btn.parentElement.removeChild(btn)
       );
 
-    // gesetzte Inline-Styles und Marker entfernen
     document.querySelectorAll("[data-modalized='true']").forEach((el) => {
       el.removeAttribute("data-modalized");
       el.style.removeProperty("--wide-opener-gap");
-      // paddingTop könnte gesetzt worden sein – zurücksetzen
       if (el.style && el.style.paddingTop) el.style.paddingTop = "";
     });
 
@@ -94,7 +92,6 @@ export default function SectionPage() {
 
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      // Im Modal nur die Tabelle selbst zeigen (nicht den Wrapper)
       const table =
         targetEl.querySelector("table") ||
         (targetEl.tagName.toLowerCase() === "table" ? targetEl : null);
@@ -104,18 +101,15 @@ export default function SectionPage() {
       document.body.style.overflow = "hidden";
     });
 
-    // Button in den Container setzen
     targetEl.style.position = targetEl.style.position || "relative";
     targetEl.appendChild(btn);
 
-    // Oben eine "Gasse" schaffen: dynamisch nach Buttonhöhe
     if (isMobile()) {
       requestAnimationFrame(() => {
         const h = btn.getBoundingClientRect().height || 32;
-        const gap = h + 10; // 10px Luft
+        const gap = h + 10;
         targetEl.style.setProperty("--wide-opener-gap", `${gap}px`);
         targetEl.classList.add("has-opener");
-        // Fallback (falls CSS-Var nicht greift)
         if (!targetEl.style.paddingTop) targetEl.style.paddingTop = `${gap}px`;
       });
     }
@@ -123,22 +117,15 @@ export default function SectionPage() {
 
   const attachOpeners = () => {
     if (!isMobile()) return;
-
-    // Kandidaten: Wrapper und Tabellen
     const candidates = document.querySelectorAll(
       ".mini-table-wrap, table.mini-table, table.g-table"
     );
-
     candidates.forEach((node) => {
-      // Für Tabellen in einem Wrapper: auf dem Wrapper prüfen/platzieren
       const container = node.closest(".mini-table-wrap") || node;
-      if (elementOverflows(container)) {
-        makeOpener(container);
-      }
+      if (elementOverflows(container)) makeOpener(container);
     });
   };
 
-  // (Re-)Attach bei Routen-/Inhaltswechsel & Resize
   useEffect(() => {
     clearOldOpeners();
     const t = setTimeout(attachOpeners, 0);
@@ -157,27 +144,15 @@ export default function SectionPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug, activeIndex]);
 
-  // ESC zum Schließen
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") closeModal();
-    };
-    if (isModalOpen) window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [isModalOpen]);
-
-  // Pfeilnavigation (←/→), deaktiviert wenn Modal offen ist
   useEffect(() => {
     const onKey = (e) => {
       if (isModalOpen) return;
       const tag = document.activeElement?.tagName;
       if (tag && ["INPUT", "TEXTAREA", "SELECT", "BUTTON"].includes(tag))
         return;
-      if (e.key === "ArrowLeft" && prev) {
-        navigate(`${basePath}/${prev.slug}`);
-      } else if (e.key === "ArrowRight" && next) {
+      if (e.key === "ArrowLeft" && prev) navigate(`${basePath}/${prev.slug}`);
+      else if (e.key === "ArrowRight" && next)
         navigate(`${basePath}/${next.slug}`);
-      }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -192,7 +167,6 @@ export default function SectionPage() {
   if (!course) {
     return <div className="g-doc grammar-page">Kurs bulunamadı.</div>;
   }
-  // Während des Redirects / bei ungültigem slug kurz nichts rendern
   if (!slug || !active) return null;
 
   const Component = active.Component;
@@ -235,11 +209,24 @@ export default function SectionPage() {
     </nav>
   );
 
+  // Dynamische SEO-Daten
+  const pageTitle = active?.tr
+    ? `${active.tr} – Dilbilgisi – Elangual`
+    : "Dilbilgisi – Elangual";
+  const pageDesc = active?.title
+    ? `${active.title} — Almanca gramer konusu, örnekler ve açıklamalar.`
+    : "Almanca gramer konuları, örnekler ve açıklamalar.";
+  const canonical = `https://elangual.com/grammar/${lang}/${lvl}${
+    active?.slug ? `/${active.slug}` : ""
+  }`;
+
   return (
     <div className="g-doc grammar-page">
+      <SEO title={pageTitle} description={pageDesc} canonical={canonical} />
+
       <SectionNav items={items} activeSlug={slug} basePath={basePath} />
 
-      {/* NEU: Pager auch oben */}
+      {/* Pager auch oben */}
       <SectionPager pos="top" />
 
       <NumberingProvider prefix={`${activeIndex + 1}`}>
@@ -249,7 +236,7 @@ export default function SectionPage() {
         </article>
       </NumberingProvider>
 
-      {/* Bestehender Pager unten */}
+      {/* Pager unten */}
       <SectionPager />
 
       {isModalOpen && (
@@ -281,7 +268,6 @@ export default function SectionPage() {
             <div
               ref={modalBodyRef}
               className="wide-modal-body"
-              // Die Tabelle stammt aus deiner App und ist statisch — daher ok:
               dangerouslySetInnerHTML={{ __html: modalHtml }}
             />
           </div>

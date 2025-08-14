@@ -1,21 +1,26 @@
-// src/pages/MyVocabulary/MyVocabulary.jsx
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeVocabulary } from "../../redux/vocabularySlice";
+import SEO from "../../components/SEO";
 import "./myVocabulary.scss";
 
 const MyVocabulary = () => {
   const dispatch = useDispatch();
   const dynamic = useSelector((s) => s.vocabulary.dynamicVocabularies);
 
-  // Baş harfi büyük, geri kalanı küçük yaz
   const fmt = (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
-  // 🔍 TÜM listeler boş mu?
   const allEmpty = Object.values(dynamic).every((list) => list.length === 0);
 
   return (
     <div className="MyVocabulary">
+      <SEO
+        title="Kütüphanem – Elangual"
+        description="Kaydettiğin kelimeleri tek bir yerde topla, düzenle ve çalış."
+        canonical="https://elangual.com/myvocabularies"
+        robots="noindex,follow"
+      />
+
       {allEmpty ? (
         <div className="no-vocab-info">
           <h2>Henüz kelime eklenmedi</h2>
