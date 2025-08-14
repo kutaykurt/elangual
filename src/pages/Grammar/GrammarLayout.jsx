@@ -2,11 +2,12 @@
 import React from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Grammar.scss";
+import "./WideModal.scss"; // <— Neu: Modal-/Opener-Styles
 
 const LANGS = [
   { code: "en", label: "İngilizce", enabled: true },
-  { code: "ger", label: "Almanca", enabled: true },
-  { code: "es", label: "İspanyolca", enabled: true }, // aktif
+  { code: "ger", label: "Almanca", enabled: false },
+  { code: "es", label: "İspanyolca", enabled: false }, // aktif
 ];
 
 const LEVELS = ["A1", "A2", "B1", "B2"];

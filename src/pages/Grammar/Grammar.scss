@@ -2,24 +2,26 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ===== Layout & Header ===== */
+/* =========================
+   Layout & Header
+   ========================= */
 .grammar-layout {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 16px;
+  padding-inline: clamp(12px, 3.5vw, 24px);
 }
 
 .conversation-invite {
   b {
     font-size: 18px;
-    border-bottom: 1px black solid;
+    border-bottom: 1px solid #000;
   }
 }
 
 .en-tag {
   font-weight: 400;
   opacity: 0.7;
-  font-size: 0.9em;
+  font-size: 0.92em;
   margin-left: 0.35rem;
 }
 
@@ -27,7 +29,7 @@ html {
   margin-bottom: 12px;
 
   .title {
-    font-size: 28px;
+    font-size: clamp(22px, 2.2vw + 14px, 28px);
     font-weight: 800;
     letter-spacing: 0.2px;
     margin-bottom: 2px;
@@ -35,6 +37,7 @@ html {
   .subtitle {
     color: #6b7280;
     margin-bottom: 10px;
+    font-size: clamp(13px, 0.8vw + 11px, 15px);
   }
 
   .lang-tabs {
@@ -94,10 +97,12 @@ html {
   padding: 8px 0 20px;
 }
 
-/* ===== Document styles ===== */
+/* =========================
+   Document styles
+   ========================= */
 .g-doc {
   line-height: 1.7;
-  font-size: 1rem;
+  font-size: clamp(15px, 0.6vw + 13px, 17px);
 
   .intro {
     color: #374151;
@@ -108,34 +113,51 @@ html {
   .g-section:not(:last-of-type)::after {
     content: "";
     display: block;
-    border-top: 3px solid #4b5563;
-    opacity: 0.8;
-    margin: 45px 0;
+    border-top: 3px solid #e5e7eb;
+    margin: 40px 0;
   }
 
+  /* Hauptabschnitts-Überschrift (1) */
   h2 {
-    font-size: 1.35rem;
+    font-size: clamp(20px, 1.6vw + 14px, 24px);
     font-weight: 800;
     margin-bottom: 8px;
     color: #111827;
     letter-spacing: 0.2px;
+
+    .no {
+      display: inline-grid;
+      place-items: center;
+      min-width: 32px;
+      height: 28px;
+      padding: 0 8px;
+      margin-right: 8px;
+      border-radius: 999px;
+      font-size: 0.9em;
+      line-height: 1;
+      color: #1e3a8a;
+      background: #eef2ff;
+      border: 1px solid #e0e7ff;
+      font-weight: 900;
+    }
   }
 
   .rule-box {
     background: #f8fafc;
     border: 1px dashed #cbd5e1;
-    border-radius: 10px;
-    padding: 10px 12px;
-    margin: 10px 0;
+    border-radius: 12px;
+    padding: clamp(10px, 1.4vw + 6px, 14px);
+    margin: 12px 0;
     color: #111827;
   }
 
+  /* generische Tabelle (fallback) */
   .g-table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0 8px;
     border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     background: #fff;
 
@@ -160,10 +182,14 @@ html {
     background: #f9fafb;
     border-left: 4px solid #2563eb;
     padding: 10px 12px;
-    margin-top: 8px;
-    border-radius: 6px 10px 10px 6px;
+    margin-top: 10px;
+    border-radius: 8px 12px 12px 8px;
     p {
-      margin: 6px 0;
+      margin: 8px 0;
+    }
+    strong {
+      font-weight: 800;
+      color: #0f172a;
     }
     .pron {
       color: #6b7280;
@@ -178,7 +204,7 @@ html {
   }
 }
 
-/* Damit Anker/Scroll-Targets nicht unter dem Header verschwinden */
+/* Anker/Scroll-Targets nicht unter Header verlieren */
 .g-section {
   scroll-margin-top: calc(var(--header-h, 0px) + 12px);
 }
@@ -194,7 +220,7 @@ code {
   font-size: 0.95em;
 }
 
-/* ===== Key Highlights ===== */
+/* Key / Term */
 mark.key {
   background: #fff3c4;
   color: #111827;
@@ -207,20 +233,19 @@ mark.key {
   font-weight: 800;
 }
 
-/* ------------------------------------------------------------------ */
-/*  Minimalistische Aussprache-Liste (vertikal, simple Typo)          */
-/* ------------------------------------------------------------------ */
-
+/* =========================
+   Aussprache-Liste (Accordion)
+   ========================= */
 .pb2-list {
   display: flex;
   flex-direction: column;
-  gap: 6px; /* wenig Abstand */
+  gap: 6px;
   margin: 8px 0 12px;
 }
 
 .pb2-item {
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #fff;
   overflow: hidden; /* für die max-height Animation */
 }
@@ -230,7 +255,7 @@ mark.key {
   align-items: baseline;
   gap: 10px;
   width: 100%;
-  padding: 8px 12px; /* kompakt */
+  padding: 10px 12px;
   background: #fff;
   cursor: pointer;
   text-align: left;
@@ -239,14 +264,14 @@ mark.key {
 }
 
 .pb2-title {
-  font-weight: 600; /* einfache Schrift, nicht zu fett */
+  font-weight: 700;
   color: #111827;
 }
 
 .pb2-bullet {
   margin-left: auto;
   color: #6b7280;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.95rem;
   white-space: nowrap;
   overflow: hidden;
@@ -289,7 +314,7 @@ mark.key {
   padding: 8px 10px;
   background: #f9fafb;
   border-left: 4px solid #2563eb;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .pb2-body .howto .dont {
   margin-top: 4px;
@@ -302,30 +327,102 @@ mark.key {
   margin-top: 6px;
 }
 
-/* Mobile kompakter */
-@media (max-width: 480px) {
+/* =========================
+   Mobile Tweaks
+   ========================= */
+@media (max-width: 520px) {
   .grammar-page {
-    font-size: 0.93rem;
-    line-height: 1.52;
+    font-size: 0.96rem;
+    line-height: 1.58;
   }
+
   .g-doc .g-section {
-    margin: 28px 0;
+    margin: 26px 0;
   }
   .g-doc .g-section:not(:last-of-type)::after {
-    margin: 14px 0;
+    margin: 16px 0;
   }
-  .pb2-bullet {
-    font-size: 0.9rem;
+
+  /* Abschnittstitel & Sub-Badges */
+  .g-doc h2 {
+    margin-top: 2px;
+    .no {
+      height: 26px;
+      min-width: 30px;
+      font-size: 0.86em;
+      margin-right: 6px;
+    }
   }
+
+  /* Formeln: stapeln */
+  .formula-row {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+    padding: 8px 10px !important;
+  }
+  .formula-row .arrow {
+    display: none;
+  }
+  .formula-row .part {
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 2px;
+  }
+  .formula-row .hint-inline {
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Mini-Table: horizontales Scrollen, größere Touch-Ziele */
+  .mini-table-wrap {
+    margin: 10px 0;
+    border-radius: 12px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: inset 0 0 0 1px #e5e7eb;
+  }
+  .mini-table {
+    min-width: 560px; /* damit die Spalten atmen */
+    border: none;
+    border-radius: 0;
+  }
+  .mini-table th,
+  .mini-table td {
+    padding: 10px 12px;
+  }
+
+  /* Beispiele: etwas mehr Luft */
+  .examples {
+    padding: 12px;
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  /* Inputs / Buttons größer */
+  .qp-input {
+    padding: 10px 12px;
+    min-width: 120px;
+    font-size: 1rem;
+  }
+
+  .choice {
+    padding: 8px 12px;
+    min-height: 40px;
+    font-weight: 700;
+  }
+
   .pb2-head {
-    padding: 8px 10px;
+    padding: 10px 12px;
   }
   .pb2-body {
     padding: 0 10px;
   }
 }
 
-/* ===== Quick Practice / MC etc. ===== */
+/* =========================
+   Quick Practice / MC etc.
+   ========================= */
 .qp {
   margin-top: 8px;
 }
@@ -348,8 +445,8 @@ mark.key {
 
 .qp-input {
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 4px 8px;
+  border-radius: 10px;
+  padding: 6px 10px;
   margin: 0 6px;
   min-width: 90px;
   outline: none;
@@ -388,34 +485,36 @@ mark.key {
   background: #2563eb;
   color: #fff;
   border: 1px solid #2563eb;
-  border-radius: 10px;
-  padding: 8px 14px;
+  border-radius: 12px;
+  padding: 10px 16px;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 800;
 }
 .ghost-btn {
   background: transparent;
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 8px 14px;
+  border-radius: 12px;
+  padding: 10px 16px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
 }
 .qp-score {
   font-weight: 800;
 }
 
-/* === Callouts / Formula / Mini-Table / MC === */
+/* =========================
+   Callouts / Formula / Mini-Table / MC
+   ========================= */
 .callout {
   border: 1px solid #e5e7eb;
   border-left-width: 4px;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 12px;
-  margin: 10px 0;
+  margin: 12px 0;
   background: #fff;
 }
 .callout .callout-title {
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 4px;
 }
 .callout.tip {
@@ -445,18 +544,18 @@ mark.key {
   align-items: center;
   background: #f9fafb;
   border: 1px dashed #e5e7eb;
-  padding: 6px 8px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 .formula-row .part {
-  font-weight: 700;
+  font-weight: 800;
   color: #111827;
 }
 .formula-row .arrow {
   text-align: center;
 }
 .formula-row .result {
-  font-weight: 600;
+  font-weight: 700;
 }
 .hint-inline {
   color: #6b7280;
@@ -469,14 +568,15 @@ mark.key {
 .mini-table {
   width: 100%;
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 12px;
   border-collapse: collapse;
   overflow: hidden;
+  background: #fff;
 }
 .mini-table th,
 .mini-table td {
   border-bottom: 1px solid #e5e7eb;
-  padding: 6px 10px;
+  padding: 8px 12px;
   text-align: left;
 }
 .mini-table thead th {
@@ -499,12 +599,12 @@ mark.key {
 }
 .mini-mc-item {
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 12px;
   background: #fff;
 }
 .mini-mc-item .q {
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 6px;
 }
 .choices {
@@ -538,7 +638,7 @@ mark.key {
 
 .mc-feedback {
   margin-top: 6px;
-  font-weight: 700;
+  font-weight: 800;
 }
 .mc-feedback.ok {
   color: #16a34a;
@@ -551,11 +651,10 @@ mark.key {
   margin-left: 6px;
 }
 
-/* ===================================================================== */
-/* === Section Navigation / FAB / Scroll-to-Top (unverändert)         === */
-/* ===================================================================== */
+/* =========================
+   Section Navigation / FAB
+   ========================= */
 
-/* Höhe des mobilen Overlays / Header-Offset – kann global gesetzt werden */
 :root {
   --toc-max-h: 56vh;
   --sb-brand-h: 54px;
@@ -586,7 +685,7 @@ mark.key {
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
   backdrop-filter: saturate(160%) blur(10px);
 
-  font-weight: 700;
+  font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.2px;
   -webkit-tap-highlight-color: transparent;
@@ -666,7 +765,7 @@ mark.key {
   }
 }
 
-/* Navigation Overlay / Sidebar (gekürzt – Logik unverändert) */
+/* Navigation Overlay / Sidebar */
 .grammar-section-nav {
   position: fixed;
   left: 12px;
@@ -686,7 +785,6 @@ mark.key {
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
   z-index: 40;
 
-  /* Hidden by default (mobile) */
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px) scale(0.98);
@@ -703,7 +801,7 @@ mark.key {
   transition-delay: 0s, 0s, 0s;
 }
 
-/* ===== Sidebar Mini-Brand (Langual) ===== */
+/* Mini-Brand (optional) */
 .grammar-section-nav .nav-brand {
   display: inline-flex;
   align-items: center;
@@ -728,7 +826,7 @@ mark.key {
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
   position: sticky;
   top: 0;
-  z-index: 2; /* über nav-head */
+  z-index: 2;
 }
 
 .navbrand-badge {
@@ -785,7 +883,6 @@ mark.key {
   border-bottom: 1px solid #edf2f7;
   background: linear-gradient(180deg, #f8fafc, #f2f6fb);
 
-  /* unter die Brand-Leiste kleben */
   position: sticky;
   top: var(--sb-brand-h);
   z-index: 1;
@@ -804,7 +901,7 @@ mark.key {
   border: none;
   background: transparent;
   color: #0f172a;
-  font-size: 28px; /* großes X */
+  font-size: 28px;
   font-weight: 900;
   line-height: 1;
   cursor: pointer;
@@ -837,7 +934,7 @@ mark.key {
   border: 1px solid #eef2f6;
   background: #fff;
 
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.98rem;
   line-height: 1.25;
   color: #0f172a;
@@ -854,6 +951,12 @@ mark.key {
 }
 .grammar-section-nav .section-list li button:active {
   transform: translateY(0);
+}
+/* lange Labels in einer Zeile, sauber kürzen */
+.grammar-section-nav .section-list li button .label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Nummer-Badge */
@@ -955,10 +1058,10 @@ mark.key {
   .grammar-section-nav .section-list li button {
     grid-template-columns: 30px 1fr;
     gap: 8px;
-    padding: 6px 10px;
-    min-height: 36px;
+    padding: 8px 10px;
+    min-height: 38px;
     border-radius: 10px;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     line-height: 1.2;
   }
   .grammar-section-nav .section-list .num {
@@ -996,9 +1099,9 @@ mark.key {
   }
 }
 
-/* ===================================================== */
-/* === Scroll-to-Top Button ============================ */
-/* ===================================================== */
+/* =========================
+   Scroll-to-Top
+   ========================= */
 .scroll-top-btn {
   position: fixed;
   bottom: calc(16px + env(safe-area-inset-bottom));
@@ -1044,9 +1147,9 @@ mark.key {
   }
 }
 
-/* ===================================================== */
-/* === NEU: JumpRow (Top-Chips) ======================== */
-/* ===================================================== */
+/* =========================
+   JumpRow (Top-Chips)
+   ========================= */
 .jump-row {
   display: flex;
   gap: 8px;
@@ -1055,6 +1158,7 @@ mark.key {
   border-bottom: 1px solid #eef2f6;
   margin-bottom: 8px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 .jump-chip {
   display: inline-flex;
@@ -1103,52 +1207,207 @@ mark.key {
   }
 }
 
-/* ===================================================== */
-/* === NEU: Section-Footer (Weiter/Zurück) ============= */
-/* ===================================================== */
-.section-foot {
+/* =========================
+   Schlanke Abschnitts-Navigation (Text-Links)
+   ersetzt die alten .section-foot/.sec-nav Buttons
+   ========================= */
+.section-pager {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 10px;
+  margin-top: 16px;
+  padding-top: 12px;
   border-top: 1px dashed #e5e7eb;
 }
-.sec-nav {
-  border-radius: 10px;
-  padding: 8px 12px;
-  font-weight: 800;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  color: #0f172a;
+
+.pager-link {
+  all: unset; /* reset Button default */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
-  transition: transform 0.06s ease, background 0.15s ease,
-    border-color 0.15s ease, box-shadow 0.15s ease;
+  color: #2563eb;
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 4px 6px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.06s ease,
+    box-shadow 0.15s ease;
 }
-.sec-nav:hover {
-  transform: translateY(-1px);
-  background: #f9fafb;
+.pager-link:hover {
+  text-decoration: underline;
+  background: #f5f8ff;
 }
-.sec-nav:focus-visible {
+.pager-link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
 }
-.sec-nav.primary {
-  background: #2563eb;
-  color: #fff;
-  border-color: #2563eb;
+.pager-link:active {
+  transform: translateY(0);
 }
-.sec-nav.primary:hover {
-  background: #1e4fd8;
-  border-color: #1e4fd8;
+
+.pager-link.prev {
+  justify-self: start;
 }
-.sec-nav.ghost {
-  background: #fff;
+.pager-link.next {
+  justify-self: end;
+}
+
+.pager-link .arrow {
+  font-weight: 900;
+}
+
+.pager-link .label {
   color: #0f172a;
+  opacity: 0.7;
+  font-weight: 700;
 }
+
+.pager-link .title {
+  max-width: clamp(120px, 32vw, 360px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 520px) {
+  .section-pager {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    text-align: center;
+  }
+  .pager-link {
+    justify-content: center;
+    padding: 6px 8px;
+  }
+  .pager-link .title {
+    max-width: 80vw;
+  }
+}
+
+/* =========================
+   Sub-Überschriften (1.1, 1.2 …)
+   ========================= */
+.g-doc .sub {
+  font-size: clamp(16px, 1vw + 14px, 18px);
+  font-weight: 900;
+  margin: 14px 0 8px;
+  color: #0f172a;
+  letter-spacing: 0.2px;
+  position: relative;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .sub-no {
+    display: inline-grid;
+    place-items: center;
+    height: 22px;
+    min-width: 36px;
+    padding: 0 8px;
+    border-radius: 999px;
+    font-size: 0.85em;
+    line-height: 1;
+    font-weight: 900;
+    color: #1e3a8a;
+    background: #eef2ff;
+    border: 1px solid #e0e7ff;
+    margin-left: -10px; /* gleicht die linke Leiste aus */
+  }
+}
+.g-doc .sub::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 3px;
+  height: 1.05em;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #2563eb, #3b82f6);
+}
+
+/* kleine Überschrift für Übungsblöcke */
+.qp .qp-headline,
+.mini-mc .qp-headline {
+  font-weight: 900;
+  color: #1e3a8a;
+  margin: 8px 0;
+}
+
+/* zusätzliche Callout-Farben */
+.callout.info {
+  border-left-color: #0ea5e9;
+  background: #eef9ff;
+}
+.callout.info .callout-title {
+  color: #0369a1;
+}
+.callout.warn {
+  border-left-color: #f59e0b;
+  background: #fff7ed;
+}
+.callout.warn .callout-title {
+  color: #b45309;
+}
+
+.section-foot {
+  display: flex; /* statt Grid */
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.sec-link {
+  flex: 1 1 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  color: #2563eb;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  white-space: nowrap; /* keine Zeilenumbrüche */
+  overflow: hidden; /* lange Titel kürzen */
+  text-overflow: ellipsis;
+}
+
+.sec-link:hover {
+  text-decoration: underline;
+}
+
+.sec-link.prev {
+  justify-content: flex-start;
+  text-align: left;
+}
+.sec-link.next {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.sec-link .arrow {
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Mobile-Override: auf kleinen Screens ebenfalls nebeneinander */
 @media (max-width: 520px) {
   .section-foot {
-    grid-template-columns: 1fr;
+    display: flex;
+  } /* überschreibt alte Grid-Regel */
+  .sec-link {
+    max-width: 48%;
+  } /* verhindert Überschneidungen */
+
+  .section-pager {
+    display: flex;
+    font-size: 15px;
+    justify-content: space-between;
+    letter-spacing: -1.2px;
+
   }
 }

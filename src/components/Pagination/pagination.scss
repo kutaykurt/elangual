@@ -1,13 +1,140 @@
+/* pagination.scss — kompakt, touch-freundlich, responsive */
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* Theme-Variablen */
+  --pg-bg: #fff;
+  --pg-fg: #0f172a;
+  --pg-border: #e5e7eb;
+  --pg-muted: #64748b;
+  --pg-primary: #2563eb;
+  --pg-primary-hover: #1e4fd8;
+  --pg-ring: rgba(37, 99, 235, 0.18);
+
+  width: 100%;
   margin: 16px 0;
 
-  button {
-    padding: 8px 8px;
-    margin: 0 12px;
-    cursor: pointer;
-    font-size: 15px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas: "prev info next";
+  align-items: center;
+  gap: 10px;
+}
+
+/* Mittlerer Zähler */
+.pagination > span {
+  grid-area: info;
+  justify-self: center;
+  font-weight: 700;
+  color: var(--pg-muted);
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 10px;
+  line-height: 1;
+}
+
+/* Basis-Button */
+.pagination > button {
+  appearance: none;
+  border: 1px solid var(--pg-border);
+  background: var(--pg-bg);
+  color: var(--pg-fg);
+  border-radius: 12px;
+  padding: 10px 14px;
+  min-height: 42px;
+
+  font-weight: 800;
+  line-height: 1.1;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: transform 0.06s ease, background 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pagination > button:hover {
+  background: #f9fafb;
+  transform: translateY(-1px);
+}
+.pagination > button:active {
+  transform: translateY(0);
+}
+.pagination > button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--pg-ring);
+}
+
+/* Prev (Ghost) */
+.pagination > button:first-child {
+  grid-area: prev;
+  justify-self: start;
+}
+.pagination > button:first-child::before {
+  content: "←";
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Next (Primary) */
+.pagination > button:last-child {
+  grid-area: next;
+  justify-self: end;
+  background: var(--pg-primary);
+  color: #fff;
+  border-color: var(--pg-primary);
+}
+.pagination > button:last-child:hover {
+  background: var(--pg-primary-hover);
+  border-color: var(--pg-primary-hover);
+}
+.pagination > button:last-child::after {
+  content: "→";
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Disabled */
+.pagination > button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: #f5f7fb;
+  color: #94a3b8;
+  border-color: #e5e7eb;
+}
+.pagination > button:disabled::before,
+.pagination > button:disabled::after {
+  opacity: 0.7;
+}
+
+/* Mobil: untereinander & volle Breite */
+@media (max-width: 520px) {
+  .pagination {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "prev"
+      "info"
+      "next";
+    gap: 8px;
+  }
+  .pagination > button {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+  .pagination > span {
+    justify-self: center;
+    padding: 8px 12px;
+    font-weight: 800;
+  }
+}
+
+/* Bewegungen reduzieren */
+@media (prefers-reduced-motion: reduce) {
+  .pagination > button {
+    transition: none;
   }
 }

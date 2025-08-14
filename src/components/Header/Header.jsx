@@ -43,7 +43,6 @@ function SeoSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: json }}
-      // eslint-disable-next-line react/no-danger
     />
   );
 }
@@ -96,7 +95,7 @@ export default function Header() {
         itemScope
         itemType="https://schema.org/Brand"
       >
-        {/* Brand / Logo */}
+        {/* Brand / Logo – überarbeiteter Titel */}
         <div className="brand">
           <NavLink
             to="/"
@@ -109,16 +108,22 @@ export default function Header() {
               <span className="brand__badge-glow" />
               <span className="brand__badge-e">E</span>
             </span>
-            <span className="brand__name" itemProp="name">
-              Langual
+
+            <span className="brand__title">
+              <span className="brand__name" itemProp="name">
+                Langual
+              </span>
+              <span className="brand__underline" aria-hidden />
             </span>
           </NavLink>
+
+          {/* knackiger Untertitel, bleibt kurz & SEO-freundlich */}
           <span className="brand__tag" itemProp="slogan">
             Dilleri öğren. Dünyaları keşfet.
           </span>
         </div>
 
-        {/* Primary Nav (mit Listenstruktur für bessere Semantik/SEO) */}
+        {/* Primary Nav */}
         <nav
           className="nav"
           aria-label="Birincil menü"
@@ -139,6 +144,7 @@ export default function Header() {
             <li className="nav__item">
               <NavLink
                 to="/myvocabularies"
+                end
                 className="nav__link"
                 itemProp="url"
               >
@@ -158,7 +164,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Desktop: Language Dropdown (unverändert von der Logik) */}
+        {/* Desktop: Language Dropdown */}
         <div className="lang-select desktop-only">
           <label htmlFor="lang-dd" className="sr-only">
             Dil çifti

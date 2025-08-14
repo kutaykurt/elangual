@@ -1,0 +1,118 @@
+/* ===== Wide Modal: Vollbild für breite Inhalte (Mobile) ===== */
+
+/* „Dieses Element ist per Modal öffnbar“ */
+.wide-openable {
+  position: relative;
+}
+
+@media (max-width: 600px) {
+  /* Platz oben für den Opener; dynamisch via CSS-Var, Fallback 40px */
+  .wide-openable.has-opener {
+    padding-top: var(--wide-opener-gap, 40px);
+  }
+
+  .wide-openable .wide-opener {
+    position: absolute;
+    top: 6px; /* sitzt in der "Gasse" */
+    right: 6px;
+    z-index: 2;
+    appearance: none;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 8px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .wide-openable .wide-opener:active {
+    transform: translateY(0);
+  }
+
+  /* Auf sehr schmalen Screens nur das Icon zeigen */
+  @media (max-width: 380px) {
+    .wide-openable .wide-opener .label {
+      display: none;
+    }
+    .wide-openable .wide-opener {
+      padding: 8px;
+    }
+  }
+}
+
+/* Backdrop */
+.wide-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: saturate(140%) blur(6px);
+  display: grid;
+  place-items: center;
+}
+
+/* Dialog */
+.wide-modal {
+  background: #fff;
+  width: min(960px, 96vw);
+  max-height: 84vh;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+}
+
+/* Kopfzeile */
+.wide-modal-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #f8fafc, #f2f6fb);
+  border-bottom: 1px solid #edf2f7;
+}
+.wide-modal-title {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+.wide-modal-close {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+/* Body */
+.wide-modal-body {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px;
+}
+
+/* Tabellen im Modal: immer schön breit, ohne Horizontal-Scroll */
+.wide-modal-body table {
+  width: 100% !important;
+  min-width: 0 !important;
+  border-collapse: collapse;
+}
+
+/* Desktop: Opener ausblenden */
+@media (min-width: 601px) {
+  .wide-openable .wide-opener {
+    display: none;
+  }
+}

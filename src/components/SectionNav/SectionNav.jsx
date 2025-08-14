@@ -1,16 +1,69 @@
+// src/components/SectionNav/SectionNav.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // CSS-Variable --header-h lesen (Fallback 0)
 function getHeaderHeight() {
+  if (typeof window === "undefined") return 0;
   const val = getComputedStyle(document.documentElement)
     .getPropertyValue("--header-h")
     .trim();
   const n = parseFloat(val);
   return Number.isFinite(n) ? n : 0;
 }
+
 const MQ = "(min-width: 1600px)";
 
-export default function SectionNav() {
+/** Entfernt ALLE am Ende stehenden Klammerzusätze, inkl. verschachtelter
+ *  ASCII- und Fullwidth-Klammern. Lässt den Rest unverändert. */
+function cleanLabel(raw = "") {
+  let s = String(raw)
+    .replace(/[\u00A0\u202F]/g, " ")
+    .trimEnd();
+  const opens = new Set(["(", "（"]);
+  const closes = new Set([")", "）"]);
+
+  // Wiederholt löschen, solange der String mit ) oder ） endet
+  for (;;) {
+    const last = s[s.length - 1];
+    if (!closes.has(last)) break;
+
+    // Von hinten nach vorn die passende öffnende Klammer finden
+    let depth = 0;
+    let i = s.length - 1;
+    for (; i >= 0; i--) {
+      const ch = s[i];
+      if (closes.has(ch)) depth++;
+      else if (opens.has(ch)) {
+        depth--;
+        if (depth === 0) {
+          // von der öffnenden Klammer bis zum Ende entfernen
+          s = s.slice(0, i).trimEnd();
+          break;
+        }
+      }
+    }
+    // Keine passende öffnende Klammer gefunden → abbrechen (defensiv)
+    if (i < 0) break;
+  }
+
+  return s.replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Props:
+ * - items?: [{ slug, label, index }]  // Router-Modus (empfohlen)
+ * - activeSlug?: string               // aktiver Abschnitt (Router)
+ * - basePath?: string                 // z.B. "/grammar/en/a1"
+ *
+ * Fallback: Keine items → Scroll-TOC anhand .g-section
+ */
+export default function SectionNav({ items, activeSlug, basePath }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const routerMode = Array.isArray(items) && items.length > 0;
+
   const [sections, setSections] = useState([]);
   const [activeId, setActiveId] = useState(null);
   const [isOpen, setIsOpen] = useState(false); // nur mobil relevant
@@ -19,42 +72,70 @@ export default function SectionNav() {
   );
   const rAF = useRef(null);
 
-  // Titel vorbereiten
+  // Router-Modus: Shadow-State aus items
+  const routerSections = useMemo(() => {
+    if (!routerMode) return [];
+    return items.map((it) => ({
+      id: it.slug, // einheitlich id = slug
+      slug: it.slug,
+      title: it.label,
+      index: it.index,
+    }));
+  }, [routerMode, items]);
+
+  // Scroll-Modus: Titel aus DOM vorbereiten
   useEffect(() => {
+    if (routerMode) return;
     const nodes = Array.from(document.querySelectorAll(".g-section"));
     const mapped = nodes.map((el, i) => {
       const id = el.id || `sec-${i + 1}`;
       if (!el.id) el.id = id;
-
-      const h2 = el.querySelector("h2");
-      let title = id;
-
-      if (h2) {
-        // .en-tag entfernen, damit nur der TR-Titel übrig bleibt
-        const clone = h2.cloneNode(true);
-        clone.querySelectorAll(".en-tag").forEach((n) => n.remove());
-        title = clone.textContent.trim();
-      }
-
-      return { id, title, el };
+      const title = el.querySelector("h2")?.textContent?.trim() || id;
+      return { id, title, el, index: i + 1 };
     });
     setSections(mapped);
-  }, []);
+  }, [routerMode]);
 
   // Desktop/Mobile Switch
   useEffect(() => {
     const mm = window.matchMedia(MQ);
     const onChange = (e) => {
       setIsDesktop(e.matches);
-      if (e.matches) setIsOpen(false); // Overlay schließen wenn auf Desktop
+      if (e.matches) setIsOpen(false); // Overlay schließen bei Wechsel zu Desktop
     };
     mm.addEventListener?.("change", onChange);
     return () => mm.removeEventListener?.("change", onChange);
   }, []);
 
-  // Active-Logik: Abschnitt mit Überschrift am oberen Viewport-Rand
+  // ESC schließt Overlay (nur mobil)
   useEffect(() => {
-    if (!sections.length) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    if (!isDesktop) {
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }
+  }, [isDesktop]);
+
+  // Body-Scroll-Lock, wenn Overlay offen (nur mobil)
+  useEffect(() => {
+    if (!isDesktop) {
+      document.body.style.overflow = isOpen ? "hidden" : "";
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }
+  }, [isOpen, isDesktop]);
+
+  // Beim Navigieren Overlay schließen (Router-Modus)
+  useEffect(() => {
+    if (!isDesktop) setIsOpen(false);
+  }, [location.pathname, isDesktop]);
+
+  // Active-Logik (nur Scroll-Modus)
+  useEffect(() => {
+    if (routerMode || !sections.length) return;
 
     const headerH = getHeaderHeight();
     const computeActive = () => {
@@ -87,10 +168,16 @@ export default function SectionNav() {
       window.removeEventListener("resize", onScroll);
       if (rAF.current) cancelAnimationFrame(rAF.current);
     };
-  }, [sections, activeId]);
+  }, [sections, activeId, routerMode]);
 
-  const handleClick = (id) => {
-    const el = document.getElementById(id);
+  const handleClick = (idOrSlug) => {
+    if (routerMode) {
+      if (!basePath) return;
+      navigate(`${basePath}/${idOrSlug}`);
+      if (!isDesktop) setIsOpen(false);
+      return;
+    }
+    const el = document.getElementById(idOrSlug);
     if (!el) return;
     const headerH = getHeaderHeight();
     const y =
@@ -99,15 +186,15 @@ export default function SectionNav() {
       Math.max(0, headerH) -
       6;
     window.scrollTo({ top: y, behavior: "smooth" });
-    // auf Mobil nach Sprung schließen
     if (!isDesktop) setIsOpen(false);
   };
 
-  // Auf Mobile Klammerzusätze in Titeln entfernen
-  const labelFor = (raw) => raw.replace(/\s*\([^)]*\)/g, "").trim();
-
-  // Sichtbarkeit bestimmen (Desktop immer sichtbar, mobil abhängig von isOpen)
+  // Sichtbarkeit (Desktop immer sichtbar)
   const navVisible = isDesktop || isOpen;
+
+  const list = routerMode ? routerSections : sections;
+  const isActive = (item) =>
+    routerMode ? (item.slug ?? item.id) === activeSlug : item.id === activeId;
 
   return (
     <>
@@ -155,10 +242,10 @@ export default function SectionNav() {
             <span className="navbrand-badge-e">E</span>
           </span>
           <span className="navbrand-name">Langual</span>
-        </a>{" "}
+        </a>
+
         <div className="nav-head">
           <div className="nav-title">Başlıklar</div>
-          <div className="nav-subtitle">İçindekiler</div>
           {!isDesktop && (
             <button
               className="nav-close"
@@ -170,18 +257,23 @@ export default function SectionNav() {
             </button>
           )}
         </div>
-        <ul className="section-list">
-          {sections.map((s, i) => (
-            <li key={s.id}>
-              <button
-                className={s.id === activeId ? "is-active" : ""}
-                onClick={() => handleClick(s.id)}
-              >
-                <span className="num">{i + 1}</span>
-                <span className="label">{labelFor(s.title)}</span>
-              </button>
-            </li>
-          ))}
+
+        <ul className="section-list" role="list">
+          {list.map((s) => {
+            const active = isActive(s);
+            return (
+              <li key={s.id}>
+                <button
+                  className={active ? "is-active" : ""}
+                  onClick={() => handleClick(s.id)}
+                  aria-current={active ? "true" : undefined}
+                >
+                  <span className="num">{"index" in s ? s.index : "•"}</span>
+                  <span className="label">{cleanLabel(s.title)}</span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </>
