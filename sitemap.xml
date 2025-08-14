@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://elangual.com/</loc></url>
-  <url><loc>https://elangual.com/tr/</loc></url>
-  <!-- Später gerne weitere wichtige Seiten ergänzen -->
+  <url><loc>https://elangual.com/grammar</loc></url>
+  <url><loc>https://elangual.com/vocabulary</loc></url>
+  <url><loc>https://elangual.com/myvocabularies</loc></url>
+  <url><loc>https://elangual.com/myexams</loc></url>
+  <!-- optional: ein paar wichtige Grammar-Unterseiten, z.B.: -->
+  <url><loc>https://elangual.com/grammar/en/a1</loc></url>
 </urlset>
