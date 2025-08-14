@@ -57,6 +57,8 @@ export default function App() {
           <Route path="/test/:testId" element={<TestPage />} />
 
           <Route path="*" element={<Homepage />} />
+
+          {/* Hier kommen Weiterleitungen zur Homepage */}
         </Routes>
       </div>
 
