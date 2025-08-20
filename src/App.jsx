@@ -42,10 +42,10 @@ export default function App() {
           </Route>
 
           {/* Optional: alte Einzel-Seiten */}
-          <Route path="/grammar/es/a1" element={<GrammarEspA1 />} />
+          {/* <Route path="/grammar/es/a1" element={<GrammarEspA1 />} />
           <Route path="/grammar/ger/a1" element={<GrammarGerA1 />} />
           <Route path="/grammar/ger/a2" element={<GrammarGerA2 />} />
-          <Route path="/grammar/en/a2-old" element={<GrammarEnA2 />} />
+          <Route path="/grammar/en/a2-old" element={<GrammarEnA2 />} /> */}
 
           <Route path="/a1-conversations" element={<A1Conversations />} />
 

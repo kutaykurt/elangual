@@ -18,25 +18,30 @@ html {
   }
 }
 
-.en-tag {
+/* RENAMED: en-tag -> de-tag */
+.de-tag {
   font-weight: 400;
   opacity: 0.7;
   font-size: 0.92em;
   margin-left: 0.35rem;
 }
+/* Optional: alte Klasse ausblenden, falls noch im Markup vorhanden */
+.en-tag {
+  display: none !important;
+}
 
 .grammar-header {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
   .title {
     font-size: clamp(22px, 2.2vw + 14px, 28px);
     font-weight: 800;
     letter-spacing: 0.2px;
-    margin-bottom: 2px;
+    margin-bottom: 6px;
   }
   .subtitle {
     color: #6b7280;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-size: clamp(13px, 0.8vw + 11px, 15px);
   }
 
@@ -106,7 +111,7 @@ html {
 
   .intro {
     color: #374151;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   /* sanfter Trenner zwischen Abschnitten */
@@ -114,14 +119,14 @@ html {
     content: "";
     display: block;
     border-top: 3px solid #e5e7eb;
-    margin: 40px 0;
+    margin: 42px 0;
   }
 
   /* Hauptabschnitts-Überschrift (1) */
   h2 {
     font-size: clamp(20px, 1.6vw + 14px, 24px);
-    font-weight: 800;
-    margin-bottom: 8px;
+    font-weight: 900;
+    margin: 18px 0 12px; /* ↑ MEHR ABSTAND */
     color: #111827;
     letter-spacing: 0.2px;
 
@@ -131,7 +136,7 @@ html {
       min-width: 32px;
       height: 28px;
       padding: 0 8px;
-      margin-right: 8px;
+      margin-right: 10px;
       border-radius: 999px;
       font-size: 0.9em;
       line-height: 1;
@@ -147,7 +152,7 @@ html {
     border: 1px dashed #cbd5e1;
     border-radius: 12px;
     padding: clamp(10px, 1.4vw + 6px, 14px);
-    margin: 12px 0;
+    margin: 14px 0 16px; /* etwas mehr Luft unten */
     color: #111827;
   }
 
@@ -155,7 +160,7 @@ html {
   .g-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 10px 0 8px;
+    margin: 10px 0 12px;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     overflow: hidden;
@@ -182,7 +187,7 @@ html {
     background: #f9fafb;
     border-left: 4px solid #2563eb;
     padding: 10px 12px;
-    margin-top: 10px;
+    margin: 12px 0; /* etwas mehr Abstand */
     border-radius: 8px 12px 12px 8px;
     p {
       margin: 8px 0;
@@ -233,6 +238,102 @@ mark.key {
   font-weight: 800;
 }
 
+/* Listen etwas luftiger */
+.g-doc ul:not(.section-list) li,
+.g-doc ol li {
+  margin: 6px 0;
+}
+
+/* =========================
+   Erklärung: Inline vs. Modal
+   ========================= */
+.exp-lead {
+  color: #6b7280;
+  font-size: 0.96rem;
+  margin: 2px 0 6px; /* kleine Einleitung vor Trigger */
+}
+
+.exp-inline {
+  display: block;
+}
+
+.exp-trigger {
+  display: none; /* nur Mobile sichtbar */
+  font-weight: 800; /* fett, kein Button-Look */
+  cursor: pointer;
+  user-select: none;
+}
+
+.exp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+.exp-modal.show {
+  display: flex;
+}
+.exp-dialog {
+  background: #fff;
+  width: min(720px, 92vw);
+  max-height: 80vh;
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+.exp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef2f6;
+}
+.exp-title {
+  font-weight: 900;
+}
+.exp-close {
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+}
+.exp-body {
+  padding: 10px 12px;
+}
+
+/* Dropdown/Accordion auf Basis <details> */
+details.dropdown {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  margin: 12px 0;
+}
+details.dropdown[open] {
+  box-shadow: 0 2px 0 rgba(37, 99, 235, 0.06) inset;
+}
+details.dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 12px;
+  font-weight: 800;
+}
+details.dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.dropdown-body {
+  border-top: 1px dashed #e5e7eb;
+  padding: 10px 12px;
+}
+
 /* =========================
    Aussprache-Liste (Accordion)
    ========================= */
@@ -242,14 +343,12 @@ mark.key {
   gap: 6px;
   margin: 8px 0 12px;
 }
-
 .pb2-item {
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background: #fff;
-  overflow: hidden; /* für die max-height Animation */
+  overflow: hidden;
 }
-
 .pb2-head {
   display: flex;
   align-items: baseline;
@@ -262,12 +361,10 @@ mark.key {
   -webkit-tap-highlight-color: transparent;
   border: 0;
 }
-
 .pb2-title {
   font-weight: 700;
   color: #111827;
 }
-
 .pb2-bullet {
   margin-left: auto;
   color: #6b7280;
@@ -277,7 +374,6 @@ mark.key {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .pb2-caret {
   margin-left: 8px;
   transition: transform 0.22s ease;
@@ -288,8 +384,6 @@ mark.key {
 .pb2-item.is-open .pb2-caret {
   transform: rotate(180deg);
 }
-
-/* Body: sanfte Expand/Collapse-Animation über max-height */
 .pb2-body {
   overflow: hidden;
   max-height: 0;
@@ -303,12 +397,9 @@ mark.key {
   opacity: 1;
   transform: translateY(0);
 }
-
 .pb2-inner {
   padding: 8px 12px 12px;
 }
-
-/* Inhalte im Body leicht kompakter */
 .pb2-body .howto .ex {
   margin-top: 6px;
   padding: 8px 10px;
@@ -332,26 +423,30 @@ mark.key {
    ========================= */
 @media (max-width: 520px) {
   .grammar-page {
-    font-size: 0.96rem;
-    line-height: 1.58;
+    font-size: 0.86rem;
+    line-height: 1.42; /* ↓ kompaktere Zeilenhöhe */
   }
 
   .g-doc .g-section {
-    margin: 26px 0;
+    margin: 22px 0;
   }
   .g-doc .g-section:not(:last-of-type)::after {
     margin: 16px 0;
   }
 
-  /* Abschnittstitel & Sub-Badges */
   .g-doc h2 {
-    margin-top: 2px;
+    margin: 12px 0 10px; /* ↑ mehr Abstand */
+    font-size: clamp(18px, 4.6vw, 22px);
+    font-weight: 900;
     .no {
-      height: 26px;
-      min-width: 30px;
-      font-size: 0.86em;
-      margin-right: 6px;
+      height: 24px;
+      min-width: 28px;
+      font-size: 0.84em;
+      margin-right: 8px;
     }
+  }
+  .g-doc .sub {
+    font-size: clamp(15px, 3.9vw, 17px);
   }
 
   /* Formeln: stapeln */
@@ -373,50 +468,72 @@ mark.key {
     margin-top: 2px;
   }
 
-  /* Mini-Table: horizontales Scrollen, größere Touch-Ziele */
+  /* Mini-Table */
   .mini-table-wrap {
-    margin: 10px 0;
+    margin: 12px 0; /* ↑ etwas mehr Luft */
     border-radius: 12px;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     box-shadow: inset 0 0 0 1px #e5e7eb;
   }
   .mini-table {
-    min-width: 560px; /* damit die Spalten atmen */
+    min-width: 520px;
     border: none;
     border-radius: 0;
   }
   .mini-table th,
   .mini-table td {
-    padding: 10px 12px;
+    padding: 6px 8px;
+    line-height: 1.38; /* kompakter */
   }
 
-  /* Beispiele: etwas mehr Luft */
+  /* Generische Tabellen enger */
+  .g-table th,
+  .g-table td {
+    padding: 6px 8px;
+    line-height: 1.38;
+  }
+
   .examples {
     padding: 12px;
+    margin: 12px 0;
     p {
       margin: 10px 0;
+      line-height: 1.45;
     }
   }
 
-  /* Inputs / Buttons größer */
   .qp-input {
     padding: 10px 12px;
     min-width: 120px;
     font-size: 1rem;
   }
-
   .choice {
     padding: 8px 12px;
     min-height: 40px;
     font-weight: 700;
   }
 
-  .pb2-head {
-    padding: 10px 12px;
+  /* Erklärung: auf Mobile Modal nutzen */
+  .exp-inline {
+    display: none !important;
   }
-  .pb2-body {
-    padding: 0 10px;
+
+  /* Trigger als TEXT, kein Button-Look */
+  .exp-trigger {
+    display: inline; /* kein flex, wirklich Text */
+    margin: 2px 0 10px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    border-radius: 0;
+    font-weight: 800;
+    color: inherit; /* gleiche Farbe wie Text */
+    text-decoration: none;
+  }
+  .exp-trigger:hover,
+  .exp-trigger:focus-visible {
+    text-decoration: underline;
   }
 }
 
@@ -424,7 +541,7 @@ mark.key {
    Quick Practice / MC etc.
    ========================= */
 .qp {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 .qp-list {
   display: grid;
@@ -510,7 +627,7 @@ mark.key {
   border-left-width: 4px;
   border-radius: 12px;
   padding: 10px 12px;
-  margin: 12px 0;
+  margin: 14px 0; /* ↑ */
   background: #fff;
 }
 .callout .callout-title {
@@ -535,7 +652,7 @@ mark.key {
 .formula {
   display: grid;
   gap: 6px;
-  margin: 8px 0;
+  margin: 10px 0 12px;
 }
 .formula-row {
   display: grid;
@@ -563,7 +680,7 @@ mark.key {
 }
 
 .mini-table-wrap {
-  margin: 8px 0;
+  margin: 10px 0 12px; /* ↑ */
 }
 .mini-table {
   width: 100%;
@@ -589,11 +706,11 @@ mark.key {
   margin: 6px 0 0 18px;
 }
 .compact-list li {
-  margin: 4px 0;
+  margin: 6px 0;
 }
 
 .mini-mc {
-  margin-top: 10px;
+  margin-top: 12px;
   display: grid;
   gap: 10px;
 }
@@ -654,7 +771,6 @@ mark.key {
 /* =========================
    Section Navigation / FAB
    ========================= */
-
 :root {
   --toc-max-h: 56vh;
   --sb-brand-h: 54px;
@@ -668,43 +784,38 @@ mark.key {
   right: 16px;
   bottom: calc(16px + env(safe-area-inset-bottom));
   z-index: 90;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
   padding: 12px 16px;
   min-height: 48px;
   border-radius: 999px;
-
   background: #ffffff;
   color: #0f172a;
   border: 1px solid #e5e7eb;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
   backdrop-filter: saturate(160%) blur(10px);
-
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.2px;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.15s ease;
 }
-
 .toc-content {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   white-space: nowrap;
   transition: opacity 0.18s ease, transform 0.18s ease;
+  font-size: 15px;
 }
 .toc-icon {
   width: 20px;
   height: 20px;
   flex: 0 0 20px;
 }
-
 .toc-x {
   position: absolute;
   inset: 0;
@@ -744,9 +855,6 @@ mark.key {
     padding: 12px;
     min-width: 48px;
   }
-  .toc-label {
-    display: none;
-  }
 }
 @media (min-width: 1600px) {
   .toc-fab {
@@ -768,28 +876,23 @@ mark.key {
 /* Navigation Overlay / Sidebar */
 .grammar-section-nav {
   position: fixed;
-  left: 12px;
-  right: 12px;
+  right: 15px;
   top: auto;
   bottom: calc(84px + env(safe-area-inset-bottom));
   height: auto;
   max-height: var(--toc-max-h);
-
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
   border: 1px solid #e5e7eb;
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
   z-index: 40;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px) scale(0.98);
   pointer-events: none;
-
   transition: opacity 0.18s ease,
     transform 0.24s cubic-bezier(0.22, 0.7, 0.3, 1), visibility 0s linear 0.24s;
 }
@@ -799,9 +902,9 @@ mark.key {
   transform: translateY(0) scale(1);
   pointer-events: auto;
   transition-delay: 0s, 0s, 0s;
+  width: max-content;
 }
 
-/* Mini-Brand (optional) */
 .grammar-section-nav .nav-brand {
   display: inline-flex;
   align-items: center;
@@ -809,7 +912,6 @@ mark.key {
   padding: 45px 12px;
   height: var(--sb-brand-h);
   text-decoration: none;
-
   color: var(--hdr-fg);
   background: radial-gradient(
       1200px 120px at 10% 0%,
@@ -828,7 +930,6 @@ mark.key {
   top: 0;
   z-index: 2;
 }
-
 .navbrand-badge {
   position: relative;
   width: 30px;
@@ -873,7 +974,6 @@ mark.key {
   letter-spacing: 0.2px;
 }
 
-/* Kopfzeile */
 .grammar-section-nav .nav-head {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -882,7 +982,6 @@ mark.key {
   padding: 10px 12px;
   border-bottom: 1px solid #edf2f7;
   background: linear-gradient(180deg, #f8fafc, #f2f6fb);
-
   position: sticky;
   top: var(--sb-brand-h);
   z-index: 1;
@@ -908,7 +1007,6 @@ mark.key {
   padding: 2px 6px;
 }
 
-/* Liste */
 .grammar-section-nav .section-list {
   list-style: none;
   margin: 0;
@@ -925,21 +1023,17 @@ mark.key {
   gap: 10px;
   width: 100%;
   text-align: left;
-
   padding: 10px 12px;
   margin: 10px 0px;
   min-height: 42px;
   border-radius: 12px;
-
   border: 1px solid #eef2f6;
   background: #fff;
-
   font-weight: 700;
   font-size: 0.98rem;
   line-height: 1.25;
   color: #0f172a;
   cursor: pointer;
-
   transition: background 0.15s ease, border-color 0.15s ease,
     box-shadow 0.15s ease, transform 0.06s ease;
 }
@@ -952,30 +1046,25 @@ mark.key {
 .grammar-section-nav .section-list li button:active {
   transform: translateY(0);
 }
-/* lange Labels in einer Zeile, sauber kürzen */
 .grammar-section-nav .section-list li button .label {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Nummer-Badge */
 .grammar-section-nav .section-list .num {
   width: 28px;
   height: 28px;
   border-radius: 8px;
   display: inline-grid;
   place-items: center;
-
   font-weight: 900;
   font-size: 0.9rem;
   color: #1e3a8a;
-
   background: #eef2ff;
   border: 1px solid #e0e7ff;
 }
 
-/* Aktiver Eintrag */
 .grammar-section-nav .section-list button.is-active {
   border-color: #2563eb;
   background: linear-gradient(180deg, #eff6ff, #e8f0ff);
@@ -1032,10 +1121,10 @@ mark.key {
     --toc-max-h: 48vh;
   }
   .grammar-section-nav {
-    left: 10px;
-    right: 10px;
+    right: 15px;
     bottom: calc(72px + env(safe-area-inset-bottom));
     border-radius: 12px;
+
   }
   .grammar-section-nav .nav-head {
     padding: 8px 10px;
@@ -1075,13 +1164,6 @@ mark.key {
     min-height: 44px;
     font-size: 13px;
   }
-  .toc-icon {
-    width: 18px;
-    height: 18px;
-  }
-  .toc-x {
-    font-size: 28px;
-  }
 }
 @media (max-width: 360px) {
   :root {
@@ -1107,38 +1189,34 @@ mark.key {
   bottom: calc(16px + env(safe-area-inset-bottom));
   right: 16px;
   z-index: 95;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 48px;
   height: 48px;
   border-radius: 999px;
-
   background: #ffffff;
   color: #0f172a;
   border: 1px solid #e5e7eb;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
   backdrop-filter: saturate(160%) blur(10px);
-
   font-weight: 800;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    background: #f9fafb;
-    transform: translateY(-2px);
-  }
-  &:active {
-    transform: translateY(0);
-  }
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35),
-      0 10px 30px rgba(2, 6, 23, 0.12);
-  }
+}
+.scroll-top-btn:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+}
+.scroll-top-btn:active {
+  transform: translateY(0);
+}
+.scroll-top-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35),
+    0 10px 30px rgba(2, 6, 23, 0.12);
 }
 @media (max-width: 768px) {
   .scroll-top-btn {
@@ -1154,9 +1232,9 @@ mark.key {
   display: flex;
   gap: 8px;
   overflow: auto;
-  padding: 8px 0 4px;
+  padding: 8px 0 6px;
   border-bottom: 1px solid #eef2f6;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
 }
@@ -1209,7 +1287,6 @@ mark.key {
 
 /* =========================
    Schlanke Abschnitts-Navigation (Text-Links)
-   ersetzt die alten .section-foot/.sec-nav Buttons
    ========================= */
 .section-pager {
   display: grid;
@@ -1219,9 +1296,8 @@ mark.key {
   padding-top: 12px;
   border-top: 1px dashed #e5e7eb;
 }
-
 .pager-link {
-  all: unset; /* reset Button default */
+  all: unset;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1246,31 +1322,26 @@ mark.key {
 .pager-link:active {
   transform: translateY(0);
 }
-
 .pager-link.prev {
   justify-self: start;
 }
 .pager-link.next {
   justify-self: end;
 }
-
 .pager-link .arrow {
   font-weight: 900;
 }
-
 .pager-link .label {
   color: #0f172a;
   opacity: 0.7;
   font-weight: 700;
 }
-
 .pager-link .title {
   max-width: clamp(120px, 32vw, 360px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 @media (max-width: 520px) {
   .section-pager {
     grid-template-columns: 1fr;
@@ -1292,43 +1363,54 @@ mark.key {
 .g-doc .sub {
   font-size: clamp(16px, 1vw + 14px, 18px);
   font-weight: 900;
-  margin: 14px 0 8px;
+  margin: 18px 0 12px; /* ↑ MEHR ABSTAND */
   color: #0f172a;
   letter-spacing: 0.2px;
   position: relative;
   padding-left: 10px;
   display: flex;
-  align-items: center;
   gap: 8px;
-
-  .sub-no {
-    display: inline-grid;
-    place-items: center;
-    height: 22px;
-    min-width: 36px;
-    padding: 0 8px;
-    border-radius: 999px;
-    font-size: 0.85em;
-    line-height: 1;
-    font-weight: 900;
-    color: #1e3a8a;
-    background: #eef2ff;
-    border: 1px solid #e0e7ff;
-    margin-left: -10px; /* gleicht die linke Leiste aus */
-  }
 }
-.g-doc .sub::before {
+.g-doc .sub .sub-no {
+  display: inline-grid;
+  place-items: center;
+  height: 22px;
+  min-width: 36px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 0.85em;
+  line-height: 1;
+  font-weight: 900;
+  color: #1e3a8a;
+  background: #eef2ff;
+  border: 1px solid #e0e7ff;
+  margin-left: -10px;
+  margin-top: 5px;
+}
+
+/* .g-doc .sub::before {
   content: "";
-  position: absolute;
+  margin-right: 3px;
   left: 0;
   top: 0.45em;
   width: 3px;
   height: 1.05em;
   border-radius: 4px;
   background: linear-gradient(180deg, #2563eb, #3b82f6);
+} */
+
+/* kleine Top-Margen direkt nach Sub-Titeln */
+.g-doc .sub + .mini-table-wrap,
+.g-doc .sub + .mini-table,
+.g-doc .sub + .g-table,
+.g-doc .sub + .examples,
+.g-doc .sub + .callout,
+.g-doc .sub + .formula,
+.g-doc .sub + .mini-mc,
+.g-doc .sub + .qp {
+  margin-top: 8px;
 }
 
-/* kleine Überschrift für Übungsblöcke */
 .qp .qp-headline,
 .mini-mc .qp-headline {
   font-weight: 900;
@@ -1353,15 +1435,14 @@ mark.key {
 }
 
 .section-foot {
-  display: flex; /* statt Grid */
+  display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 14px;
   padding-top: 12px;
   border-top: 1px dashed #e5e7eb;
 }
-
 .sec-link {
   flex: 1 1 50%;
   display: inline-flex;
@@ -1371,15 +1452,13 @@ mark.key {
   color: #2563eb;
   text-decoration: none;
   letter-spacing: 0.2px;
-  white-space: nowrap; /* keine Zeilenumbrüche */
-  overflow: hidden; /* lange Titel kürzen */
+  white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .sec-link:hover {
   text-decoration: underline;
 }
-
 .sec-link.prev {
   justify-content: flex-start;
   text-align: left;
@@ -1388,26 +1467,124 @@ mark.key {
   justify-content: flex-end;
   text-align: right;
 }
-
 .sec-link .arrow {
   font-weight: 900;
-  line-height: 1;
 }
 
-/* Mobile-Override: auf kleinen Screens ebenfalls nebeneinander */
 @media (max-width: 520px) {
   .section-foot {
     display: flex;
-  } /* überschreibt alte Grid-Regel */
+  }
   .sec-link {
     max-width: 48%;
-  } /* verhindert Überschneidungen */
-
+  }
   .section-pager {
     display: flex;
     font-size: 15px;
     justify-content: space-between;
     letter-spacing: -1.2px;
+  }
+}
 
+/* === Mobile Compact Overrides (fein getunt) === */
+@media (max-width: 520px) {
+  .grammar-header .title {
+    margin-bottom: 2px;
+  }
+  .grammar-header .subtitle {
+    margin: 6px 0 10px;
+  }
+
+  .g-doc {
+    font-size: 0.94rem;
+    line-height: 1.48; /* kompakter als Desktop */
+  }
+  .g-doc h2 {
+    margin: 12px 0 10px; /* ↑ */
+  }
+  .g-doc .sub {
+    margin: 14px 0 10px; /* ↑ */
+  }
+  .g-doc .rule-box {
+    padding: 10px 12px;
+    margin: 10px 0 12px;
+  }
+
+  /* Tabellen enger */
+  .mini-table th,
+  .mini-table td {
+    padding: 5px 7px;
+    font-size: 0.94rem;
+  }
+
+  /* Beispielkasten kompakt */
+  .examples {
+    padding: 10px 12px;
+    border-left-width: 3px;
+  }
+
+  /* Dropdown <details> kompakter */
+  details.dropdown > summary {
+    padding: 9px 10px;
+  }
+  .dropdown-body {
+    padding: 8px 10px;
+  }
+
+  /* Abschnitts-Footer & Pager kompakter */
+  .section-foot {
+    gap: 8px;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .pager-link {
+    padding: 4px 6px;
+  }
+}
+
+/* Lesbarkeit Titel leicht verstärkt */
+.g-doc h2 {
+  margin: 24px 0 14px !important;
+}
+.g-doc .sub {
+  margin: 22px 0 14px !important;
+}
+
+/* Mehr Luft unter Inhaltsblöcken */
+.g-doc .mini-table-wrap,
+.g-doc .g-table,
+.g-doc .examples,
+.g-doc .callout,
+.g-doc .formula,
+.g-doc .mini-mc,
+.g-doc .qp {
+  margin: 14px 0 18px !important;
+}
+
+/* Wenn direkt nach einem Block ein neuer Untertitel kommt → extra Abstand */
+.g-doc
+  :is(.g-table, .mini-table-wrap, .examples, .callout, .formula, .mini-mc, .qp)
+  + .sub {
+  margin-top: 52px !important;
+  padding-top: 22px;
+  border-top: 1px rgb(185, 185, 185) solid;
+}
+
+/* Mobile kompakt aber mit klaren Stufen */
+@media (max-width: 520px) {
+  .g-doc h2 {
+    margin: 36px 0 12px !important;
+  }
+  .g-doc .sub {
+    margin: 18px 0 12px !important;
+  }
+  .g-doc .mini-table-wrap,
+  .g-doc .g-table,
+  .g-doc .examples,
+  .g-doc .callout,
+  .g-doc .formula,
+  .g-doc .mini-mc,
+  .g-doc .qp {
+    margin: 12px 0 16px !important;
   }
 }

@@ -1,12 +1,14 @@
+// src/pages/grammar/GrammarLayout.jsx
 import React from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./Grammar.scss";
 import "./WideModal.scss";
 import SEO from "../../components/SEO";
 
+// TR-UI, Almanca standardmäßig aktiv, Englisch weiterhin verfügbar
 const LANGS = [
   { code: "en", label: "İngilizce", enabled: true },
-  { code: "ger", label: "Almanca", enabled: false },
+  { code: "ger", label: "Almanca", enabled: true },
   { code: "es", label: "İspanyolca", enabled: false },
 ];
 
@@ -17,7 +19,7 @@ export default function GrammarLayout() {
   const navigate = useNavigate();
 
   const [, , langSegment, levelSegment] = loc.pathname.split("/");
-  const currentLang = LANGS.find((l) => l.code === langSegment)?.code || "en";
+  const currentLang = LANGS.find((l) => l.code === langSegment)?.code || "ger";
   const currentLevel = (levelSegment || "a1").toUpperCase();
 
   const go = (lang, level) =>
@@ -33,7 +35,7 @@ export default function GrammarLayout() {
 
       <header className="grammar-header">
         <h1 className="title">Dilbilgisi</h1>
-        <p className="subtitle">Dil seçimi</p>
+        <p className="subtitle">Hedef dil</p>
 
         <div className="lang-tabs" role="tablist" aria-label="Hedef dil">
           {LANGS.map(({ code, label, enabled }) => (

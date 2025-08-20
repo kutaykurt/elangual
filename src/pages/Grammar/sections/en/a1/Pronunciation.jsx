@@ -14,6 +14,30 @@ export default function Pronunciation() {
   return (
     <>
       <Sub title="Hızlı Özet (Quick Summary)" />
+      <Callout
+        type="tip"
+        title="Ağız / Dil Pozisyonu (Mouth/Tongue Position — step by step)"
+      >
+        <ul className="compact-list">
+          <li>
+            <Term>Yumuşak th</Term> (this/that/the): Dili üst-ön dişlere{" "}
+            <em>hafifçe</em> dokundur; Türkçe <Key>d</Key> çıkar —{" "}
+            <em>this → dıs, that → det, the → dı</em>.
+          </li>
+          <li>
+            <Term>Sert th</Term> (think/thanks/three): Aynı pozisyon ama Türkçe{" "}
+            <Key>t</Key> çıkar — <em>think → tink, thanks → tenks</em>.
+          </li>
+          <li>
+            <Term>r</Term> sert değil; titreşim yok. “or/er/ir/ur” heceleri{" "}
+            <Key>ör/ır</Key> rengine kayar — <em>work → vörk</em>.
+          </li>
+          <li>
+            <Term>Vurgu almayan hece</Term> çoğu zaman kısa <Key>ı</Key> olur —
+            <em> about → ıbaut</em>.
+          </li>
+        </ul>
+      </Callout>
       <MiniTable
         head={[
           "Konu",
@@ -47,30 +71,6 @@ export default function Pronunciation() {
         ]}
       />
 
-      <Callout
-        type="tip"
-        title="Ağız / Dil Pozisyonu (Mouth/Tongue Position — step by step)"
-      >
-        <ul className="compact-list">
-          <li>
-            <Term>Yumuşak th</Term> (this/that/the): Dili üst-ön dişlere{" "}
-            <em>hafifçe</em> dokundur; Türkçe <Key>d</Key> çıkar —{" "}
-            <em>this → dıs, that → det, the → dı</em>.
-          </li>
-          <li>
-            <Term>Sert th</Term> (think/thanks/three): Aynı pozisyon ama Türkçe{" "}
-            <Key>t</Key> çıkar — <em>think → tink, thanks → tenks</em>.
-          </li>
-          <li>
-            <Term>r</Term> sert değil; titreşim yok. “or/er/ir/ur” heceleri{" "}
-            <Key>ör/ır</Key> rengine kayar — <em>work → vörk</em>.
-          </li>
-          <li>
-            <Term>Vurgu almayan hece</Term> çoğu zaman kısa <Key>ı</Key> olur —
-            <em> about → ıbaut</em>.
-          </li>
-        </ul>
-      </Callout>
 
       <Sub title="Mini Sözlük (Pronunciation Focus)" />
       <MiniTable

@@ -44,6 +44,10 @@ $breakpoint-lg: 1024px;
 }
 html,
 body {
+  overflow-y: auto !important; /* hebt overflow:hidden auf */
+  position: static !important; /* neutralisiert evtl. body:fixed-Tricks */
+  -webkit-overflow-scrolling: touch; /* iOS sanftes Scrollen */
+  overscroll-behavior-y: auto !important; /* Scroll-Chaining wieder an */
   height: 100%;
 }
 html {
